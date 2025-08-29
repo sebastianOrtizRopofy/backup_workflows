@@ -1,0 +1,567 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "generar token ghl",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "generar token ghl": {
+      "main": [
+        [
+          {
+            "node": "Insert or update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert or update rows in a table": {
+      "main": [
+        [
+          {
+            "node": "get companies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get companies": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "listar webhooks",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Stop and Error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "listar webhooks": {
+      "main": [
+        [
+          {
+            "node": "sino tiene ningun webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sino tiene ningun webhook": {
+      "main": [
+        [
+          {
+            "node": "Crear webhook",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Actualizar webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-11T15:27:30.174Z",
+  "id": "WTjmTBlSh04LNZAS",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "config inicial",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/config_800",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "58cd0387-fb79-4ce9-ac1f-c0798639284c",
+      "name": "Webhook",
+      "webhookId": "3752d8ed-d3c5-41de-b4c2-ac64352cc199"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/oauth/token",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "client_id",
+              "value": "684b3961bcad642c77df51ce-mdomzp0a"
+            },
+            {
+              "name": "client_secret",
+              "value": "c151b08c-fc46-4e13-be79-95045ed700f8"
+            },
+            {
+              "name": "grant_type",
+              "value": "authorization_code"
+            },
+            {
+              "name": "code",
+              "value": "={{ $json.body.code }}"
+            },
+            {
+              "name": "user_type",
+              "value": "Location"
+            },
+            {
+              "name": "redirect_uri",
+              "value": "https://orange-coast-0f0df070f.2.azurestaticapps.net/"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "d24ceb6a-48e9-46ff-bc59-956ddbc93c84",
+      "name": "generar token ghl"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "locations",
+          "mode": "list",
+          "cachedResultName": "locations"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_location": "={{ $json.locationId }}",
+            "number": "={{ $('Webhook').item.json.body.phone }}",
+            "token_800": "={{ $('Webhook').item.json.body.token_800 }}",
+            "refresh_token": "={{ $json.refresh_token }}",
+            "token": "={{ $json.access_token }}",
+            "date": "={{ $now.toUTC().toString() }}"
+          },
+          "matchingColumns": [
+            "id_location"
+          ],
+          "schema": [
+            {
+              "id": "id_location",
+              "displayName": "id_location",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "number",
+              "displayName": "number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "token",
+              "displayName": "token",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "refresh_token",
+              "displayName": "refresh_token",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "token_800",
+              "displayName": "token_800",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        440,
+        0
+      ],
+      "id": "479273a3-9ada-4ce7-bda7-eddbba4a58ae",
+      "name": "Insert or update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "0cpoMZTJF39eN58b",
+          "name": "800.com db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.800.com/companies/slim",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.token_800 }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "de986229-5452-4c50-82b3-2f1657b4c059",
+      "name": "get companies"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.800.com/v2/companies/{{ $json.data[0].id }}/webhooks",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.token_800 }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1240,
+        -20
+      ],
+      "id": "796e9953-dd50-4d4a-85ff-e39b6a0ad9e6",
+      "name": "listar webhooks"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "21e03db5-61f7-419d-9568-dfaec34f6a51",
+              "leftValue": "={{ $json.data }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        880,
+        0
+      ],
+      "id": "3dc81ead-b2d8-43bb-b0cd-ab87235017c6",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "errorMessage": "No hay company registrada en el cuenta de 800.com"
+      },
+      "type": "n8n-nodes-base.stopAndError",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        160
+      ],
+      "id": "64543d1e-67da-441c-b724-be6a52a747b0",
+      "name": "Stop and Error"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ea1e2af4-4a51-4afd-a51a-0a1b4209db63",
+              "leftValue": "={{ $json.data }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1460,
+        -20
+      ],
+      "id": "e3063321-e737-4a05-9faf-b24c25620e1a",
+      "name": "sino tiene ningun webhook"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.800.com/v2/companies/{{ $('get companies').item.json.data[0].id }}/webhooks",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.token_800 }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"url\": \"https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/message-received-integration?id_location={{ $('generar token ghl').item.json.locationId }}\",\n  \"method\": \"POST\",\n  \"features\": [\n    \"sms_received\"\n  ]\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1780,
+        -160
+      ],
+      "id": "0ebfe585-7e50-4370-ae8a-2a6b0ca6f7ac",
+      "name": "Crear webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.data;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1780,
+        120
+      ],
+      "id": "79988fdd-5987-49a5-b6cf-52b40e51e3ad",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0121b5bc-c8c1-4d42-be6d-a63757aab235",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "ropoflow",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2000,
+        120
+      ],
+      "id": "0014a2f8-9a5b-43af-ba80-65d3d86c0510",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://api.800.com/v2/companies/{{ $('If').item.json.data[0].id }}/webhooks/{{ $json.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.token_800 }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"url\": \"https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/message-received-integration?id_location={{ $('generar token ghl').item.json.locationId }}\",\n  \"method\": \"POST\",\n  \"features\": [\n    \"sms_received\"\n  ]\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2220,
+        20
+      ],
+      "id": "102c2748-f256-42cf-b65b-6494af5739ce",
+      "name": "Actualizar webhook"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-13T20:48:28.875Z",
+  "versionId": "ffe7d4b6-3b7a-4b5f-9145-ca9a7b3a588a"
+}
