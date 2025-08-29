@@ -1,0 +1,135 @@
+{
+  "active": true,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get an opportunity": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get an opportunity",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-19T15:14:49.943Z",
+  "id": "QeO96Wls5oHSmKFc",
+  "isArchived": false,
+  "meta": null,
+  "name": "webhoook - opportunities",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/opportunity_update",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "710e8f90-4121-4139-88f2-06c90c77f248",
+      "name": "Webhook",
+      "webhookId": "5b171db2-71fb-445e-af1b-64ffe5c9fe6e"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        680,
+        0
+      ],
+      "id": "c8657b76-1540-4bbf-aa00-951c3cf21cac",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "DeGEMvrSz25bAJdD",
+          "name": "Ropofy account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json.opportunity;\n\nconst query = {\n  text: `\n    INSERT INTO public.opportunities (\n      \"external_id\", \"name\", \"monetary_value\", \"pipeline_id\", \"pipeline_stage_id\",\n      \"assigned_to\", \"status\", \"source\", \"last_status_change_at\", \"last_stage_change_at\",\n      \"contact_id\", \"location_id\", \"custom_fields\", \"followers\", \"contact\",\n      \"created_at\", \"updated_at\", \"process\"\n    ) VALUES (\n      $1, $2, $3, $4, $5,\n      $6, $7, $8, $9, $10,\n      $11, $12, $13::jsonb, $14::jsonb, $15::jsonb,\n      $16, $17, $18\n    )\n    ON CONFLICT (\"external_id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"monetary_value\" = EXCLUDED.\"monetary_value\",\n      \"pipeline_id\" = EXCLUDED.\"pipeline_id\",\n      \"pipeline_stage_id\" = EXCLUDED.\"pipeline_stage_id\",\n      \"assigned_to\" = EXCLUDED.\"assigned_to\",\n      \"status\" = EXCLUDED.\"status\",\n      \"source\" = EXCLUDED.\"source\",\n      \"last_status_change_at\" = EXCLUDED.\"last_status_change_at\",\n      \"last_stage_change_at\" = EXCLUDED.\"last_stage_change_at\",\n      \"contact_id\" = EXCLUDED.\"contact_id\",\n      \"location_id\" = EXCLUDED.\"location_id\",\n      \"custom_fields\" = EXCLUDED.\"custom_fields\",\n      \"followers\" = EXCLUDED.\"followers\",\n      \"contact\" = EXCLUDED.\"contact\",\n      \"created_at\" = EXCLUDED.\"created_at\",\n      \"updated_at\" = EXCLUDED.\"updated_at\",\n      \"process\" = EXCLUDED.\"process\"\n  `,\n  values: [\n    d.id,                                // $1  - external_id\n    d.name,                              // $2\n    d.monetaryValue || 0,                // $3\n    d.pipelineId,                        // $4\n    d.pipelineStageId,                   // $5\n    d.assignedTo,                        // $6\n    d.status,                            // $7\n    d.source,                            // $8\n    d.lastStatusChangeAt,                // $9\n    d.lastStageChangeAt,                 // $10\n    d.contactId,                         // $11\n    d.locationId,                        // $12\n    JSON.stringify(d.customFields || []),// $13\n    JSON.stringify(d.followers || []),   // $14\n    JSON.stringify(d.contact || {}),     // $15\n    d.createdAt,                         // $16\n    d.updatedAt,                         // $17\n    false                                // $18 - process\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        0
+      ],
+      "id": "28a746d6-a81e-4892-bf23-edc556e0f5c7",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "operation": "get",
+        "opportunityId": "={{ $json.body.id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        240,
+        0
+      ],
+      "id": "519fb81b-74aa-40fe-8723-453b5618fa05",
+      "name": "Get an opportunity",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "RJGPyuZvF6dlp4q5",
+          "name": "Ropofy - app ropofyBi"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-19T15:21:04.947Z",
+  "versionId": "605c9bbd-8efd-4e30-bd65-5e1aa30765ce"
+}
