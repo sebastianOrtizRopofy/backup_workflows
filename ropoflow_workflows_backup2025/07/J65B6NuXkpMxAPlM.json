@@ -1,0 +1,137 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many opportunities": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-22T13:17:21.641Z",
+  "id": "J65B6NuXkpMxAPlM",
+  "isArchived": true,
+  "meta": null,
+  "name": "Sincronización Opportunities SabanaMotos",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        80
+      ],
+      "id": "94626eef-ff7a-4d64-ac55-6bbbe2bd77e3",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "operation": "getAll",
+        "returnAll": true,
+        "delayPagination": 250,
+        "filters": {
+          "endDate": "={{ $json.body.endDate }}",
+          "startDate": "={{ $json.body.date }}"
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        200,
+        80
+      ],
+      "id": "aa186324-da95-4c0b-be3a-036bdd2f3bbf",
+      "name": "Get many opportunities",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "VEHiT5UWg1gnLTm6",
+          "name": "SabanaMotos - haku"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        640,
+        80
+      ],
+      "id": "fcf188c6-0d88-43b1-bd90-0b0f0b14ea6e",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "QkxA5gr9jACYgrAc",
+          "name": "Haku db account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.opportunities (\n      \"external_id\", \"name\", \"monetary_value\", \"pipeline_id\", \"pipeline_stage_id\", \"pipeline_stage_uid\",\n      \"assigned_to\", \"status\", \"source\", \"last_status_change_at\", \"last_stage_change_at\",\n      \"contact_id\", \"location_id\", \"custom_fields\", \"lost_reason_id\", \"followers\", \"relations\", \"contact\",\n      \"sort\", \"attributions\", \"created_at\", \"updated_at\", \"sync_with_webhook\", \"deleted\", \"process\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, $6,\n      $7, $8, $9, $10, $11,\n      $12, $13, $14::jsonb, $15, $16::jsonb, $17::jsonb, $18::jsonb,\n      $19::jsonb, $20::jsonb, $21, $22, $23, $24, $25\n    )\n    ON CONFLICT (\"external_id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"monetary_value\" = EXCLUDED.\"monetary_value\",\n      \"pipeline_id\" = EXCLUDED.\"pipeline_id\",\n      \"pipeline_stage_id\" = EXCLUDED.\"pipeline_stage_id\",\n      \"pipeline_stage_uid\" = EXCLUDED.\"pipeline_stage_uid\",\n      \"assigned_to\" = EXCLUDED.\"assigned_to\",\n      \"status\" = EXCLUDED.\"status\",\n      \"source\" = EXCLUDED.\"source\",\n      \"last_status_change_at\" = EXCLUDED.\"last_status_change_at\",\n      \"last_stage_change_at\" = EXCLUDED.\"last_stage_change_at\",\n      \"contact_id\" = EXCLUDED.\"contact_id\",\n      \"location_id\" = EXCLUDED.\"location_id\",\n      \"custom_fields\" = EXCLUDED.\"custom_fields\",\n      \"lost_reason_id\" = EXCLUDED.\"lost_reason_id\",\n      \"followers\" = EXCLUDED.\"followers\",\n      \"relations\" = EXCLUDED.\"relations\",\n      \"contact\" = EXCLUDED.\"contact\",\n      \"sort\" = EXCLUDED.\"sort\",\n      \"attributions\" = EXCLUDED.\"attributions\",\n      \"created_at\" = EXCLUDED.\"created_at\",\n      \"updated_at\" = EXCLUDED.\"updated_at\",\n      \"sync_with_webhook\" = EXCLUDED.\"sync_with_webhook\",\n      \"deleted\" = EXCLUDED.\"deleted\",\n      \"process\" = EXCLUDED.\"process\"\n  `,\n  values: [\n    d.id,                               // mapped as external_id\n    d.name,\n    d.monetaryValue || 0,\n    d.pipelineId,\n    d.pipelineStageId,\n    d.pipelineStageUId,\n    d.assignedTo,\n    d.status,\n    d.source,\n    d.lastStatusChangeAt,\n    d.lastStageChangeAt,\n    d.contactId,\n    d.locationId,\n    JSON.stringify(d.customFields || []),\n    d.lostReasonId || '',\n    JSON.stringify(d.followers || []),\n    JSON.stringify(d.relations || {}),\n    JSON.stringify(d.contact || {}),\n    JSON.stringify(d.sort || {}),\n    JSON.stringify(d.attributions || {}),\n    d.createdAt,\n    d.updatedAt,\n    d.syncWithWebhook || false,\n    d.deleted || false,\n    false\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        80
+      ],
+      "id": "d6076d18-83e0-4dc2-8db1-3efeac7d6347",
+      "name": "Code"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-28T13:47:22.897Z",
+  "versionId": "cea1ad77-0e1b-44d9-91cc-41ce52e2ee61"
+}
