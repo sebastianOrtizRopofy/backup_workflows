@@ -1,0 +1,446 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "obtener contactos viejos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "obtener contactos viejos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "devolver data de contactos actualizada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "devolver data de contactos actualizada": {
+      "main": [
+        [
+          {
+            "node": "Actualizar contactos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatear array a json": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener token": {
+      "main": [
+        [
+          {
+            "node": "obtener usuarios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "obtener token",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Remover tag",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener contactos viejos": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remover tag": {
+      "main": [
+        [
+          {
+            "node": "obtener token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener usuarios": {
+      "main": [
+        [
+          {
+            "node": "formatear array a json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-02T13:34:59.772Z",
+  "id": "CgZMYUCetNoMqE1O",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "users ropofy",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -560,
+        -40
+      ],
+      "id": "b1601f72-d03e-4d47-b34e-f796af999e14",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -560,
+        160
+      ],
+      "id": "946d3467-c67b-4765-80fa-196c5f26e384",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fa18d8f6-9b7d-4bb0-aeb5-47941edb1ddd",
+              "leftValue": "={{ $json.roles.locationIds }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        980,
+        60
+      ],
+      "id": "7bde7ac4-2615-464e-9404-75888b23b94a",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "jsCode": "let contactos = [];\n\nconst usuariosActivos = $('Filter').all();\nconst contactosViejos = $('obtener contactos viejos').all();\n\nfor (const element of usuariosActivos) {\n  let contactoEncontrado = null;\n\n  const emailUser = element.json.email?.toLowerCase() || '';\n  const phoneUser = element.json.phone || '';\n\n  for (const contacto of contactosViejos) {\n    const emailContact = contacto.json.email?.toLowerCase() || '';\n    const phoneContact = contacto.json.phone || '';\n\n    if ((emailUser && emailContact === emailUser) || (phoneUser && phoneContact === phoneUser)) {\n      contactoEncontrado = contacto.json;\n      break;\n    }\n  }\n\n  if (contactoEncontrado !== null) {\n    // Contacto EXISTENTE → agregamos el tag sobre el contacto original\n    contactoEncontrado.tags = [\n      ...(contactoEncontrado.tags || []),\n      'usuario ropofy activo'\n    ];\n    contactos.push({ json: contactoEncontrado });\n  } else {\n    // Contacto NO EXISTENTE → construimos un nuevo contacto desde el usuario\n    // Aquí defines los campos que quieras mapear del usuario al nuevo contacto\n    const nuevoContacto = {\n      firstName: element.json.firstName || '',\n      lastName: element.json.lastName || '',\n      email: element.json.email || '',\n      phone: element.json.phone || '',\n      tags: ['usuario ropofy activo'],\n      // agrega otros campos que sean requeridos por tu sistema de contactos\n    };\n    contactos.push({ json: nuevoContacto });\n  }\n}\n\nreturn contactos;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        60
+      ],
+      "id": "001142b1-a68e-4e39-aeca-650a13ee7dd6",
+      "name": "devolver data de contactos actualizada"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  console.log('este es el item');\n  return item.json.users;\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        760,
+        60
+      ],
+      "id": "9633c6bc-39a3-4386-9773-492a7b36b0ef",
+      "name": "formatear array a json"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_agencies",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_agencies"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "f5164e55-1b66-4639-b073-7e360193124a"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        320,
+        60
+      ],
+      "id": "eba69213-7ff8-4d12-bc45-94739725742e",
+      "name": "obtener token",
+      "executeOnce": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "69d76237-7296-4524-a06d-de9ca54c4007",
+              "leftValue": "={{ $json.isEmpty() }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -120,
+        60
+      ],
+      "id": "20f07793-bfc9-4643-ab5e-57dbb5c14e6d",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "returnAll": true,
+        "delayPagination": 2000,
+        "filters": {
+          "query": "usuario ropofy activo"
+        },
+        "options": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -340,
+        60
+      ],
+      "id": "10504624-8a79-4ad8-9ef8-a8c46d1fae05",
+      "name": "obtener contactos viejos",
+      "alwaysOutputData": true,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "gXPklN8f2wS7jUkF",
+          "name": "zzDesarrollo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "contactId": "={{ $json.id }}",
+        "updateFields": {
+          "tags": "={{ $json.tags.filter(item => item !== \"usuario ropofy activo\") }}"
+        },
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 200
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        100,
+        135
+      ],
+      "id": "39bd2996-a1ad-4c3e-ae24-8af3ae5bb63a",
+      "name": "Remover tag",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "gXPklN8f2wS7jUkF",
+          "name": "zzDesarrollo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://backend.leadconnectorhq.com/users/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "companyId",
+              "value": "={{ $json.company_id }}"
+            },
+            {
+              "name": "limit",
+              "value": "5"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        540,
+        60
+      ],
+      "id": "49b70ffe-6759-47bb-8a3c-8cb264809270",
+      "name": "obtener usuarios",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "email": "={{ $json.email }}",
+        "phone": "={{ $json.phone }}",
+        "additionalFields": {
+          "firstName": "={{ $json.firstName }}",
+          "lastName": "={{ $json.lastName }}",
+          "tags": "={{ $json.tags }}"
+        },
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 200
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        60
+      ],
+      "id": "26cc066d-5cb3-4963-bec7-c8d731d93109",
+      "name": "Actualizar contactos1",
+      "retryOnFail": true,
+      "waitBetweenTries": 250,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "gXPklN8f2wS7jUkF",
+          "name": "zzDesarrollo"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-08T19:42:25.569Z",
+  "versionId": "e8c7528a-bd19-4257-ac64-c3569d5e64aa"
+}
