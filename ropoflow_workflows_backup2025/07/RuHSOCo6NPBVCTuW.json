@@ -1,0 +1,208 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-24T12:49:04.904Z",
+  "id": "RuHSOCo6NPBVCTuW",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sincronización Customfields Autecoblue",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9c837637-b86c-432b-b7f7-86e88c0224a7",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.leadconnectorhq.com/locations/{{ $json.location_id }}/customFields/?model=all",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        0
+      ],
+      "id": "534c7f70-d4dd-4507-b437-492990ca2bfb",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.body.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        200,
+        0
+      ],
+      "id": "1fd2b1a3-20eb-4606-9408-74bce141381f",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.customFields"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        0
+      ],
+      "id": "929ae0e0-08e0-4b2b-b00d-555a568f400b",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1060,
+        0
+      ],
+      "id": "e4a4d3f4-e753-48a0-9f67-4563cb7a4c66",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "dYSRkbNNFYOotBwk",
+          "name": "Autecoblue DB bi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.\"customFields\" (\n      \"id\", \"name\", \"fieldKey\", \"placeholder\", \"dataType\", \"position\", \"picklistOptions\",\n      \"isAllowedCustomOption\", \"isMultiFileAllowed\", \"maxFileLimit\", \"locationId\",\n      \"model\", \"picklistImageOptions\", \"created_at\", \"updated_at\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, $6, $7::jsonb, $8, $9, $10, $11, $12, $13::jsonb, NOW(), NOW()\n    )\n    ON CONFLICT (\"id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"fieldKey\" = EXCLUDED.\"fieldKey\",\n      \"placeholder\" = EXCLUDED.\"placeholder\",\n      \"dataType\" = EXCLUDED.\"dataType\",\n      \"position\" = EXCLUDED.\"position\",\n      \"picklistOptions\" = EXCLUDED.\"picklistOptions\",\n      \"isAllowedCustomOption\" = EXCLUDED.\"isAllowedCustomOption\",\n      \"isMultiFileAllowed\" = EXCLUDED.\"isMultiFileAllowed\",\n      \"maxFileLimit\" = EXCLUDED.\"maxFileLimit\",\n      \"locationId\" = EXCLUDED.\"locationId\",\n      \"model\" = EXCLUDED.\"model\",\n      \"picklistImageOptions\" = EXCLUDED.\"picklistImageOptions\",\n      \"updated_at\" = NOW()\n  `,\n  values: [\n    d.id,\n    d.name,\n    d.fieldKey,\n    d.placeholder || '',\n    d.dataType,\n    d.position || 0,\n    JSON.stringify(d.picklistOptions || []),  // jsonb\n    d.isAllowedCustomOption || false,\n    d.isMultiFileAllowed || false,\n    d.maxFileLimit || 0,\n    d.locationId,\n    d.model,\n    JSON.stringify(d.picklistImageOptions || {})  // jsonb\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        840,
+        0
+      ],
+      "id": "34951a76-a32c-4c78-9e31-c5b50495520a",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-24T12:49:18.493Z",
+  "versionId": "0df61cdb-ac50-45bd-8396-5ee34500c3cb"
+}
