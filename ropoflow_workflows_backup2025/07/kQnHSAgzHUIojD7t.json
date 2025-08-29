@@ -1,0 +1,22 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-07-23T21:59:43.223Z",
+  "id": "kQnHSAgzHUIojD7t",
+  "isArchived": true,
+  "meta": null,
+  "name": "webhook - integracion",
+  "nodes": [],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-23T23:25:30.809Z",
+  "versionId": "9a6fe6ec-7898-4dd1-acf9-188e815dfaa5"
+}
