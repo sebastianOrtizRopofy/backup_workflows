@@ -1,0 +1,394 @@
+{
+  "active": false,
+  "connections": {
+    "Guardar contacto": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatear contactos1": {
+      "main": [
+        [
+          {
+            "node": "Guardar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar conversaciones1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ],
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "guardar mensajes1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 2
+          }
+        ],
+        [
+          {
+            "node": "Merge3",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "consultar mensajes1": {
+      "main": [
+        [
+          {
+            "node": "guardar mensajes1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consultar conversaciones1": {
+      "main": [
+        [
+          {
+            "node": "consultar mensajes1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "guardar conversaciones1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consultar contacto1": {
+      "main": [
+        [
+          {
+            "node": "consultar conversaciones1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "formatear contactos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search contacts con filtros avanzados": {
+      "main": [
+        [
+          {
+            "node": "consultar contacto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Search contacts con filtros avanzados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-21T13:43:45.316Z",
+  "id": "Kdhq7iDsKEkJK9Zn",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sincronización Contactos SabanaMotos",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        220,
+        0
+      ],
+      "id": "00a71d99-d619-4ffe-a3ed-3dad432b5c03",
+      "name": "Guardar contacto",
+      "credentials": {
+        "postgres": {
+          "id": "QkxA5gr9jACYgrAc",
+          "name": "Haku db account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        440,
+        360
+      ],
+      "id": "f3bcd12e-0bf2-47f2-a2b0-a914f6a4c628",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        440,
+        160
+      ],
+      "id": "598ccc0a-ee48-419a-bbda-e904361cea63",
+      "name": "Merge3"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst clean = (val) => (val ?? '').toString().replace(/'/g, \"''\");\n\nconst query = {\n  text: `\n  INSERT INTO public.contacts (\n    \"id\", \"location_id\", \"contact_name\", \"first_name\", \"first_name_raw\", \"last_name\", \"last_name_raw\",\n    \"company_name\", \"email\", \"phone\", \"dnd\", \"type\", \"source\", \"assigned_to\", \"city\",\n    \"state\", \"postal_code\", \"address1\", \"date_added\", \"date_updated\", \"date_of_birth\", \"business_id\",\n    \"tags\", \"followers\", \"country\", \"website\", \"additional_emails\", \"attributions\", \"custom_fields\",\n    \"process\", \"dnd_settings\"\n  ) VALUES (\n    $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22,\n    $23::jsonb, $24::jsonb, $25, $26, $27::jsonb, $28::jsonb, $29::jsonb, $30, $31::jsonb\n  )\n  ON CONFLICT (\"id\") DO UPDATE SET\n    \"location_id\" = EXCLUDED.\"location_id\",\n    \"contact_name\" = EXCLUDED.\"contact_name\",\n    \"first_name\" = EXCLUDED.\"first_name\",\n    \"first_name_raw\" = EXCLUDED.\"first_name_raw\",\n    \"last_name\" = EXCLUDED.\"last_name\",\n    \"last_name_raw\" = EXCLUDED.\"last_name_raw\",\n    \"company_name\" = EXCLUDED.\"company_name\",\n    \"email\" = EXCLUDED.\"email\",\n    \"phone\" = EXCLUDED.\"phone\",\n    \"dnd\" = EXCLUDED.\"dnd\",\n    \"type\" = EXCLUDED.\"type\",\n    \"source\" = EXCLUDED.\"source\",\n    \"assigned_to\" = EXCLUDED.\"assigned_to\",\n    \"city\" = EXCLUDED.\"city\",\n    \"state\" = EXCLUDED.\"state\",\n    \"postal_code\" = EXCLUDED.\"postal_code\",\n    \"address1\" = EXCLUDED.\"address1\",\n    \"date_added\" = EXCLUDED.\"date_added\",\n    \"date_updated\" = EXCLUDED.\"date_updated\",\n    \"date_of_birth\" = EXCLUDED.\"date_of_birth\",\n    \"business_id\" = EXCLUDED.\"business_id\",\n    \"tags\" = EXCLUDED.\"tags\",\n    \"followers\" = EXCLUDED.\"followers\",\n    \"country\" = EXCLUDED.\"country\",\n    \"website\" = EXCLUDED.\"website\",\n    \"additional_emails\" = EXCLUDED.\"additional_emails\",\n    \"attributions\" = EXCLUDED.\"attributions\",\n    \"custom_fields\" = EXCLUDED.\"custom_fields\",\n    \"process\" = EXCLUDED.\"process\",\n    \"dnd_settings\" = EXCLUDED.\"dnd_settings\"\n  `,\n  values: [\n    d.id,\n    d.locationId,\n    d.fullNameLowerCase,\n    d.firstName,\n    d.firstNameLowerCase,\n    d.lastName,\n    d.lastNameLowerCase,\n    d.companyName,\n    d.email,\n    d.phone,\n    d.dnd || false,\n    d.type,\n    d.source,\n    d.assignedTo,\n    d.city,\n    d.state || '',\n    d.postalCode || '',\n    d.address1 || '',\n    d.dateAdded,\n    d.dateUpdated,\n    d.dateOfBirth || '',\n    d.businessId,\n    JSON.stringify(d.tags || []),\n    JSON.stringify(d.followers || []),\n    d.country,\n    d.website || '',\n    JSON.stringify(d.additionalEmails || []),\n    JSON.stringify(d.attributions || {}),\n    JSON.stringify(d.customFields || []),\n    'ropoflow',\n    JSON.stringify(d.dndSettings || {})\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "9a3ffe7f-c911-45f5-a4ce-51619b30acd4",
+      "name": "formatear contactos1"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO public.conversations(\n  \"id\",\n  \"locationId\",\n  \"inbox\",\n  \"unreadCount\",\n  \"assignedTo\",\n  \"contactId\",\n  \"type\",\n  \"updated_at\",\n  \"created_at\",\n  \"deleted\",\n  \"starred\",\n  \"sync_with_webhook\",\n  \"process\"\n)\nVALUES (\n  '{{ $json.id }}',\n  '{{ $json.locationId }}',\n  '{{ $json.inbox ?? '' }}',\n  {{ $json.unreadCount ?? 0 }},\n  '{{ $json.assignedTo ?? '' }}',\n  '{{ $json.contactId ?? '' }}',\n  '{{ $json.type ?? '' }}',\n  to_timestamp({{ $json.dateUpdated ?? 0 }} / 1000.0),\n  to_timestamp({{ $json.dateAdded ?? 0 }} / 1000.0),\n  false,\n  false,\n  false,\n  false\n)\nON CONFLICT (\"id\")\nDO UPDATE SET\n  \"locationId\" = EXCLUDED.\"locationId\",\n  \"inbox\" = EXCLUDED.\"inbox\",\n  \"unreadCount\" = EXCLUDED.\"unreadCount\",\n  \"assignedTo\" = EXCLUDED.\"assignedTo\",\n  \"contactId\" = EXCLUDED.\"contactId\",\n  \"type\" = EXCLUDED.\"type\",\n  \"updated_at\" = EXCLUDED.\"updated_at\",\n  \"created_at\" = EXCLUDED.\"created_at\",\n  \"deleted\" = EXCLUDED.\"deleted\",\n  \"starred\" = EXCLUDED.\"starred\",\n  \"sync_with_webhook\" = EXCLUDED.\"sync_with_webhook\",\n  \"process\" = EXCLUDED.\"process\";\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        220,
+        260
+      ],
+      "id": "fd723133-cc7c-496e-b9f6-87395a235b8c",
+      "name": "guardar conversaciones1",
+      "credentials": {
+        "postgres": {
+          "id": "QkxA5gr9jACYgrAc",
+          "name": "Haku db account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO public.messages(\n  \"id\",\n  \"type\",\n  \"messageType\",\n  \"locationId\",\n  \"contactId\",\n  \"conversationId\",\n  \"dateAdded\",\n  \"body\",\n  \"direction\",\n  \"status\",\n  \"contentType\",\n  \"attachments\",\n  \"meta\",\n  \"source\",\n  \"userId\",\n  \"updated_at\",\n  \"created_at\"\n)\nVALUES (\n  '{{ $json.id }}',\n  '{{ $json.type ?? '' }}',\n  '{{ $json.messageType ?? '' }}',\n  '{{ $json.locationId ?? '' }}',\n  '{{ $json.contactId ?? '' }}',\n  '{{ $json.conversationId ?? '' }}',\n  {{ $json.dateAdded ? `'${$json.dateAdded}'::timestamptz` : 'NULL' }},\n  '{{ ($json.body ?? '').replace(/'/g, \"''\") }}',\n  '{{ $json.direction ?? '' }}',\n  '{{ $json.status ?? '' }}',\n  '{{ $json.contentType ?? '' }}',\n  '{{ JSON.stringify($json.attachments ?? []) }}'::jsonb,\n  '{{ JSON.stringify($json.meta ?? {}) }}'::jsonb,\n  '{{ $json.source ?? '' }}',\n  '{{ $json.userId ?? '' }}',\n  '{{ $json.dateAdded ?? '' }}',,\n  '{{ $json.dateAdded ?? '' }}',\n)\nON CONFLICT DO NOTHING;\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        220,
+        500
+      ],
+      "id": "63acd3aa-89ae-4bda-aaf4-792a2db4dfb0",
+      "name": "guardar mensajes1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "postgres": {
+          "id": "QkxA5gr9jACYgrAc",
+          "name": "Haku db account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "conversationId": "={{ $json.id }}",
+        "locationId": "={{ $json.locationId }}",
+        "limit": 100,
+        "returnAll": true,
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        0,
+        500
+      ],
+      "id": "b4b9139e-ed6a-4646-ae2f-e3e6b9a0f9e1",
+      "name": "consultar mensajes1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "VEHiT5UWg1gnLTm6",
+          "name": "SabanaMotos - haku"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "conversation",
+        "contactId": "={{ $json.id }}",
+        "locationId": "={{ $json.locationId }}",
+        "limit": 100,
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 250
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        400
+      ],
+      "id": "9d382540-6c15-4c8e-b429-2399a4a67561",
+      "name": "consultar conversaciones1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "VEHiT5UWg1gnLTm6",
+          "name": "SabanaMotos - haku"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.body.id_location }}",
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 250
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -440,
+        260
+      ],
+      "id": "afef7e75-a08c-440a-88e2-e4957a752534",
+      "name": "consultar contacto1",
+      "retryOnFail": true,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "VEHiT5UWg1gnLTm6",
+          "name": "SabanaMotos - haku"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "returnAll": true,
+        "pageLimit": 100,
+        "dateFilters": {
+          "startDate": "={{ $json.body.date }}",
+          "endDate": "={{ $json.body.endDate }}",
+          "filterByDateAdded": true,
+          "filterByDateUpdated": true
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        260
+      ],
+      "id": "39b49ec4-f279-476e-a29c-6089c9852ca4",
+      "name": "Search contacts con filtros avanzados",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "VEHiT5UWg1gnLTm6",
+          "name": "SabanaMotos - haku"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1000,
+        260
+      ],
+      "id": "f322ab9b-4dfb-4360-a202-7d8b4fcc1d6c",
+      "name": "When clicking ‘Execute workflow’"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-22T13:01:00.372Z",
+  "versionId": "04e48f97-14d9-44b6-aa41-efbd1aab31d1"
+}
