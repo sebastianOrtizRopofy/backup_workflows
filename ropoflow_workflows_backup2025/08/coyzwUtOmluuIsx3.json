@@ -1,0 +1,2224 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "buscar oportunidades",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener todas las oportunidades": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Comercial",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Telemercadeo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Admin latam",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Admin Australia",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Tourist Visa Latam",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Student Support",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Limpieza data do not use",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Oportunidades que no hacen match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Comercial": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telemercadeo": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Admin latam": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields7",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields8",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields9",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields10",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields11",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields4": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields5": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields6": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields7": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields8": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields9": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields10": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields11": {
+      "main": [
+        []
+      ]
+    },
+    "Edit Fields12": {
+      "main": [
+        []
+      ]
+    },
+    "Code1": {
+      "main": [
+        []
+      ]
+    },
+    "Admin Australia": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code2": {
+      "main": [
+        []
+      ]
+    },
+    "Tourist Visa Latam": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        []
+      ]
+    },
+    "Student Support": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limpieza data do not use": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        []
+      ]
+    },
+    "Code5": {
+      "main": [
+        []
+      ]
+    },
+    "Get many contacts": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar oportunidades": {
+      "main": [
+        [
+          {
+            "node": "obtener todas las oportunidades",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity1": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts1": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity2": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts2": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity3": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts3": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity4": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts4": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity5": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts5": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity6": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts6": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-19T20:35:54.756Z",
+  "id": "coyzwUtOmluuIsx3",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Sincronizar oportunidades",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -500,
+        320
+      ],
+      "id": "1706d7ef-f631-4bb3-9943-b460b3511023",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -2440
+      ],
+      "id": "4b571a93-dacf-4fd2-925f-eb5273f01547",
+      "name": "juntar todas las oportunidades"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -2440
+      ],
+      "id": "8be1acc1-6f58-4238-a9c2-cc9d39aa57f8",
+      "name": "Create an opportunity",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOppo = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOppo.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOppo.map(opportunitie => ({ json: opportunitie }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        100,
+        320
+      ],
+      "id": "6cf1ec65-59a3-4d19-ba05-d624a9d505ee",
+      "name": "obtener todas las oportunidades"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.pipeline_desc }}",
+                    "rightValue": "Comercial",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "551f8352-0c38-481d-9427-14a8c4ab6e97"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3e2eab53-4e35-4389-b3d7-69831eea07a1",
+                    "leftValue": "={{ $json.pipeline_desc }}",
+                    "rightValue": "Telemercadeo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "080d2005-3757-4227-a200-98bfa300a1de",
+                    "leftValue": "={{ $json.pipeline_desc }}",
+                    "rightValue": "Admin Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "1d9c5995-bac6-48f1-acb3-32ce7cb70d59",
+                    "leftValue": "={{ $json.pipeline_desc }}",
+                    "rightValue": "Admin Australia",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "33347896-88dd-4d86-87b1-a9f7d819c154",
+                    "leftValue": "={{ $json.pipeline_desc }}",
+                    "rightValue": "Tourist Visa Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "10ee34e0-84e3-4a64-9d3e-5a1d3e90fd72",
+                    "leftValue": "={{ $json.pipeline_desc }}",
+                    "rightValue": "Student Support",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f116455b-a06b-4d69-8717-f6e512839ed6",
+                    "leftValue": "={{ $json.pipeline_desc }}",
+                    "rightValue": "Limpieza data do not use",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        320,
+        220
+      ],
+      "id": "85b0337d-03e9-411b-b248-eada97cda3b2",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "16d97703-fc83-4e52-b4cc-3a94f0d209a1",
+              "name": "pipeline",
+              "value": "=6NXiP07lsEXQ7ubkBamK",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        220
+      ],
+      "id": "d7802ecf-8c10-486c-8393-0482fdb35352",
+      "name": "Admin Australia"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "16d97703-fc83-4e52-b4cc-3a94f0d209a1",
+              "name": "pipeline",
+              "value": "=7i90m14snYBJ3sn9bfpR",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        20
+      ],
+      "id": "ad867598-ac63-4453-9876-083ebb4b1d9d",
+      "name": "Admin latam"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "16d97703-fc83-4e52-b4cc-3a94f0d209a1",
+              "name": "pipeline",
+              "value": "=G7XLpzBB9FnFsOWrxala",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        -180
+      ],
+      "id": "3819fff3-2cd4-4e6d-91fa-e5b28b21ebe9",
+      "name": "Telemercadeo"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "16d97703-fc83-4e52-b4cc-3a94f0d209a1",
+              "name": "pipeline",
+              "value": "=G7XLpzBB9FnFsOWrxala",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        -400
+      ],
+      "id": "b15e396a-2ef6-44f7-9e16-2aa2414c6f09",
+      "name": "Comercial"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "16d97703-fc83-4e52-b4cc-3a94f0d209a1",
+              "name": "pipeline",
+              "value": "=9dCoVqGRX19rK55Q1R45",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        420
+      ],
+      "id": "e1e706f2-48fa-4f78-aae8-a6de61fc8b62",
+      "name": "Tourist Visa Latam"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "16d97703-fc83-4e52-b4cc-3a94f0d209a1",
+              "name": "pipeline",
+              "value": "=s88JnIpcrmSfVD2Hp56K",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        620
+      ],
+      "id": "1a1b559a-6b7e-483b-872e-806da8282a65",
+      "name": "Student Support"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "16d97703-fc83-4e52-b4cc-3a94f0d209a1",
+              "name": "pipeline",
+              "value": "=JXm35Mpfo46mJVVb1Sjk",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        760,
+        820
+      ],
+      "id": "decf473f-3e88-4d17-b0a3-96ff2a10b67a",
+      "name": "Limpieza data do not use"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        780,
+        1020
+      ],
+      "id": "f72a61be-b9d7-41c2-b207-86a15d86187a",
+      "name": "Oportunidades que no hacen match"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Lead Asignado - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "90905117-1772-42c4-a761-abbe1bb094d5"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Lead Asignado - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e78c5f9e-0299-4b3e-b6a8-698c8ff80093",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Pendiente en responder - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Pendiente en responder - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0b9123da-49ce-4259-a830-2dd119adbcb1",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Cita Agendada - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Cita Agendada - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "90867223-6536-4238-a307-7256779763b3",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Pendiente Re agendar - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Pendiente Re agendar - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e8679169-93e1-47c6-a843-ebfaa94583ea",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Cotización - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Cotización - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "86c70581-63f0-4ad2-a516-d752b61db6d8",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Empezar - Un mes - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Empezar - Un mes - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "968e1915-c57a-42ae-9d07-19002c59d0be",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Empezar - 3 meses - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Empezar - 3 meses - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "bef1feaf-9030-41fa-901c-87a73368f70c",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Empezar 6 meses - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Empezar 6 meses - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b370a575-6f82-4e6d-a38b-a2a117fb5c89",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "empieza 1 año - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "empieza 1 año - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0b89e9d1-f97d-4eae-86ef-64f1691edeee",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Inicio de proceso - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Inicio de proceso - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a3ec8668-06f3-4a4a-b6ab-1c513076b6c7",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Cobros Pendientes - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Cobros Pendientes - Latam"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e893228c-c600-46d8-a3df-fb350f17d928",
+                    "leftValue": "={{ $json.pipeline_stage_desc }}",
+                    "rightValue": "Pago en espera de visa - Latam",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Pago en espera de visa - Latam"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        2400,
+        -1500
+      ],
+      "id": "94a8f703-786c-4d13-adbd-ddc0d2a77a0a",
+      "name": "Switch2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fbe6515b-cb4f-40ff-acac-b54dcca5b45f",
+              "name": "pipeline_stage",
+              "value": "=G7XLpzBB9FnFsOWrxala",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        980,
+        -180
+      ],
+      "id": "60e84adc-509d-4d5a-88bb-9cc5ade1e257",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e9065bc7-51f6-456e-b617-4eb6f013f576",
+              "name": "pipeline_stage",
+              "value": "44ff8a36-886f-40b6-8861-d9b494cb3c70",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -2420
+      ],
+      "id": "81bb5a52-f454-4768-b10a-06243974521c",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=086a7a8c-9c8f-4983-aac0-feec643c6c99",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -2220
+      ],
+      "id": "7b7f0805-e34f-4b63-9031-71b031394101",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=d889943c-3ac7-4177-a392-c97ff9de243f",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -2020
+      ],
+      "id": "66cb5cbf-8e58-4253-8f1d-8d0377793065",
+      "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=aaae7aa8-ac38-4b14-b49a-0d56cbd700c5",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -1820
+      ],
+      "id": "a7eb67c7-4364-4203-b281-53e1b94ae24c",
+      "name": "Edit Fields4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=7797b41c-bf2b-47cf-b81b-10c91bfb7fd3",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -1620
+      ],
+      "id": "88cdecd5-11bb-4092-b428-d300a39ba119",
+      "name": "Edit Fields5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=0f268aaa-a411-48a5-8a0b-d0d1b46c3ca8",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -1420
+      ],
+      "id": "f8269f77-5217-4521-a805-40191f809900",
+      "name": "Edit Fields6"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=3fea3ba8-d7fe-4936-8195-f658940c5ac9",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -1220
+      ],
+      "id": "7b9404f2-3299-42f3-86c8-6d4e10f718f9",
+      "name": "Edit Fields7"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=7797b41c-bf2b-47cf-b81b-10c91bfb7fd3",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -1020
+      ],
+      "id": "dc99f171-1067-4230-b469-fc360bff8178",
+      "name": "Edit Fields8"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=7797b41c-bf2b-47cf-b81b-10c91bfb7fd3",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -820
+      ],
+      "id": "9803d67e-fa20-46e5-80eb-75920855b260",
+      "name": "Edit Fields9"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=f432d541-d5de-4c13-a72d-a3bd9e8b1b4c",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -620
+      ],
+      "id": "fb84f9d2-a740-4bca-b8d5-00374e93a65f",
+      "name": "Edit Fields10"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=6c6c84e6-d84a-446d-be96-c3ba2434b401",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -420
+      ],
+      "id": "7294141e-8527-42ad-a299-73bb1aa3c781",
+      "name": "Edit Fields11"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "aef77d2f-e135-4234-953b-1533c79b45de",
+              "name": "pipeline_stage",
+              "value": "=e011b0b0-c8be-4f54-82e2-ffa014637bee",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2620,
+        -200
+      ],
+      "id": "f3b552a5-c18c-46e8-98ca-df3dfbd37fce",
+      "name": "Edit Fields12"
+    },
+    {
+      "parameters": {
+        "jsCode": "let match = {\n  \"Asignacion- Latam\" : \"cedad6d5-dc90-4368-9082-91293430c394\",\n  \"Contactar estudiante - Latam- Latam\": \"59a9eb69-2a24-4218-b5a4-19d400447ec9\",\n  \"Reunion Documentos Académicos - Latam\": \"54e71d34-624c-4597-81a7-00f3838a0e66\",\n  \"Aplicación a institución - Latam\": \"3d48fd20-691d-4a39-adf3-71557f8fbe8f\",\n  \"LOO - Latam\": \"18e8e41d-9e5d-4f32-b982-c375d36aceca\",\n  \"Pagos - Latam\": \"100ea645-b82c-40e3-b909-aeb84c367e23\",\n  \"COE LOA  - Latam\": \"16fbf31a-b4d1-43b2-870b-25340905a831\",\n  \"Reunion Documentos visa - Latam\": \"24dda578-cea7-43ca-8cf3-9a6a25eced44\",\n  \"Stand by - Latam\": \"58d5127e-5803-463d-bfd8-2fa3da3d0643\",\n  \"Reembolsos - Latam\": \"92688a9c-2f89-495f-a9d6-e9876b4b25f4\",\n  \"Visa Aplicada - Latam\": \"4c1e597d-e4af-48bd-aa5e-41ebde966275\"\n}\n\n// recorrer los items, mirando su pipeline_stage_desc y comparando\nreturn $input.all().map(item => {\n  let desc = item.json.pipeline_stage_desc;\n  \n  if (match[desc]) {\n    item.json.pipeline_stage = match[desc];\n  } else {\n    // si no hay match, puedes dejarlo nulo o igual al original\n    item.json.pipeline_stage = null;\n  }\n  \n  return item;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        20
+      ],
+      "id": "12353f9a-af2e-4732-9a4b-0a8cd3360329",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "jsCode": "let match = {\n  \"Inicio de proceso - Aus\" : \"10d2a1b1-27a5-432d-ab44-1fba0e0113af\",\n  \"Aplicación a institución - Aus\": \"e3db4d5c-d106-4c72-9188-de7dea8cacc7\",\n  \"Pagos - Aus\": \"bd46e89e-bfea-4af9-bb7a-98af409a5338\",\n  \"COE - Proceso de Visa - Aus\": \"8d0e49ac-838d-4483-afa4-5f76325408fc\",\n  \"Visa Aplicada - Aus\": \"e1b44afc-f9a7-4c32-946a-4e095ba11336\"\n}\n\n// recorrer los items, mirando su pipeline_stage_desc y comparando\nreturn $input.all().map(item => {\n  let desc = item.json.pipeline_stage_desc;\n  \n  if (match[desc]) {\n    item.json.pipeline_stage = match[desc];\n  } else {\n    // si no hay match, puedes dejarlo nulo o igual al original\n    item.json.pipeline_stage = null;\n  }\n  \n  return item;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        220
+      ],
+      "id": "60e08101-2435-4b3a-b275-8bc9342a43e3",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "jsCode": "let match = {\n  \"Inicio Turista - Latam\" : \"45bd7a56-212c-4ba1-8def-0d1670abb26a\",\n  \"Pago Turista - Latam\": \"43954115-2b6f-4fe5-a820-aebedf31f980\",\n  \"Recep documentos Turista - Latam\": \"d9f395ab-88e8-470c-9fcf-3a5a701eb12b\",\n  \"Pagos consulares Turista - Latam\": \"75b73b10-09dc-49f4-a03d-9212cf733e76\",\n  \"Visa Aplicada Turista - Latam\": \"6a24e782-50a0-4151-bec4-b61e1d28a7e4\",\n  \"Agendamiento de citas Turista - Latam\": \"8e2ce017-0a99-4b9b-b586-ba1cedc81a68\"\n}\n\n// recorrer los items, mirando su pipeline_stage_desc y comparando\nreturn $input.all().map(item => {\n  let desc = item.json.pipeline_stage_desc;\n  \n  if (match[desc]) {\n    item.json.pipeline_stage = match[desc];\n  } else {\n    // si no hay match, puedes dejarlo nulo o igual al original\n    item.json.pipeline_stage = null;\n  }\n  \n  return item;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        420
+      ],
+      "id": "57fdc060-0395-44c5-97f6-e0b841be5d51",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "jsCode": "let match = {\n  \"Pre - Departure\" : \"8da90744-95c9-4995-8a51-4eb284c1e5c6\",\n  \"Welcome session\": \"8431abc7-d490-4c1a-84ce-ac9e0826eda7\",\n  \"Seguimiento llegada destino\": \"62e1eb59-3dc7-4d37-b27d-b867e9170cc4\",\n  \"1er Seguimiento - FORMULARIO\": \"433b3505-6afb-423a-b261-aacc6fdeaa67\",\n  \"2do Seguimiento\": \"ff577e75-b048-4b44-8e63-516b20384462\",\n  \"3er Seguimiento\": \"ce8d3916-3b82-44d9-b17d-9d9a400edccf\",\n  \"4to Seguimiento\": \"7ec8f6c6-fddd-4b51-8f62-6787a1afaf85\"\n}\n\n// recorrer los items, mirando su pipeline_stage_desc y comparando\nreturn $input.all().map(item => {\n  let desc = item.json.pipeline_stage_desc;\n  \n  if (match[desc]) {\n    item.json.pipeline_stage = match[desc];\n  } else {\n    // si no hay match, puedes dejarlo nulo o igual al original\n    item.json.pipeline_stage = null;\n  }\n  \n  return item;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        620
+      ],
+      "id": "14b8e796-52a4-43cd-bd12-17f36c32f5b4",
+      "name": "Code4"
+    },
+    {
+      "parameters": {
+        "jsCode": "let match = {\n  \"Not use 1\" : \"92447d20-5ae5-43a4-b8e7-bc1cb1efa8b1\",\n}\n\n// recorrer los items, mirando su pipeline_stage_desc y comparando\nreturn $input.all().map(item => {\n  let desc = item.json.pipeline_stage_desc;\n  \n  if (match[desc]) {\n    item.json.pipeline_stage = match[desc];\n  } else {\n    // si no hay match, puedes dejarlo nulo o igual al original\n    item.json.pipeline_stage = null;\n  }\n  \n  return item;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        820
+      ],
+      "id": "4583ec07-7750-43fd-a244-e4eeeef0f22a",
+      "name": "Code5"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -2440
+      ],
+      "id": "4023625e-1065-4a17-b530-5cc4a045e380",
+      "name": "Get many contacts",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://api.clientify.net/v1/deals",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 25a30fd463c39611808dd0c8267493734dd0e253"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "pagination": {
+            "pagination": {
+              "paginationMode": "responseContainsNextURL",
+              "nextURL": "={{ $response.body.next }}",
+              "paginationCompleteWhen": "other",
+              "completeExpression": "={{ null }}",
+              "limitPagesFetched": true,
+              "maxRequests": 1,
+              "requestInterval": 250
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -120,
+        320
+      ],
+      "id": "7d3bf512-b541-46c6-aae0-0e139a5ffed3",
+      "name": "buscar oportunidades"
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -2240
+      ],
+      "id": "6010ae38-6b74-43e5-80e9-6b75e1133840",
+      "name": "juntar todas las oportunidades1"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -2240
+      ],
+      "id": "6e16b83b-120c-4dbf-a520-c98109a0ebb7",
+      "name": "Create an opportunity1",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -2240
+      ],
+      "id": "0117ecbf-39e2-48e9-b9ad-77d2d9a1f5d1",
+      "name": "Get many contacts1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -2040
+      ],
+      "id": "a9338143-4a66-4a81-be0b-d2edfb22b456",
+      "name": "juntar todas las oportunidades2"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -2040
+      ],
+      "id": "cf8c4145-597e-47fb-a554-28b1db867d8a",
+      "name": "Create an opportunity2",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -2040
+      ],
+      "id": "813acd13-e0f8-498c-8945-800d7426db57",
+      "name": "Get many contacts2",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -1820
+      ],
+      "id": "ad2c6e1d-2e12-45d7-8d59-b861b01c4388",
+      "name": "juntar todas las oportunidades3"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -1820
+      ],
+      "id": "5b2d83b9-bd34-4d67-9c62-67b7440870f0",
+      "name": "Create an opportunity3",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -1820
+      ],
+      "id": "915826cb-0d7b-4842-8a9b-81aa8e5be15c",
+      "name": "Get many contacts3",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -1620
+      ],
+      "id": "027111c9-c415-4b4a-b2b2-d829e19b89b2",
+      "name": "juntar todas las oportunidades4"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -1620
+      ],
+      "id": "07522f85-6dc3-4911-a69b-603268f6a577",
+      "name": "Create an opportunity4",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -1620
+      ],
+      "id": "1bb8ad7a-9dfc-4ded-8c9b-22408409c593",
+      "name": "Get many contacts4",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -1420
+      ],
+      "id": "4335ddde-f015-4c23-9258-f3fcb532a9c1",
+      "name": "juntar todas las oportunidades5"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -1420
+      ],
+      "id": "4059ee91-6c28-49ed-9329-d5bd9e00d54f",
+      "name": "Create an opportunity5",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -1420
+      ],
+      "id": "62d5dfaa-54a9-4ebe-ae69-0f5afc6ac5ad",
+      "name": "Get many contacts5",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -1220
+      ],
+      "id": "850ba59d-a014-4a7a-afc9-6c0e18ef39ac",
+      "name": "juntar todas las oportunidades6"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -1220
+      ],
+      "id": "741fc2af-f6fd-4b11-b473-0ce67665afcf",
+      "name": "Create an opportunity6",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -1220
+      ],
+      "id": "7b01c50c-cdb6-4a6d-9821-83bdcd28d0f4",
+      "name": "Get many contacts6",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let match = {\n  \"Lead Asignado - Latam\" : \"44ff8a36-886f-40b6-8861-d9b494cb3c70\",\n  \"Pendiente en responder - Latam\": \"086a7a8c-9c8f-4983-aac0-feec643c6c99\",\n  \"Cita Agendada - Latam\": \"d889943c-3ac7-4177-a392-c97ff9de243f\",\n  \"Pendiente Re agendar - Latam\": \"aaae7aa8-ac38-4b14-b49a-0d56cbd700c5\",\n  \"Cotización - Latam\": \"7797b41c-bf2b-47cf-b81b-10c91bfb7fd3\",\n  \"Empezar - Un mes - Latam\": \"0f268aaa-a411-48a5-8a0b-d0d1b46c3ca8\",\n  \"Empezar - 3 meses - Latam\": \"3fea3ba8-d7fe-4936-8195-f658940c5ac9\",\n  \"Empezar 6 meses - Latam\": \"7797b41c-bf2b-47cf-b81b-10c91bfb7fd3\",\n  \"empieza 1 año - Latam\": \"7797b41c-bf2b-47cf-b81b-10c91bfb7fd3\",\n  \"Inicio de proceso - Latam\": \"f432d541-d5de-4c13-a72d-a3bd9e8b1b4c\",\n  \"Cobros Pendientes - Latam\": \"6c6c84e6-d84a-446d-be96-c3ba2434b401\",\n  \"Pago en espera de visa - Latam\": \"e011b0b0-c8be-4f54-82e2-ffa014637bee\"\n}\n\n// recorrer los items, mirando su pipeline_stage_desc y comparando\nreturn $input.all().map(item => {\n  let desc = item.json.pipeline_stage_desc;\n  \n  if (match[desc]) {\n    item.json.pipeline_stage = match[desc];\n  } else {\n    // si no hay match, puedes dejarlo nulo o igual al original\n    item.json.pipeline_stage = null;\n  }\n  \n  return item;\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        -400
+      ],
+      "id": "f00a10fc-f565-435d-bfab-11074d2b3e82",
+      "name": "Code"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-22T15:27:33.612Z",
+  "versionId": "c3416786-ff80-4b50-a03e-7055ffdabd84"
+}
