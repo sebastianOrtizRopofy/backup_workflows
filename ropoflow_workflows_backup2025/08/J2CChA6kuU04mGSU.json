@@ -1,0 +1,223 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get an opportunity": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "Get an opportunity",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-20T13:29:32.871Z",
+  "id": "J2CChA6kuU04mGSU",
+  "isArchived": false,
+  "meta": null,
+  "name": "webhook dismerca",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/webhook/opportunity",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -460,
+        -60
+      ],
+      "id": "c4a8c10a-b4a1-47d9-8920-caab64a24330",
+      "name": "Webhook",
+      "webhookId": "54dcf31f-de51-4cdf-93dc-b8bdca18c8d0"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        420,
+        -60
+      ],
+      "id": "d2067029-e30f-47ae-8240-97448352a176",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "DeGEMvrSz25bAJdD",
+          "name": "Ropofy account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json.opportunity;\n\nconst query = {\n  text: `\n    INSERT INTO public.opportunities (\n      \"external_id\", \"name\", \"monetary_value\", \"pipeline_id\", \"pipeline_stage_id\",\n      \"assigned_to\", \"status\", \"source\", \"last_status_change_at\", \"last_stage_change_at\",\n      \"contact_id\", \"location_id\", \"custom_fields\", \"followers\", \"contact\",\n      \"created_at\", \"updated_at\", \"process\"\n    ) VALUES (\n      $1, $2, $3, $4, $5,\n      $6, $7, $8, $9, $10,\n      $11, $12, $13::jsonb, $14::jsonb, $15::jsonb,\n      $16, $17, $18\n    )\n    ON CONFLICT (\"external_id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"monetary_value\" = EXCLUDED.\"monetary_value\",\n      \"pipeline_id\" = EXCLUDED.\"pipeline_id\",\n      \"pipeline_stage_id\" = EXCLUDED.\"pipeline_stage_id\",\n      \"assigned_to\" = EXCLUDED.\"assigned_to\",\n      \"status\" = EXCLUDED.\"status\",\n      \"source\" = EXCLUDED.\"source\",\n      \"last_status_change_at\" = EXCLUDED.\"last_status_change_at\",\n      \"last_stage_change_at\" = EXCLUDED.\"last_stage_change_at\",\n      \"contact_id\" = EXCLUDED.\"contact_id\",\n      \"location_id\" = EXCLUDED.\"location_id\",\n      \"custom_fields\" = EXCLUDED.\"custom_fields\",\n      \"followers\" = EXCLUDED.\"followers\",\n      \"contact\" = EXCLUDED.\"contact\",\n      \"created_at\" = EXCLUDED.\"created_at\",\n      \"updated_at\" = EXCLUDED.\"updated_at\",\n      \"process\" = EXCLUDED.\"process\"\n  `,\n  values: [\n    d.id,                                // $1  - external_id\n    d.name,                              // $2\n    d.monetaryValue || 0,                // $3\n    d.pipelineId,                        // $4\n    d.pipelineStageId,                   // $5\n    d.assignedTo,                        // $6\n    d.status,                            // $7\n    d.source,                            // $8\n    d.lastStatusChangeAt,                // $9\n    d.lastStageChangeAt,                 // $10\n    d.contactId,                         // $11\n    d.locationId,                        // $12\n    JSON.stringify(d.customFields || []),// $13\n    JSON.stringify(d.followers || []),   // $14\n    JSON.stringify(d.contact || {}),     // $15\n    d.createdAt,                         // $16\n    d.updatedAt,                         // $17\n    false                                // $18 - process\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        -60
+      ],
+      "id": "2fbab9a9-3f83-4959-9099-b9cf9d6c7f9b",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "operation": "get",
+        "opportunityId": "={{ $json.body.id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        -60
+      ],
+      "id": "85a469f4-869a-44ac-b9ac-c7a0a24baf03",
+      "name": "Get an opportunity",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "jMr90Bd4S7hbuc4j",
+          "name": "Dismerca - App dismercaBi"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "idOpportunity",
+              "value": "={{ $json.body.id }}"
+            },
+            {
+              "key": "idLocation",
+              "value": "={{ $json.body.locationId }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -240,
+        -60
+      ],
+      "id": "4d6ed39a-bd47-46af-9603-a9e3f9bc162f",
+      "name": "Execution Data"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/0.21.4",
+            "max-forwards": "10",
+            "x-wh-signature": "ARH/gDFAlAJzL/Ae9Qpouvfnxqy2vqBNeoeelYf9ODO9fhT2Ns3sY5UwNamCw+xTUFAW3rqsbV4yFFONYp4FXGcWg4GMWM1nHsgriyKu37KEwZmNcLi+CHzAawHri91paO7F+bu8V2lQ9gQL6pg2GZPUGI98eLKC9gwOgfTQj6xcQcQXLXlWI9Ueo+dxtCsCbbl1pi5XwzjOR5BClPZ0csw8N+VJTK8/xpIZA2/IVxcxown+o2QIyQSXExeYPjA4FXo89Ki6XERj3wtVprWgvCOpFntLtltyRTjoxZhE7S35tIzBErLHhxLvGbQvIHSCP7/6LGhPglz9hzBIdOQb469rG1WezZ0QriXt3YJ05ElW8FSoThHOTkOfnWa+FPZOo6CmKWbp3wEnCuRQT7qtkELBreouFuUyZfMoXqg+EvlpusGIpmSisjuFyyIOm6GYOoOnqehwOf0n0STRUX8X8Q/AwDTgPhOx9oYO0FMOy8mJUPsLgvyJWDXJ4Ya+RiNpb3ViNH9q4hIuEbIGIZVC/zreEhzOPxMmlxgPeLIj2gl+7EsBMcVbPCmQbDxKdeqkkLHRTpxlMbOS+45ocqM0grFEjO+JnDUmmZt26C4QULBF0KiOIC9KifVy5QinqX5/7vKnVfNYDHvqfZmWK8k3Piye3tJojv8PJXBWMyP8x4Q=",
+            "x-arr-log-id": "90f19442-072e-4e06-9a72-a14ab628b291",
+            "client-ip": "35.226.111.252:49554",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "35.226.111.252:49554",
+            "x-original-url": "/webhook/webhook/opportunity",
+            "x-waws-unencoded-url": "/webhook/webhook/opportunity",
+            "x-client-ip": "35.226.111.252",
+            "x-client-port": "49554",
+            "content-type": "application/json",
+            "content-length": "534"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "OpportunityUpdate",
+            "locationId": "NQS1rz0YlFTvbXDBx74N",
+            "versionId": "688d24f5e73efec8a4162496",
+            "appId": "688d24f5e73efec8a4162496",
+            "id": "pqZ9vh0c44xyDh3ELaBp",
+            "name": "yulian andrea patiño ortiz",
+            "source": "Auteco Sas",
+            "assignedTo": "eYhiYGdgUsFRtIRhyBAl",
+            "contactId": "frUzwFI3UeDroAx0wAX8",
+            "pipelineId": "qaR9Z6JsAQBNcbEKHYyn",
+            "pipelineStageId": "d106e33f-90c8-418a-82e8-7db9dbd9df58",
+            "status": "open",
+            "dateAdded": "2025-08-21T04:03:15.717Z",
+            "timestamp": "2025-08-21T04:03:24.826Z",
+            "webhookId": "a47b4966-60ed-4996-97d1-326b699a20c1"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/webhook/opportunity",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-21T04:15:19.148Z",
+  "versionId": "73faeec1-9753-462d-9b65-e5775cf46c64"
+}
