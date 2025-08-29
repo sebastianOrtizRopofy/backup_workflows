@@ -1,0 +1,928 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Sincronizar Ropofy",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Dismerca",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Aburramotos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar CentroMotos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Credimotos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Credimovil",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Movimotos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Motocredito",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Motomovil",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Motos del dariend",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Moto racing",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar SabanaMotos",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Evg",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar Moldex",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sincronizar AutecoBlue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-14T14:38:31.215Z",
+  "id": "Atg2U3HimcLXhLHM",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Sincronizar lostReasons API",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/config/lostReasons",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        520
+      ],
+      "id": "17853d72-258d-46e0-9ef0-b8729e65ee49",
+      "name": "Webhook",
+      "webhookId": "23c42d6b-4964-4a33-be1f-d4509910a336"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "3YGgxqve6cABjE0KCjLs",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "6b9839ec-00c2-4f00-bd49-bfefc29be510"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "17258690-3881-4089-9457-1338bad879de",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "NQS1rz0YlFTvbXDBx74N",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "fdf417e9-1942-41fa-b24f-e09204fea05e",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "znUbwYRqEjRvLx8ZqxLQ",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "3acccece-da62-4f8d-a9b0-1b9af870f1d6",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "8HL3cRXrHdfv3hyAhFEe",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8b8af6cb-643a-4bba-bf2c-02369ad72b00",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "roX1ZpTw16PvN6jSQxGY",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "005f9d1a-8a3b-4d5f-8ad5-4f66a1de1322",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "Wqi9fyYUjZI216QVbi2c",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "94cdd05e-520d-4f11-aec4-d4d43086eaa5",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "6J8wEWyF2zFLR4Q64kCj",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "968beef7-8483-4281-addb-c956a249e7b0",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "qVpMdtE7WD1nK7gwZWEB",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "2036f8f0-48a9-444a-a03d-6ea673a4edff",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "AhqSOjIFwuUWs3E1ikX7",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "a38cb711-9514-4b7d-812b-9b87bc565e7b",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "nShm5z1fHOEAcUN0n7fS",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "0235cf05-cc52-41b6-a7a5-cf24e7534173",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "sEDLGnojxQ5ylRAhEtKr",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "06122622-5b00-468a-8faf-af26bf7aa3c4",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "Ffry84qYbqnjjBqByHvr",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "4e3b929f-0702-45c0-ac7f-fe9a496782ed",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "7MILzH0XhlEZiyb1OVYN",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "61d12c82-9fa9-413e-99df-f08c58c062cf",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "OLEfHKjZkezljsd63c48",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c3864261-61c6-48a2-973e-488258f1bb46",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "rJVQMiUdtLFfBO0aToyU",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        220,
+        380
+      ],
+      "id": "3a8fb669-5b45-418f-8da9-da59a45f9f13",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "Jg0BPz08NbzwalpA",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Ropofy"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        420,
+        -40
+      ],
+      "id": "1a611d1f-e8bd-4b76-9e1c-0addbd03355f",
+      "name": "Sincronizar Ropofy"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "MY6PUAWdUrcBolVu",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Dismerca"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        620,
+        60
+      ],
+      "id": "e0b19197-8a1f-49cf-8aa2-dad66f7098db",
+      "name": "Sincronizar Dismerca"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        920,
+        140
+      ],
+      "id": "3551221f-14b5-4b96-9a6e-88bf8e1d71ca",
+      "name": "Sincronizar Aburramotos"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        760,
+        280
+      ],
+      "id": "27500316-7c2e-4f9d-9990-a33f82adce57",
+      "name": "Sincronizar CentroMotos"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1320,
+        320
+      ],
+      "id": "2cfcb36e-2bb6-4056-a68d-2fe67562edc7",
+      "name": "Sincronizar Credimotos"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1120,
+        420
+      ],
+      "id": "82e5df4e-ae52-4213-962f-875d84e145db",
+      "name": "Sincronizar Credimovil"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        920,
+        500
+      ],
+      "id": "d4564900-0a72-4e25-8eb2-e444f1c45294",
+      "name": "Sincronizar Movimotos"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1680,
+        600
+      ],
+      "id": "9fd2a841-9672-4ecb-9f99-d30bf362c561",
+      "name": "Sincronizar Motocredito"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1480,
+        660
+      ],
+      "id": "05707b5f-ef76-40de-8135-d4dc4fcc83c9",
+      "name": "Sincronizar Motomovil"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1280,
+        720
+      ],
+      "id": "0ca730c4-33d1-418d-a38e-8beb8927cf3f",
+      "name": "Sincronizar Motos del dariend"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1060,
+        780
+      ],
+      "id": "71caa394-10d9-4869-9a2c-d529b21b584b",
+      "name": "Sincronizar Moto racing"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "BeQeslz4F5NydKpw",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Haku"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        840,
+        840
+      ],
+      "id": "7a102df1-ba37-413e-b332-87d5e939e128",
+      "name": "Sincronizar SabanaMotos"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "GdlkpJOXOGZExVnf",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Autecoblue"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        500,
+        1140
+      ],
+      "id": "dfa98e1c-f242-48e4-9285-6e80156a1f70",
+      "name": "Sincronizar AutecoBlue"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "9bCmm06sMMsoeWJk",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Moldex"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        740,
+        1100
+      ],
+      "id": "73e8b1ac-521b-49cf-ae3d-79b875ead5d4",
+      "name": "Sincronizar Moldex"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "x2RTRFrMhoVzDwue",
+          "mode": "list",
+          "cachedResultName": "Sincronizar lostReasons Evg"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        620,
+        900
+      ],
+      "id": "b7d0fb98-9966-418a-9079-0b71115a51ff",
+      "name": "Sincronizar Evg"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-28T13:35:11.061Z",
+  "versionId": "34354ba2-b343-429e-b3de-ce0093e48b4a"
+}
