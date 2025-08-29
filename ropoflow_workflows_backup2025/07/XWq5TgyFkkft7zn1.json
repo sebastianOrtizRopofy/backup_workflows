@@ -1,0 +1,240 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-11T15:06:27.697Z",
+  "id": "XWq5TgyFkkft7zn1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "get customValue",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "/api/getCustomValue",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6bf4b0d5-6518-44a8-9a69-d6cbb4e06570",
+      "name": "Webhook",
+      "webhookId": "b0aa7891-00cd-4b26-aab2-d887c436c327"
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/locations/{{ $json.location_id }}/customValues",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        0
+      ],
+      "id": "7eb1e2f0-a267-4223-ba7c-a0b18440ddba",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.query.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        280,
+        0
+      ],
+      "id": "5b41d3f0-ee8d-4211-877e-d5eafaee4009",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all().at(0).json.customValues;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        780,
+        0
+      ],
+      "id": "673289af-f4f7-4139-9020-4d5f36b2389c",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d41b8772-25e8-4f54-bcff-7ae04b393041",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "={{ $('Webhook').item.json.query.name }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1000,
+        0
+      ],
+      "id": "867ba729-31e9-4b36-b538-f4e9ff8fc1a6",
+      "name": "Filter"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/1.8.3",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "max-forwards": "10",
+            "x-arr-log-id": "696ce3b9-86b9-451e-875c-74561f5a7100",
+            "client-ip": "4.174.177.33:4609",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "4.174.177.33:4609",
+            "x-original-url": "/webhook/api/getCustomValue?name=products&id_location=ERJBpPNxe4pOmp7CkwAv",
+            "x-waws-unencoded-url": "/webhook/api/getCustomValue?name=products&id_location=ERJBpPNxe4pOmp7CkwAv",
+            "x-client-ip": "4.174.177.33",
+            "x-client-port": "4609"
+          },
+          "params": {},
+          "query": {
+            "name": "products",
+            "id_location": "ERJBpPNxe4pOmp7CkwAv"
+          },
+          "body": {},
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/getCustomValue",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-21T20:38:59.267Z",
+  "versionId": "1535360e-6f2f-497d-bf44-eb1bfefbcc4d"
+}
