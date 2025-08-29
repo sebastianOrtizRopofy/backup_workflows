@@ -1,0 +1,62 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-11T14:23:05.504Z",
+  "id": "AhMggAY6SP0wVo09",
+  "isArchived": true,
+  "meta": null,
+  "name": "My workflow 5",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        160,
+        0
+      ],
+      "id": "83b5bbba-d2eb-467f-8d05-04ea30a0262d",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "path": "/configure",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -120,
+        0
+      ],
+      "id": "3ca675de-23c5-4b19-9258-5e9b7bb55b87",
+      "name": "Webhook",
+      "webhookId": "5dba41a7-d7e9-41f9-88ff-8168edbc583b"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-11T14:23:43.829Z",
+  "versionId": "e9b46acb-2b60-419f-88b1-029085f320ad"
+}
