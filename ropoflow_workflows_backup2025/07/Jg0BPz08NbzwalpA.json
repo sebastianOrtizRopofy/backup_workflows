@@ -1,0 +1,208 @@
+{
+  "active": false,
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-28T13:18:37.863Z",
+  "id": "Jg0BPz08NbzwalpA",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sincronizar lostReasons Ropofy",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b249564b-1744-4431-82ed-480dfd47eff2",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.leadconnectorhq.com/opportunities/lost-reason?locationId={{ $('Webhook').item.json.body.id_location }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        0
+      ],
+      "id": "7ea4ac73-c0eb-4454-b95d-a6c527ad6b0b",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.body.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        180,
+        0
+      ],
+      "id": "35ad2843-aaeb-40a5-b58e-2907f26680b9",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.lostReasons"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        0
+      ],
+      "id": "0c229507-7add-4ce8-aaee-876fa99cd57d",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1060,
+        0
+      ],
+      "id": "7ee23c28-90a4-4d23-bfce-5d0939d34a32",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "DeGEMvrSz25bAJdD",
+          "name": "Ropofy account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.lost_reasons (\n      \"id\", \"name\", \"locationId\", \"dateAdded\", \"dateUpdated\", \"created_at\", \"updated_at\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, $6, $7\n    )\n    ON CONFLICT (\"id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"locationId\" = EXCLUDED.\"locationId\",\n      \"dateAdded\" = EXCLUDED.\"dateAdded\",\n      \"dateUpdated\" = EXCLUDED.\"dateUpdated\",\n      \"created_at\" = EXCLUDED.\"created_at\",\n      \"updated_at\" = EXCLUDED.\"updated_at\"\n  `,\n  values: [\n    d._id,\n    d.name,\n    d.locationId,\n    d.createdAt,\n    d.updatedAt,\n    d.createdAt,\n    d.updatedAt\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        840,
+        0
+      ],
+      "id": "4ce135d2-76fa-4040-9bcb-ac16481b6a98",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-28T13:19:19.403Z",
+  "versionId": "4002b69c-8974-45db-be29-ad7def587cf3"
+}
