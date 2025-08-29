@@ -1,0 +1,191 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-17T18:49:27.644Z",
+  "id": "YCkXpAEXCX3uElHI",
+  "isArchived": false,
+  "meta": null,
+  "name": "Get opportunities simulated API",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/simulate/opportunities",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        0
+      ],
+      "id": "68c84de6-e472-41aa-8434-2245884e1cab",
+      "name": "Webhook",
+      "webhookId": "b27cf85b-dabc-4f2e-8950-daf442b7b7c0"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.body.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -60,
+        0
+      ],
+      "id": "a92a9633-cba5-4f84-a44a-7b71562eb885",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/opportunities/search?location_id={{ $json.locationId }}&limit=1&date={{ $('Webhook').item.json.body.date }}&endDate={{ $('Webhook').item.json.body.endDate }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('Select rows from a table').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        0
+      ],
+      "id": "6d745a8b-93bb-4053-a6b9-e3d5a91d0dcd",
+      "name": "HTTP Request",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $('Webhook').first().json.body;\n\nconst filters = [];\n\nif (body.created || true) {\n  filters.push({\n    field: \"dateAdded\",\n    operator: \"range\",\n    value: {\n      gt: body.date,\n      lt: body.endDate\n    }\n  });\n}\n\nif (body.updated || true) {\n  filters.push({\n    field: \"dateUpdated\",\n    operator: \"range\",\n    value: {\n      gt: body.date,\n      lt: body.endDate\n    }\n  });\n}\n\nconst finalFilters = filters.length === 1\n  ? filters // solo uno, no necesita OR\n  : [{\n      group: \"OR\",\n      filters: filters\n    }];\n\nreturn [\n  {\n    json: {\n      locationId: body.id_location,\n      page: 1,\n      pageLimit: 1,\n      filters: finalFilters\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        160,
+        0
+      ],
+      "id": "f97615b5-7655-456c-9e62-c816d2fce193",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return {\n  \"total\": $json.meta.total\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        600,
+        0
+      ],
+      "id": "293f1e7a-e139-42cf-8e46-8ee5c2d8315c",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-30T20:07:02.844Z",
+  "versionId": "6d4630d5-5eb4-4fff-b3d8-a685d3b69f3a"
+}
