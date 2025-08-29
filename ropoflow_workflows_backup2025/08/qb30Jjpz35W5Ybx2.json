@@ -1,0 +1,137 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-29T10:13:53.352Z",
+  "id": "qb30Jjpz35W5Ybx2",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Solicitud - Stopper",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "c79bc2af-1531-4aa0-8c92-27bcc814d433",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "80dd7a06-2cf6-47be-a84e-de2cfaf9f657",
+      "name": "Webhook",
+      "webhookId": "c79bc2af-1531-4aa0-8c92-27bcc814d433"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://defaulte67529fc68be4f5baa27edbad4a44b.14.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/f3f8899f24484960a7ab4f989e340db8/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=sjb-HRAVbfSSRiGlSiScuWWEf2yftiSjjxD_NLJM5Vw",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "responsable_name",
+              "value": "={{ $json.body.data.properties['Assigned To'].people[0].name }}"
+            },
+            {
+              "name": "responsable_email",
+              "value": "={{ $json.body.data.properties['Assigned To'].people[0].person.email }}"
+            },
+            {
+              "name": "status",
+              "value": "={{ $json.body.data.properties.Status.status.name }}"
+            },
+            {
+              "name": "date_start",
+              "value": "={{ $json.body.data.properties.Date.date.start }}"
+            },
+            {
+              "name": "date_end",
+              "value": "={{ $json.body.data.properties.Date.date.end }}"
+            },
+            {
+              "name": "estimacion",
+              "value": "={{ $json.body.data.properties['Estimación (horas)'].number }}"
+            },
+            {
+              "name": "cliente",
+              "value": "={{ $json.body.data.properties.Cliente.rich_text[0].text.content }}"
+            },
+            {
+              "name": "tipo",
+              "value": "={{ $json.body.data.properties.Tipo.select.name }}"
+            },
+            {
+              "name": "solicitante_name",
+              "value": "={{ $json.body.data.properties.Solicitante.people[0].name }}"
+            },
+            {
+              "name": "solicitante_email",
+              "value": "={{ $json.body.data.properties.Solicitante.people[0].person.email }}"
+            },
+            {
+              "name": "requerimiento_name",
+              "value": "={{ $json.body.data.properties.Name.title[0].text.content }}"
+            },
+            {
+              "name": "requerimiento_url",
+              "value": "={{ $json.body.data.url }}"
+            },
+            {
+              "name": "fecha_creacion",
+              "value": "={{ $json.body.data.created_time }}"
+            },
+            {
+              "name": "solicitante_foto",
+              "value": "={{ $json.body.data.properties.Solicitante.people[0].avatar_url }}"
+            },
+            {
+              "name": "responsable_foto",
+              "value": "={{ $json.body.data.properties['Assigned To'].people[0].avatar_url }}"
+            },
+            {
+              "name": "stopper_description",
+              "value": "={{ $json.body.data.properties['Description Stopper'].rich_text[0].plain_text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "0fec0f56-4c8b-4497-abf8-68786e87b555",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-29T10:29:26.985Z",
+  "versionId": "f5e5f23d-99fb-46d3-826d-d2a762df6857"
+}
