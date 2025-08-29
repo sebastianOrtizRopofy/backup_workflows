@@ -1,0 +1,349 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "consultar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "consultar contacto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatear contactos": {
+      "main": [
+        [
+          {
+            "node": "Guardar contacto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consultar contacto": {
+      "main": [
+        [
+          {
+            "node": "formatear contactos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatear contactos1": {
+      "main": [
+        [
+          {
+            "node": "Guardar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consultar contacto1": {
+      "main": [
+        [
+          {
+            "node": "formatear contactos1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-28T16:32:57.658Z",
+  "id": "ebx4ZnUqUlXVLoY4",
+  "isArchived": false,
+  "meta": null,
+  "name": "Webhook contact update",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/webhook/contact",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -420,
+        -40
+      ],
+      "id": "a13d43f1-82a4-4290-9d4b-8bc300ea30ed",
+      "name": "Webhook",
+      "webhookId": "54dcf31f-de51-4cdf-93dc-b8bdca18c8d0"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.locationId }}",
+                    "rightValue": "3YGgxqve6cABjE0KCjLs",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "b725947d-4ef3-42f0-bfd9-0ee8a3aee62f"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "85ba67b9-f918-46c4-a3a1-6a42665c14a9",
+                    "leftValue": "={{ $json.body.locationId }}",
+                    "rightValue": "NQS1rz0YlFTvbXDBx74N",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        20,
+        -40
+      ],
+      "id": "d9bfa8f9-2dd7-49e5-826e-121ac21c5304",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "content": "Este endpoint es llamado por GHL cuando se actualiza un contacto"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -480,
+        -240
+      ],
+      "typeVersion": 1,
+      "id": "c68f8a98-f6f9-48ad-aa4c-f4f43fbcc338",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "idContact",
+              "value": "={{ $json.body.id }}"
+            },
+            {
+              "key": "idLocation",
+              "value": "={{ $json.body.locationId }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -200,
+        -40
+      ],
+      "id": "2d8f36b7-61de-460f-977b-7586cea05276",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        820,
+        -140
+      ],
+      "id": "7e69bebc-d70b-41bb-a0dc-c4115a1b7ef9",
+      "name": "Guardar contacto1",
+      "credentials": {
+        "postgres": {
+          "id": "DeGEMvrSz25bAJdD",
+          "name": "Ropofy account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst clean = (val) => (val ?? '').toString().replace(/'/g, \"''\");\n\nconst query = {\n  text: `\n  INSERT INTO public.contacts (\n    \"id\", \"location_id\", \"contact_name\", \"first_name\", \"first_name_raw\", \"last_name\", \"last_name_raw\",\n    \"company_name\", \"email\", \"phone\", \"dnd\", \"type\", \"source\", \"assigned_to\", \"city\",\n    \"state\", \"postal_code\", \"address1\", \"date_added\", \"date_updated\", \"date_of_birth\", \"business_id\",\n    \"tags\", \"followers\", \"country\", \"website\", \"additional_emails\", \"attributions\", \"custom_fields\",\n    \"process\", \"dnd_settings\"\n  ) VALUES (\n    $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22,\n    $23::jsonb, $24::jsonb, $25, $26, $27::jsonb, $28::jsonb, $29::jsonb, $30, $31::jsonb\n  )\n  ON CONFLICT (\"id\") DO UPDATE SET\n    \"location_id\" = EXCLUDED.\"location_id\",\n    \"contact_name\" = EXCLUDED.\"contact_name\",\n    \"first_name\" = EXCLUDED.\"first_name\",\n    \"first_name_raw\" = EXCLUDED.\"first_name_raw\",\n    \"last_name\" = EXCLUDED.\"last_name\",\n    \"last_name_raw\" = EXCLUDED.\"last_name_raw\",\n    \"company_name\" = EXCLUDED.\"company_name\",\n    \"email\" = EXCLUDED.\"email\",\n    \"phone\" = EXCLUDED.\"phone\",\n    \"dnd\" = EXCLUDED.\"dnd\",\n    \"type\" = EXCLUDED.\"type\",\n    \"source\" = EXCLUDED.\"source\",\n    \"assigned_to\" = EXCLUDED.\"assigned_to\",\n    \"city\" = EXCLUDED.\"city\",\n    \"state\" = EXCLUDED.\"state\",\n    \"postal_code\" = EXCLUDED.\"postal_code\",\n    \"address1\" = EXCLUDED.\"address1\",\n    \"date_added\" = EXCLUDED.\"date_added\",\n    \"date_updated\" = EXCLUDED.\"date_updated\",\n    \"date_of_birth\" = EXCLUDED.\"date_of_birth\",\n    \"business_id\" = EXCLUDED.\"business_id\",\n    \"tags\" = EXCLUDED.\"tags\",\n    \"followers\" = EXCLUDED.\"followers\",\n    \"country\" = EXCLUDED.\"country\",\n    \"website\" = EXCLUDED.\"website\",\n    \"additional_emails\" = EXCLUDED.\"additional_emails\",\n    \"attributions\" = EXCLUDED.\"attributions\",\n    \"custom_fields\" = EXCLUDED.\"custom_fields\",\n    \"process\" = EXCLUDED.\"process\",\n    \"dnd_settings\" = EXCLUDED.\"dnd_settings\"\n  `,\n  values: [\n    d.id,\n    d.locationId,\n    d.fullNameLowerCase,\n    d.firstName,\n    d.firstNameLowerCase,\n    d.lastName,\n    d.lastNameLowerCase,\n    d.companyName,\n    d.email,\n    d.phone,\n    d.dnd || false,\n    d.type,\n    d.source,\n    d.assignedTo,\n    d.city,\n    d.state || '',\n    d.postalCode || '',\n    d.address1 || '',\n    d.dateAdded,\n    d.dateUpdated,\n    d.dateOfBirth || '',\n    d.businessId,\n    JSON.stringify(d.tags || []),\n    JSON.stringify(d.followers || []),\n    d.country,\n    d.website || '',\n    JSON.stringify(d.additionalEmails || []),\n    JSON.stringify(d.attributionSource || {}),\n    JSON.stringify(d.customFields || []),\n    'ropoflow',\n    JSON.stringify(d.dndSettings || {})\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        -140
+      ],
+      "id": "66f99443-8d25-414c-92d8-f173e3d67ef2",
+      "name": "formatear contactos"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.body.id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        320,
+        -140
+      ],
+      "id": "f53bdbdf-1340-4440-bd11-2bfc489cbcae",
+      "name": "consultar contacto",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "RJGPyuZvF6dlp4q5",
+          "name": "Ropofy - app ropofyBi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        820,
+        60
+      ],
+      "id": "686e2477-3474-48f2-a6f3-347fc7c8f345",
+      "name": "Guardar contacto",
+      "credentials": {
+        "postgres": {
+          "id": "GW7bwJbUsTeQSjFL",
+          "name": "Dismerca db account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst clean = (val) => (val ?? '').toString().replace(/'/g, \"''\");\n\nconst query = {\n  text: `\n  INSERT INTO public.contacts (\n    \"id\", \"location_id\", \"contact_name\", \"first_name\", \"first_name_raw\", \"last_name\", \"last_name_raw\",\n    \"company_name\", \"email\", \"phone\", \"dnd\", \"type\", \"source\", \"assigned_to\", \"city\",\n    \"state\", \"postal_code\", \"address1\", \"date_added\", \"date_updated\", \"date_of_birth\", \"business_id\",\n    \"tags\", \"followers\", \"country\", \"website\", \"additional_emails\", \"attributions\", \"custom_fields\",\n    \"process\", \"dnd_settings\"\n  ) VALUES (\n    $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22,\n    $23::jsonb, $24::jsonb, $25, $26, $27::jsonb, $28::jsonb, $29::jsonb, $30, $31::jsonb\n  )\n  ON CONFLICT (\"id\") DO UPDATE SET\n    \"location_id\" = EXCLUDED.\"location_id\",\n    \"contact_name\" = EXCLUDED.\"contact_name\",\n    \"first_name\" = EXCLUDED.\"first_name\",\n    \"first_name_raw\" = EXCLUDED.\"first_name_raw\",\n    \"last_name\" = EXCLUDED.\"last_name\",\n    \"last_name_raw\" = EXCLUDED.\"last_name_raw\",\n    \"company_name\" = EXCLUDED.\"company_name\",\n    \"email\" = EXCLUDED.\"email\",\n    \"phone\" = EXCLUDED.\"phone\",\n    \"dnd\" = EXCLUDED.\"dnd\",\n    \"type\" = EXCLUDED.\"type\",\n    \"source\" = EXCLUDED.\"source\",\n    \"assigned_to\" = EXCLUDED.\"assigned_to\",\n    \"city\" = EXCLUDED.\"city\",\n    \"state\" = EXCLUDED.\"state\",\n    \"postal_code\" = EXCLUDED.\"postal_code\",\n    \"address1\" = EXCLUDED.\"address1\",\n    \"date_added\" = EXCLUDED.\"date_added\",\n    \"date_updated\" = EXCLUDED.\"date_updated\",\n    \"date_of_birth\" = EXCLUDED.\"date_of_birth\",\n    \"business_id\" = EXCLUDED.\"business_id\",\n    \"tags\" = EXCLUDED.\"tags\",\n    \"followers\" = EXCLUDED.\"followers\",\n    \"country\" = EXCLUDED.\"country\",\n    \"website\" = EXCLUDED.\"website\",\n    \"additional_emails\" = EXCLUDED.\"additional_emails\",\n    \"attributions\" = EXCLUDED.\"attributions\",\n    \"custom_fields\" = EXCLUDED.\"custom_fields\",\n    \"process\" = EXCLUDED.\"process\",\n    \"dnd_settings\" = EXCLUDED.\"dnd_settings\"\n  `,\n  values: [\n    d.id,\n    d.locationId,\n    d.fullNameLowerCase,\n    d.firstName,\n    d.firstNameLowerCase,\n    d.lastName,\n    d.lastNameLowerCase,\n    d.companyName,\n    d.email,\n    d.phone,\n    d.dnd || false,\n    d.type,\n    d.source,\n    d.assignedTo,\n    d.city,\n    d.state || '',\n    d.postalCode || '',\n    d.address1 || '',\n    d.dateAdded,\n    d.dateUpdated,\n    d.dateOfBirth || '',\n    d.businessId,\n    JSON.stringify(d.tags || []),\n    JSON.stringify(d.followers || []),\n    d.country,\n    d.website || '',\n    JSON.stringify(d.additionalEmails || []),\n    JSON.stringify(d.attributionSource || {}),\n    JSON.stringify(d.customFields || []),\n    'ropoflow',\n    JSON.stringify(d.dndSettings || {})\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        60
+      ],
+      "id": "fe0501d6-e9fd-44f9-8b07-4a85400fde2f",
+      "name": "formatear contactos1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.body.id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        320,
+        60
+      ],
+      "id": "548a21cc-6c46-465f-80b6-d3d95aafea6d",
+      "name": "consultar contacto1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "c9QU5VPjiAtuN7c5",
+          "name": "Dismerca - app ropoflow"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-01T21:27:21.832Z",
+  "versionId": "d29c8e54-89c7-4fee-a6ef-6ab785258081"
+}
