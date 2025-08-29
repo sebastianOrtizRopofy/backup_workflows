@@ -1,0 +1,117 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "obtener credenciales",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-28T21:45:30.034Z",
+  "id": "dzPJUbziuJQj8Vf6",
+  "isArchived": false,
+  "meta": null,
+  "name": "dolibar auteco",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/dolibar",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7d0f135d-3b45-4d45-acb2-2759e0accd3e",
+      "name": "Webhook",
+      "webhookId": "75c1b406-5732-4c15-95ce-33ebec9d86e6"
+    },
+    {
+      "parameters": {
+        "url": "https://blue.ayconcolombia.com/api/index.php/login?login=Apibile2web&password=b9pZBsWZUqVJ&reset=0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "74e2526c-c05b-4157-a4b9-c3c1abf38656",
+      "name": "obtener credenciales"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "*/*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+            "max-forwards": "10",
+            "x-arr-log-id": "951881c3-fd23-4dbc-980a-8ac86cdc5c80",
+            "client-ip": "35.206.116.72:23608",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "35.206.116.72:23608",
+            "x-original-url": "/webhook/dolibar",
+            "x-waws-unencoded-url": "/webhook/dolibar",
+            "x-client-ip": "35.206.116.72",
+            "x-client-port": "23608",
+            "content-type": "application/json",
+            "content-length": "389"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "uso": null,
+            "tipo_pago": null,
+            "cuando_compra": null,
+            "comment": null,
+            "impulsa_campanna": null,
+            "codigo_dane": null,
+            "codigo_sap": null,
+            "id_lead": 657660,
+            "name": "Tu PaLeTa",
+            "phone": "3213493273",
+            "email": "tupaleta@outlook.com",
+            "cedula": null,
+            "product": "D2S, E10X, S50",
+            "brand": "BLUE",
+            "source": "fb",
+            "campaign": "b2w-fb-leads-ve-auteco_blue-camiones_cali-producto-vehiculo-stark-ago-form",
+            "id_dealer": "15"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/dolibar",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-28T22:23:52.421Z",
+  "versionId": "8070908d-7535-45e3-91ba-573904b6ea5f"
+}
