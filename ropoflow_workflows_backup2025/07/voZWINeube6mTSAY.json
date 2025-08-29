@@ -1,0 +1,133 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many opportunities": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-22T13:24:37.166Z",
+  "id": "voZWINeube6mTSAY",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sincronización Opportunities Moldex",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        0
+      ],
+      "id": "80f9a27f-8612-410e-8322-b2567997168b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        360,
+        0
+      ],
+      "id": "e61e16cb-c8d6-4a2c-b0eb-3432db63950f",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "ttqvVbC78buoDb38",
+          "name": "Moldex DB bi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.opportunities (\n      \"external_id\", \"name\", \"monetary_value\", \"pipeline_id\", \"pipeline_stage_id\", \"pipeline_stage_uid\",\n      \"assigned_to\", \"status\", \"source\", \"last_status_change_at\", \"last_stage_change_at\",\n      \"contact_id\", \"location_id\", \"custom_fields\", \"lost_reason_id\", \"followers\", \"relations\", \"contact\",\n      \"sort\", \"attributions\", \"created_at\", \"updated_at\", \"sync_with_webhook\", \"deleted\", \"process\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, $6,\n      $7, $8, $9, $10, $11,\n      $12, $13, $14::jsonb, $15, $16::jsonb, $17::jsonb, $18::jsonb,\n      $19::jsonb, $20::jsonb, $21, $22, $23, $24, $25\n    )\n    ON CONFLICT (\"external_id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"monetary_value\" = EXCLUDED.\"monetary_value\",\n      \"pipeline_id\" = EXCLUDED.\"pipeline_id\",\n      \"pipeline_stage_id\" = EXCLUDED.\"pipeline_stage_id\",\n      \"pipeline_stage_uid\" = EXCLUDED.\"pipeline_stage_uid\",\n      \"assigned_to\" = EXCLUDED.\"assigned_to\",\n      \"status\" = EXCLUDED.\"status\",\n      \"source\" = EXCLUDED.\"source\",\n      \"last_status_change_at\" = EXCLUDED.\"last_status_change_at\",\n      \"last_stage_change_at\" = EXCLUDED.\"last_stage_change_at\",\n      \"contact_id\" = EXCLUDED.\"contact_id\",\n      \"location_id\" = EXCLUDED.\"location_id\",\n      \"custom_fields\" = EXCLUDED.\"custom_fields\",\n      \"lost_reason_id\" = EXCLUDED.\"lost_reason_id\",\n      \"followers\" = EXCLUDED.\"followers\",\n      \"relations\" = EXCLUDED.\"relations\",\n      \"contact\" = EXCLUDED.\"contact\",\n      \"sort\" = EXCLUDED.\"sort\",\n      \"attributions\" = EXCLUDED.\"attributions\",\n      \"created_at\" = EXCLUDED.\"created_at\",\n      \"updated_at\" = EXCLUDED.\"updated_at\",\n      \"sync_with_webhook\" = EXCLUDED.\"sync_with_webhook\",\n      \"deleted\" = EXCLUDED.\"deleted\",\n      \"process\" = EXCLUDED.\"process\"\n  `,\n  values: [\n    d.id,                               // mapped as external_id\n    d.name,\n    d.monetaryValue || 0,\n    d.pipelineId,\n    d.pipelineStageId,\n    d.pipelineStageUId,\n    d.assignedTo,\n    d.status,\n    d.source,\n    d.lastStatusChangeAt,\n    d.lastStageChangeAt,\n    d.contactId,\n    d.locationId,\n    JSON.stringify(d.customFields || []),\n    d.lostReasonId || '',\n    JSON.stringify(d.followers || []),\n    JSON.stringify(d.relations || {}),\n    JSON.stringify(d.contact || {}),\n    JSON.stringify(d.sort || {}),\n    JSON.stringify(d.attributions || {}),\n    d.createdAt,\n    d.updatedAt,\n    d.syncWithWebhook || false,\n    d.deleted || false,\n    false\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        180,
+        0
+      ],
+      "id": "af6ba705-281e-45d4-abcd-6e00af0836e9",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "operation": "getAll",
+        "returnAll": true,
+        "delayPagination": 500,
+        "filters": {
+          "endDate": "={{ $json.body.endDate }}",
+          "startDate": "={{ $json.body.date }}"
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        0
+      ],
+      "id": "eeac5efc-e8e4-4593-8ff0-452007e5d4bf",
+      "name": "Get many opportunities",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "xMw4PMvRcsXNeOLo",
+          "name": "Ropofy account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-28T13:50:08.707Z",
+  "versionId": "4318deeb-dd93-4205-885b-79e2ecedcba8"
+}
