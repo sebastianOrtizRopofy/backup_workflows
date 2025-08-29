@@ -1,0 +1,260 @@
+{
+  "active": true,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        []
+      ]
+    },
+    "Get many products": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get many products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-18T19:34:43.418Z",
+  "id": "vdwqzCCdEty20JJO",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Sync custom value Products Json",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        80
+      ],
+      "id": "3483e5fc-6224-45a7-a032-69a713781c04",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/setCustomValue",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_location",
+              "value": "ERJBpPNxe4pOmp7CkwAv"
+            },
+            {
+              "name": "name",
+              "value": "Products"
+            },
+            {
+              "name": "value",
+              "value": "={{ JSON.stringify($input.all()) }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        680,
+        0
+      ],
+      "id": "8fc96467-3249-44c5-9967-da90b715fafd",
+      "name": "HTTP Request1",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.wooCommerce",
+      "typeVersion": 1,
+      "position": [
+        200,
+        0
+      ],
+      "id": "526f54e3-7021-469c-a07c-79aed6abc3ca",
+      "name": "Get many products",
+      "credentials": {
+        "wooCommerceApi": {
+          "id": "r05ikCpHgh11dsA5",
+          "name": "WooCommerce Mate Mundo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        -60
+      ],
+      "id": "4ee6ae7d-8772-4ef2-b936-8d17af249a23",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3f1194e6-4ca9-42f9-9719-e981c3599554",
+              "name": "id",
+              "value": "={{ $json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "c4106ff8-4bba-4a5e-9d89-4c6d5e18b564",
+              "name": "name",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "21b77b9b-e5b3-43ef-bf77-d631ed26848e",
+              "name": "description",
+              "value": "={{ $json.short_description.replace(/<[^>]*>/g, '') }}",
+              "type": "string"
+            },
+            {
+              "id": "b85f2071-aeba-432c-9506-174aeaec3995",
+              "name": "price",
+              "value": "={{ $json.price }}",
+              "type": "string"
+            },
+            {
+              "id": "47f2655a-e103-4f8e-b92c-9dbcd417ae20",
+              "name": "link",
+              "value": "={{ $json.permalink }}",
+              "type": "string"
+            },
+            {
+              "id": "ffe7d737-f66c-40c8-a1ed-548ec646cf9d",
+              "name": "variations_id",
+              "value": "={{ $json.variations }}",
+              "type": "array"
+            },
+            {
+              "id": "135d91ff-ed20-4820-9993-d2b04b9c8299",
+              "name": "variations_name",
+              "value": "={{ $json.attributes[0].options }}",
+              "type": "array"
+            },
+            {
+              "id": "865f50d2-b582-4ccf-b9e2-bbd02809dcc4",
+              "name": "stock_status",
+              "value": "={{ $json.stock_status }}",
+              "type": "string"
+            },
+            {
+              "id": "c1a50f38-379e-4df9-a401-c9ed8b2db657",
+              "name": "stock_quantity",
+              "value": "={{ $json.stock_quantity }}",
+              "type": "string"
+            },
+            {
+              "id": "7be642f0-f27f-4de1-a095-c506e7186030",
+              "name": "type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        420,
+        0
+      ],
+      "id": "acd63b86-91b5-44ee-848e-acaf340aa338",
+      "name": "Edit Fields1"
+    }
+  ],
+  "pinData": {
+    "Schedule Trigger": [
+      {
+        "json": {
+          "timestamp": "2025-08-27T00:00:53.228-04:00",
+          "Readable date": "August 27th 2025, 12:00:53 am",
+          "Readable time": "12:00:53 am",
+          "Day of week": "Wednesday",
+          "Year": "2025",
+          "Month": "August",
+          "Day of month": "27",
+          "Hour": "00",
+          "Minute": "00",
+          "Second": "53",
+          "Timezone": "America/New_York (UTC-04:00)"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-27T14:59:29.600Z",
+  "versionId": "d81b5c99-e4bb-4bb4-a7d0-d1374373cb34"
+}
