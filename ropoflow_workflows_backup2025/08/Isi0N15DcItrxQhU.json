@@ -1,0 +1,1625 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener el location dueño de esta transaccion": {
+      "main": [
+        [
+          {
+            "node": "es un mensaje recibido?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "obtener contacto por phone1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe el contacto?": {
+      "main": [
+        [
+          {
+            "node": "obtener contact del json2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "crear contacto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe el contacto?1": {
+      "main": [
+        [
+          {
+            "node": "obtener conversacion2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "crear contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "es un mensaje recibido?": {
+      "main": [
+        [
+          {
+            "node": "obtener contacto por phone",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar mensaje ropofy1": {
+      "main": [
+        [
+          {
+            "node": "Insert or update rows in a table1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe algun id_800 ": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "existe algun id_800 ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "obtener el location dueño de esta transaccion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear contacto": {
+      "main": [
+        [
+          {
+            "node": "obtener contact del json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener contact del json": {
+      "main": [
+        [
+          {
+            "node": "obtener conversacion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear contacto1": {
+      "main": [
+        [
+          {
+            "node": "obtener contact del json1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener contact del json1": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje ropofy2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener contacto por phone": {
+      "main": [
+        [
+          {
+            "node": "existe el contacto?1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener contacto por phone1": {
+      "main": [
+        [
+          {
+            "node": "existe el contacto?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar mensaje ropofy2": {
+      "main": [
+        [
+          {
+            "node": "Insert or update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener contact del json2": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensaje ropofy1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Añadir el mensaje1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear conversacion": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener conversacion1": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Añadir el mensaje2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Crear conversacion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Añadir el mensaje3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear conversacion1": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener conversacion2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Añadir el mensaje4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Crear conversacion1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-08T15:26:12.998Z",
+  "id": "Isi0N15DcItrxQhU",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Recibir mensajes ROPOFY",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/message-received-integration",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -380,
+        -120
+      ],
+      "id": "7d9c7d14-1e66-47e2-b244-be64f7639f7f",
+      "name": "Webhook",
+      "webhookId": "7155d049-f554-489b-b382-06cc35b70fc6"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "locations",
+          "mode": "list",
+          "cachedResultName": "locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id_location",
+              "value": "={{ $json.query.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        60,
+        -120
+      ],
+      "id": "f6eb49cd-40af-4d8e-bf7d-2842f2843e06",
+      "name": "obtener el location dueño de esta transaccion",
+      "credentials": {
+        "postgres": {
+          "id": "0cpoMZTJF39eN58b",
+          "name": "800.com db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "En este nodo hay que configurar el providerConversationID de la app"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1420,
+        -820
+      ],
+      "typeVersion": 1,
+      "id": "4ba824c8-415e-4225-b1f4-047691a1ca98",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/messages/inbound",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"type\": \"SMS\",\n    \"message\": \"{{ $('Webhook').item.json.body.data.message }}\",\n    \"conversationId\": \"{{ $json.conversation.id }}\",\n    \"conversationProviderId\": \"6889009880742c23e372071d\",\n    \"date\": \"{{ $now.toUTC().toISO() }}\"\n    {{ $('Webhook').item.json.body.data.media && $('Webhook').item.json.body.data.media.length > 0 ? \n       ',\"attachments\": ' + JSON.stringify($('Webhook').item.json.body.data.media) : '' }}\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2480,
+        -20
+      ],
+      "id": "077f4433-49f4-4be2-b0f7-c6f652087118",
+      "name": "Añadir el mensaje1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9c9d2dea-8554-4ef0-af4e-4366d5755013",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        940,
+        280
+      ],
+      "id": "fa675865-3204-45db-b729-4791f519653b",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "content": "Cuando nos notifican de que se envió un mensaje, pero es enviado desde la plataforma de 800.com"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        420,
+        440
+      ],
+      "typeVersion": 1,
+      "id": "9bc56c1d-c32c-442f-ae35-41691c56046b",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "Cuando es un mensaje recibido"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        380,
+        -520
+      ],
+      "typeVersion": 1,
+      "id": "c7bdd76f-7475-4f47-9d63-c5ca6f37cedb",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8ab5923a-38f3-4d71-8108-100581ee0d54",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1380,
+        280
+      ],
+      "id": "057594b3-bebe-4657-b069-4e76668e0d41",
+      "name": "existe el contacto?",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8ab5923a-38f3-4d71-8108-100581ee0d54",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        940,
+        -320
+      ],
+      "id": "9c09da14-d8c0-45cd-b846-28ad0d9d2692",
+      "name": "existe el contacto?1",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1bb729a4-04f4-4767-b483-94b48c54a10b",
+              "leftValue": "={{ $('Webhook').item.json.body.data.recipient }}",
+              "rightValue": "={{ $json.number }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        280,
+        -120
+      ],
+      "id": "1680c5f3-07fb-4ba2-91ce-30c3f665ca44",
+      "name": "es un mensaje recibido?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"type\": \"SMS\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"message\": \"{{ $('Webhook').item.json.body.data.message.replaceAll('\\\\','') }} \\n \\n -- \\n 800.com\",\n  \"conversationProviderId\": \"6889009880742c23e372071d\",\n  \"toNumber\": \"{{ $('Webhook').item.json.body.data.recipient }}\"{{ $('Webhook').item.json.body.data.media && $('Webhook').item.json.body.data.media.length ? `, \"attachments\": ${JSON.stringify($('Webhook').item.json.body.data.media)}` : '' }}\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1820,
+        180
+      ],
+      "id": "bb47d2f6-833f-4ff4-99c8-37aac26b9c74",
+      "name": "Enviar mensaje ropofy1"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "messages_transactions",
+          "mode": "list",
+          "cachedResultName": "messages_transactions"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_message_800": "={{ $('Webhook').item.json.body.data.id }}",
+            "date": "={{ $now.toUTC().toString() }}",
+            "id_message_ghl": "={{ $json.messageId }}",
+            "id_location": "={{ $('Webhook').item.json.query.id_location }}"
+          },
+          "matchingColumns": [
+            "id_message_800",
+            "id_message_ghl"
+          ],
+          "schema": [
+            {
+              "id": "id_location",
+              "displayName": "id_location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "id_message_ghl",
+              "displayName": "id_message_ghl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id_message_800",
+              "displayName": "id_message_800",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2040,
+        180
+      ],
+      "id": "d3dd06a1-5def-4afc-b742-b7dc36ff983b",
+      "name": "Insert or update rows in a table1",
+      "credentials": {
+        "postgres": {
+          "id": "0cpoMZTJF39eN58b",
+          "name": "800.com db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "messages_transactions",
+          "mode": "list",
+          "cachedResultName": "messages_transactions"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id_message_800",
+              "value": "={{ $('Webhook').item.json.body.data.id + \"\" }}"
+            },
+            {
+              "column": "id_location",
+              "value": "={{ $('Webhook').item.json.query.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        720,
+        280
+      ],
+      "id": "b9d37063-19ea-43b8-b98a-b8722dc35df0",
+      "name": "existe algun id_800 ",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "0cpoMZTJF39eN58b",
+          "name": "800.com db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        500,
+        280
+      ],
+      "id": "47343d9f-f74d-4aa8-b5a8-19b3530c5ce5",
+      "name": "Wait",
+      "webhookId": "efb83d5e-b818-43eb-8f3e-d7cf0910a456"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "id_message_800",
+              "value": "={{ $json.body.data.id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -160,
+        -120
+      ],
+      "id": "02731f0e-f7cb-4e7b-b44b-fc6dea869ed9",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Webhook').item.json.body.data.sender }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $('Webhook').item.json.body.data.sender }}@gmail.com"
+            },
+            {
+              "name": "locationId",
+              "value": "={{ $('Webhook').item.json.query.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        -120
+      ],
+      "id": "8baa6672-d1d3-4b63-9807-b0f76097a050",
+      "name": "crear contacto",
+      "retryOnFail": true,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return $json.contact;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1380,
+        -120
+      ],
+      "id": "4d695b9e-fc31-47dc-ad45-2aa8bce8c9a4",
+      "name": "obtener contact del json"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $('Webhook').item.json.body.data.recipient }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $('Webhook').item.json.body.data.sender }}@gmail.com"
+            },
+            {
+              "name": "locationId",
+              "value": "={{ $('Webhook').item.json.query.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        380
+      ],
+      "id": "7dfb4c38-10c4-45eb-b2bf-cf358de79fcd",
+      "name": "crear contacto1",
+      "retryOnFail": true,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return $json.contact;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1820,
+        380
+      ],
+      "id": "5acb694a-a90d-499c-9638-9e0a48a0d3ba",
+      "name": "obtener contact del json1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"{{ $json.id_location }}\",\n  \"page\": 1,\n  \"pageLimit\": 20,\n  \"filters\": [\n    {\n       \"field\": \"phone\",\n       \"operator\": \"eq\",\n       \"value\": \"{{ $('Webhook').item.json.body.data.sender }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        -320
+      ],
+      "id": "5fefcde4-2f36-46f6-b77f-0ac09590aba5",
+      "name": "obtener contacto por phone"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"{{ $('obtener el location dueño de esta transaccion').item.json.id_location }}\",\n  \"page\": 1,\n  \"pageLimit\": 20,\n  \"filters\": [\n    {\n       \"field\": \"phone\",\n       \"operator\": \"eq\",\n       \"value\": \"{{ $('Webhook').item.json.body.data.recipient }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        280
+      ],
+      "id": "036806d9-c8a1-494b-8aee-6bad2916bf17",
+      "name": "obtener contacto por phone1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"type\": \"SMS\",\n  \"contactId\": \"{{ $('obtener contact del json1').item.json.id }}\",\n  \"message\": \"{{ $('Webhook').item.json.body.data.message }} \\n \\n -- \\n 800.com\",\n  \"conversationProviderId\": \"6889009880742c23e372071d\",\n  \"toNumber\": \"{{ $('Webhook').item.json.body.data.recipient }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2040,
+        380
+      ],
+      "id": "0efa89ef-5963-4e39-a8de-ba275c916735",
+      "name": "Enviar mensaje ropofy2"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "messages_transactions",
+          "mode": "list",
+          "cachedResultName": "messages_transactions"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_message_800": "={{ $('Webhook').item.json.body.data.id }}",
+            "date": "={{ $now.toUTC().toString() }}",
+            "id_message_ghl": "={{ $json.messageId }}",
+            "id_location": "={{ $('Webhook').item.json.query.id_location }}"
+          },
+          "matchingColumns": [
+            "id_message_800",
+            "id_message_ghl"
+          ],
+          "schema": [
+            {
+              "id": "id_location",
+              "displayName": "id_location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "id_message_ghl",
+              "displayName": "id_message_ghl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id_message_800",
+              "displayName": "id_message_800",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2260,
+        380
+      ],
+      "id": "173a7809-6eab-435a-9e54-f14fd3945680",
+      "name": "Insert or update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "0cpoMZTJF39eN58b",
+          "name": "800.com db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $json.contacts[0];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        180
+      ],
+      "id": "5b2df865-a350-42d3-b984-4254221c0b1d",
+      "name": "obtener contact del json2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c03c406c-54f0-4854-baca-86ca079c8b0b",
+              "leftValue": "={{ $json.conversation }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2260,
+        -20
+      ],
+      "id": "4ac97078-7516-4b37-865e-03bc1fc52e5c",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Switch').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"locationId\": \"{{ $('Webhook').item.json.query.id_location }}\",\n    \"contactId\": \"{{ $('obtener contact del json').item.json.id}}\"\n}",
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2040,
+        -20
+      ],
+      "id": "ee7d40e6-bb79-4782-b6c9-6841afd77d15",
+      "name": "Crear conversacion"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/conversations/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "={{ $('obtener el location dueño de esta transaccion').item.json.id_location }}"
+            },
+            {
+              "name": "contactId",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        -120
+      ],
+      "id": "3703791b-84ec-44a8-a5d3-1f99926c2750",
+      "name": "obtener conversacion1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "dcbc10ee-1247-42f6-8113-4a3f37f450d9",
+              "leftValue": "={{ $json.conversations }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1820,
+        -120
+      ],
+      "id": "2192fc60-4d35-4c3f-9bee-6da2a3074289",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/messages/inbound",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"type\": \"SMS\",\n    \"message\": \"{{ $('Webhook').item.json.body.data.message }}\",\n    \"conversationId\": \"{{ $json.id }}\",\n    \"conversationProviderId\": \"6889009880742c23e372071d\",\n    \"date\": \"{{ $now.toUTC().toISO() }}\"\n    {{ $('Webhook').item.json.body.data.media && $('Webhook').item.json.body.data.media.length > 0 ? \n       ',\"attachments\": ' + JSON.stringify($('Webhook').item.json.body.data.media) : '' }}\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2040,
+        -220
+      ],
+      "id": "7487e414-6e48-4588-bef7-47ca7e7ab426",
+      "name": "Añadir el mensaje2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/messages/inbound",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"type\": \"SMS\",\n    \"message\": \"{{ $('Webhook').item.json.body.data.message }}\",\n    \"conversationId\": \"{{ $json.conversation.id }}\",\n    \"conversationProviderId\": \"6889009880742c23e372071d\",\n    \"date\": \"{{ $now.toUTC().toISO() }}\"\n    {{ $('Webhook').item.json.body.data.media && $('Webhook').item.json.body.data.media.length > 0 ? \n       ',\"attachments\": ' + JSON.stringify($('Webhook').item.json.body.data.media) : '' }}\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2040,
+        -420
+      ],
+      "id": "6efd4996-3f58-439d-9547-d3e3165df265",
+      "name": "Añadir el mensaje3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c03c406c-54f0-4854-baca-86ca079c8b0b",
+              "leftValue": "={{ $json.conversation }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1820,
+        -420
+      ],
+      "id": "ca31776a-a84c-436d-8cb7-040e674a6bd6",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Switch').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"locationId\": \"{{ $('Webhook').item.json.query.id_location }}\",\n    \"contactId\": \"{{ $('obtener contact del json').item.json.id}}\"\n}",
+        "options": {
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        -420
+      ],
+      "id": "3dcd5f21-638a-4d17-bd7b-73e71fefe0cf",
+      "name": "Crear conversacion1"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/conversations/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "={{ $('obtener el location dueño de esta transaccion').item.json.id_location }}"
+            },
+            {
+              "name": "contactId",
+              "value": "={{ $json.contacts[0].id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1160,
+        -520
+      ],
+      "id": "e113ad7e-bc87-4280-8af8-76893374aaec",
+      "name": "obtener conversacion2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "dcbc10ee-1247-42f6-8113-4a3f37f450d9",
+              "leftValue": "={{ $json.conversations }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1380,
+        -520
+      ],
+      "id": "a4b0760c-a034-4ee2-99ef-d7b86196da2e",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/conversations/messages/inbound",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('obtener el location dueño de esta transaccion').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"type\": \"SMS\",\n    \"message\": \"{{ $('Webhook').item.json.body.data.message }}\",\n    \"conversationId\": \"{{ $json.conversations.last().id }}\",\n    \"conversationProviderId\": \"6889009880742c23e372071d\",\n    \"date\": \"{{ $now.toUTC().toISO() }}\"\n    {{ $('Webhook').item.json.body.data.media && $('Webhook').item.json.body.data.media.length > 0 ? \n       ',\"attachments\": ' + JSON.stringify($('Webhook').item.json.body.data.media) : '' }}\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        -620
+      ],
+      "id": "a6f1b242-cc17-4871-ba6a-f28c49349f68",
+      "name": "Añadir el mensaje4"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "GuzzleHttp/7",
+            "max-forwards": "10",
+            "traceparent": "00-4d11cb445f4b4e74cc578d5394a378ac-d413c726f7c622f6-00",
+            "tracestate": "es=s:0.1",
+            "x-arr-log-id": "e42d79c1-3975-4324-b940-eec8f6de0738",
+            "client-ip": "54.83.120.132:57106",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "54.83.120.132:57106",
+            "x-original-url": "/webhook/message-received-integration?id_location=LsUqOtcJS6xtGj1wAKMn",
+            "x-waws-unencoded-url": "/webhook/message-received-integration?id_location=LsUqOtcJS6xtGj1wAKMn",
+            "x-client-ip": "54.83.120.132",
+            "x-client-port": "57106",
+            "content-type": "application/json",
+            "content-length": "148"
+          },
+          "params": {},
+          "query": {
+            "id_location": "LsUqOtcJS6xtGj1wAKMn"
+          },
+          "body": {
+            "type": "sms_received",
+            "data": {
+              "id": 16361435,
+              "recipient": "+18003049964",
+              "sender": "+19412291414",
+              "inbound": true,
+              "message": "hola que mas",
+              "media": []
+            }
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/message-received-integration",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-14T14:29:03.071Z",
+  "versionId": "1d73d171-3610-4c68-a16d-32d4dac30963"
+}
