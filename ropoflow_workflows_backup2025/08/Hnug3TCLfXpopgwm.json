@@ -1,0 +1,47 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-08-22T05:00:47.791Z",
+  "id": "Hnug3TCLfXpopgwm",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 7",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "fields": []
+        }
+      },
+      "type": "n8n-nodes-base.zendeskTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "53f2e987-c3ae-4ab9-86a3-2e575e792aba",
+      "name": "Zendesk Trigger",
+      "webhookId": "7ff28480-7e28-40e8-b58a-731042e65ddd",
+      "credentials": {
+        "zendeskApi": {
+          "id": "XDy7iD63AFkVQWCL",
+          "name": "Zendesk account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-22T05:00:47.791Z",
+  "versionId": "f2220d05-4516-45f7-afb3-fd5f6f10a095"
+}
