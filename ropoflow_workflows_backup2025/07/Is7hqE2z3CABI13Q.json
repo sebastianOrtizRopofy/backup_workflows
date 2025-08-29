@@ -1,0 +1,154 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "obtener nombre stage",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "obtener nombre pipeline",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "obtener todos los pipelines",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener todos los pipelines": {
+      "main": [
+        []
+      ]
+    },
+    "obtener nombre stage": {
+      "main": [
+        []
+      ]
+    },
+    "obtener nombre pipeline": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-07-23T23:26:03.017Z",
+  "id": "Is7hqE2z3CABI13Q",
+  "isArchived": false,
+  "meta": null,
+  "name": "integracion oportunidades/contactos",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/haku/opportunities/",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        40
+      ],
+      "id": "a68c6624-8a2b-4c8b-bc45-cf4f13c5f1fd",
+      "name": "Webhook",
+      "webhookId": "b873d94c-2e49-4649-82cf-89ad855ca7a1"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/getCustomValue",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id_location",
+              "value": "={{ $json.body.id_location }}"
+            },
+            {
+              "name": "name",
+              "value": "lead_pipeline"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -20,
+        240
+      ],
+      "id": "5ca047d6-3ecb-4d51-90f4-0b9ed2656586",
+      "name": "obtener nombre pipeline"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/getCustomValue",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "id_location",
+              "value": "={{ $json.body.id_location }}"
+            },
+            {
+              "name": "name",
+              "value": "lead_pipeline_stage"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -20,
+        40
+      ],
+      "id": "a378acf8-b936-4cb9-a5db-d78c1aaa1d09",
+      "name": "obtener nombre stage"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/getPipelines",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "={{ $json.body.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        100,
+        -200
+      ],
+      "id": "ea6a4db2-4b43-4bd1-8bd0-a53f3c40c38e",
+      "name": "obtener todos los pipelines"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-24T00:52:37.104Z",
+  "versionId": "b4e12997-68aa-4910-b3ca-a40001051013"
+}
