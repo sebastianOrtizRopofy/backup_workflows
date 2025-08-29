@@ -1,0 +1,34 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-07-01T19:47:07.630Z",
+  "id": "zyVOfL2a2aRFrry1",
+  "isArchived": true,
+  "meta": null,
+  "name": "flujo antes de actualizar",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "da398475-ceb2-4db4-9038-6cb81ad03910",
+      "name": "When clicking ‘Execute workflow’"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-02T14:54:20.754Z",
+  "versionId": "63bf6865-fad9-4b20-a731-b66b4ad8c65a"
+}
