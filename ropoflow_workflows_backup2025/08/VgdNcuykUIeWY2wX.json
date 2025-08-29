@@ -1,0 +1,1263 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "enviar mensaje con 800.com": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "guardar transaccion de mensaje",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar transaccion de mensaje": {
+      "main": [
+        [
+          {
+            "node": "actualizar estado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "actualizar estado fallido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "logica de medias",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "buscar token1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "actualizar estado1": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code4": {
+      "main": [
+        [
+          {
+            "node": "actualizar estado fallido1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar token": {
+      "main": [
+        [
+          {
+            "node": "actualizar estado1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar token1": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "logica de medias": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "consultar imagenes",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consultar imagenes": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        [
+          {
+            "node": "se pasa el limite?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "se pasa el limite?": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "actualizar estado fallido2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "format json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "format json": {
+      "main": [
+        [
+          {
+            "node": "quitar mensaje texto dejar solo medias",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "quitar mensaje texto dejar solo medias": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "enviar mensaje con 800.com",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code5": {
+      "main": [
+        [
+          {
+            "node": "enviar mensaje con 800.com",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Code6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code6": {
+      "main": [
+        [
+          {
+            "node": "enviar mensaje con 800.com",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-01T16:50:34.576Z",
+  "id": "VgdNcuykUIeWY2wX",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Enviar mensaje ROPOFY",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/message-send",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1360,
+        -505
+      ],
+      "id": "c74df81f-f58c-4738-a620-f4d160fc5558",
+      "name": "Webhook",
+      "webhookId": "89789077-6603-431e-b1ec-21d6e76f16b0"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "messages_transactions",
+          "mode": "list",
+          "cachedResultName": "messages_transactions"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_message_800": "={{ $json.data.item_id }}",
+            "id_message_ghl": "={{ $('Webhook').first().json.body.messageId }}",
+            "id_location": "={{ $('Webhook').first().json.body.locationId }}",
+            "date": "={{ $json.data.created_at }}"
+          },
+          "matchingColumns": [
+            "id_message_800",
+            "id_message_ghl"
+          ],
+          "schema": [
+            {
+              "id": "id_location",
+              "displayName": "id_location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "id_message_ghl",
+              "displayName": "id_message_ghl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id_message_800",
+              "displayName": "id_message_800",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "date",
+              "displayName": "date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2860,
+        -640
+      ],
+      "id": "53bb0970-23b2-4dca-a40e-0cf50a5a50d5",
+      "name": "guardar transaccion de mensaje",
+      "credentials": {
+        "postgres": {
+          "id": "0cpoMZTJF39eN58b",
+          "name": "800.com db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.800.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('buscar token1').first().json.token_800 }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2420,
+        -440
+      ],
+      "id": "804a63d7-42eb-4e31-83d2-02dbbc2e505d",
+      "name": "enviar mensaje con 800.com",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fa2f3c21-6db6-4216-bb5c-da1d9574b82f",
+              "leftValue": "={{ $json.data.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2640,
+        -540
+      ],
+      "id": "5c2807b1-18ff-4e88-b176-f3f99d13f857",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return {\n  \"error\": \"el mensaje no se pudo procesar, intentelo de nuevo mas tarde\"\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2860,
+        -440
+      ],
+      "id": "51ee81b8-1f93-402e-833c-5cba0901af55",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/conversations/messages/{{ $('Webhook').first().json.body.messageId }}/status",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "=application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('buscar token1').first().json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"status\": \"delivered\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3080,
+        -640
+      ],
+      "id": "2bb45e44-b7df-4fc5-a00a-7540097d7f95",
+      "name": "actualizar estado",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "https://services.leadconnectorhq.com/conversations/messages/{messageId}/status",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer 6888dc2220c704f6089d2359"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"status\": \"failed\",\n  \"error\": {\n    \"code\": \"1\",\n    \"type\": \"saas\",\n    \"message\": \"There was an error from the provider\"\n  },\n  \"emailMessageId\": \"ve9EPM428h8vShlRW1KT\",\n  \"recipients\": [\n    \"string\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3080,
+        -440
+      ],
+      "id": "74b46fd7-e056-4197-b8d0-c6df7bd4fab1",
+      "name": "actualizar estado fallido"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return {\n  \"error\": \"el mensaje no se pudo procesar, intentelo de nuevo mas tarde\",\n  \"reason\": $json.error.message\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2640,
+        -240
+      ],
+      "id": "ccec5d9a-758d-4b70-818f-6ff086c2e0c6",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/conversations/messages/{{ $('Webhook').item.json.body.messageId }}/status",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('buscar token1').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"status\": \"failed\",\n  \"error\": {\n    \"code\": \"1\",\n    \"type\": \"saas\",\n    \"message\": \"{{ $json.error }}\"\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3080,
+        -240
+      ],
+      "id": "ef61d07f-a69e-4d9c-994a-5e333a92f964",
+      "name": "actualizar estado fallido1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "messages_transactions",
+          "mode": "list",
+          "cachedResultName": "messages_transactions"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id_message_ghl",
+              "value": "={{ $('Webhook').item.json.body.messageId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -480,
+        -505
+      ],
+      "id": "330bec39-9778-412a-95ef-055264705439",
+      "name": "Select rows from a table1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "0cpoMZTJF39eN58b",
+          "name": "800.com db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "964375b2-86b0-4dce-b563-981c7b378555",
+              "leftValue": "={{ $('Select rows from a table1').item.json.id_message_800 }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -260,
+        -505
+      ],
+      "id": "760a1b24-8ccf-4148-8212-7c1c89d0dc91",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  \"message\": \"ignorado porque ya se envió dicho mensaje\"\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        -255
+      ],
+      "id": "b411330c-e353-46a5-8d4e-2e6393941d08",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "contactId",
+              "value": " yuk2qLB7feuyyS7iLNcV"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -1140,
+        -505
+      ],
+      "id": "be2e4ca3-3bb0-4dd0-8043-7a301233a6b5",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -920,
+        -505
+      ],
+      "id": "db35468d-1b9e-49fd-ae7c-d2bfbdafff93",
+      "name": "Wait",
+      "webhookId": "071dba47-f932-4e92-b202-bef82538a303"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/conversations/messages/{{ $('Webhook').item.json.body.messageId }}/status",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('buscar token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"status\": \"delivered\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        180,
+        -255
+      ],
+      "id": "664fabba-e8c1-47f8-a4b1-3af3889a5e7a",
+      "name": "actualizar estado1",
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000
+    },
+    {
+      "parameters": {
+        "jsCode": "let mensaje = $input.first().json.reason;\n\n// Eliminamos caracteres no deseados como comillas, llaves, barras invertidas\nlet limpio = mensaje\n  .replace(/^[0-9]+\\s*-\\s*/, '')   // Quita el código de error inicial como \"422 - \"\n  .replace(/[\"\\\\{}[\\]]/g, '')      // Quita comillas, llaves, corchetes y backslashes\n  .replace(/\\s+/g, ' ')            // Reemplaza múltiples espacios por uno solo\n  .trim();\n\nreturn {\n  error: limpio\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2860,
+        -240
+      ],
+      "id": "14da44b9-b745-46a1-a292-eb4dc00fbed3",
+      "name": "Code4"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "locations",
+          "mode": "list",
+          "cachedResultName": "locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id_location",
+              "value": "={{ $('Webhook').item.json.body.locationId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -40,
+        -255
+      ],
+      "id": "09728f08-1ab1-47ba-a78e-90d6e3483444",
+      "name": "buscar token",
+      "credentials": {
+        "postgres": {
+          "id": "0cpoMZTJF39eN58b",
+          "name": "800.com db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "locations",
+          "mode": "list",
+          "cachedResultName": "locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id_location",
+              "value": "={{ $('Webhook').item.json.body.locationId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -700,
+        -505
+      ],
+      "id": "81eaa0ce-c9a1-4cea-a905-1f5946fa69cc",
+      "name": "buscar token1",
+      "credentials": {
+        "postgres": {
+          "id": "0cpoMZTJF39eN58b",
+          "name": "800.com db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let mensajesEnviar = [\n  {\n    \"sender\": $('buscar token1').first().json.number,\n    \"recipient\": $('Webhook').first().json.body.phone,\n    \"message\": $('Webhook').first().json.body.message\n  }\n];\n\nconst medias = $('Webhook').first().json.body.attachments;\n\nif (medias.length > 1) {\n  for (const mediaURL of medias) {\n    mensajesEnviar.push({\n      \"sender\": $('buscar token1').first().json.number,\n      \"recipient\": $('Webhook').first().json.body.phone,\n      \"message\": \"📷\",\n      \"url\": mediaURL\n    });\n  }\n} else if (medias.length > 0) {\n  // agregar el único media en su url\n  mensajesEnviar[0].url = medias[0];\n}\n\nreturn mensajesEnviar.map(m => ({ json: m }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -40,
+        -605
+      ],
+      "id": "926439f5-7fce-4b4d-a59f-9de6ec8d78aa",
+      "name": "logica de medias"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "282d83d3-2291-4cbc-933c-9ffbbe641e5b",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        180,
+        -605
+      ],
+      "id": "25e53ccb-4a37-4bf9-be4b-7d7910263760",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        500,
+        -760
+      ],
+      "id": "96f045f4-d8f0-45d8-b0e0-9be706f878e4",
+      "name": "consultar imagenes"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "let item = $binary.data.fileSize;\n// Asegurar que es string y quitar espacios extra\nlet sizeStr = String(item).trim();\n\n// Expresión regular para separar número y unidad\nconst match = sizeStr.match(/^([\\d.,]+)\\s*([a-zA-Z]+)$/);\nif (!match) {\n    throw new Error(`Formato de tamaño no válido: ${sizeStr}`);\n}\n\nlet value = parseFloat(match[1].replace(',', '.')); // convertir a número\nlet unit = match[2].toLowerCase();\n\nconsole.log(unit);\n\nswitch (unit) {\n    case 'b':\n    case 'byte':\n    case 'bytes':\n        value = value / 1024; // Bytes → KB\n        break;\n    case 'kb':\n    case 'kib':\n        // Ya está en KB\n        break;\n    case 'mb':\n    case 'mib':\n        value = value * 1024; // MB → KB\n        break;\n    case 'gb':\n    case 'gib':\n        value = value * 1024 * 1024; // GB → KB\n        break;\n    default:\n        throw new Error(`Unidad desconocida: ${unit}`);\n}\n\nconsole.log(value);\n\nreturn {\n   \"size\": value\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        -760
+      ],
+      "id": "bf674183-9ccf-4a01-b08d-932bfd083d91",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtener todos los items de entrada\nlet resultados = $input.all();\n\n// Obtener todos los mensajes de otro nodo\nlet mensajes = $('logica de medias').all();\n\n// Bandera para saber si se pasó el límite\nlet sePaso = false;\n\n// Revisar todos los tamaños\nfor (const resultado of resultados) {\n  if (resultado.json.size > 600) {\n    sePaso = true;\n    break; // no necesitamos seguir revisando\n  }\n}\n\n// Devolver un solo item con la colección de mensajes\nreturn [\n  {\n    json: {\n      sePaso,\n      mensajes\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        940,
+        -760
+      ],
+      "id": "f1be1ce9-7f8a-4849-8934-8711888add8c",
+      "name": "se pasa el limite?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "24c90476-bf2b-4871-88d7-f59e921739d3",
+              "leftValue": "={{ $json.sePaso }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1160,
+        -760
+      ],
+      "id": "2562ff9e-98d2-4ad4-acdf-8a5263ca439e",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://services.leadconnectorhq.com/conversations/messages/{{ $('Webhook').first().json.body.messageId }}/status",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('buscar token1').first().json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"status\": \"failed\",\n  \"error\": {\n    \"code\": \"1\",\n    \"type\": \"saas\",\n    \"message\": \"Hay archivos que superan el limite de 600kb de tamaño, por favor intentalo de nuevo con archivos más livianos.\"\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1380,
+        -860
+      ],
+      "id": "f0049c39-43cc-4022-8ba8-eda30fffebfe",
+      "name": "actualizar estado fallido2"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.mensajes"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1380,
+        -660
+      ],
+      "id": "1cc0d229-463b-4a1c-80b9-5c8901ccda5b",
+      "name": "format json"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a216abd5-f00a-4fb0-8e35-4552f5047440",
+              "leftValue": "={{ $json.url}}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        1600,
+        -660
+      ],
+      "id": "3a50485a-85c7-4daf-9bfd-ecc5fdcdae6d",
+      "name": "quitar mensaje texto dejar solo medias"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1575d550-77f1-46b4-bdb0-2b3bacca34ca",
+              "leftValue": "={{ $json.message }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1260,
+        -440
+      ],
+      "id": "7145eb37-8ba6-4953-a2f4-41a1f4b357ab",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "$input.item.json.message = \"📷\";\nreturn $input.item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1480,
+        -340
+      ],
+      "id": "7eca2305-08cf-4196-a19e-d1ff522f92a2",
+      "name": "Code5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "1575d550-77f1-46b4-bdb0-2b3bacca34ca",
+              "leftValue": "={{ $json.message }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1860,
+        -660
+      ],
+      "id": "7c1bd9c9-6cc1-46ee-ad5d-7e778063ef6d",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "$input.item.json.message = \"📷\";\nreturn $input.item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2120,
+        -640
+      ],
+      "id": "46062b00-c937-4288-8ff0-9ef01583df00",
+      "name": "Code6"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/0.21.4",
+            "max-forwards": "10",
+            "x-arr-log-id": "5d924f18-d43f-46be-934e-e8a4a25cf7a4",
+            "client-ip": "34.72.0.55:45080",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "34.72.0.55:45080",
+            "x-original-url": "/webhook/message-send",
+            "x-waws-unencoded-url": "/webhook/message-send",
+            "x-client-ip": "34.72.0.55",
+            "x-client-port": "45080",
+            "content-type": "application/json",
+            "content-length": "397"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "userId": "P8S2naTvOhAr5jxFZCVe",
+            "attachments": [
+              "https://apis.ropofy.com/conversations-assets/location/LsUqOtcJS6xtGj1wAKMn/conversations/V1qWOhENFVSR5idEeshO/1df0f75a-3e3a-4943-9b97-535b35a27c70.png"
+            ],
+            "contactId": "gW6xBL4mPl2daZ9hyIXC",
+            "locationId": "LsUqOtcJS6xtGj1wAKMn",
+            "messageId": "VKQKx0i6Vj94lOrk4h8q",
+            "type": "SMS",
+            "conversationId": "V1qWOhENFVSR5idEeshO",
+            "phone": "+19412291414",
+            "message": ""
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/message-send",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-14T22:26:40.595Z",
+  "versionId": "de480d95-801f-4f46-87c8-38aeefd1510f"
+}
