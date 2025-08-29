@@ -1,0 +1,167 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-29T13:25:23.861Z",
+  "id": "X1DaCeJLraN6cBn8",
+  "isArchived": false,
+  "meta": null,
+  "name": "webhook general",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/general",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -180,
+        0
+      ],
+      "id": "7d9c2610-1edb-40c2-860e-d1c33c2b48c9",
+      "name": "Webhook",
+      "webhookId": "535708a3-4d31-4a8e-a73b-c68e6ce70a64"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.locationId }}",
+                    "rightValue": "3YGgxqve6cABjE0KCjLs",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "67a938c8-0ac1-4eb0-a877-436ac921c195"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "66350b65-97ed-4bbe-a68e-187cce5634ea",
+                    "leftValue": "",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        40,
+        0
+      ],
+      "id": "1cccbf06-e822-4b2b-a4ea-7ae0e3123bc8",
+      "name": "Switch"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/0.21.4",
+            "max-forwards": "10",
+            "x-wh-signature": "A1iciLZlxC3C/tABUXSYfyURZu9H6abh5YLHU5LU8Vlh/YFM9KKztq5utO1gQeVdU1qAzNV7E2JzNOKrGyWvZfHrt68FBnvjBKTfVqFOP/Qe+IL0NOZIu7rV0DtdBKCJLyuoi1OP4T4VgMbYnnp3hGSU03/g7t2MKkcs+RCE4gxbesx8qsPcKi3JJgsVL1Ydu9hYfc6L2PXKmvaRu1VFjlaX8Z8kVXe7Ws7XmfIyoC+gkFqcdYZ7W8XeNXLzvcAfOY6yGt0q7A2icfSMkcMwl0niuBju6eWrPSsuP2gQy7tDcqEjP+1WuenHXTz7yE9m3eDHwQx1ORpzTXt7g9AiptXCLqCrb7ZuNBfBmClSjMLM43Qiqkvi59fo8zqoWHEgZDD02BMnJlD9T+FNkTzSBn0psSIVNf+RBZTL0dDTy9n+zCeMjtxQpIacjzQf2/EVMD29WIxrfpOE7z6bg6wOpx7F5ueaNjm+yVogxWScrTEBzRvLSibC6H+LLcm1vcU/IXSbIUPzIHD0fUtDdKGfgWgQLPH0hS4rYMGzeecXAeSGyL/zVkjOjcShkd9j4AZePDJcF8ZA6WInIWw3JnRZaIZyRlBGzAKTlXfb6imyhKZWERYXW9kUVGiy1hGXs4UVSRC2gp8qQKWv/HTu/t4Opc9wT73JPYWZuWy71UEpa1M=",
+            "x-arr-log-id": "1a62e511-c6c1-43ca-b331-4caaf8a3a61f",
+            "client-ip": "34.59.66.226:47116",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 07, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "34.59.66.226:47116",
+            "x-original-url": "/webhook/general",
+            "x-waws-unencoded-url": "/webhook/general",
+            "x-client-ip": "34.59.66.226",
+            "x-client-port": "47116",
+            "content-type": "application/json",
+            "content-length": "731"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "OutboundMessage",
+            "locationId": "NQS1rz0YlFTvbXDBx74N",
+            "versionId": "660b20c7109c564efeff2e75",
+            "appId": "660b20c7109c564efeff2e75",
+            "attachments": [],
+            "body": "¡Perfecto ALEXANDER! Vamos a continuar con el proceso para que puedas adquirir tu VICTORY BET ABS a contado. Un asesor te contactará para agendar y brindarte toda la información. 🚀",
+            "contactId": "gYNk7LDuJaTeNXVtNbgI",
+            "contentType": "text/plain",
+            "conversationId": "2znztfPW2AfHX7EMyV1v",
+            "dateAdded": "2025-07-29T13:36:30.000Z",
+            "direction": "outbound",
+            "messageType": "WhatsApp",
+            "userId": "g7iOt4Y73MDPPdUVzg6O",
+            "messageId": "zGeEDqOYtylbX5G80Utp",
+            "status": "delivered",
+            "source": "app",
+            "timestamp": "2025-07-29T13:36:34.151Z",
+            "webhookId": "27c17d44-ba1b-4af4-b565-445a06410ec6"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/general",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-07-29T13:37:42.863Z",
+  "versionId": "1049702b-7ab6-4925-95d0-7d41c7dec45a"
+}
