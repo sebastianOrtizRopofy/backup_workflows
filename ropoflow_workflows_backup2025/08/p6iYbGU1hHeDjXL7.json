@@ -1,0 +1,531 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Create or update a contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Create or update a contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-19T15:48:40.696Z",
+  "id": "p6iYbGU1hHeDjXL7",
+  "isArchived": false,
+  "meta": null,
+  "name": "Procesar lote de contactos",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        -100
+      ],
+      "id": "d5b2febe-1dd6-416b-af39-8e429dbf1db3",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "email": "={{ $json.emails[0].email ?? \"\" }}",
+        "phone": "={{ $json.phones[0].phone ?? \"\"}}",
+        "additionalFields": {
+          "address1": "={{ $json.addresses[0].street }}",
+          "city": "={{ $json.addresses[0].city }}",
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "jKfVv4fIaaa6nyxqDppf",
+                  "mode": "list",
+                  "cachedResultName": "primer idioma"
+                },
+                "fieldValue": "={{ $json.custom_fields['Primer Idioma'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "MgsUyPwhsL3pqGyxvAVU",
+                  "mode": "list",
+                  "cachedResultName": "rut o pasaporte"
+                },
+                "fieldValue": "={{ $json.custom_fields['Rut-O-Pasaporte'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "5coPnpE0PTUbaFLEuR7H",
+                  "mode": "list",
+                  "cachedResultName": "visitor key 2"
+                },
+                "fieldValue": "={{ $json.custom_fields['Visitor-Key2'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "zmee3Z9hIaXc9d5fjVFk",
+                  "mode": "list",
+                  "cachedResultName": "link lineup"
+                },
+                "fieldValue": "={{ $json.custom_fields['Link lineup'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "VgO5vKnozUuulsSBxxIn",
+                  "mode": "list",
+                  "cachedResultName": "terminaste tu pregrado"
+                },
+                "fieldValue": "={{ $json.custom_fields['Terminaste-Tu-Pregrado'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ioqAbbGnsgPhDN27dO7T",
+                  "mode": "list",
+                  "cachedResultName": "visas actuales"
+                },
+                "fieldValue": "={{ $json.custom_fields['Actual - Tipo de visa vigente'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "gCclmqLa5qlfP0QyrEvL",
+                  "mode": "list",
+                  "cachedResultName": "expo exterior"
+                },
+                "fieldValue": "={{ $json.custom_fields['Expo Exterior'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "rQj8iNMnYDQdX8jLJBQI",
+                  "mode": "list",
+                  "cachedResultName": "programa de inters"
+                },
+                "fieldValue": "={{ $json.custom_fields['Programa de interés'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "0XOztDP58IDs7W7MbPzr",
+                  "mode": "list",
+                  "cachedResultName": "proyeccion de fecha"
+                },
+                "fieldValue": "={{ $json.custom_fields['Proyección de fecha'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Xx6X57j0ADQygSzTbQKr",
+                  "mode": "list",
+                  "cachedResultName": "como costeara el programa"
+                },
+                "fieldValue": "={{ $json.custom_fields['Cómo costeará el programa'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "4HUon1nSdcSXJTbCuH0B",
+                  "mode": "list",
+                  "cachedResultName": "cual es tu principal objetivo con este proyecto"
+                },
+                "fieldValue": "={{ $json.custom_fields.Objetivo }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "B8TlpUYaINvDyUifulte",
+                  "mode": "list",
+                  "cachedResultName": "nivel de ingles o idioma del destino"
+                },
+                "fieldValue": "={{ $json.custom_fields['Nivel de Inglés Actual'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "YAZTDcooYKsT7kYTIuGL",
+                  "mode": "list",
+                  "cachedResultName": "ocupacinempleo"
+                },
+                "fieldValue": "={{ $json.custom_fields['Ocupación'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "QNy8mj1P6WoGJu33hO4G",
+                  "mode": "list",
+                  "cachedResultName": "nivel de estudios alcanzado"
+                },
+                "fieldValue": "={{ $json.custom_fields['Nivel Educativo Mas alto:'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Snx3yZXy6QixIuKhjcmq",
+                  "mode": "list",
+                  "cachedResultName": "nacionalidad"
+                },
+                "fieldValue": "={{ $json.custom_fields['País Nacionalidad'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Tdi9kUPI5GgrGThkBDuV",
+                  "mode": "list",
+                  "cachedResultName": "nombre contacto de emergencia"
+                },
+                "fieldValue": "={{ $json.custom_fields['Datos de Emergencia Nombres y Apellidos - Parentesco'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "CQnTW4CnMcGRTosrySU4",
+                  "mode": "list",
+                  "cachedResultName": "correo de emergencia"
+                },
+                "fieldValue": "={{ $json.custom_fields['Datos de emergencia Email'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "SxOHSi8K1VJj7avx3hIh",
+                  "mode": "list",
+                  "cachedResultName": "sector laboral"
+                },
+                "fieldValue": "={{ $json.custom_fields['Sector Laboral o de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "s99CwPCXN7dJy7hLu2IL",
+                  "mode": "list",
+                  "cachedResultName": "en qu destino te interesa realizar este proyecto"
+                },
+                "fieldValue": "={{ $json.custom_fields['Destino de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "USbuVbkgXAPOd8u1sUmu",
+                  "mode": "list",
+                  "cachedResultName": "EB3 - fondos"
+                },
+                "fieldValue": "={{ $json.custom_fields['EB3 - Fondos'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "IVFSDQXTtwWJZOfqg33y",
+                  "mode": "list",
+                  "cachedResultName": "por que no has migrado"
+                },
+                "fieldValue": "={{ $json.custom_fields['EB3 - Por que no has migrado'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ircHQaSG0bw9UKayJpjT",
+                  "mode": "list",
+                  "cachedResultName": "has buscado planes similares"
+                },
+                "fieldValue": "={{ $json.custom_fields['EB3 - Has buscado planes similares'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "xdGHTZ2xciiYr0D1mLJd",
+                  "mode": "list",
+                  "cachedResultName": "EB3 - motivacion para migrar"
+                },
+                "fieldValue": "={{ $json.custom_fields['EB3 motivación para migrar'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "s3h95USU9sVQnqsbSNPs",
+                  "mode": "list",
+                  "cachedResultName": "viajes realizados"
+                },
+                "fieldValue": "={{ $json.custom_fields['EB3 - Historial de Viajes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "AWe0YUb60wE4YByZ7eMf",
+                  "mode": "list",
+                  "cachedResultName": "Angel asigna (solo admin asigna)"
+                },
+                "fieldValue": "={{ $json.custom_fields['Admin Angel (solo admin asigna)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "u9PgEDs3cIZBvfkokqOu",
+                  "mode": "list",
+                  "cachedResultName": "tipo de convenio"
+                },
+                "fieldValue": "={{ $json.custom_fields.Convenio }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "LAazHF8DmIWr654uhez1",
+                  "mode": "list",
+                  "cachedResultName": "nombre sub agencia"
+                },
+                "fieldValue": "={{ $json.custom_fields['Nombre Subagencia'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ANHtgEA5oqJj7cYcV6tl",
+                  "mode": "list",
+                  "cachedResultName": "campus (solo corporativos)"
+                },
+                "fieldValue": "={{ $json.custom_fields['Campus (solo corporativos)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "bNC8bMumoBQeJ4GD9qw0",
+                  "mode": "list",
+                  "cachedResultName": "embajador blue"
+                },
+                "fieldValue": "={{ $json.custom_fields.EmbajadorBlue }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Dvyi1RGe9x9n7mVxLiaV",
+                  "mode": "list",
+                  "cachedResultName": "oficina blue studies"
+                },
+                "fieldValue": "={{ $json.custom_fields['Oficina Blue Studies'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "yLvaAJ3ml8XDbYZFlHGa",
+                  "mode": "list",
+                  "cachedResultName": "Fecha de vencimiento de visa aprobada"
+                },
+                "fieldValue": "={{ $json.custom_fields['Vencimiento visa actual'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "2aHDglXSWpHwSSjG5ah1",
+                  "mode": "list",
+                  "cachedResultName": "localizacion estudiante"
+                },
+                "fieldValue": "={{ $json.custom_fields['Localización del estudiante'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "x11LtpBAuL6HGo7tJSR5",
+                  "mode": "list",
+                  "cachedResultName": "examen de idiomas y fecha de presentacion"
+                },
+                "fieldValue": "={{ $json.custom_fields['Examen de idiomas, Puntaje ,y fecha de presentación'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "s6UQBlXrzGpAwB4DWYoR",
+                  "mode": "list",
+                  "cachedResultName": "referido de otro estudiante"
+                },
+                "fieldValue": "={{ $json.custom_fields['Referido de otro estudiante? (nombre completo)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "LNdbZynrAAYryM0q52F1",
+                  "mode": "list",
+                  "cachedResultName": "referido blue studies"
+                },
+                "fieldValue": "={{ $json.custom_fields['Referido Blue Studies'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "da5RjwaRMOCXQKefDDGz",
+                  "mode": "list",
+                  "cachedResultName": "estado civil"
+                },
+                "fieldValue": "={{ $json.custom_fields['Estado Civil'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "B8TlpUYaINvDyUifulte",
+                  "mode": "list",
+                  "cachedResultName": "nivel de ingles o idioma del destino"
+                },
+                "fieldValue": "={{ $json.custom_fields['Nivel de ingles'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "e3AfTEY2yP1YsN8GjrNA",
+                  "mode": "list",
+                  "cachedResultName": "genero"
+                },
+                "fieldValue": "={{ $json.custom_fields.Genero }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "N2sJhRPpIOqhhRQypjzw",
+                  "mode": "list",
+                  "cachedResultName": "nucleo familiar"
+                },
+                "fieldValue": "={{ $json.custom_fields['Nucleo Familiar ( Pareja e Hijos)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "vP00JhyWXLRBQ8JzepKa",
+                  "mode": "list",
+                  "cachedResultName": "otra ciudadania"
+                },
+                "fieldValue": "={{ $json.custom_fields['Otra ciudadania:'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "psNB9wiOWMy5mdWBpo6v",
+                  "mode": "list",
+                  "cachedResultName": "telefono contacto de emergencia"
+                },
+                "fieldValue": "={{ $json.custom_fields['Datos de emergencia Numero telefonico'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "PnMHGsYxYNT4tbGYdIVj",
+                  "mode": "list",
+                  "cachedResultName": "institucion agregador"
+                },
+                "fieldValue": "={{ $json.custom_fields['Tipo de Institucion'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "p0h86rdqBaAA0o8jsCoT",
+                  "mode": "list",
+                  "cachedResultName": "tipo de aplicacion"
+                },
+                "fieldValue": "={{ $json.custom_fields['Tipo de aplicación'] }}"
+              }
+            ]
+          },
+          "firstName": "={{ $json.first_name }}",
+          "lastName": "={{ $json.last_name }}",
+          "name": "={{ $json.first_name }}",
+          "postalCode": "={{ $json.addresses[0].postal_code }}",
+          "source": "={{ $json.contact_source.name }}",
+          "state": "={{ $json.addresses[0].state }}",
+          "tags": "={{ $json.tags }}"
+        },
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        900,
+        0
+      ],
+      "id": "41223909-9a1c-4ea3-92ca-626429652541",
+      "name": "Create or update a contact",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "izDRLxyqwgARk4za",
+          "name": "zz Desarrollo - app Migraciones y pruebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/migrate_contacts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -140,
+        160
+      ],
+      "id": "d53184c3-0dc7-4dfd-b106-a16f658070ac",
+      "name": "Webhook",
+      "webhookId": "2e669861-81d0-4c23-880c-87cae09e5bb8"
+    },
+    {
+      "parameters": {
+        "binaryPropertyName": "contactos",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        400,
+        120
+      ],
+      "id": "ecaf25b7-aac0-474b-a087-2fce2355164b",
+      "name": "Extract from File"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-20T22:13:24.308Z",
+  "versionId": "4b35c275-8137-4391-b47f-0cf94718818a"
+}
