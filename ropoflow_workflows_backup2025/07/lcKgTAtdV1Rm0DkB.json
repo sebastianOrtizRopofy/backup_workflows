@@ -1,0 +1,208 @@
+{
+  "active": false,
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-28T12:05:54.397Z",
+  "id": "lcKgTAtdV1Rm0DkB",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sincronizar CustomValues Dismerca",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        0
+      ],
+      "id": "2ca2df2c-73ce-4b30-ae0a-78f22a334395",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.leadconnectorhq.com/locations/{{ $json.location_id }}/customValues",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        0
+      ],
+      "id": "dcb0c1d4-0e1c-40fa-9feb-a0d96d3417d6",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.body.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        180,
+        0
+      ],
+      "id": "23f2b69f-ea38-4bbd-8899-17a5198f047a",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.customValues"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        0
+      ],
+      "id": "a590bcfc-ac9c-4798-9b69-ef4c315afab0",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1060,
+        0
+      ],
+      "id": "fb6e57ec-679f-4245-966e-58699e1ca799",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "GW7bwJbUsTeQSjFL",
+          "name": "Dismerca db account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.\"customValues\" (\n      \"id\", \"name\", \"fieldKey\", \"value\", \"locationId\", \"created_at\", \"updated_at\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, NOW(), NOW()\n    )\n    ON CONFLICT (\"id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"fieldKey\" = EXCLUDED.\"fieldKey\",\n      \"value\" = EXCLUDED.\"value\",\n      \"locationId\" = EXCLUDED.\"locationId\",\n      \"updated_at\" = NOW()\n  `,\n  values: [\n    d.id,\n    d.name,\n    d.fieldKey,\n    d.value,\n    d.locationId\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        840,
+        0
+      ],
+      "id": "09df9338-f041-4cc1-8044-7eeb274069a7",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-28T12:09:36.435Z",
+  "versionId": "7b441cc8-6e73-4ad3-b692-ac82773ea408"
+}
