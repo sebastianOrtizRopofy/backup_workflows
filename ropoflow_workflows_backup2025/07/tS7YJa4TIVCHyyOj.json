@@ -1,0 +1,185 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many opportunities": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-30T19:46:55.277Z",
+  "id": "tS7YJa4TIVCHyyOj",
+  "isArchived": false,
+  "meta": null,
+  "name": "sync opportunities dosR",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        -300
+      ],
+      "id": "2b482733-bbe1-4155-915f-4524bf775940",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        100,
+        -300
+      ],
+      "id": "b3ab4b0e-8660-4d67-8b08-f258c4ff4e55",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "8ZDmVrHO8PHbOVxR",
+          "name": "dos R"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.opportunities (\n      \"external_id\", \"name\", \"monetary_value\", \"pipeline_id\", \"pipeline_stage_id\", \"pipeline_stage_uid\",\n      \"assigned_to\", \"status\", \"source\", \"last_status_change_at\", \"last_stage_change_at\",\n      \"contact_id\", \"location_id\", \"custom_fields\", \"lost_reason_id\", \"followers\", \"relations\", \"contact\",\n      \"sort\", \"attributions\", \"created_at\", \"updated_at\", \"sync_with_webhook\", \"deleted\", \"process\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, $6,\n      $7, $8, $9, $10, $11,\n      $12, $13, $14::jsonb, $15, $16::jsonb, $17::jsonb, $18::jsonb,\n      $19::jsonb, $20::jsonb, $21, $22, $23, $24, $25\n    )\n    ON CONFLICT (\"external_id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"monetary_value\" = EXCLUDED.\"monetary_value\",\n      \"pipeline_id\" = EXCLUDED.\"pipeline_id\",\n      \"pipeline_stage_id\" = EXCLUDED.\"pipeline_stage_id\",\n      \"pipeline_stage_uid\" = EXCLUDED.\"pipeline_stage_uid\",\n      \"assigned_to\" = EXCLUDED.\"assigned_to\",\n      \"status\" = EXCLUDED.\"status\",\n      \"source\" = EXCLUDED.\"source\",\n      \"last_status_change_at\" = EXCLUDED.\"last_status_change_at\",\n      \"last_stage_change_at\" = EXCLUDED.\"last_stage_change_at\",\n      \"contact_id\" = EXCLUDED.\"contact_id\",\n      \"location_id\" = EXCLUDED.\"location_id\",\n      \"custom_fields\" = EXCLUDED.\"custom_fields\",\n      \"lost_reason_id\" = EXCLUDED.\"lost_reason_id\",\n      \"followers\" = EXCLUDED.\"followers\",\n      \"relations\" = EXCLUDED.\"relations\",\n      \"contact\" = EXCLUDED.\"contact\",\n      \"sort\" = EXCLUDED.\"sort\",\n      \"attributions\" = EXCLUDED.\"attributions\",\n      \"created_at\" = EXCLUDED.\"created_at\",\n      \"updated_at\" = EXCLUDED.\"updated_at\",\n      \"sync_with_webhook\" = EXCLUDED.\"sync_with_webhook\",\n      \"deleted\" = EXCLUDED.\"deleted\",\n      \"process\" = EXCLUDED.\"process\"\n  `,\n  values: [\n    d.id,                               // mapped as external_id\n    d.name,\n    d.monetaryValue || 0,\n    d.pipelineId,\n    d.pipelineStageId,\n    d.pipelineStageUId,\n    d.assignedTo,\n    d.status,\n    d.source,\n    d.lastStatusChangeAt,\n    d.lastStageChangeAt,\n    d.contactId,\n    d.locationId,\n    JSON.stringify(d.customFields || []),\n    d.lostReasonId || '',\n    JSON.stringify(d.followers || []),\n    JSON.stringify(d.relations || {}),\n    JSON.stringify(d.contact || {}),\n    JSON.stringify(d.sort || {}),\n    JSON.stringify(d.attributions || {}),\n    d.createdAt,\n    d.updatedAt,\n    d.syncWithWebhook || false,\n    d.deleted || false,\n    false\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        -300
+      ],
+      "id": "b63b5e0a-39d3-4da6-9d1d-ec93b1190654",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "operation": "getAll",
+        "returnAll": true,
+        "delayPagination": 1200,
+        "filters": {
+          "endDate": "={{ $json.body.endDate }}",
+          "startDate": "={{ $json.body.date }}"
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        -300
+      ],
+      "id": "0f024fb8-5913-4705-b373-3ddd8975e5bd",
+      "name": "Get many opportunities",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "5PvTlnhIDJEToIUB",
+          "name": "dosR - app dosR bi"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {
+          "headers": {
+            "accept": "*/*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "es-419,es;q=0.7",
+            "max-forwards": "10",
+            "origin": "https://victorious-mud-0f646a10f.1.azurestaticapps.net",
+            "sec-ch-ua-platform": "\"macOS\"",
+            "sec-ch-ua": "\"Chromium\";v=\"136\", \"Brave\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-gpc": "1",
+            "sec-fetch-site": "cross-site",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-dest": "empty",
+            "x-arr-log-id": "bdcd21ce-c89a-4b0b-a7f4-c76b50242d1c",
+            "client-ip": "190.108.78.145:8276",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 07, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "190.108.78.145:8276",
+            "x-original-url": "/webhook/config/opportunities",
+            "x-waws-unencoded-url": "/webhook/config/opportunities",
+            "x-client-ip": "190.108.78.145",
+            "x-client-port": "8276",
+            "content-type": "application/json",
+            "content-length": "101"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "id_location": "y4xcJQV4laYTBejxivBn",
+            "date": "07-01-2025",
+            "endDate": "07-31-2025",
+            "isSimulated": false
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/opportunities",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-05T13:15:27.840Z",
+  "versionId": "b45387e8-e05f-49d2-8c5e-62a8042282c5"
+}
