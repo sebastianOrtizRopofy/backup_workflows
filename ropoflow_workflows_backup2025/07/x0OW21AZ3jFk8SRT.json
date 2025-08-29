@@ -1,0 +1,22 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-07-14T23:13:24.704Z",
+  "id": "x0OW21AZ3jFk8SRT",
+  "isArchived": true,
+  "meta": null,
+  "name": "My workflow 2",
+  "nodes": [],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-14T23:15:15.430Z",
+  "versionId": "6a497b90-97ec-4b51-863b-9f6f09408061"
+}
