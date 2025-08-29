@@ -1,0 +1,88 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Create a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-29T05:39:05.409Z",
+  "id": "zo6IeXSo9TKqqJfy",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Nueva solicitud",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "bf4d2713-e903-4b41-9f59-9429c735d8cb",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4138924f-6fe4-41a9-884c-30aa4ca88211",
+      "name": "Webhook",
+      "webhookId": "bf4d2713-e903-4b41-9f59-9429c735d8cb"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "25d8ba98-4c4c-802d-8025-d47b7c908521",
+          "mode": "list",
+          "cachedResultName": "Operaciones",
+          "cachedResultUrl": "https://www.notion.so/25d8ba984c4c802d8025d47b7c908521"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Name|title"
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "be2c0987-71f9-408f-8d89-9501a37e1031",
+      "name": "Create a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-29T18:44:36.092Z",
+  "versionId": "3aac65d1-898e-4af9-8d8f-873edf09a5ee"
+}
