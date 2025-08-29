@@ -1,0 +1,231 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert or update rows in a table": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Insert or update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-24T21:32:21.280Z",
+  "id": "4N0ABaVkur1X1CqM",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Cargar leads marketing",
+  "nodes": [
+    {
+      "parameters": {
+        "binaryPropertyName": "file",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        60,
+        60
+      ],
+      "id": "4ffec772-a37a-4681-a114-9eff9e10155b",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/loadMarketingleads",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -160,
+        60
+      ],
+      "id": "e1f6e763-96de-42ab-a417-fd93bfed4964",
+      "name": "Webhook",
+      "webhookId": "61429688-b330-4880-bd98-41e555640a6b"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        280,
+        60
+      ],
+      "id": "6ab42ffa-dab5-4cf4-a178-49d96ce645a5",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "table": {
+          "__rl": true,
+          "value": "leads",
+          "mode": "list",
+          "cachedResultName": "leads"
+        },
+        "dataMode": "defineBelow",
+        "columnToMatchOn": "phone",
+        "valueToMatchOn": "={{ $json.telefono }}",
+        "valuesToSend": {
+          "values": [
+            {
+              "column": "ad_group",
+              "value": "={{ $json.adset_name }}"
+            },
+            {
+              "column": "ad_type",
+              "value": "={{ $json.ad_name }}"
+            },
+            {
+              "column": "id_dealer",
+              "value": "7"
+            },
+            {
+              "column": "source",
+              "value": "={{ $json.platform }}"
+            },
+            {
+              "column": "date_timestamp",
+              "value": "={{ $now.format('yyyy-MM-dd HH:mm:ss') }}"
+            },
+            {
+              "column": "campaign",
+              "value": "={{ $json.campaign_id }}"
+            },
+            {
+              "column": "city",
+              "value": "={{ $json.ciudad }}"
+            },
+            {
+              "column": "name",
+              "value": "={{ $json.nombre }}"
+            },
+            {
+              "column": "product",
+              "value": "={{ $json.brand }}"
+            },
+            {
+              "column": "medium",
+              "value": "={{ $json.medium }}"
+            },
+            {
+              "column": "email",
+              "value": "={{ $json.email }}"
+            },
+            {
+              "column": "marca",
+              "value": "={{ $json.product }}"
+            },
+            {
+              "column": "element",
+              "value": "={{ $json.campaign }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.mySql",
+      "typeVersion": 2.4,
+      "position": [
+        860,
+        60
+      ],
+      "id": "30bb8fee-f537-47db-bd1f-9bfb8ca4c13e",
+      "name": "Insert or update rows in a table",
+      "credentials": {
+        "mySql": {
+          "id": "TGpVHbxoGfY3FHal",
+          "name": "Leads MKT azure"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        500,
+        60
+      ],
+      "id": "faef6a1a-4984-4cea-b92b-7585b9a707e5",
+      "name": "Loop Over Items"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-25T13:54:15.970Z",
+  "versionId": "7931b3fd-6112-467b-afce-6b933d884ed7"
+}
