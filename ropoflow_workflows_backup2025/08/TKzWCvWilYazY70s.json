@@ -1,0 +1,2833 @@
+{
+  "active": false,
+  "connections": {
+    "Obtener contacts primera vez2": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "transformar custom fields1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "transformar custom fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "crear contacto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "return contact clientify": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search contacts con filtros avanzados": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar match": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "return contact clientify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear contacto": {
+      "main": [
+        [
+          {
+            "node": "guardar match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return contact": {
+      "main": [
+        [
+          {
+            "node": "formatear contacto con custom fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get custom fields": {
+      "main": [
+        [
+          {
+            "node": "custom fields formated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "custom fields formated": {
+      "main": [
+        [
+          {
+            "node": "Obtener contacts primera vez2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatear contacto con custom fields": {
+      "main": [
+        [
+          {
+            "node": "actulaizar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "actulaizar contacto": {
+      "main": [
+        [
+          {
+            "node": "guardar match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Search contacts con filtros avanzados",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Insert or update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert or update rows in a table": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "get custom fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener contacts primera vez": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "transformar custom fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "transformar custom fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Convert to File3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Convert to File2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "return contact clientify1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables1": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "crear contacto1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Return contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "return contact clientify1": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search contacts con filtros avanzados1": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar match1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear contacto1": {
+      "main": [
+        [
+          {
+            "node": "guardar match1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Return contact1": {
+      "main": [
+        [
+          {
+            "node": "formatear contacto con custom fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get custom fields1": {
+      "main": [
+        [
+          {
+            "node": "custom fields formated1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "custom fields formated1": {
+      "main": [
+        [
+          {
+            "node": "Obtener contacts primera vez",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatear contacto con custom fields1": {
+      "main": [
+        [
+          {
+            "node": "actulaizar contacto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "actulaizar contacto1": {
+      "main": [
+        [
+          {
+            "node": "guardar match1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Search contacts con filtros avanzados1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Insert or update rows in a table1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert or update rows in a table1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table1": {
+      "main": [
+        [
+          {
+            "node": "get custom fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "variables1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-14T19:38:56.080Z",
+  "id": "TKzWCvWilYazY70s",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Migración de contactos",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "=https://api.clientify.net/v1/contacts?page={{ $('variables').item.json.page_inicio }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 25a30fd463c39611808dd0c8267493734dd0e253"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "pagination": {
+            "pagination": {
+              "paginationMode": "responseContainsNextURL",
+              "nextURL": "={{ $response.body.next }}",
+              "paginationCompleteWhen": "receiveSpecificStatusCodes",
+              "statusCodesWhenComplete": "404",
+              "limitPagesFetched": true,
+              "maxRequests": 2000,
+              "requestInterval": 700
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -4820,
+        640
+      ],
+      "id": "5eef2fbb-27e6-4226-9ec9-eca3c756a3ad",
+      "name": "Obtener contacts primera vez2",
+      "retryOnFail": true,
+      "waitBetweenTries": 4000,
+      "executeOnce": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -3500,
+        360
+      ],
+      "id": "45e35047-522f-4c38-a14a-6d2750ef3e83",
+      "name": "Convert to File1"
+    },
+    {
+      "parameters": {
+        "jsCode": "let contacts = $input.all(); // todos los items que entran\nlet output = [];\n\nfor (const item of contacts) {\n    let contact = item.json;\n\n    // Lista de todos los posibles custom fields\n    let allCustomFields = [\n        \"Primer Idioma\",\n        \"Objetivo\",\n        \"Rut-O-Pasaporte\",\n        \"Visitor-Key2\",\n        \"Link lineup\",\n        \"Terminaste-Tu-Pregrado\",\n        \"Timezone\",\n        \"Actual - Tipo de visa vigente\",\n        \"Pais\",\n        \"Contact-Source\",\n        \"Expo Exterior\",\n        \"Programa de interés\",\n        \"Proyección de fecha\",\n        \"Cómo costeará el programa\",\n        \"Objetivo\",\n        \"Nivel de Inglés Actual\",\n        \"Ocupación\",\n        \"Nivel Educativo Mas alto:\",\n        \"País Nacionalidad\",\n        \"Datos de Emergencia Nombres y Apellidos - Parentesco\",\n        \"Datos de emergencia Email\",\n        \"Sector Laboral o de Interes\",\n        \"Destino de Interes\",\n        \"EB3 - Fondos\",\n        \"EB3 - Por que no has migrado\",\n        \"EB3 - Has buscado planes similares\",\n        \"EB3 motivación para migrar\",\n        \"EB3 - Historial de Viajes\",\n        \"Admin Angel (solo admin asigna)\",\n        \"Convenio\",\n        \"Nombre Subagencia\",\n        \"Campus (solo corporativos)\",\n        \"EmbajadorBlue\",\n        \"Oficina Blue Studies\",\n        \"Vencimiento visa actual\",\n        \"Localización del estudiante\",\n        \"Examen de idiomas, Puntaje ,y fecha de presentación\",\n        \"Referido de otro estudiante? (nombre completo)\",\n        \"Referido Blue Studies\",\n        \"Estado Civil\",\n        \"Nivel de ingles\",\n        \"Genero\",\n        \"Nucleo Familiar ( Pareja e Hijos)\",\n        \"Otra ciudadania:\",\n        \"Datos de emergencia Numero telefonico\",\n        \"Tipo de Institucion\",\n        \"Tipo de aplicación\"\n    ];\n\n    // Inicializar todos los campos en vacío\n    let customFields = {};\n    for (const fieldName of allCustomFields) {\n        customFields[fieldName] = \"\";\n    }\n\n    // Sobrescribir solo los que vienen en contact.custom_fields\n    if (contact.custom_fields) {\n        for (const customField of contact.custom_fields) {\n            if (customField.field && customFields.hasOwnProperty(customField.field)) {\n                customFields[customField.field] = customField.value || \"\";\n            }\n        }\n    }\n\n    // Reemplazar en contact\n    contact.custom_fields = customFields;\n    contact.tags.push('migration_clientify');\n\n    // Agregar al array de salida\n    output.push({ json: contact });\n}\n\nreturn output;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4160,
+        640
+      ],
+      "id": "cdd2f497-baf2-464f-9195-4d883ae8296e",
+      "name": "transformar custom fields1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5a65e9e0-4766-4f41-9c4b-095b8b5c3778",
+              "name": "contacts",
+              "value": "={{ $json.results }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4600,
+        640
+      ],
+      "id": "62e53d55-5006-44f1-aeea-888adb4f70d5",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "let allContacts = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allContacts.push(...page.json.contacts); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allContacts.map(contact => ({ json: contact }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4380,
+        640
+      ],
+      "id": "1855f3c3-f4a6-4917-8025-549c47327db3",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "960a23ec-3904-440f-a115-ca4df7f5a619",
+              "leftValue": "={{ $json.owner }}",
+              "rightValue": "michelle.salamanca@bluestudies.com",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3720,
+        260
+      ],
+      "id": "17421d9b-245a-464f-b50b-96dc71ddbbdd",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -3500,
+        160
+      ],
+      "id": "63ba734e-7321-440d-9e90-602f3e24508c",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -3940,
+        640
+      ],
+      "id": "8662a2fe-2398-41be-8dab-5e074087440e",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "349ceaec-c0f1-45c7-98b6-73701204f3d0",
+              "name": "page_inicio",
+              "value": "1",
+              "type": "string"
+            },
+            {
+              "id": "6578a6bf-2062-4aac-baee-78e2feb9c542",
+              "name": "id_location",
+              "value": "ygtUsqeG906cD9c4piwT",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5700,
+        640
+      ],
+      "id": "ae5d38ba-e0d9-4706-9ee0-0dfd549bb539",
+      "name": "variables"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "18c9acad-185f-41dc-95ea-dec06838467f",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -2840,
+        460
+      ],
+      "id": "f599133a-7b9d-4960-873e-492836a38d11",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3500,
+        560
+      ],
+      "id": "78483745-bd75-4d76-8593-00f6c5d78057",
+      "name": "return contact clientify"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "pageLimit": 1,
+        "filters": {
+          "group": [
+            {
+              "group": "OR",
+              "filters": "=[\n        {\n          \"field\": \"phone\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ $json.phones.first()?.phone || \"\" }}\"\n        },\n        {\n          \"field\": \"email\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ $json.emails.first()?.email || \"\"}}\"\n        }\n]"
+            }
+          ]
+        },
+        "dateFilters": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 400
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -3060,
+        460
+      ],
+      "id": "d47e99c1-6956-46fe-b73f-8aa782b591c8",
+      "name": "Search contacts con filtros avanzados",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_contact_ropofy": "={{ $json.id }}",
+            "id_contact_clientify": "={{ $('return contact clientify').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id_contact_clientify",
+            "id_contact_ropofy"
+          ],
+          "schema": [
+            {
+              "id": "id_contact_clientify",
+              "displayName": "id_contact_clientify",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id_contact_ropofy",
+              "displayName": "id_contact_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1960,
+        640
+      ],
+      "id": "cfba60a8-e2c0-4cb6-9b18-115bc82b2735",
+      "name": "guardar match",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 0.3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -3720,
+        560
+      ],
+      "id": "294bedb3-2861-4220-a5c7-260ba8b82be6",
+      "name": "Wait",
+      "webhookId": "0ead4e61-90b4-4639-a89f-d02e57e00966"
+    },
+    {
+      "parameters": {
+        "email": "={{ $('return contact clientify').first().json.emails.first()?.email || \"\"}}",
+        "phone": "={{ $('return contact clientify').first().json.phones.first()?.phone || \"\"}}",
+        "additionalFields": {
+          "city": "={{ $('return contact clientify').first().json.addresses.first()?.city || \"\"}}",
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "qH1a2iCo2ejIurox5ZRs",
+                  "mode": "list",
+                  "cachedResultName": "Visas actuales"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Actual - Tipo de visa vigente'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "A2vRVvshlwKLZ3TfnnpZ",
+                  "mode": "list",
+                  "cachedResultName": "¿Cómo costearás tu proyecto?"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Cómo costeará el programa'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "6jE6HvFtZDl2yLanGwWg",
+                  "mode": "list",
+                  "cachedResultName": "Nombre contacto de emergencia"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Datos de Emergencia Nombres y Apellidos - Parentesco'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "mk3TO1XuDtr5BbxNcNrM",
+                  "mode": "list",
+                  "cachedResultName": "Correo contacto de emergencia"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Datos de emergencia Email'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "FkOsNF7KlCdoCfiRAFxh",
+                  "mode": "list",
+                  "cachedResultName": "¿En qué destino te interesa realizar este proyecto?"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Destino de Interes'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "gRYoCgKruF1NIraojlen",
+                  "mode": "list",
+                  "cachedResultName": "Location Student"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Localización del estudiante'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "8wNTmb5PUpaS9kPK6Grr",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu nivel de inglés?"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Nivel de Inglés Actual'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "A5lFEo8EOOnVRx6IMDaG",
+                  "mode": "list",
+                  "cachedResultName": "Nivel de estudios alcanzado"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Nivel Educativo Mas alto:'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "l2YVqnLwcgGSgAYbbpvF",
+                  "mode": "list",
+                  "cachedResultName": "Nucleo Familiar (Pareja e Hijos)"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Nucleo Familiar ( Pareja e Hijos)'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "CgmxW6wx4kWF7VkB7in6",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu principal objetivo con este proyecto?"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Objetivo'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "NGTVIiOGeELlIoGHReuN",
+                  "mode": "list",
+                  "cachedResultName": "Ocupación/Empleo"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Ocupación'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "xwYHjNWx6tiONGHL3iil",
+                  "mode": "list",
+                  "cachedResultName": "Primer Idioma"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Primer Idioma'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "j7EhHpu9naufmohY2ong",
+                  "mode": "list",
+                  "cachedResultName": "proyeccion de fecha"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Proyección de fecha'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "bzyjLbxNt8ToKL9VlYTK",
+                  "mode": "list",
+                  "cachedResultName": "referido blue studies"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Referido Blue Studies'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ixpriYf7fKvWUptzMc2H",
+                  "mode": "list",
+                  "cachedResultName": "Referido"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Referido de otro estudiante? (nombre completo)'] || \"\" }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "cDce7SffmFjZikrEaCqv",
+                  "mode": "list",
+                  "cachedResultName": "sector laboral"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Sector Laboral o de Interes'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "cKOQyf9V0qaqn35GfW5H",
+                  "mode": "list",
+                  "cachedResultName": "Fecha de vencimiento de visa aprobada"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Vencimiento visa actual'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "hEtnkBXtckVndImjF89y",
+                  "mode": "list",
+                  "cachedResultName": "Oficina Blue Studies"
+                },
+                "fieldValue": "={{ $('return contact clientify').first().json.custom_fields['Oficina Blue Studies'] || \"\"}}"
+              }
+            ]
+          },
+          "dnd": false,
+          "firstName": "={{ $('return contact clientify').first().json.first_name || \"\"}}",
+          "lastName": "={{ $('return contact clientify').first().json.last_name || \"\"}}",
+          "name": "={{ $('return contact clientify').first().json.first_name || \"\"}}",
+          "source": "={{ $('return contact clientify').first().json.contact_source?.name || \"\" }}",
+          "tags": "={{ $('return contact clientify').first().json.tags.append(\"migration_clientify\") }}"
+        },
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 900
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -2180,
+        360
+      ],
+      "id": "69f6d729-241a-4939-90bb-cb5b3f37112e",
+      "name": "crear contacto",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.contacts[0];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2620,
+        560
+      ],
+      "id": "bc03fbda-a2f8-490d-9b90-46a9d73190d1",
+      "name": "Return contact"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/locations/ygtUsqeG906cD9c4piwT/customFields",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -5260,
+        640
+      ],
+      "id": "5561f509-5041-47b4-9af1-80ad0c0bc3ce",
+      "name": "get custom fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.customFields;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5040,
+        640
+      ],
+      "id": "e3677032-6cc0-4621-94ac-2da1b38c32ff",
+      "name": "custom fields formated"
+    },
+    {
+      "parameters": {
+        "jsCode": "let contact = $input.first();\nlet customFieldsGeneral = $(\"custom fields formated\").all(); // tu nodo\n\n// Objeto final\nlet customFieldsEditados = {};\n\n// Recorremos todos los custom fields generales\nfor (const item of customFieldsGeneral) {\n  const { id, name } = item.json; // <- aquí accedemos al json del item\n\n  // Buscar si este campo existe en los customFields del contacto\n  const encontrado = (contact.json.customFields || []).find(cf => cf.id == id);\n\n  if (encontrado) {\n    customFieldsEditados[name] = encontrado.value || null;\n  } else {\n    customFieldsEditados[name] = null;\n  }\n}\n\n// Guardamos en el contacto\ncontact.json.customFieldsEditados = customFieldsEditados;\n\nreturn contact;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2400,
+        560
+      ],
+      "id": "2f226ce6-a271-430a-bcb3-77d8d9fa3b5c",
+      "name": "formatear contacto con custom fields"
+    },
+    {
+      "parameters": {
+        "email": "={{ $('Return contact').item.json.email || $('return contact clientify').item.json.emails[0]?.email}}",
+        "phone": "={{ $('Return contact').item.json.phone || $('return contact clientify').item.json.phones[0].phone}}",
+        "additionalFields": {
+          "city": "={{ $('Return contact').item.json.city || $('return contact clientify').item.json.addresses[0]?.city || \"\"}}",
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "qH1a2iCo2ejIurox5ZRs",
+                  "mode": "list",
+                  "cachedResultName": "Visas actuales"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Visas negadas de otros países'] || $('return contact clientify').item.json.custom_fields['Actual - Tipo de visa vigente'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "A2vRVvshlwKLZ3TfnnpZ",
+                  "mode": "list",
+                  "cachedResultName": "¿Cómo costearás tu proyecto?"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['¿Cómo costearás tu proyecto?'] || $('return contact clientify').item.json.custom_fields['Cómo costeará el programa'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "6jE6HvFtZDl2yLanGwWg",
+                  "mode": "list",
+                  "cachedResultName": "Nombre contacto de emergencia"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Nombre contacto de emergencia'] || $('return contact clientify').item.json.custom_fields['Datos de Emergencia Nombres y Apellidos - Parentesco'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "mk3TO1XuDtr5BbxNcNrM",
+                  "mode": "list",
+                  "cachedResultName": "Correo contacto de emergencia"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Correo contacto de emergencia'] || $('return contact clientify').item.json.custom_fields['Datos de emergencia Email'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "FkOsNF7KlCdoCfiRAFxh",
+                  "mode": "list",
+                  "cachedResultName": "¿En qué destino te interesa realizar este proyecto?"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['¿En qué destino te interesa realizar este proyecto?'] || $('return contact clientify').item.json.custom_fields['Destino de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "gRYoCgKruF1NIraojlen",
+                  "mode": "list",
+                  "cachedResultName": "Location Student"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Location Student'] || $('return contact clientify').item.json.custom_fields['Localización del estudiante'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "8wNTmb5PUpaS9kPK6Grr",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu nivel de inglés?"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['¿Cuál es tu nivel de inglés?'] || $('return contact clientify').item.json.custom_fields['Nivel de Inglés Actual'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "A5lFEo8EOOnVRx6IMDaG",
+                  "mode": "list",
+                  "cachedResultName": "Nivel de estudios alcanzado"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Nivel de estudios alcanzado'] || $('return contact clientify').item.json.custom_fields['Nivel Educativo Mas alto:'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "l2YVqnLwcgGSgAYbbpvF",
+                  "mode": "list",
+                  "cachedResultName": "Nucleo Familiar (Pareja e Hijos)"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Nucleo Familiar (Pareja e Hijos)'] || $('return contact clientify').item.json.custom_fields['Nucleo Familiar ( Pareja e Hijos)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "CgmxW6wx4kWF7VkB7in6",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu principal objetivo con este proyecto?"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['¿Cuál es tu principal objetivo con este proyecto?'] || $('return contact clientify').item.json.custom_fields['Objetivo'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "NGTVIiOGeELlIoGHReuN",
+                  "mode": "list",
+                  "cachedResultName": "Ocupación/Empleo"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Ocupación/Empleo'] || $('return contact clientify').item.json.custom_fields['Ocupación'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "xwYHjNWx6tiONGHL3iil",
+                  "mode": "list",
+                  "cachedResultName": "Primer Idioma"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Primer Idioma'] || $('return contact clientify').item.json.custom_fields['Primer Idioma'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "j7EhHpu9naufmohY2ong",
+                  "mode": "list",
+                  "cachedResultName": "proyeccion de fecha"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['proyeccion de fecha'] || $('return contact clientify').item.json.custom_fields['Proyección de fecha'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "bzyjLbxNt8ToKL9VlYTK",
+                  "mode": "list",
+                  "cachedResultName": "referido blue studies"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['referido blue studies'] || $('return contact clientify').item.json.custom_fields['Referido Blue Studies'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ixpriYf7fKvWUptzMc2H",
+                  "mode": "list",
+                  "cachedResultName": "Referido"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados.Referido || $('return contact clientify').item.json.custom_fields['Referido de otro estudiante? (nombre completo)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "cDce7SffmFjZikrEaCqv",
+                  "mode": "list",
+                  "cachedResultName": "sector laboral"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['sector laboral'] || $('return contact clientify').item.json.custom_fields['Sector Laboral o de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "cKOQyf9V0qaqn35GfW5H",
+                  "mode": "list",
+                  "cachedResultName": "Fecha de vencimiento de visa aprobada"
+                },
+                "fieldValue": "={{\n  (() => {\n    const rawDate = $json.customFieldsEditados['Fecha de vencimiento de visa aprobada'] \n      || $('return contact clientify').item.json.custom_fields['Vencimiento visa actual'];\n\n    if (!rawDate) return null;\n\n    const [day, month, year] = rawDate.split(\"/\");\n    return new Date(`${year}-${month}-${day}T00:00:00Z`).toISOString();\n  })()\n}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "hEtnkBXtckVndImjF89y",
+                  "mode": "list",
+                  "cachedResultName": "Oficina Blue Studies"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Oficina Blue Studies'] || $('return contact clientify').item.json.custom_fields['Oficina Blue Studies'] }}"
+              }
+            ]
+          },
+          "dnd": false,
+          "firstName": "={{ $('return contact clientify').item.json.first_name }}",
+          "lastName": "={{ $('return contact clientify').item.json.last_name }}",
+          "name": "={{ $('return contact clientify').item.json.first_name }}",
+          "source": "={{ $('return contact clientify').item.json.contact_source?.name || \"\" }}",
+          "tags": "={{ $('return contact clientify').item.json.tags.append(\"migration_clientify\") }}"
+        },
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 700
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -2180,
+        560
+      ],
+      "id": "b4e1b65b-742b-429d-9aa2-47164ec44830",
+      "name": "actulaizar contacto",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7977d4fc-2c8e-4a11-9ee0-46477e9a2482",
+              "leftValue": "={{ $json.owner_name }}",
+              "rightValue": "MICHELLE ANDREA SALAMANCA MARTÍNEZ",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3280,
+        560
+      ],
+      "id": "5719a13b-3325-446e-b536-ff43886a8bd1",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "list_contatcs_subaccount",
+          "mode": "list",
+          "cachedResultName": "list_contatcs_subaccount"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "owner": "={{ $json.owner }}",
+            "owner_name": "={{ $json.owner_name }}",
+            "first_name": "={{ $json.first_name }}",
+            "last_name": "={{ $json.last_name }}",
+            "status": "={{ $json.status }}",
+            "title": "={{ $json.title }}",
+            "company": "={{ $json.company }}",
+            "taxpayer_identification_number": "={{ $json.taxpayer_identification_number }}",
+            "medium": "={{ $json.medium }}",
+            "channel": "={{ $json.channel }}",
+            "contact_source": "={{ JSON.stringify($json.contact_source) }}",
+            "emails": "={{ JSON.stringify($json.emails?.first() || {})}}",
+            "phones": "={{ JSON.stringify($json.phones?.first() || {})}}",
+            "addresses": "={{ $json.addresses }}",
+            "pitcture_url": "={{ $json.picture_url }}",
+            "custom_fields": "={{ JSON.stringify($json.custom_fields) }}",
+            "tags": "={{ JSON.stringify($json.tags) }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "owner",
+              "displayName": "owner",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "owner_name",
+              "displayName": "owner_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "first_name",
+              "displayName": "first_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "last_name",
+              "displayName": "last_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "company",
+              "displayName": "company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "taxpayer_identification_number",
+              "displayName": "taxpayer_identification_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "medium",
+              "displayName": "medium",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "contact_source",
+              "displayName": "contact_source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "emails",
+              "displayName": "emails",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "phones",
+              "displayName": "phones",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "addresses",
+              "displayName": "addresses",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "pitcture_url",
+              "displayName": "pitcture_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "custom_fields",
+              "displayName": "custom_fields",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "tags",
+              "displayName": "tags",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -3060,
+        660
+      ],
+      "id": "64f395e8-4eed-46b1-89f9-af5235dbf515",
+      "name": "Insert or update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "ygtUsqeG906cD9c4piwT"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -5480,
+        640
+      ],
+      "id": "98dfb00c-cd54-4b27-903f-4fb34cc97bff",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.clientify.net/v1/contacts?page={{ $('variables1').item.json.page_inicio }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 25a30fd463c39611808dd0c8267493734dd0e253"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "pagination": {
+            "pagination": {
+              "paginationMode": "responseContainsNextURL",
+              "nextURL": "={{ $response.body.next }}",
+              "paginationCompleteWhen": "receiveSpecificStatusCodes",
+              "statusCodesWhenComplete": "404",
+              "limitPagesFetched": true,
+              "maxRequests": 2000,
+              "requestInterval": 700
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -5840,
+        1860
+      ],
+      "id": "90e1150a-fffd-496d-87a4-0d8ca30d6cc5",
+      "name": "Obtener contacts primera vez",
+      "retryOnFail": true,
+      "waitBetweenTries": 4000,
+      "executeOnce": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -4520,
+        1580
+      ],
+      "id": "3f8687b7-f252-4830-b94d-ac9047fb41ed",
+      "name": "Convert to File2"
+    },
+    {
+      "parameters": {
+        "jsCode": "let contacts = $input.all(); // todos los items que entran\nlet output = [];\n\nfor (const item of contacts) {\n    let contact = item.json;\n\n    // Lista de todos los posibles custom fields\n    let allCustomFields = [\n        \"Primer Idioma\",\n        \"Objetivo\",\n        \"Rut-O-Pasaporte\",\n        \"Visitor-Key2\",\n        \"Link lineup\",\n        \"Terminaste-Tu-Pregrado\",\n        \"Timezone\",\n        \"Actual - Tipo de visa vigente\",\n        \"Pais\",\n        \"Contact-Source\",\n        \"Expo Exterior\",\n        \"Programa de interés\",\n        \"Proyección de fecha\",\n        \"Cómo costeará el programa\",\n        \"Objetivo\",\n        \"Nivel de Inglés Actual\",\n        \"Ocupación\",\n        \"Nivel Educativo Mas alto:\",\n        \"País Nacionalidad\",\n        \"Datos de Emergencia Nombres y Apellidos - Parentesco\",\n        \"Datos de emergencia Email\",\n        \"Sector Laboral o de Interes\",\n        \"Destino de Interes\",\n        \"EB3 - Fondos\",\n        \"EB3 - Por que no has migrado\",\n        \"EB3 - Has buscado planes similares\",\n        \"EB3 motivación para migrar\",\n        \"EB3 - Historial de Viajes\",\n        \"Admin Angel (solo admin asigna)\",\n        \"Convenio\",\n        \"Nombre Subagencia\",\n        \"Campus (solo corporativos)\",\n        \"EmbajadorBlue\",\n        \"Oficina Blue Studies\",\n        \"Vencimiento visa actual\",\n        \"Localización del estudiante\",\n        \"Examen de idiomas, Puntaje ,y fecha de presentación\",\n        \"Referido de otro estudiante? (nombre completo)\",\n        \"Referido Blue Studies\",\n        \"Estado Civil\",\n        \"Nivel de ingles\",\n        \"Genero\",\n        \"Nucleo Familiar ( Pareja e Hijos)\",\n        \"Otra ciudadania:\",\n        \"Datos de emergencia Numero telefonico\",\n        \"Tipo de Institucion\",\n        \"Tipo de aplicación\"\n    ];\n\n    // Inicializar todos los campos en vacío\n    let customFields = {};\n    for (const fieldName of allCustomFields) {\n        customFields[fieldName] = \"\";\n    }\n\n    // Sobrescribir solo los que vienen en contact.custom_fields\n    if (contact.custom_fields) {\n        for (const customField of contact.custom_fields) {\n            if (customField.field && customFields.hasOwnProperty(customField.field)) {\n                customFields[customField.field] = customField.value || \"\";\n            }\n        }\n    }\n\n    // Reemplazar en contact\n    contact.custom_fields = customFields;\n    contact.tags.push('migration_clientify');\n\n    // Agregar al array de salida\n    output.push({ json: contact });\n}\n\nreturn output;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5180,
+        1860
+      ],
+      "id": "69a8f152-4344-48ad-a9bf-75fcce25c1f3",
+      "name": "transformar custom fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5a65e9e0-4766-4f41-9c4b-095b8b5c3778",
+              "name": "contacts",
+              "value": "={{ $json.results }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -5620,
+        1860
+      ],
+      "id": "968bfbbf-285e-47e4-8f55-f172b437ba78",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "let allContacts = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allContacts.push(...page.json.contacts); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allContacts.map(contact => ({ json: contact }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -5400,
+        1860
+      ],
+      "id": "41bdc7d0-2063-4c51-9a76-2ab09b3075c8",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "960a23ec-3904-440f-a115-ca4df7f5a619",
+              "leftValue": "={{ $json.owner }}",
+              "rightValue": "michelle.salamanca@bluestudies.com",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -4740,
+        1480
+      ],
+      "id": "9edb5a38-0b86-414b-aa4d-d70cfe1f93af",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -4520,
+        1380
+      ],
+      "id": "ca39255f-b79d-496c-aa86-f1f61e46de51",
+      "name": "Convert to File3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -4960,
+        1860
+      ],
+      "id": "ad4a226f-f387-4515-bcb9-508fc4e7a947",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "349ceaec-c0f1-45c7-98b6-73701204f3d0",
+              "name": "page_inicio",
+              "value": "105",
+              "type": "string"
+            },
+            {
+              "id": "6578a6bf-2062-4aac-baee-78e2feb9c542",
+              "name": "id_location",
+              "value": "ygtUsqeG906cD9c4piwT",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -6720,
+        1860
+      ],
+      "id": "aff8c125-355a-41ae-80dd-f4a343baa70b",
+      "name": "variables1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "18c9acad-185f-41dc-95ea-dec06838467f",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -3860,
+        1680
+      ],
+      "id": "19a25221-431f-4a68-8aa8-76004acfaa11",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4520,
+        1780
+      ],
+      "id": "b03bef5d-9916-4024-b788-2da9c1259648",
+      "name": "return contact clientify1"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "pageLimit": 1,
+        "filters": {
+          "group": [
+            {
+              "group": "OR",
+              "filters": "=[\n        {\n          \"field\": \"phone\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ $json.phones.first()?.phone || \"\" }}\"\n        },\n        {\n          \"field\": \"email\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ $json.emails.first()?.email || \"\"}}\"\n        }\n]"
+            }
+          ]
+        },
+        "dateFilters": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 400
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -4080,
+        1680
+      ],
+      "id": "b6f67ffd-95e1-45fb-941a-71ec291f27ed",
+      "name": "Search contacts con filtros avanzados1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_contact_ropofy": "={{ $json.id }}",
+            "id_contact_clientify": "={{ $('return contact clientify1').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id_contact_clientify",
+            "id_contact_ropofy"
+          ],
+          "schema": [
+            {
+              "id": "id_contact_clientify",
+              "displayName": "id_contact_clientify",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id_contact_ropofy",
+              "displayName": "id_contact_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -2880,
+        1860
+      ],
+      "id": "d30c58fc-5ef8-43d3-80a0-269a8ed2ede7",
+      "name": "guardar match1",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "email": "={{ $('return contact clientify1').first().json.emails.first()?.email || \"\"}}",
+        "phone": "={{ $('return contact clientify1').first().json.phones.first()?.phone || \"\"}}",
+        "additionalFields": {
+          "city": "={{ $('return contact clientify1').first().json.addresses.first()?.city || \"\"}}",
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "qH1a2iCo2ejIurox5ZRs",
+                  "mode": "list",
+                  "cachedResultName": "Visas actuales"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Actual - Tipo de visa vigente'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "A2vRVvshlwKLZ3TfnnpZ",
+                  "mode": "list",
+                  "cachedResultName": "¿Cómo costearás tu proyecto?"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Cómo costeará el programa'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "6jE6HvFtZDl2yLanGwWg",
+                  "mode": "list",
+                  "cachedResultName": "Nombre contacto de emergencia"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Datos de Emergencia Nombres y Apellidos - Parentesco'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "mk3TO1XuDtr5BbxNcNrM",
+                  "mode": "list",
+                  "cachedResultName": "Correo contacto de emergencia"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Datos de emergencia Email'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "FkOsNF7KlCdoCfiRAFxh",
+                  "mode": "list",
+                  "cachedResultName": "¿En qué destino te interesa realizar este proyecto?"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Destino de Interes'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "gRYoCgKruF1NIraojlen",
+                  "mode": "list",
+                  "cachedResultName": "Location Student"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Localización del estudiante'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "8wNTmb5PUpaS9kPK6Grr",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu nivel de inglés?"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Nivel de Inglés Actual'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "A5lFEo8EOOnVRx6IMDaG",
+                  "mode": "list",
+                  "cachedResultName": "Nivel de estudios alcanzado"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Nivel Educativo Mas alto:'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "l2YVqnLwcgGSgAYbbpvF",
+                  "mode": "list",
+                  "cachedResultName": "Nucleo Familiar (Pareja e Hijos)"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Nucleo Familiar ( Pareja e Hijos)'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "CgmxW6wx4kWF7VkB7in6",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu principal objetivo con este proyecto?"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Objetivo'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "NGTVIiOGeELlIoGHReuN",
+                  "mode": "list",
+                  "cachedResultName": "Ocupación/Empleo"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Ocupación'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "xwYHjNWx6tiONGHL3iil",
+                  "mode": "list",
+                  "cachedResultName": "Primer Idioma"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Primer Idioma'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "j7EhHpu9naufmohY2ong",
+                  "mode": "list",
+                  "cachedResultName": "proyeccion de fecha"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Proyección de fecha'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "bzyjLbxNt8ToKL9VlYTK",
+                  "mode": "list",
+                  "cachedResultName": "referido blue studies"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Referido Blue Studies'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ixpriYf7fKvWUptzMc2H",
+                  "mode": "list",
+                  "cachedResultName": "Referido"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Referido de otro estudiante? (nombre completo)'] || \"\" }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "cDce7SffmFjZikrEaCqv",
+                  "mode": "list",
+                  "cachedResultName": "sector laboral"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Sector Laboral o de Interes'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "cKOQyf9V0qaqn35GfW5H",
+                  "mode": "list",
+                  "cachedResultName": "Fecha de vencimiento de visa aprobada"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Vencimiento visa actual'] || \"\"}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "hEtnkBXtckVndImjF89y",
+                  "mode": "list",
+                  "cachedResultName": "Oficina Blue Studies"
+                },
+                "fieldValue": "={{ $('return contact clientify1').first().json.custom_fields['Oficina Blue Studies'] || \"\"}}"
+              }
+            ]
+          },
+          "dnd": false,
+          "firstName": "={{ $('return contact clientify1').first().json.first_name || \"\"}}",
+          "lastName": "={{ $('return contact clientify1').first().json.last_name || \"\"}}",
+          "name": "={{ $('return contact clientify1').first().json.first_name || \"\"}}",
+          "source": "={{ $('return contact clientify1').first().json.contact_source?.name || \"\" }}",
+          "tags": "={{ $('return contact clientify1').first().json.tags.append(\"migration_clientify\") }}"
+        },
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 900
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -3200,
+        1580
+      ],
+      "id": "36c4b408-b24d-4de3-8191-718a39e59333",
+      "name": "crear contacto1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.contacts[0];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3640,
+        1780
+      ],
+      "id": "77594341-9c04-4f09-9016-bc9fc1255899",
+      "name": "Return contact1"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/locations/ygtUsqeG906cD9c4piwT/customFields",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -6280,
+        1860
+      ],
+      "id": "ea3d1617-ede1-4472-90ca-5af483017549",
+      "name": "get custom fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.customFields;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -6060,
+        1860
+      ],
+      "id": "b3b80669-c7a5-44f7-8576-6d6167988415",
+      "name": "custom fields formated1"
+    },
+    {
+      "parameters": {
+        "jsCode": "let contact = $input.first();\nlet customFieldsGeneral = $(\"custom fields formated1\").all(); // tu nodo\n\n// Objeto final\nlet customFieldsEditados = {};\n\n// Recorremos todos los custom fields generales\nfor (const item of customFieldsGeneral) {\n  const { id, name } = item.json; // <- aquí accedemos al json del item\n\n  // Buscar si este campo existe en los customFields del contacto\n  const encontrado = (contact.json.customFields || []).find(cf => cf.id == id);\n\n  if (encontrado) {\n    customFieldsEditados[name] = encontrado.value || null;\n  } else {\n    customFieldsEditados[name] = null;\n  }\n}\n\n// Guardamos en el contacto\ncontact.json.customFieldsEditados = customFieldsEditados;\n\nreturn contact;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3420,
+        1780
+      ],
+      "id": "f261b5b2-fbc0-41f0-bb91-3a5334388809",
+      "name": "formatear contacto con custom fields1"
+    },
+    {
+      "parameters": {
+        "email": "={{ $('Return contact1').item.json.email || $('return contact clientify1').item.json.emails[0]?.email}}",
+        "phone": "={{ $('Return contact1').item.json.phone || $('return contact clientify1').item.json.phones[0].phone}}",
+        "additionalFields": {
+          "city": "={{ $('Return contact1').item.json.city || $('return contact clientify1').item.json.addresses[0]?.city || \"\"}}",
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "qH1a2iCo2ejIurox5ZRs",
+                  "mode": "list",
+                  "cachedResultName": "Visas actuales"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Visas negadas de otros países'] || $('return contact clientify1').item.json.custom_fields['Actual - Tipo de visa vigente'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "A2vRVvshlwKLZ3TfnnpZ",
+                  "mode": "list",
+                  "cachedResultName": "¿Cómo costearás tu proyecto?"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['¿Cómo costearás tu proyecto?'] || $('return contact clientify1').item.json.custom_fields['Cómo costeará el programa'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "6jE6HvFtZDl2yLanGwWg",
+                  "mode": "list",
+                  "cachedResultName": "Nombre contacto de emergencia"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Nombre contacto de emergencia'] || $('return contact clientify1').item.json.custom_fields['Datos de Emergencia Nombres y Apellidos - Parentesco'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "mk3TO1XuDtr5BbxNcNrM",
+                  "mode": "list",
+                  "cachedResultName": "Correo contacto de emergencia"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Correo contacto de emergencia'] || $('return contact clientify1').item.json.custom_fields['Datos de emergencia Email'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "FkOsNF7KlCdoCfiRAFxh",
+                  "mode": "list",
+                  "cachedResultName": "¿En qué destino te interesa realizar este proyecto?"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['¿En qué destino te interesa realizar este proyecto?'] || $('return contact clientify1').item.json.custom_fields['Destino de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "gRYoCgKruF1NIraojlen",
+                  "mode": "list",
+                  "cachedResultName": "Location Student"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Location Student'] || $('return contact clientify1').item.json.custom_fields['Localización del estudiante'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "8wNTmb5PUpaS9kPK6Grr",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu nivel de inglés?"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['¿Cuál es tu nivel de inglés?'] || $('return contact clientify1').item.json.custom_fields['Nivel de Inglés Actual'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "A5lFEo8EOOnVRx6IMDaG",
+                  "mode": "list",
+                  "cachedResultName": "Nivel de estudios alcanzado"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Nivel de estudios alcanzado'] || $('return contact clientify1').item.json.custom_fields['Nivel Educativo Mas alto:'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "l2YVqnLwcgGSgAYbbpvF",
+                  "mode": "list",
+                  "cachedResultName": "Nucleo Familiar (Pareja e Hijos)"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Nucleo Familiar (Pareja e Hijos)'] || $('return contact clientify1').item.json.custom_fields['Nucleo Familiar ( Pareja e Hijos)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "CgmxW6wx4kWF7VkB7in6",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu principal objetivo con este proyecto?"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['¿Cuál es tu principal objetivo con este proyecto?'] || $('return contact clientify1').item.json.custom_fields['Objetivo'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "NGTVIiOGeELlIoGHReuN",
+                  "mode": "list",
+                  "cachedResultName": "Ocupación/Empleo"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Ocupación/Empleo'] || $('return contact clientify1').item.json.custom_fields['Ocupación'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "xwYHjNWx6tiONGHL3iil",
+                  "mode": "list",
+                  "cachedResultName": "Primer Idioma"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Primer Idioma'] || $('return contact clientify1').item.json.custom_fields['Primer Idioma'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "j7EhHpu9naufmohY2ong",
+                  "mode": "list",
+                  "cachedResultName": "proyeccion de fecha"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['proyeccion de fecha'] || $('return contact clientify1').item.json.custom_fields['Proyección de fecha'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "bzyjLbxNt8ToKL9VlYTK",
+                  "mode": "list",
+                  "cachedResultName": "referido blue studies"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['referido blue studies'] || $('return contact clientify1').item.json.custom_fields['Referido Blue Studies'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ixpriYf7fKvWUptzMc2H",
+                  "mode": "list",
+                  "cachedResultName": "Referido"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados.Referido || $('return contact clientify1').item.json.custom_fields['Referido de otro estudiante? (nombre completo)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "cDce7SffmFjZikrEaCqv",
+                  "mode": "list",
+                  "cachedResultName": "sector laboral"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['sector laboral'] || $('return contact clientify1').item.json.custom_fields['Sector Laboral o de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "hEtnkBXtckVndImjF89y",
+                  "mode": "list",
+                  "cachedResultName": "Oficina Blue Studies"
+                },
+                "fieldValue": "={{ $json.customFieldsEditados['Oficina Blue Studies'] || $('return contact clientify1').item.json.custom_fields['Oficina Blue Studies'] }}"
+              }
+            ]
+          },
+          "dnd": false,
+          "firstName": "={{ $('return contact clientify1').item.json.first_name }}",
+          "lastName": "={{ $('return contact clientify1').item.json.last_name }}",
+          "name": "={{ $('return contact clientify1').item.json.first_name }}",
+          "source": "={{ $('return contact clientify1').item.json.contact_source?.name || \"\" }}",
+          "tags": "={{ $('return contact clientify1').item.json.tags.append(\"migration_clientify\") }}"
+        },
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 700
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -3200,
+        1780
+      ],
+      "id": "f1571733-7893-4fa6-8440-8c6de4fed4d9",
+      "name": "actulaizar contacto1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7977d4fc-2c8e-4a11-9ee0-46477e9a2482",
+              "leftValue": "={{ $json.owner_name }}",
+              "rightValue": "MICHELLE ANDREA SALAMANCA MARTÍNEZ",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -4300,
+        1780
+      ],
+      "id": "b8e09af7-750d-4b02-ab51-207af2bf57cc",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "list_contatcs_subaccount",
+          "mode": "list",
+          "cachedResultName": "list_contatcs_subaccount"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "owner": "={{ $json.owner }}",
+            "owner_name": "={{ $json.owner_name }}",
+            "first_name": "={{ $json.first_name }}",
+            "last_name": "={{ $json.last_name }}",
+            "status": "={{ $json.status }}",
+            "title": "={{ $json.title }}",
+            "company": "={{ $json.company }}",
+            "taxpayer_identification_number": "={{ $json.taxpayer_identification_number }}",
+            "medium": "={{ $json.medium }}",
+            "channel": "={{ $json.channel }}",
+            "contact_source": "={{ JSON.stringify($json.contact_source) }}",
+            "emails": "={{ JSON.stringify($json.emails?.first() || {})}}",
+            "phones": "={{ JSON.stringify($json.phones?.first() || {}) }}",
+            "addresses": "={{ $json.addresses }}",
+            "pitcture_url": "={{ $json.picture_url }}",
+            "custom_fields": "={{ JSON.stringify($json.custom_fields) }}",
+            "tags": "={{\n  (() => {\n    const tags = Array.isArray($json.tags) ? $json.tags : [$json.tags];\n    const obj = {};\n    tags.forEach((tag, i) => {\n      if (tag) {\n        obj[`tag${i+1}`] = tag;\n      }\n    });\n    return JSON.stringify(obj);\n  })()\n}}\n"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "owner",
+              "displayName": "owner",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "owner_name",
+              "displayName": "owner_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "first_name",
+              "displayName": "first_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "last_name",
+              "displayName": "last_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "company",
+              "displayName": "company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "taxpayer_identification_number",
+              "displayName": "taxpayer_identification_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "medium",
+              "displayName": "medium",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "channel",
+              "displayName": "channel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "contact_source",
+              "displayName": "contact_source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "emails",
+              "displayName": "emails",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "phones",
+              "displayName": "phones",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "addresses",
+              "displayName": "addresses",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "pitcture_url",
+              "displayName": "pitcture_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "custom_fields",
+              "displayName": "custom_fields",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "tags",
+              "displayName": "tags",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -4080,
+        1880
+      ],
+      "id": "7b4dcc6d-9921-4ba6-b27d-40d69e74cc9d",
+      "name": "Insert or update rows in a table1",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "ygtUsqeG906cD9c4piwT"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -6500,
+        1860
+      ],
+      "id": "e027f075-4e70-4c8a-a233-d38aa05e3669",
+      "name": "Select rows from a table1",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -6960,
+        1840
+      ],
+      "id": "469b6ba9-e28f-4c99-a235-32b3f5c250e6",
+      "name": "When clicking ‘Execute workflow’"
+    }
+  ],
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-26T12:59:11.792Z",
+  "versionId": "6710d230-088d-49c9-acab-f1343c865d2d"
+}
