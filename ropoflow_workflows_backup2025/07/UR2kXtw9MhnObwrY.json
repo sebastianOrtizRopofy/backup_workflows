@@ -1,0 +1,229 @@
+{
+  "active": true,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Update a contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-24T14:28:50.414Z",
+  "id": "UR2kXtw9MhnObwrY",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Cron job empleados",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "07f5a558-2681-4c41-9514-2412c9a8911b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        200
+      ],
+      "id": "bd827baa-896f-4c5d-8eeb-8847bf036e1c",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "returnAll": true,
+        "delayPagination": 1000,
+        "filters": {
+          "query": "empleado"
+        },
+        "options": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        280,
+        80
+      ],
+      "id": "0c5d2e42-7e45-4ac5-ab9c-ad90c548f7fe",
+      "name": "Get many contacts",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "M0fs53uPRLvbyVxb",
+          "name": "Car wash"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "715f54e3-e90d-4487-a64b-db7bfa238c52",
+              "leftValue": "={{ $json.tags }}",
+              "rightValue": "empleado",
+              "operator": {
+                "type": "array",
+                "operation": "contains",
+                "rightType": "any"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        500,
+        80
+      ],
+      "id": "9b6285e7-5e9c-4225-97c6-dbc6b1c9e7f4",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "contactId": "={{ $json.id }}",
+        "updateFields": {
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "p3GL5FmHvTbQZNKVBe23",
+                  "mode": "list",
+                  "cachedResultName": "Ultima fecha confirmacion empleado string"
+                },
+                "fieldValue": "={{ $now.toString() }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "K90g3TX43oarkQFfq6ZP",
+                  "mode": "list",
+                  "cachedResultName": "Ultima fecha confirmacion empleado date"
+                },
+                "fieldValue": "={{ $now.format('yyyy-MM-dd') }}"
+              }
+            ]
+          }
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        720,
+        80
+      ],
+      "id": "4157d28e-f9de-4d9c-9901-5720c9cd080a",
+      "name": "Update a contact",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "M0fs53uPRLvbyVxb",
+          "name": "Car wash"
+        }
+      },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {
+    "Schedule Trigger": [
+      {
+        "json": {
+          "timestamp": "2025-08-21T00:00:25.006-04:00",
+          "Readable date": "August 21st 2025, 12:00:25 am",
+          "Readable time": "12:00:25 am",
+          "Day of week": "Thursday",
+          "Year": "2025",
+          "Month": "August",
+          "Day of month": "21",
+          "Hour": "00",
+          "Minute": "00",
+          "Second": "25",
+          "Timezone": "America/New_York (UTC-04:00)"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-21T04:16:36.639Z",
+  "versionId": "b50391f5-5929-4dd6-baa9-9b62a79febf0"
+}
