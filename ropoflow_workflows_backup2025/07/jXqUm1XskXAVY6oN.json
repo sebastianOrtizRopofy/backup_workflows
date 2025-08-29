@@ -1,0 +1,208 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-24T11:47:56.627Z",
+  "id": "jXqUm1XskXAVY6oN",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sincronización CustomFields Dismerca",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -200,
+        40
+      ],
+      "id": "82d31a1f-d39c-49bc-b81e-e3614d6435e6",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.leadconnectorhq.com/locations/{{ $json.location_id }}/customFields/?model=all",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        200,
+        40
+      ],
+      "id": "f977a037-d99e-4339-8ea9-fea42cda2943",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.body.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        0,
+        40
+      ],
+      "id": "61c7dfc7-af41-4b16-8584-c17fa9166928",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.customFields"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        40
+      ],
+      "id": "0f17d285-de45-4364-a798-39b8d3113c73",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        860,
+        40
+      ],
+      "id": "ce506439-aa18-4dd9-bd55-54707a2548bf",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "GW7bwJbUsTeQSjFL",
+          "name": "Dismerca db account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.\"customFields\" (\n      \"id\", \"name\", \"fieldKey\", \"placeholder\", \"dataType\", \"position\", \"picklistOptions\",\n      \"isAllowedCustomOption\", \"isMultiFileAllowed\", \"maxFileLimit\", \"locationId\",\n      \"model\", \"picklistImageOptions\", \"created_at\", \"updated_at\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, $6, $7::jsonb, $8, $9, $10, $11, $12, $13::jsonb, NOW(), NOW()\n    )\n    ON CONFLICT (\"id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"fieldKey\" = EXCLUDED.\"fieldKey\",\n      \"placeholder\" = EXCLUDED.\"placeholder\",\n      \"dataType\" = EXCLUDED.\"dataType\",\n      \"position\" = EXCLUDED.\"position\",\n      \"picklistOptions\" = EXCLUDED.\"picklistOptions\",\n      \"isAllowedCustomOption\" = EXCLUDED.\"isAllowedCustomOption\",\n      \"isMultiFileAllowed\" = EXCLUDED.\"isMultiFileAllowed\",\n      \"maxFileLimit\" = EXCLUDED.\"maxFileLimit\",\n      \"locationId\" = EXCLUDED.\"locationId\",\n      \"model\" = EXCLUDED.\"model\",\n      \"picklistImageOptions\" = EXCLUDED.\"picklistImageOptions\",\n      \"updated_at\" = NOW()\n  `,\n  values: [\n    d.id,\n    d.name,\n    d.fieldKey,\n    d.placeholder || '',\n    d.dataType,\n    d.position || 0,\n    JSON.stringify(d.picklistOptions || []),  // jsonb\n    d.isAllowedCustomOption || false,\n    d.isMultiFileAllowed || false,\n    d.maxFileLimit || 0,\n    d.locationId,\n    d.model,\n    JSON.stringify(d.picklistImageOptions || {})  // jsonb\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        40
+      ],
+      "id": "822d7d61-a4f0-42cf-b115-b81aca5fbbca",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-24T12:32:46.247Z",
+  "versionId": "3f2e4a0f-65b4-4207-9886-4782aa8fcbbd"
+}
