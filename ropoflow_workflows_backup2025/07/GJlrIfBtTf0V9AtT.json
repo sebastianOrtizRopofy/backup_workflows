@@ -1,0 +1,208 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-24T11:48:34.495Z",
+  "id": "GJlrIfBtTf0V9AtT",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sincronización CustomFields Aburramotos",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        80
+      ],
+      "id": "de21eed3-a72e-4cbb-a79d-f97f5a796e4a",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.leadconnectorhq.com/locations/{{ $json.location_id }}/customFields/?model=all",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        80
+      ],
+      "id": "d2e7414d-01cc-4785-b6e3-50a3855f4b3f",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.body.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        200,
+        80
+      ],
+      "id": "edfca13a-ff5e-4db7-9f6e-73d48a4e66bb",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.customFields"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        620,
+        80
+      ],
+      "id": "35ac76f8-4d60-4f59-985e-53533229269d",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1060,
+        80
+      ],
+      "id": "7b4902fe-d7e9-4152-a547-7c436eda62ad",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "QkxA5gr9jACYgrAc",
+          "name": "Haku db account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.\"customFields\" (\n      \"id\", \"name\", \"fieldKey\", \"placeholder\", \"dataType\", \"position\", \"picklistOptions\",\n      \"isAllowedCustomOption\", \"isMultiFileAllowed\", \"maxFileLimit\", \"locationId\",\n      \"model\", \"picklistImageOptions\", \"created_at\", \"updated_at\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, $6, $7::jsonb, $8, $9, $10, $11, $12, $13::jsonb, NOW(), NOW()\n    )\n    ON CONFLICT (\"id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"fieldKey\" = EXCLUDED.\"fieldKey\",\n      \"placeholder\" = EXCLUDED.\"placeholder\",\n      \"dataType\" = EXCLUDED.\"dataType\",\n      \"position\" = EXCLUDED.\"position\",\n      \"picklistOptions\" = EXCLUDED.\"picklistOptions\",\n      \"isAllowedCustomOption\" = EXCLUDED.\"isAllowedCustomOption\",\n      \"isMultiFileAllowed\" = EXCLUDED.\"isMultiFileAllowed\",\n      \"maxFileLimit\" = EXCLUDED.\"maxFileLimit\",\n      \"locationId\" = EXCLUDED.\"locationId\",\n      \"model\" = EXCLUDED.\"model\",\n      \"picklistImageOptions\" = EXCLUDED.\"picklistImageOptions\",\n      \"updated_at\" = NOW()\n  `,\n  values: [\n    d.id,\n    d.name,\n    d.fieldKey,\n    d.placeholder || '',\n    d.dataType,\n    d.position || 0,\n    JSON.stringify(d.picklistOptions || []),  // jsonb\n    d.isAllowedCustomOption || false,\n    d.isMultiFileAllowed || false,\n    d.maxFileLimit || 0,\n    d.locationId,\n    d.model,\n    JSON.stringify(d.picklistImageOptions || {})  // jsonb\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        840,
+        80
+      ],
+      "id": "21085260-baba-4544-946b-584efd5d1e2d",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-24T12:33:03.333Z",
+  "versionId": "c0c23053-80dd-41f3-adc4-b73aad7167b9"
+}
