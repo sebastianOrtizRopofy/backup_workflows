@@ -1,0 +1,75 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Create a charge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-21T16:56:13.226Z",
+  "id": "gG1KqlSmyHeCj8ER",
+  "isArchived": true,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 4",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "f2cb2326-7d40-456e-9005-8166db14a5a6",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bd204c1f-0dd7-4d77-ac6b-92b5cee4f0fb",
+      "name": "Webhook",
+      "webhookId": "f2cb2326-7d40-456e-9005-8166db14a5a6"
+    },
+    {
+      "parameters": {
+        "resource": "charge",
+        "operation": "create",
+        "customerId": "cus_SbJyk66E5glQs4",
+        "amount": 1,
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.stripe",
+      "typeVersion": 1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "f96c5a7a-58c2-40ef-b613-fd1a95620609",
+      "name": "Create a charge",
+      "credentials": {
+        "stripeApi": {
+          "id": "4oDodak2zj7sZUyE",
+          "name": "Stripe account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-08-01T16:41:10.467Z",
+  "versionId": "41a7b24a-932f-4f52-8d94-3f1edcbe199e"
+}
