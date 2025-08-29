@@ -1,0 +1,309 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "consultar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatear contactos": {
+      "main": [
+        [
+          {
+            "node": "Guardar contacto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consultar contacto": {
+      "main": [
+        [
+          {
+            "node": "formatear contactos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-01T21:19:54.220Z",
+  "id": "DtRMG1R3xcCkTzHK",
+  "isArchived": false,
+  "meta": null,
+  "name": "webhook - contact",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/ropofy/contacts",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -880,
+        -140
+      ],
+      "id": "658e7868-de23-4cee-930f-a9ecf8c52bd3",
+      "name": "Webhook",
+      "webhookId": "54dcf31f-de51-4cdf-93dc-b8bdca18c8d0"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "idContact",
+              "value": "={{ $json.body.id }}"
+            },
+            {
+              "key": "idLocation",
+              "value": "={{ $json.body.locationId }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -660,
+        -140
+      ],
+      "id": "3bbf4ae2-3eab-48ba-8e89-a17c576909ed",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        0,
+        -140
+      ],
+      "id": "c9d0c18c-d9e6-40f0-83ea-f93dce02829f",
+      "name": "Guardar contacto1",
+      "credentials": {
+        "postgres": {
+          "id": "DeGEMvrSz25bAJdD",
+          "name": "Ropofy account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst clean = (val) => (val ?? '').toString().replace(/'/g, \"''\");\n\nconst query = {\n  text: `\n  INSERT INTO public.contacts (\n    \"id\", \"location_id\", \"contact_name\", \"first_name\", \"first_name_raw\", \"last_name\", \"last_name_raw\",\n    \"company_name\", \"email\", \"phone\", \"dnd\", \"type\", \"source\", \"assigned_to\", \"city\",\n    \"state\", \"postal_code\", \"address1\", \"date_added\", \"date_updated\", \"date_of_birth\", \"business_id\",\n    \"tags\", \"followers\", \"country\", \"website\", \"additional_emails\", \"attributions\", \"custom_fields\",\n    \"process\", \"dnd_settings\"\n  ) VALUES (\n    $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22,\n    $23::jsonb, $24::jsonb, $25, $26, $27::jsonb, $28::jsonb, $29::jsonb, $30, $31::jsonb\n  )\n  ON CONFLICT (\"id\") DO UPDATE SET\n    \"location_id\" = EXCLUDED.\"location_id\",\n    \"contact_name\" = EXCLUDED.\"contact_name\",\n    \"first_name\" = EXCLUDED.\"first_name\",\n    \"first_name_raw\" = EXCLUDED.\"first_name_raw\",\n    \"last_name\" = EXCLUDED.\"last_name\",\n    \"last_name_raw\" = EXCLUDED.\"last_name_raw\",\n    \"company_name\" = EXCLUDED.\"company_name\",\n    \"email\" = EXCLUDED.\"email\",\n    \"phone\" = EXCLUDED.\"phone\",\n    \"dnd\" = EXCLUDED.\"dnd\",\n    \"type\" = EXCLUDED.\"type\",\n    \"source\" = EXCLUDED.\"source\",\n    \"assigned_to\" = EXCLUDED.\"assigned_to\",\n    \"city\" = EXCLUDED.\"city\",\n    \"state\" = EXCLUDED.\"state\",\n    \"postal_code\" = EXCLUDED.\"postal_code\",\n    \"address1\" = EXCLUDED.\"address1\",\n    \"date_added\" = EXCLUDED.\"date_added\",\n    \"date_updated\" = EXCLUDED.\"date_updated\",\n    \"date_of_birth\" = EXCLUDED.\"date_of_birth\",\n    \"business_id\" = EXCLUDED.\"business_id\",\n    \"tags\" = EXCLUDED.\"tags\",\n    \"followers\" = EXCLUDED.\"followers\",\n    \"country\" = EXCLUDED.\"country\",\n    \"website\" = EXCLUDED.\"website\",\n    \"additional_emails\" = EXCLUDED.\"additional_emails\",\n    \"attributions\" = EXCLUDED.\"attributions\",\n    \"custom_fields\" = EXCLUDED.\"custom_fields\",\n    \"process\" = EXCLUDED.\"process\",\n    \"dnd_settings\" = EXCLUDED.\"dnd_settings\"\n  `,\n  values: [\n    d.id,\n    d.locationId,\n    d.fullNameLowerCase,\n    d.firstName,\n    d.firstNameLowerCase,\n    d.lastName,\n    d.lastNameLowerCase,\n    d.companyName,\n    d.email,\n    d.phone,\n    d.dnd || false,\n    d.type,\n    d.source,\n    d.assignedTo,\n    d.city,\n    d.state || '',\n    d.postalCode || '',\n    d.address1 || '',\n    d.dateAdded,\n    d.dateUpdated,\n    d.dateOfBirth || '',\n    d.businessId,\n    JSON.stringify(d.tags || []),\n    JSON.stringify(d.followers || []),\n    d.country,\n    d.website || '',\n    JSON.stringify(d.additionalEmails || []),\n    JSON.stringify(d.attributionSource || {}),\n    JSON.stringify(d.customFields || []),\n    'ropoflow',\n    JSON.stringify(d.dndSettings || {})\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -220,
+        -140
+      ],
+      "id": "f8cf760c-f1e9-4088-a894-866f3506e616",
+      "name": "formatear contactos"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.body.id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -440,
+        -140
+      ],
+      "id": "4bafa589-88c4-43c2-9f11-1742bb62254e",
+      "name": "consultar contacto",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "RJGPyuZvF6dlp4q5",
+          "name": "Ropofy - app ropofyBi"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/0.21.4",
+            "max-forwards": "10",
+            "x-wh-signature": "Ytwth9A5TnbDANtpqToWlQjDyNcUddiuC/cRp7Ufz01qutit+Z0frepZHyxuJwlWeFvyxWCFOpr8TPTfKXYiVC6d0mKYvUgKzFAPp63VF2wviMfEWBht85suLPCLbJ8Y7Vxm1aoJfzXCdB0mtNSKHAlbqtLMG6dyjymd1NjhNw5X+aww9QxTOXb5Npx92cFWUuO8M3ezSjFGhBawW+W96H1avAo2T6Fx03n++3C/mO6yOdMaJ75eRPdV4B4PLuW+4dNRYB8bZGR9W8G/GMi7Hs/DCZqP53Qc0C4hpBxVRkuWCfLR7/8meFsqxBAZZ6wC/ILO+54+M0jd5WBUswaiSpv/kIpJykjSnFp3PDLsrA+3wPNk5dDK9y2FjZwI+eycMZ2gIquIZL/a1Mtw/scHZELgJtu3KkqrVk14WIxSXzvUizGbEiyEwX1vmizpfv1o6smfeA0y2mqKHm8Y9VoQ89WKB1haaEuO6hGcth/Sdpu2zqktg1xh0rUFuLxqlXiNw2+/1hn1GxzQYfbw5Dn9ZJQF7BXka5nhFcHdtwf3/HIBg2NyB19/hIyQsaQFdM0Z6epLlk0c9P/EOumKb6Enc37G/ZFPUFi2fKC9RdfN/vyKQLJo7cRFQ4Db+jSjRt/efGDwF/QkxzDiPynHINAcGiIdztqpqZkrhNIy/AlebBU=",
+            "x-arr-log-id": "50f418dc-5593-434e-9b88-93206ea3c480",
+            "client-ip": "34.134.41.181:43458",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "34.134.41.181:43458",
+            "x-original-url": "/webhook/ropofy/contacts",
+            "x-waws-unencoded-url": "/webhook/ropofy/contacts",
+            "x-client-ip": "34.134.41.181",
+            "x-client-port": "43458",
+            "content-type": "application/json",
+            "content-length": "2049"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "ContactTagUpdate",
+            "locationId": "3YGgxqve6cABjE0KCjLs",
+            "versionId": "660b20c7109c564efeff2e75",
+            "appId": "660b20c7109c564efeff2e75",
+            "id": "vADOgXqWGlNN9OvpzmS7",
+            "firstName": "Sandra",
+            "lastName": "Palacio",
+            "email": "sa.mi1983@hotmail.com",
+            "companyName": "Tu Asesor Travel",
+            "phone": "+56940202253",
+            "source": "Facebook",
+            "assignedTo": "0acqfPWqvbvyH5FVSg7m",
+            "city": "Antofagasta",
+            "tags": [
+              "en_atencion",
+              "primera_entrada"
+            ],
+            "country": "CA",
+            "dateAdded": "2025-08-21T03:39:37.952Z",
+            "customFields": [
+              {
+                "id": "mZfdYGTdR7hNb9Df7A59",
+                "value": "Jefe"
+              },
+              {
+                "id": "7MRKFxeNlvrbMob6CHYX",
+                "value": "Aún no"
+              },
+              {
+                "id": "JEjY4oSRmFa2ho7eCgds",
+                "value": [
+                  "Mercadeo: whatsapp marketing, planeador de redes o contenidos"
+                ]
+              },
+              {
+                "id": "Zbk3Di1EZC5gRJO1MLKd",
+                "value": "Entre 3 y 5"
+              },
+              {
+                "id": "qA5rMKrLIlvQOgg1qsfa",
+                "value": "Aún no tengo"
+              },
+              {
+                "id": "UNEVdfkRwnPVdv5uGkIs",
+                "value": "Otro"
+              },
+              {
+                "id": "8IBei7m8LPVmVQ6XOijr",
+                "value": "No tengo fecha estimada"
+              },
+              {
+                "id": "IzrzPJriCv1ugcwxG2lA",
+                "value": "form-fb"
+              },
+              {
+                "id": "oPc4dzG4tYq1TdA9dW9F",
+                "value": "b2w-fb-leads-saas-ropofy-chile-generica-crm-ropofy-form"
+              },
+              {
+                "id": "UfW9yTfNDoU8t7OmxrUr",
+                "value": "fb"
+              },
+              {
+                "id": "5M9IlOpKRgoSUau60YMN",
+                "value": "pi_chi_gerentes_comercial-marketing_digital"
+              },
+              {
+                "id": "U5v6fKi2VNvYQcrKaDad",
+                "value": "chi_video_laura-matias-mas_informacion-atributos"
+              },
+              {
+                "id": "VbdjK5f77k7CvANJVi1K",
+                "value": "cpl"
+              },
+              {
+                "id": "wmqerLOa4Kvfrd8lClYE",
+                "value": 1
+              },
+              {
+                "id": "082e0ypoAw5nMkxPKofu",
+                "value": 125
+              }
+            ],
+            "attributionSource": {
+              "adSource": "facebook",
+              "campaign": "b2w-fb-leads-saas-ropofy-chile-generica-crm-ropofy-form",
+              "campaignId": "120230784636820615",
+              "formId": "736626685995838",
+              "formName": "B2W - Ropofy - Formulario Prospección V-3.1",
+              "keyword": null,
+              "medium": "facebook",
+              "mediumId": "736626685995838",
+              "referrer": "",
+              "sessionSource": "Paid Social",
+              "source": "facebook",
+              "utmContent": "chi_video_laura-matias-mas_informacion-atributos",
+              "utmMedium": "pi_chi_gerentes_comercial-marketing_digital",
+              "utmSource": "facebook",
+              "utmCampaign": "b2w-fb-leads-saas-ropofy-chile-generica-crm-ropofy-form"
+            },
+            "timestamp": "2025-08-21T03:59:41.354Z",
+            "webhookId": "fcf4da00-ccff-4d55-a51e-a4a562b3e1cf"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/ropofy/contacts",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-21T04:17:29.647Z",
+  "versionId": "5ef4cbf9-c2c5-4999-b068-d6ae2023d335"
+}
