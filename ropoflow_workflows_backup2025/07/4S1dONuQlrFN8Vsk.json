@@ -1,0 +1,230 @@
+{
+  "active": true,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Sync contacts",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Sync opportunities",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Sync users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-07-14T19:14:02.117Z",
+  "id": "4S1dONuQlrFN8Vsk",
+  "isArchived": false,
+  "meta": null,
+  "name": "Cron job general powerbi",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -120,
+        380
+      ],
+      "id": "2daaaf15-faa1-474a-b56f-eb750cbbf0ba",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nconst locationsSync = [\n  {\n    \"nombre\" : \"ropofy\",\n    \"location_id\": \"3YGgxqve6cABjE0KCjLs\",\n  },\n  {\n    \"nombre\" : \"dismerca\",\n    \"location_id\": \"NQS1rz0YlFTvbXDBx74N\",\n  },\n  {\n    \"nombre\" : \"dosR\",\n    \"location_id\": \"y4xcJQV4laYTBejxivBn\",\n  }\n];\n\nreturn locationsSync;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        140,
+        380
+      ],
+      "id": "400e6f53-3080-46d1-90c5-28debbfe01d0",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/cronjob/contacts",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 1 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        -220
+      ],
+      "id": "b1709ee9-0cc5-4e03-be2f-f7ee806de4f6",
+      "name": "Sync contacts"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/cronjob/opportunities",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 15 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        -20
+      ],
+      "id": "2053218e-1eeb-417f-b7eb-09d154119e93",
+      "name": "Sync opportunities"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/lostReasons",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 1 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        180
+      ],
+      "id": "a9fd940d-ae74-4689-87e5-e23b96b63bcc",
+      "name": "Sync lostReasons"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/users",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 1 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        380
+      ],
+      "id": "fdf52017-ade3-4f8c-8044-901b22ca03e8",
+      "name": "Sync users"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/pipelines",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 1 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        580
+      ],
+      "id": "3eaee332-150e-496e-8a29-ed6d08385d83",
+      "name": "Sync Pipelines"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/customFields",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 1 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        780
+      ],
+      "id": "119acc9d-6306-4727-8bee-4217ea908f08",
+      "name": "Sync CustomFields"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/customValues",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 1 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        980
+      ],
+      "id": "2175ea66-9e50-4ce0-8102-67bb37894fa8",
+      "name": "Sync CustomValues"
+    }
+  ],
+  "pinData": {
+    "Schedule Trigger": [
+      {
+        "json": {
+          "timestamp": "2025-08-15T00:00:49.006-04:00",
+          "Readable date": "August 15th 2025, 12:00:49 am",
+          "Readable time": "12:00:49 am",
+          "Day of week": "Friday",
+          "Year": "2025",
+          "Month": "August",
+          "Day of month": "15",
+          "Hour": "00",
+          "Minute": "00",
+          "Second": "49",
+          "Timezone": "America/New_York (UTC-04:00)"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-25T13:38:45.878Z",
+  "versionId": "ac6587fb-081d-481d-a1a9-ba62312835f2"
+}
