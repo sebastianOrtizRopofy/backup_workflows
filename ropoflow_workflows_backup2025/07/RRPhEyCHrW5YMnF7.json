@@ -1,0 +1,74 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Search contacts con filtros avanzados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search contacts con filtros avanzados": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-07-16T14:45:37.961Z",
+  "id": "RRPhEyCHrW5YMnF7",
+  "isArchived": true,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 3",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "10572522-6d25-43c8-a140-58ffea0b0356",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "dateFilters": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        300,
+        0
+      ],
+      "id": "f6290278-4f8b-4753-8dc2-ab03d684a2a2",
+      "name": "Search contacts con filtros avanzados",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "gXPklN8f2wS7jUkF",
+          "name": "zzDesarrollo"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-07-16T14:50:58.440Z",
+  "versionId": "5adb506f-0f20-44d3-ab01-e825336cf22d"
+}
