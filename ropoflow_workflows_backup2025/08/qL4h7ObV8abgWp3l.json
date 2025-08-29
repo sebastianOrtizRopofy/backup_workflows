@@ -1,0 +1,276 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear orden": {
+      "main": [
+        []
+      ]
+    },
+    "pedido": {
+      "main": [
+        [
+          {
+            "node": "generar json woocommerce",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "generar json woocommerce": {
+      "main": [
+        [
+          {
+            "node": "crear orden",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "pedido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-08-20T21:50:31.967Z",
+  "id": "qL4h7ObV8abgWp3l",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Integración woocommerce",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "68ce8261-443c-44c1-b8dd-d12bd30f6cf3",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -460,
+        140
+      ],
+      "id": "b06a6cdd-c6d8-4c2b-b3cf-7b1076560f2b",
+      "name": "Webhook",
+      "webhookId": "68ce8261-443c-44c1-b8dd-d12bd30f6cf3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://matemundo.com.ar/wp-json/wc/v3/orders",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "consumer_key",
+              "value": "ck_2cd792733a169668b322011064ef7514abd2f7cc"
+            },
+            {
+              "name": "consumer_secret",
+              "value": "cs_8a6e815ffdc78babd23c461f3b9e0da3cc8f4002"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        140
+      ],
+      "id": "436310ab-b1ec-4d95-8373-9137a87d14c4",
+      "name": "crear orden"
+    },
+    {
+      "parameters": {
+        "jsCode": "let jsonProducts = JSON.parse($('Webhook').first().json.body.customData.pedido ?? \"{}\");\n\nreturn jsonProducts;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        140
+      ],
+      "id": "ade79c80-ce4c-445e-873b-74736791963b",
+      "name": "pedido",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos el JSON de entrada (tu pedido)\nconst data = items[0].json;\n\n// Creamos array de line_items a partir de cada producto\nconst line_items = data.pedido.map(p => {\n  if (p.type === \"variable\") {\n    // Producto variable -> se envía con variation_id\n    return {\n      product_id: p.codigo_producto,\n      variation_id: p.id_variacion,\n      quantity: p.cantidad,\n      price: p.precio_unitario\n    };\n  } else {\n    // Producto simple -> NO se envía variation_id\n    return {\n      product_id: p.codigo_producto,\n      quantity: p.cantidad,\n      price: p.precio_unitario\n    };\n  }\n});\n\n// Construimos la orden con datos quemados de billing/shipping\nconst order = {\n  payment_method: \"bacs\",\n  payment_method_title: \"Transferencia bancaria\",\n  set_paid: false,\n  billing: {\n    first_name: $('Webhook').first().json.body.first_name,\n    last_name: \"\",\n    address_1: $('Webhook').first().json.body['Dirrecion cliente'],\n    city: $('Webhook').first().json.body.city,\n    country: \"AR\",\n    email: $('Webhook').first().json.body.email,\n    phone: $('Webhook').first().json.body.phone\n  },\n  shipping: {\n    first_name: $('Webhook').first().json.body.first_name,\n    last_name: \"\",\n    address_1: $('Webhook').first().json.body['Dirrecion cliente'],\n    city: $('Webhook').first().json.body.city,\n    country: \"AR\"\n  },\n  line_items\n};\n\n// Retornamos en el formato que n8n espera (un único item con el JSON)\nreturn [\n  {\n    json: order\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        140
+      ],
+      "id": "c487716a-b6f4-4c76-8776-9b44a10f8cf4",
+      "name": "generar json woocommerce"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "email",
+              "value": "={{ $json.body.email }}"
+            },
+            {
+              "key": "phone",
+              "value": "={{ $json.body.phone }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -240,
+        140
+      ],
+      "id": "32476497-e933-4d0c-8da4-6cd02ec40927",
+      "name": "Execution Data"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/1.7.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "max-forwards": "10",
+            "x-arr-log-id": "8bc87f2c-93f4-4e3d-a914-08f5e804ce8c",
+            "client-ip": "34.63.80.116:37916",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "34.63.80.116:37916",
+            "x-original-url": "/webhook/68ce8261-443c-44c1-b8dd-d12bd30f6cf3",
+            "x-waws-unencoded-url": "/webhook/68ce8261-443c-44c1-b8dd-d12bd30f6cf3",
+            "x-client-ip": "34.63.80.116",
+            "x-client-port": "37916",
+            "content-type": "application/json",
+            "content-length": "2076"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "N° Cliente ENEXPRO": "",
+            "Transporte": "",
+            "Tipo de cliente": "",
+            "Tipo de Solicitud": "Hacer pedido",
+            "Tipo de envío": "Envió a domicilio",
+            "Resumen pedido": "30 × Vaso Térmico 590ml - TAPA Y SORBETE (Color: Blanco) → $12.630 c/u\n50 × Mate Calabaza - COPA ANIMAL PRINT → $26.000 c/u  ",
+            "Sys single line": "",
+            "Tipo de reclamo": "",
+            "CUIT o DNI": "",
+            "Final pedido": "pedido final",
+            "Link al pedido": "",
+            "Dirección cliente": "",
+            "Ciudad Domilicio": "",
+            "Correo - BOT": "",
+            "Telefono - BOT": "",
+            "Nombre - BOT": "",
+            "contact_id": "dlUwAcC4IAG6p0YO4LFd",
+            "first_name": "Prueba",
+            "last_name": "Ropofy",
+            "full_name": "Prueba Ropofy",
+            "email": "andres@bike2web.com",
+            "phone": "+573135684490",
+            "tags": "test,atendido por bot ai",
+            "city": "Buenos Aires",
+            "country": "AR",
+            "date_created": "2025-06-09T16:24:13.339Z",
+            "full_address": "Buenos Aires ",
+            "contact_type": "lead",
+            "location": {
+              "name": "Mate mundo",
+              "address": "Junin 449 ",
+              "city": "CABA",
+              "state": "Buenos Aires",
+              "country": "AR",
+              "postalCode": "1026",
+              "fullAddress": "Junin 449 , CABA Buenos Aires 1026",
+              "id": "ERJBpPNxe4pOmp7CkwAv"
+            },
+            "workflow": {
+              "id": "6ab19998-43c6-4042-8ae2-a0c5f7d6699d",
+              "name": "Integración woocomerce"
+            },
+            "triggerData": {},
+            "contact": {
+              "attributionSource": {
+                "sessionSource": "CRM UI",
+                "medium": "manual",
+                "mediumId": null
+              },
+              "lastAttributionSource": {
+                "photoUrl": null,
+                "sessionSource": "Social media",
+                "adId": null,
+                "productId": null,
+                "videoUrl": null,
+                "igSid": "2251636475283047",
+                "mediumId": "2251636475283047",
+                "utmContent": null,
+                "medium": "instagram",
+                "postId": null,
+                "flowId": null
+              }
+            },
+            "attributionSource": {},
+            "customData": {
+              "pedido": "{\n  \"pedido\": [\n    {\n      \"producto\": \"Vaso Térmico 590ml - TAPA Y SORBETE\",\n      \"codigo_producto\": 26594,\n      \"variacion\": \"Blanco\",\n      \"id_variacion\": 26605,\n      \"cantidad\": 30,\n      \"precio_unitario\": 12630,\n      \"type\": \"variable\"\n    },\n    {\n      \"producto\": \"Mate Calabaza - COPA ANIMAL PRINT\",\n      \"codigo_producto\": 26236,\n      \"variacion\": null,\n      \"id_variacion\": null,\n      \"cantidad\": 50,\n      \"precio_unitario\": 26000,\n      \"type\": \"simple\"\n    }\n  ]\n}"
+            }
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/68ce8261-443c-44c1-b8dd-d12bd30f6cf3",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-08-27T17:16:02.490Z",
+  "versionId": "fa09f303-dd45-4471-bcc7-c75365607f48"
+}
