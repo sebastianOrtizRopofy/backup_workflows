@@ -51,11 +51,11 @@
           "parameters": [
             {
               "name": "responsable_name",
-              "value": "={{ $json.body.data.properties['Assigned To'].people[0].name }}"
+              "value": "={{ $json.body.data.properties['Assigned To'].people.first()?.name || ' '  }}"
             },
             {
               "name": "responsable_email",
-              "value": "={{ $json.body.data.properties['Assigned To'].people[0].person.email }}"
+              "value": "={{ $json.body.data.properties['Assigned To'].people.first()?.email || ' ' }}"
             },
             {
               "name": "status",
@@ -63,15 +63,15 @@
             },
             {
               "name": "date_start",
-              "value": "={{ $json.body.data.properties.Date.date.start }}"
+              "value": "={{ $json.body.data.properties.Date.date?.start || ' ' }}"
             },
             {
               "name": "date_end",
-              "value": "={{ $json.body.data.properties.Date.date.end }}"
+              "value": "={{ $json.body.data.properties.Date.date?.end || ' ' }}"
             },
             {
               "name": "estimacion",
-              "value": "={{ $json.body.data.properties['Estimación (horas)'].number }}"
+              "value": "={{ $json.body.data.properties['Estimación (horas)']?.number || 0 }}"
             },
             {
               "name": "cliente",
@@ -83,11 +83,11 @@
             },
             {
               "name": "solicitante_name",
-              "value": "={{ $json.body.data.properties.Solicitante.people[0].name }}"
+              "value": "={{ $json.body.data.properties.Solicitante.people.first()?.name || ' ' }}"
             },
             {
               "name": "solicitante_email",
-              "value": "={{ $json.body.data.properties.Solicitante.people[0].person.email }}"
+              "value": "={{ $json.body.data.properties.Solicitante.people.first()?.email || ' ' }}"
             },
             {
               "name": "requerimiento_name",
@@ -103,11 +103,11 @@
             },
             {
               "name": "solicitante_foto",
-              "value": "={{ $json.body.data.properties.Solicitante.people[0].avatar_url }}"
+              "value": "={{ $json.body.data.properties.Solicitante.people.first()?.avatar_url || '' }}"
             },
             {
               "name": "responsable_foto",
-              "value": "={{ $json.body.data.properties['Assigned To'].people[0].avatar_url }}"
+              "value": "={{ $json.body.data.properties['Assigned To'].people.first()?.avatar_url || '' }}"
             }
           ]
         },
@@ -130,12 +130,12 @@
           "headers": {
             "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "user-agent": "NotionAutomation",
-            "baggage": "sentry-environment=production,sentry-release=0.0.4410,sentry-public_key=529a6d1990e5471d874257842c4f4ad8,sentry-trace_id=7995350d2d8e41ff99bdeecb87f5b83f",
+            "baggage": "sentry-environment=production,sentry-release=0.0.4412,sentry-public_key=529a6d1990e5471d874257842c4f4ad8,sentry-trace_id=b544ad27e4794d28955d95eae71c5fa7",
             "max-forwards": "10",
-            "traceparent": "00-57fe7883c39a8423046d0f20398de1fc-b346870e43ed2b57-00",
-            "sentry-trace": "7995350d2d8e41ff99bdeecb87f5b83f-abfae450d5d80898",
-            "x-arr-log-id": "f53054e6-cda7-4f9f-be49-667c6575f034",
-            "client-ip": "34.209.130.158:33943",
+            "traceparent": "00-b6bca0d04a5c28279e1896c5b26af4cc-cac327a941b681f7-00",
+            "sentry-trace": "b544ad27e4794d28955d95eae71c5fa7-a6fa164185ca61aa",
+            "x-arr-log-id": "8b2b2860-8e5f-487f-8859-a19d3416b491",
+            "client-ip": "54.191.35.95:30592",
             "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "x-site-deployment-id": "ropoflow",
             "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
@@ -143,13 +143,13 @@
             "x-appservice-proto": "https",
             "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
             "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "34.209.130.158:33943",
+            "x-forwarded-for": "54.191.35.95:30592",
             "x-original-url": "/webhook/3969e49f-afee-41fd-9a87-2a510e5a2a82",
             "x-waws-unencoded-url": "/webhook/3969e49f-afee-41fd-9a87-2a510e5a2a82",
-            "x-client-ip": "34.209.130.158",
-            "x-client-port": "33943",
+            "x-client-ip": "54.191.35.95",
+            "x-client-port": "30592",
             "content-type": "application/json",
-            "content-length": "2542"
+            "content-length": "2115"
           },
           "params": {},
           "query": {},
@@ -158,21 +158,21 @@
               "type": "automation",
               "automation_id": "25e8ba98-4c4c-803c-b658-004dcfe7b8f3",
               "action_id": "25e8ba98-4c4c-8059-8221-005a2fbe8ffe",
-              "event_id": "7d931a1d-9c9e-4e10-9e3f-d79ea8ee2c3d",
+              "event_id": "9b471098-3788-4ff7-93b5-c2a3ca96376a",
               "attempt": 1
             },
             "data": {
               "object": "page",
-              "id": "25e8ba98-4c4c-80e0-9a20-ebe78b589669",
-              "created_time": "2025-08-29T05:06:00.000Z",
-              "last_edited_time": "2025-08-29T18:29:00.000Z",
+              "id": "25e8ba98-4c4c-8107-90d1-ff83f3b4559d",
+              "created_time": "2025-08-29T20:58:00.000Z",
+              "last_edited_time": "2025-08-29T20:58:00.000Z",
               "created_by": {
                 "object": "user",
-                "id": "6cb448bb-c4cd-4e3b-a45b-82d27fffc790"
+                "id": "bef2122a-6925-400e-bc19-9e3e508bd37f"
               },
               "last_edited_by": {
                 "object": "user",
-                "id": "6cb448bb-c4cd-4e3b-a45b-82d27fffc790"
+                "id": "bef2122a-6925-400e-bc19-9e3e508bd37f"
               },
               "cover": null,
               "icon": null,
@@ -186,46 +186,39 @@
                 "Assigned To": {
                   "id": "AAAh",
                   "type": "people",
-                  "people": [
-                    {
-                      "object": "user",
-                      "id": "88a789e9-d082-4c58-b2da-0346962dd01a",
-                      "name": "Andres Alvarez",
-                      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/f4258674-f325-4403-aa46-376732b8a0cd/Jaime_Foto.jpg",
-                      "type": "person",
-                      "person": {
-                        "email": "andres@bike2web.com"
-                      }
-                    }
-                  ]
+                  "people": []
                 },
                 "Date": {
                   "id": "IwRS",
                   "type": "date",
-                  "date": {
-                    "start": "2025-08-04",
-                    "end": "2025-08-12",
-                    "time_zone": null
-                  }
+                  "date": null
                 },
                 "Status": {
                   "id": "Q%3AiW",
                   "type": "status",
                   "status": {
-                    "id": "k?f_",
-                    "name": "Levantamiento",
-                    "color": "gray"
+                    "id": "c85d85ad-60eb-4c7a-bcf0-cf11328df46e",
+                    "name": "Solicitado",
+                    "color": "default"
                   }
                 },
                 "Estimación (horas)": {
                   "id": "S%7DQ%3D",
                   "type": "number",
-                  "number": 5
+                  "number": null
                 },
                 "Adjuntos": {
                   "id": "iKBL",
                   "type": "files",
-                  "files": []
+                  "files": [
+                    {
+                      "name": "Adjunto",
+                      "type": "external",
+                      "external": {
+                        "url": "https://services.leadconnectorhq.com/documents/download/pypnvE47D3tMHneo9yCR"
+                      }
+                    }
+                  ]
                 },
                 "Cliente": {
                   "id": "nNn_",
@@ -234,7 +227,7 @@
                     {
                       "type": "text",
                       "text": {
-                        "content": "Kombat",
+                        "content": "Test SAS",
                         "link": null
                       },
                       "annotations": {
@@ -245,7 +238,7 @@
                         "code": false,
                         "color": "default"
                       },
-                      "plain_text": "Kombat",
+                      "plain_text": "Test SAS",
                       "href": null
                     }
                   ]
@@ -259,26 +252,15 @@
                   "id": "%7B%5EoP",
                   "type": "select",
                   "select": {
-                    "id": "Ddfm",
-                    "name": "Booster",
-                    "color": "yellow"
+                    "id": "BXk}",
+                    "name": "Kit",
+                    "color": "default"
                   }
                 },
                 "Solicitante": {
                   "id": "%7DWaP",
                   "type": "people",
-                  "people": [
-                    {
-                      "object": "user",
-                      "id": "3a07e005-2921-49db-ab85-65c4c5f10d3b",
-                      "name": "Leonardo Perilla",
-                      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/89714a07-5f07-4ba6-82ef-24d8df98d47c/thumbnail_e03d6866-7336-4859-8e22-9f16f427f43b.jpg",
-                      "type": "person",
-                      "person": {
-                        "email": "leonardo@bike2web.com"
-                      }
-                    }
-                  ]
+                  "people": []
                 },
                 "Name": {
                   "id": "title",
@@ -287,7 +269,7 @@
                     {
                       "type": "text",
                       "text": {
-                        "content": "Requerimiento 1 (1)",
+                        "content": "Modificar sincronizador AUTECO",
                         "link": null
                       },
                       "annotations": {
@@ -298,15 +280,15 @@
                         "code": false,
                         "color": "default"
                       },
-                      "plain_text": "Requerimiento 1 (1)",
+                      "plain_text": "Modificar sincronizador AUTECO",
                       "href": null
                     }
                   ]
                 }
               },
-              "url": "https://www.notion.so/Requerimiento-1-1-25e8ba984c4c80e09a20ebe78b589669",
+              "url": "https://www.notion.so/Modificar-sincronizador-AUTECO-25e8ba984c4c810790d1ff83f3b4559d",
               "public_url": null,
-              "request_id": "cf8f0f2b-71ea-489e-ab71-fadd9e7b8c67"
+              "request_id": "5e4b838f-5d84-48a7-bc72-bdd65320cbd0"
             }
           },
           "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/3969e49f-afee-41fd-9a87-2a510e5a2a82",
@@ -324,6 +306,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-29T18:34:05.058Z",
-  "versionId": "71948c14-1e7f-4196-8242-53bc5502d165"
+  "updatedAt": "2025-08-29T21:19:12.099Z",
+  "versionId": "289f2bd4-75fb-4f41-b715-55c4bb8437ca"
 }
