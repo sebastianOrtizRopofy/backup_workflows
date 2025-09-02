@@ -11,6 +11,28 @@
           }
         ]
       ]
+    },
+    "obtener credenciales": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "enviar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-08-28T21:45:30.034Z",
@@ -48,61 +70,69 @@
       ],
       "id": "74e2526c-c05b-4157-a4b9-c3c1abf38656",
       "name": "obtener credenciales"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "747a7d5e-7085-4785-8095-d695dfff2998",
+              "leftValue": "={{ $json.success.code }}",
+              "rightValue": 200,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "2b809a7d-83e8-4cf2-b29c-60e5286e9a4b",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://blue.ayconcolombia.com/api/index.php/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "DOLAPIKEY",
+              "value": "={{ $json.success.token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"entity\": \"1\",\n  \"lastname\": \"\",\n  \"firstname\": \"{{ $('Webhook').item.json.body.name }}\",\n  \"email\": \"{{ $('Webhook').item.json.body.email }}\",\n  \"phone_mobile\": \"{{ $('Webhook').item.json.body.phone }}\",\n  \"address\": \"Lead from {{ $('Webhook').item.json.body.source }}\",\n  \"note_private\": \"Producto: {{ $('Webhook').item.json.body.product }} \\n Marca: {{ $('Webhook').item.json.body.brand }} \\n Cédula: {{ $('Webhook').item.json.body.cedula }} \\n Cuándo compra: {{ $('Webhook').item.json.body.cuando_compra }} \\n Tipo de pago: {{ $('Webhook').item.json.body.tipo_pago }} \\n Uso: {{ $('Webhook').item.json.body.uso }}\",\n  \"socid\": \"5\",\n  \"array_options\": {\n    \"options_CAMPAIN\": \"{{ $('Webhook').item.json.body.campaign }}\"\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        760,
+        -140
+      ],
+      "id": "49e89f53-d9ae-47ed-94c5-99392f1cc604",
+      "name": "enviar contacto"
     }
   ],
-  "pinData": {
-    "Webhook": [
-      {
-        "json": {
-          "headers": {
-            "accept": "*/*",
-            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-            "max-forwards": "10",
-            "x-arr-log-id": "951881c3-fd23-4dbc-980a-8ac86cdc5c80",
-            "client-ip": "35.206.116.72:23608",
-            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "x-site-deployment-id": "ropoflow",
-            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "x-forwarded-proto": "https",
-            "x-appservice-proto": "https",
-            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
-            "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "35.206.116.72:23608",
-            "x-original-url": "/webhook/dolibar",
-            "x-waws-unencoded-url": "/webhook/dolibar",
-            "x-client-ip": "35.206.116.72",
-            "x-client-port": "23608",
-            "content-type": "application/json",
-            "content-length": "389"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "uso": null,
-            "tipo_pago": null,
-            "cuando_compra": null,
-            "comment": null,
-            "impulsa_campanna": null,
-            "codigo_dane": null,
-            "codigo_sap": null,
-            "id_lead": 657660,
-            "name": "Tu PaLeTa",
-            "phone": "3213493273",
-            "email": "tupaleta@outlook.com",
-            "cedula": null,
-            "product": "D2S, E10X, S50",
-            "brand": "BLUE",
-            "source": "fb",
-            "campaign": "b2w-fb-leads-ve-auteco_blue-camiones_cali-producto-vehiculo-stark-ago-form",
-            "id_dealer": "15"
-          },
-          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/dolibar",
-          "executionMode": "production"
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -112,6 +142,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-28T22:23:52.421Z",
-  "versionId": "8070908d-7535-45e3-91ba-573904b6ea5f"
+  "updatedAt": "2025-08-29T22:10:04.983Z",
+  "versionId": "ac350c5d-c0cb-4600-b467-fa5edf5edb38"
 }
