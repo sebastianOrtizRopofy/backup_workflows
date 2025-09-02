@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
@@ -236,7 +236,7 @@
       "main": [
         [
           {
-            "node": "n8n",
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -520,9 +520,9 @@
           "cachedResultName": "backup_workflows",
           "cachedResultUrl": "https://github.com/sebastianOrtizRopofy/backup_workflows"
         },
-        "filePath": "={{ $('Config').first().item.repo_path }}{{ $json.subPath }}{{$('Execute Workflow Trigger').first().json.id}}.json",
+        "filePath": "={{ $('Create sub path').item.json.n8n_data_stringy.parseJson().repo_path }}{{ $json.subPath }}{{ $('Create sub path').item.json.n8n_data_stringy.parseJson().id }}.json",
         "fileContent": "={{$('isDiffOrNew').item.json[\"n8n_data_stringy\"]}}",
-        "commitMessage": "={{$('Execute Workflow Trigger').first().json.name}} ({{$json.github_status}})"
+        "commitMessage": "={{ $('Create sub path').item.json.n8n_data_stringy.parseJson().name }} ({{$json.github_status}})"
       },
       "id": "6cf4c5a3-352b-47f8-8418-2573ad02df32",
       "name": "Edit existing file",
@@ -635,15 +635,19 @@
         "operation": "get",
         "owner": {
           "__rl": true,
-          "mode": "",
-          "value": "={{ $('Config').first().item.repo_owner }}"
+          "value": "sebastianOrtizRopofy",
+          "mode": "list",
+          "cachedResultName": "sebastianOrtizRopofy",
+          "cachedResultUrl": "https://github.com/sebastianOrtizRopofy"
         },
         "repository": {
           "__rl": true,
-          "mode": "",
-          "value": "={{ $('Config').first().item.repo_name }}"
+          "value": "backup_workflows",
+          "mode": "list",
+          "cachedResultName": "backup_workflows",
+          "cachedResultUrl": "https://github.com/sebastianOrtizRopofy/backup_workflows"
         },
-        "filePath": "={{ $('Config').first().item.repo_path }}{{ $('Execute Workflow Trigger').first().json.createdAt.split('-')[0] }}/{{ $('Execute Workflow Trigger').first().json.createdAt.split('-')[1] }}/{{$json.id}}.json",
+        "filePath": "={{ $json.repo_path }}{{ $json.createdAt.split('-')[0] }}/{{ $json.createdAt.split('-')[1] }}/{{$json.id}}.json",
         "asBinaryProperty": false,
         "additionalParameters": {}
       },
@@ -723,6 +727,7 @@
       "id": "5808f004-72cb-4f91-a7ff-0dc51aa60f3f",
       "name": "Create chat message",
       "webhookId": "97173f2f-ef7d-44e2-9924-e530df7ac6d4",
+      "executeOnce": true,
       "credentials": {
         "microsoftTeamsOAuth2Api": {
           "id": "ZN6rkGlpvuVkKKom",
@@ -767,9 +772,13 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-08-29T19:59:12.337Z",
-  "versionId": "cf7d1c90-e750-4556-914f-9d997e863469"
+  "triggerCount": 1,
+  "updatedAt": "2025-09-01T14:40:55.017Z",
+  "versionId": "e48fec53-b277-4c12-98d1-6bdb9f20c408"
 }
