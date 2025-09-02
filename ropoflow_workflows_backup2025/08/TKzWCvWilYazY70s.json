@@ -304,33 +304,9 @@
         ]
       ]
     },
-    "If3": {
-      "main": [
-        [
-          {
-            "node": "Convert to File3",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Convert to File2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Loop Over Items1": {
       "main": [
-        [
-          {
-            "node": "If3",
-            "type": "main",
-            "index": 0
-          }
-        ],
+        [],
         [
           {
             "node": "return contact clientify1",
@@ -1722,19 +1698,6 @@
     },
     {
       "parameters": {
-        "options": {}
-      },
-      "type": "n8n-nodes-base.convertToFile",
-      "typeVersion": 1.1,
-      "position": [
-        -4520,
-        1580
-      ],
-      "id": "3f8687b7-f252-4830-b94d-ac9047fb41ed",
-      "name": "Convert to File2"
-    },
-    {
-      "parameters": {
         "jsCode": "let contacts = $input.all(); // todos los items que entran\nlet output = [];\n\nfor (const item of contacts) {\n    let contact = item.json;\n\n    // Lista de todos los posibles custom fields\n    let allCustomFields = [\n        \"Primer Idioma\",\n        \"Objetivo\",\n        \"Rut-O-Pasaporte\",\n        \"Visitor-Key2\",\n        \"Link lineup\",\n        \"Terminaste-Tu-Pregrado\",\n        \"Timezone\",\n        \"Actual - Tipo de visa vigente\",\n        \"Pais\",\n        \"Contact-Source\",\n        \"Expo Exterior\",\n        \"Programa de interés\",\n        \"Proyección de fecha\",\n        \"Cómo costeará el programa\",\n        \"Objetivo\",\n        \"Nivel de Inglés Actual\",\n        \"Ocupación\",\n        \"Nivel Educativo Mas alto:\",\n        \"País Nacionalidad\",\n        \"Datos de Emergencia Nombres y Apellidos - Parentesco\",\n        \"Datos de emergencia Email\",\n        \"Sector Laboral o de Interes\",\n        \"Destino de Interes\",\n        \"EB3 - Fondos\",\n        \"EB3 - Por que no has migrado\",\n        \"EB3 - Has buscado planes similares\",\n        \"EB3 motivación para migrar\",\n        \"EB3 - Historial de Viajes\",\n        \"Admin Angel (solo admin asigna)\",\n        \"Convenio\",\n        \"Nombre Subagencia\",\n        \"Campus (solo corporativos)\",\n        \"EmbajadorBlue\",\n        \"Oficina Blue Studies\",\n        \"Vencimiento visa actual\",\n        \"Localización del estudiante\",\n        \"Examen de idiomas, Puntaje ,y fecha de presentación\",\n        \"Referido de otro estudiante? (nombre completo)\",\n        \"Referido Blue Studies\",\n        \"Estado Civil\",\n        \"Nivel de ingles\",\n        \"Genero\",\n        \"Nucleo Familiar ( Pareja e Hijos)\",\n        \"Otra ciudadania:\",\n        \"Datos de emergencia Numero telefonico\",\n        \"Tipo de Institucion\",\n        \"Tipo de aplicación\"\n    ];\n\n    // Inicializar todos los campos en vacío\n    let customFields = {};\n    for (const fieldName of allCustomFields) {\n        customFields[fieldName] = \"\";\n    }\n\n    // Sobrescribir solo los que vienen en contact.custom_fields\n    if (contact.custom_fields) {\n        for (const customField of contact.custom_fields) {\n            if (customField.field && customFields.hasOwnProperty(customField.field)) {\n                customFields[customField.field] = customField.value || \"\";\n            }\n        }\n    }\n\n    // Reemplazar en contact\n    contact.custom_fields = customFields;\n    contact.tags.push('migration_clientify');\n\n    // Agregar al array de salida\n    output.push({ json: contact });\n}\n\nreturn output;\n"
       },
       "type": "n8n-nodes-base.code",
@@ -1784,53 +1747,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "960a23ec-3904-440f-a115-ca4df7f5a619",
-              "leftValue": "={{ $json.owner }}",
-              "rightValue": "michelle.salamanca@bluestudies.com",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        -4740,
-        1480
-      ],
-      "id": "9edb5a38-0b86-414b-aa4d-d70cfe1f93af",
-      "name": "If3"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "n8n-nodes-base.convertToFile",
-      "typeVersion": 1.1,
-      "position": [
-        -4520,
-        1380
-      ],
-      "id": "ca39255f-b79d-496c-aa86-f1f61e46de51",
-      "name": "Convert to File3"
-    },
-    {
-      "parameters": {
         "options": {}
       },
       "type": "n8n-nodes-base.splitInBatches",
@@ -1849,7 +1765,7 @@
             {
               "id": "349ceaec-c0f1-45c7-98b6-73701204f3d0",
               "name": "page_inicio",
-              "value": "105",
+              "value": "2105",
               "type": "string"
             },
             {
@@ -2828,6 +2744,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-26T12:59:11.792Z",
-  "versionId": "6710d230-088d-49c9-acab-f1343c865d2d"
+  "updatedAt": "2025-08-30T02:23:25.110Z",
+  "versionId": "4c1ac84c-7ecd-4382-892b-9fee65e0e65f"
 }
