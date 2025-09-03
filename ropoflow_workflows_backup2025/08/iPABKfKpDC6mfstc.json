@@ -1,13 +1,889 @@
 {
-  "active": false,
-  "connections": {},
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Moldex - Buscar contacto",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "EVG - Buscar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Auteco blue mex - Buscar contacto",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "EVG - Buscar contacto2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Moldex - Buscar contacto1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Auteco blue mex - Buscar contacto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Auteco blue MEX - Delete a contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Moldex - Buscar contacto": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Auteco blue MEX - Delete a contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EVG - Buscar contacto": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Moldex - Delete a contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Moldex - Delete a contact3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auteco blue mex - Buscar contacto": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [],
+        [
+          {
+            "node": "EVG - Delete a contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Moldex - Buscar contacto1": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [],
+        [
+          {
+            "node": "EVG - Delete a contact2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Auteco blue mex - Buscar contacto1": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EVG - Buscar contacto2": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2025-08-28T21:10:21.989Z",
   "id": "iPABKfKpDC6mfstc",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Verificar contactos",
-  "nodes": [],
-  "pinData": {},
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "20f9fe3d-ff5c-408b-a216-ec3edfed8063",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "124e95ae-fb85-4b39-9d33-88eb46dce14d",
+      "name": "Webhook",
+      "webhookId": "20f9fe3d-ff5c-408b-a216-ec3edfed8063"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.body.location.id }}",
+                    "rightValue": "rJVQMiUdtLFfBO0aToyU",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "00679c0e-2d68-40bd-b88a-333e968c0cbc"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Auteco Blue Mexico"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f237b147-c026-41d4-a100-274e4d3d0bcb",
+                    "leftValue": "={{ $json.body.location.id }}",
+                    "rightValue": "OLEfHKjZkezljsd63c48",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Moldex"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "812a0d68-24dc-4c2a-bb5c-23a360f7ea4e",
+                    "leftValue": "={{ $json.body.location.id }}",
+                    "rightValue": "7MILzH0XhlEZiyb1OVYN",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "EVG"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "80dd63f6-9b10-44e3-ad54-742ce09b43f3",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8bc28297-ad5a-40ee-ad42-c2d861c0ca9a",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        840,
+        -780
+      ],
+      "id": "ca6aa467-ef0d-4a5e-a4b5-0d0ad530402a",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "filters": {
+          "filter": [
+            {
+              "field": "phone",
+              "value": "={{ $json.body.phone }}"
+            }
+          ]
+        },
+        "dateFilters": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        620,
+        -820
+      ],
+      "id": "70f95fb3-d931-46f8-9923-f1c23151876a",
+      "name": "Moldex - Buscar contacto",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "wk8ze4KKA4NIG9UQ",
+          "name": "Moldex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8bc28297-ad5a-40ee-ad42-c2d861c0ca9a",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        840,
+        -580
+      ],
+      "id": "254dcfae-f1f9-4a29-9b21-7fe66d2a155f",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "filters": {
+          "filter": [
+            {
+              "field": "phone",
+              "value": "={{ $json.body.phone }}"
+            }
+          ]
+        },
+        "dateFilters": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        620,
+        -580
+      ],
+      "id": "fe505935-ba9e-4928-8f0b-eba71c3a2c78",
+      "name": "EVG - Buscar contacto",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ilvP9udKRouUjoA7",
+          "name": "EVG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8bc28297-ad5a-40ee-ad42-c2d861c0ca9a",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1040,
+        -140
+      ],
+      "id": "bfea7964-9f7e-4df7-9e57-cf0038def600",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8bc28297-ad5a-40ee-ad42-c2d861c0ca9a",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1040,
+        60
+      ],
+      "id": "7e8e95aa-7745-4066-a62a-3f75cd74cbff",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "filters": {
+          "filter": [
+            {
+              "field": "phone",
+              "value": "=+573103583216"
+            }
+          ]
+        },
+        "dateFilters": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        820,
+        -140
+      ],
+      "id": "dcdbeaf7-ab3d-4dc4-b910-2a821842d4de",
+      "name": "Auteco blue mex - Buscar contacto",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "Xt6tvndwmTlNAjfi",
+          "name": "Auteco Blue MEX"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8bc28297-ad5a-40ee-ad42-c2d861c0ca9a",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        840,
+        400
+      ],
+      "id": "f1f77f10-5a52-4ebd-87e9-4bb1563064d6",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "filters": {
+          "filter": [
+            {
+              "field": "phone",
+              "value": "={{ $json.body.phone }}"
+            }
+          ]
+        },
+        "dateFilters": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        620,
+        400
+      ],
+      "id": "7c65cde8-5837-4ee7-a2dd-3a0a82276f90",
+      "name": "Moldex - Buscar contacto1",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "wk8ze4KKA4NIG9UQ",
+          "name": "Moldex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8bc28297-ad5a-40ee-ad42-c2d861c0ca9a",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        840,
+        600
+      ],
+      "id": "e65e893e-5df9-4075-bc90-77b711d132fe",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "filters": {
+          "filter": [
+            {
+              "field": "phone",
+              "value": "={{ $json.body.phone }}"
+            }
+          ]
+        },
+        "dateFilters": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        620,
+        600
+      ],
+      "id": "44322108-7a4d-4b23-9875-d45c8111b4af",
+      "name": "Auteco blue mex - Buscar contacto1",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "Xt6tvndwmTlNAjfi",
+          "name": "Auteco Blue MEX"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "filters": {
+          "filter": [
+            {
+              "field": "phone",
+              "value": "={{ $json.body.phone }}"
+            }
+          ]
+        },
+        "dateFilters": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        820,
+        60
+      ],
+      "id": "d9de0a41-7ff4-40c2-8723-bd064f93129a",
+      "name": "EVG - Buscar contacto2",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ilvP9udKRouUjoA7",
+          "name": "EVG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "contactId": "={{ $('Webhook').item.json.body.contact_id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        -780
+      ],
+      "id": "5cbb605e-305d-4be6-83e2-976dc9887cd1",
+      "name": "Auteco blue MEX - Delete a contact",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "Xt6tvndwmTlNAjfi",
+          "name": "Auteco Blue MEX"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "contactId": "={{ $('Webhook').item.json.body.contact_id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        -580
+      ],
+      "id": "41d4771d-50d1-4f10-9f2d-3bd8f858aab1",
+      "name": "Auteco blue MEX - Delete a contact1",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "Xt6tvndwmTlNAjfi",
+          "name": "Auteco Blue MEX"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "contactId": "={{ $('Webhook').item.json.body.contact_id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        -140
+      ],
+      "id": "3f2a117e-cc45-459f-aa4d-dba67dc73e72",
+      "name": "Moldex - Delete a contact",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "wk8ze4KKA4NIG9UQ",
+          "name": "Moldex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "contactId": "={{ $('Webhook').item.json.body.contact_id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1280,
+        60
+      ],
+      "id": "20b9a7ca-18ac-4eda-bea0-93c6b381f19b",
+      "name": "Moldex - Delete a contact3",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "wk8ze4KKA4NIG9UQ",
+          "name": "Moldex"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "contactId": "={{ $('Webhook').item.json.body.contact_id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        400
+      ],
+      "id": "e724a8a2-eb8a-4748-a214-a56e81bb4df0",
+      "name": "EVG - Delete a contact1",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ilvP9udKRouUjoA7",
+          "name": "EVG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "contactId": "={{ $('Webhook').item.json.body.contact_id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1080,
+        600
+      ],
+      "id": "78e97267-5005-4bfb-aaa5-d839217eb2b0",
+      "name": "EVG - Delete a contact2",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ilvP9udKRouUjoA7",
+          "name": "EVG"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/1.7.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "max-forwards": "10",
+            "x-arr-log-id": "f2721f30-8fd6-44c8-b2ac-1ed7f3bd8d83",
+            "client-ip": "35.224.190.8:38860",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "35.224.190.8:38860",
+            "x-original-url": "/webhook/20f9fe3d-ff5c-408b-a216-ec3edfed8063",
+            "x-waws-unencoded-url": "/webhook/20f9fe3d-ff5c-408b-a216-ec3edfed8063",
+            "x-client-ip": "35.224.190.8",
+            "x-client-port": "38860",
+            "content-type": "application/json",
+            "content-length": "810"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "contact_id": "GOlvyJs7uqqS9ZJag05s",
+            "first_name": "Felipe",
+            "last_name": "Ropofy",
+            "full_name": "Felipe Ropofy",
+            "tags": "",
+            "country": "MX",
+            "date_created": "2025-09-02T15:13:29.546Z",
+            "full_address": "",
+            "contact_type": "lead",
+            "location": {
+              "name": "Moldex",
+              "address": "Paseo Tollocan 128 Local K Parque Industrial ",
+              "city": "Estado de México",
+              "state": "Lerma, Edomex",
+              "country": "MX",
+              "postalCode": "52000",
+              "fullAddress": "Paseo Tollocan 128 Local K Parque Industrial , Estado de México Lerma, Edomex 52000",
+              "id": "OLEfHKjZkezljsd63c48"
+            },
+            "workflow": {
+              "id": "e014fab6-c68a-48d1-9000-79b7a08816bf",
+              "name": "🧑Validación de contactos duplicados"
+            },
+            "triggerData": {},
+            "contact": {
+              "attributionSource": {
+                "sessionSource": "CRM UI",
+                "medium": "manual",
+                "mediumId": null
+              },
+              "lastAttributionSource": {}
+            },
+            "attributionSource": {},
+            "customData": {
+              "phone": ""
+            }
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/20f9fe3d-ff5c-408b-a216-ec3edfed8063",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -16,7 +892,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-08-28T21:10:21.989Z",
-  "versionId": "d373389e-7b6d-4998-877a-a391ef35b979"
+  "triggerCount": 1,
+  "updatedAt": "2025-09-02T15:26:48.935Z",
+  "versionId": "819e2a47-5aec-463e-9509-74532a555670"
 }
