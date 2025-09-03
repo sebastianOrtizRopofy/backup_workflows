@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Webhook": {
       "main": [
@@ -125,18 +125,14 @@
       "main": [
         [
           {
-            "node": "Peticion custom fields",
+            "node": "Obtener custom fields de la subcuenta",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "Peticion custom fields": {
-      "main": [
+        ],
         [
           {
-            "node": "mapear custom fields oportunidades",
+            "node": "Obtener custom fields de la subcuenta1",
             "type": "main",
             "index": 0
           }
@@ -147,7 +143,7 @@
       "main": [
         [
           {
-            "node": "Buscar oportunidades del contacto",
+            "node": "Actualizar tags",
             "type": "main",
             "index": 0
           }
@@ -158,41 +154,131 @@
       "main": [
         [
           {
-            "node": "Tiene oportunidades anteriores?",
+            "node": "obtener el nombre del pipeline de llegada del lead",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Tiene oportunidades anteriores?": {
-      "main": [
-        [],
-        [
-          {
-            "node": "obtener el pipeline de llegada del lead",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "obtener el pipeline de llegada del lead": {
+    "obtener el nombre del pipeline de llegada del lead": {
       "main": [
         [
           {
-            "node": "obtener el stage de llegada del lead",
+            "node": "obtener el nombre del stage de llegada del lead",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "obtener el stage de llegada del lead": {
+    "obtener el nombre del stage de llegada del lead": {
+      "main": [
+        [
+          {
+            "node": "Obtener pipelines de la subcuenta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener pipelines de la subcuenta": {
+      "main": [
+        [
+          {
+            "node": "Sacar id del pipeline y stage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sacar id del pipeline y stage": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
       "main": [
         [
           {
             "node": "mapear custom fields oportunidad",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "devolver que no se encontró el pipeline/stage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener custom fields de la subcuenta": {
+      "main": [
+        [
+          {
+            "node": "mapear custom fields contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "mapear custom fields contact": {
+      "main": [
+        [
+          {
+            "node": "Actualizar custom fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener custom fields de la subcuenta1": {
+      "main": [
+        [
+          {
+            "node": "mapear custom fields contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "mapear custom fields contact1": {
+      "main": [
+        [
+          {
+            "node": "Crear contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear contacto": {
+      "main": [
+        [
+          {
+            "node": "obtener el nombre del pipeline de llegada del lead1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "devolver que el contacto ya está creado",
             "type": "main",
             "index": 0
           }
@@ -203,18 +289,182 @@
       "main": [
         [
           {
-            "node": "Crear nueva oportunidad",
+            "node": "If2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "mapear custom fields oportunidades": {
+    "obtener el nombre del pipeline de llegada del lead1": {
       "main": [
         [
           {
-            "node": "Actualizar custom fields",
+            "node": "obtener el nombre del stage de llegada del lead1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener el nombre del stage de llegada del lead1": {
+      "main": [
+        [
+          {
+            "node": "Obtener pipelines de la subcuenta1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener pipelines de la subcuenta1": {
+      "main": [
+        [
+          {
+            "node": "Sacar id del pipeline y stage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sacar id del pipeline y stage1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "mapear custom fields oportunidad1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "devolver que no se encontró el pipeline/stage1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "mapear custom fields oportunidad1": {
+      "main": [
+        [
+          {
+            "node": "Crear nueva oportunidad1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "devolver todas las oportunidades": {
+      "main": [
+        [
+          {
+            "node": "buscar status open en las oportunidades",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar status open en las oportunidades": {
+      "main": [
+        [
+          {
+            "node": "Hay almenos 1 en open?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hay almenos 1 en open?": {
+      "main": [
+        [
+          {
+            "node": "Crear nueva oportunidad abandonada",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "crear nueva oportunidad abierta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear nueva oportunidad1": {
+      "main": [
+        [
+          {
+            "node": "guardar en tabla intermedia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear nueva oportunidad abandonada": {
+      "main": [
+        [
+          {
+            "node": "guardar en tabla intermedia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear nueva oportunidad abierta": {
+      "main": [
+        [
+          {
+            "node": "guardar en tabla intermedia",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "devolver todas las oportunidades",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "crear nueva oportunidad abierta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actualizar tags": {
+      "main": [
+        [
+          {
+            "node": "Buscar oportunidades del contacto",
             "type": "main",
             "index": 0
           }
@@ -240,7 +490,7 @@
       "typeVersion": 2,
       "position": [
         0,
-        0
+        -120
       ],
       "id": "df1854a3-94df-4298-af03-753483e4e3f7",
       "name": "Webhook",
@@ -272,8 +522,8 @@
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1.1,
       "position": [
-        280,
-        0
+        220,
+        -120
       ],
       "id": "2cfe4481-3a8c-49ef-9c2a-a2efa1dc03de",
       "name": "Execution Data"
@@ -306,8 +556,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1020,
-        -160
+        880,
+        -220
       ],
       "id": "06eae1e0-80d3-4244-bacd-b73af88368c0",
       "name": "esta en tabla intermedia?"
@@ -391,8 +641,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        560,
-        0
+        440,
+        -120
       ],
       "id": "c248c7e0-fe5e-45e4-90e8-c798ae35a16f",
       "name": "Está desde los origenes deseados?"
@@ -429,8 +679,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        800,
-        -140
+        660,
+        -220
       ],
       "id": "7ed7ccd4-882d-4d6b-8ad6-f582b2b49345",
       "name": "buscar lead en tabla intermedia",
@@ -449,8 +699,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1240,
-        -260
+        1100,
+        -320
       ],
       "id": "11b43055-10b8-4515-8408-bb0608d7d302",
       "name": "Validar email y phone"
@@ -484,8 +734,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1900,
-        -360
+        1760,
+        -420
       ],
       "id": "3ae81e1d-5ecb-4e8c-a8f5-291c682a37bb",
       "name": "Buscar contacto"
@@ -518,8 +768,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2120,
-        -360
+        1980,
+        -420
       ],
       "id": "c007508d-1291-404a-aa5e-733c859c27d1",
       "name": "existe?"
@@ -531,8 +781,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1240,
-        -60
+        1100,
+        -120
       ],
       "id": "e8222e53-09f1-4b82-9acf-ca316cee67f3",
       "name": "devolver lead ya encontrado"
@@ -565,8 +815,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1460,
-        -260
+        1320,
+        -320
       ],
       "id": "fbe1e418-a3d2-4732-96a1-9bbb9490ebd8",
       "name": "valido el email y phone?"
@@ -578,8 +828,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1680,
-        -160
+        1540,
+        -220
       ],
       "id": "737493ce-5604-4fa3-ba7b-b5aca2ce61ac",
       "name": "devolver que es inválido el phone y el email"
@@ -612,8 +862,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        1680,
-        -360
+        1540,
+        -420
       ],
       "id": "67244e27-2f40-4d2a-b1ad-1b6f4d2c4b8a",
       "name": "obtener token",
@@ -631,51 +881,11 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        800,
-        160
+        660,
+        -20
       ],
       "id": "e6fed878-780c-43b7-a800-223ac9d35e33",
       "name": "devolver que no está en el origen"
-    },
-    {
-      "parameters": {
-        "url": "=https://services.leadconnectorhq.com/locations/{{ $('Webhook').item.json.params.id_location }}/customFields",
-        "sendQuery": true,
-        "queryParameters": {
-          "parameters": [
-            {
-              "name": "model",
-              "value": "all"
-            }
-          ]
-        },
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Accept",
-              "value": "application/json"
-            },
-            {
-              "name": "Authorization",
-              "value": "={{ $('obtener token').item.json.token }}"
-            },
-            {
-              "name": "Version",
-              "value": "2021-07-28"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2440,
-        -580
-      ],
-      "id": "b2c3392b-c80e-45be-a450-d3d6fa97edde",
-      "name": "Peticion custom fields"
     },
     {
       "parameters": {
@@ -712,8 +922,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3020,
-        -580
+        2500,
+        -620
       ],
       "id": "7dd4874a-3b5e-48eb-9d3f-a746dfee0f5f",
       "name": "Actualizar custom fields"
@@ -721,14 +931,14 @@
     {
       "parameters": {
         "content": "Proceso de contactos",
-        "height": 260,
-        "width": 780,
+        "height": 920,
+        "width": 880,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        2380,
-        -660
+        1880,
+        -880
       ],
       "typeVersion": 1,
       "id": "fc66e3c8-ae9f-4791-bbb9-aca2c7332e09",
@@ -746,7 +956,7 @@
             },
             {
               "name": "contact_id",
-              "value": "={{ $json.contact.id }}"
+              "value": "={{ $('Buscar contacto').item.json.contacts[0].id }}"
             }
           ]
         },
@@ -772,96 +982,27 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3240,
-        -580
+        2880,
+        -620
       ],
       "id": "50c60ebc-b7b1-4063-be1c-3a591af5278b",
       "name": "Buscar oportunidades del contacto"
     },
     {
       "parameters": {
-        "content": "Proceso de contactos",
-        "height": 260,
-        "width": 1040,
+        "content": "Proceso de oportunidades",
+        "height": 920,
+        "width": 2900,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        3160,
-        -660
+        2760,
+        -880
       ],
       "typeVersion": 1,
       "id": "1604a3aa-ae9c-41fd-abc9-1a671c76e77a",
       "name": "Sticky Note1"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "ff42f4d3-b2cb-4f3e-929a-b37d5d36adc9",
-              "leftValue": "={{ $json.opportunities }}",
-              "rightValue": "",
-              "operator": {
-                "type": "array",
-                "operation": "notEmpty",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        3460,
-        -580
-      ],
-      "id": "9beff699-4e2b-4ae6-82ed-9cb555af7ade",
-      "name": "Tiene oportunidades anteriores?"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://services.leadconnectorhq.com/opportunities",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Accept",
-              "value": "application/json"
-            },
-            {
-              "name": "Authorization",
-              "value": "={{ $('obtener token').item.json.token }}"
-            },
-            {
-              "name": "Version",
-              "value": "2021-07-28"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"pipelineId\": \"{{ $('obtener el pipeline de llegada del lead').item.json.id ?? \"\"}}\",\n  \"locationId\": \"{{ $('Webhook').item.json.params.id_location }}\",\n  \"name\": \"{{ $('Buscar contacto').item.json.contacts[0].firstName ?? $('Webhook').item.json.body.NombreContacto}}\",\n  \"pipelineStageId\": \"7915dedc-8f18-44d5-8bc3-77c04e994a10\",\n  \"status\": \"open\",\n  \"contactId\": \"mTkSCb1UBjb5tk4OvB69\",\n  \"monetaryValue\": 220,\n  \"assignedTo\": \"082goXVW3lIExEQPOnd3\",\n  \"customFields\": [\n    {\n      \"id\": \"6dvNaf7VhkQ9snc5vnjJ\",\n      \"key\": \"my_custom_field\",\n      \"field_value\": \"9039160788\"\n    }\n  ]\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        4400,
-        -320
-      ],
-      "id": "146f292e-56c1-4627-abd5-20e4ac8512fb",
-      "name": "Crear nueva oportunidad"
     },
     {
       "parameters": {
@@ -884,11 +1025,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3680,
-        -520
+        3080,
+        -620
       ],
       "id": "3a49d805-b5a3-41a9-b251-4f0a57acbdad",
-      "name": "obtener el pipeline de llegada del lead"
+      "name": "obtener el nombre del pipeline de llegada del lead"
     },
     {
       "parameters": {
@@ -911,24 +1052,151 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3900,
-        -520
+        3300,
+        -620
       ],
       "id": "a42551ad-9609-45d7-9619-5f8fa163c1a6",
-      "name": "obtener el stage de llegada del lead"
+      "name": "obtener el nombre del stage de llegada del lead"
     },
     {
       "parameters": {
-        "jsCode": "// Metadata = array de campos (tu JSON de custom fields exportado de GoHighLevel)\nconst metadata = $('Peticion custom fields').first().json.customFields || [];\n\n// Webhook trigger trae el body aquí:\nconst inputData = $('Webhook').first().json.body;\n\n// Mapeo: { fieldKey_en_GHL : propiedad_en_body }\nconst values = {\n  \"opportunity.id_crm\": \"ID\",\n  \"opportunity.origen\": \"Origen\",\n  \"opportunity.campaign\": \"Campanna\",\n  \"opportunity.modelo_de_inters\": \"modelo_interes\",\n  \"opportunity.marca_de_inters\": \"marca_interes\",\n  \"opportunity.observaciones\": \"Observaciones\",\n  \"opportunity.element\": \"Sistema\",\n  \"opportunity.dane\": \"CodigoDANE\",\n  \"opportunity.dane_departamento\": \"CodigoDANE\", // se corta en substring(0,2)\n  \"opportunity.codigo_nivel_interes\": \"NivelInteres\",\n  \"opportunity.documento_de_identidad_nitcc\": \"Documento\",\n  \"opportunity.estado_impulsa\": \"Estado\",\n  \"opportunity.codigo_punto_de_venta\": \"Establecimiento\"\n};\n\n// Función auxiliar para leer paths como \"Productos[0].Marca\"\nfunction getValueByPath(obj, path) {\n  try {\n    return path.split(/[\\.\\[\\]]/).filter(Boolean).reduce((acc, key) => acc?.[key], obj);\n  } catch {\n    return \"\";\n  }\n}\n\nconst customFields = Object.keys(values).map(fieldKey => {\n  const fieldDef = metadata.find(f => f.fieldKey === fieldKey);\n  if (!fieldDef) return null;\n\n  let rawValue = getValueByPath(inputData, values[fieldKey]) || \"\";\n\n  // Caso especial: cortar CodigoDANE para departamento\n  if (fieldKey === \"contact.dane_departamento\" && rawValue) {\n    rawValue = rawValue.toString().substring(0, 2);\n  }\n\n  return {\n    id: fieldDef.id,\n    key: fieldKey.replace(\"contact.\", \"\"),\n    field_value: rawValue\n  };\n}).filter(Boolean);\n\nreturn [{ json: { customFields } }];\n"
+        "url": "https://services.leadconnectorhq.com/opportunities/pipelines",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "={{ $('Webhook').item.json.params.id_location }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3520,
+        -620
+      ],
+      "id": "74a2d259-a5f1-4c0c-b3b5-dbb86ba4aea3",
+      "name": "Obtener pipelines de la subcuenta"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Variables de búsqueda (puedes pasarlas dinámicamente desde el workflow)\nconst pipeline_name = $('obtener el nombre del pipeline de llegada del lead').first().json.value; \nconst stage_name = $('obtener el nombre del stage de llegada del lead').first().json.value;\n\n// Obtener datos de entrada (el array que mostraste)\nconst input = items[0].json;\n\n// Extraer pipelines\nconst pipelines = input.pipelines || [];\n\nlet pipelineObj = null;\nlet stageObj = null;\n\n// Buscar pipeline por nombre\npipelineObj = pipelines.find(p => p.name === pipeline_name);\n\nif (pipelineObj) {\n  // Buscar stage dentro de ese pipeline\n  stageObj = pipelineObj.stages.find(s => s.name === stage_name) || null;\n}\n\n// Retornar resultado\nreturn [\n  {\n    json: {\n      pipeline: pipelineObj || {},\n      stage: stageObj || {},\n      found: !!(pipelineObj && stageObj)\n    }\n  }\n];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        4140,
+        3740,
+        -620
+      ],
+      "id": "bc936681-9d50-4419-9886-631b76cb7415",
+      "name": "Sacar id del pipeline y stage"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fd214e96-778e-41ff-b5cd-4b9f0e79eb8e",
+              "leftValue": "={{ $json.found }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3960,
+        -620
+      ],
+      "id": "144cfc5d-ab09-4299-825a-e19020c249ad",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n    message: \"No se encontró el pipeline o el stage.\"\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4180,
         -520
       ],
-      "id": "f3582fee-d0d7-49be-8f74-931c5318f90b",
-      "name": "mapear custom fields oportunidad"
+      "id": "f64527cf-170a-48e0-ab7e-52c35e3d3b23",
+      "name": "devolver que no se encontró el pipeline/stage"
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/locations/{{ $('Webhook').item.json.params.id_location }}/customFields",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "all"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2160,
+        -620
+      ],
+      "id": "b2c3392b-c80e-45be-a450-d3d6fa97edde",
+      "name": "Obtener custom fields de la subcuenta"
     },
     {
       "parameters": {
@@ -937,14 +1205,834 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2700,
-        -580
+        2340,
+        -620
       ],
       "id": "d025a016-9f8c-4763-b023-4671e3d94f8a",
-      "name": "mapear custom fields oportunidades"
+      "name": "mapear custom fields contact"
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/locations/{{ $('Webhook').item.json.params.id_location }}/customFields",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "all"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2200,
+        -220
+      ],
+      "id": "b0dce9d5-f7cf-4e13-869b-85bfcd15dfda",
+      "name": "Obtener custom fields de la subcuenta1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Metadata = array de campos (tu JSON de custom fields exportado de GoHighLevel)\nconst metadata = $json.customFields || [];\n\n// Webhook trigger trae el body aquí:\nconst inputData = $('Webhook').first().json.body;\n\n// Mapeo: { fieldKey_en_GHL : propiedad_en_body }\nconst values = {\n  \"contact.id_crm\": \"ID\",\n  \"contact.origen\": \"Origen\",\n  \"contact.campaign\": \"Campanna\",\n  \"contact.modelo_de_interes\": \"Productos[0].Producto\", // sacamos del primer item\n  \"contact.marca_de_interes\": \"Productos[0].Marca\",     // sacamos del primer item\n  \"contact.observaciones\": \"Observaciones\",\n  \"contact.element\": \"Sistema\",\n  \"contact.dane\": \"CodigoDANE\",\n  \"contact.dane_departamento\": \"CodigoDANE\", // se corta en substring(0,2)\n  \"contact.codigo_nivel_interes\": \"NivelInteres\",\n  \"contact.documento_de_identidad_nitcc\": \"Documento\",\n  \"contact.estado_impulsa\": \"Estado\",\n  \"contact.codigo_punto_de_venta\": \"Establecimiento\"\n};\n\n// Función auxiliar para leer paths como \"Productos[0].Marca\"\nfunction getValueByPath(obj, path) {\n  try {\n    return path.split(/[\\.\\[\\]]/).filter(Boolean).reduce((acc, key) => acc?.[key], obj);\n  } catch {\n    return \"\";\n  }\n}\n\nconst customFields = Object.keys(values).map(fieldKey => {\n  const fieldDef = metadata.find(f => f.fieldKey === fieldKey);\n  if (!fieldDef) return null;\n\n  let rawValue = getValueByPath(inputData, values[fieldKey]) || \"\";\n\n  // Caso especial: cortar CodigoDANE para departamento\n  if (fieldKey === \"contact.dane_departamento\" && rawValue) {\n    rawValue = rawValue.toString().substring(0, 2);\n  }\n\n  return {\n    id: fieldDef.id,\n    key: fieldKey.replace(\"contact.\", \"\"),\n    field_value: rawValue\n  };\n}).filter(Boolean);\n\nreturn [{ json: { customFields } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2420,
+        -220
+      ],
+      "id": "1be1672b-b8e4-4ff3-9f4f-f0cd94d88359",
+      "name": "mapear custom fields contact1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "={{ $('Validar email y phone').item.json.NombreContacto }}"
+            },
+            {
+              "name": "firstName",
+              "value": "={{ $('Validar email y phone').item.json.NombreContacto }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $('Validar email y phone').item.json.Email }}"
+            },
+            {
+              "name": "locationId",
+              "value": "={{ $('Webhook').item.json.params.id_location }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $('Validar email y phone').item.json.Telefono2 }}"
+            },
+            {
+              "name": "address1",
+              "value": "={{ $('Validar email y phone').item.json.Direccion }}"
+            },
+            {
+              "name": "tags",
+              "value": "impulsa"
+            },
+            {
+              "name": "customFields",
+              "value": "={{ $json.customFields }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2640,
+        -220
+      ],
+      "id": "b9051174-8b60-416e-b728-f0b479109512",
+      "name": "Crear contacto",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ----------------------------------------\n// Metadata = array de campos (custom fields de GoHighLevel)\n// ----------------------------------------\nconst metadata =\n  $('Obtener custom fields de la subcuenta').first().json.customFields;\n\nconsole.log(metadata);\n\n// ----------------------------------------\n// Webhook trigger trae el body aquí\n// ----------------------------------------\nconst inputData = $('Webhook').first().json.body;\n\n// ----------------------------------------\n// Mapeo: { fieldKey_en_GHL : propiedad_en_body }\n// ----------------------------------------\nconst values = {\n  \"opportunity.id_crm\": \"ID\",\n  \"opportunity.origen\": \"Origen\",\n  \"opportunity.campaign\": \"Campanna\",\n  \"opportunity.modelo_de_inters\": \"modelo_interes\",\n  \"opportunity.marca_de_inters\": \"marca_interes\",\n  \"opportunity.observaciones\": \"Observaciones\",\n  \"opportunity.element\": \"Sistema\",\n  \"opportunity.dane\": \"CodigoDANE\",\n  \"opportunity.dane_departamento\": \"CodigoDANE\", // se corta en substring(0,2)\n  \"opportunity.codigo_nivel_interes\": \"NivelInteres\",\n  \"opportunity.documento_de_identidad_nitcc\": \"Documento\",\n  \"opportunity.estado_impulsa\": \"Estado\",\n  \"opportunity.codigo_punto_de_venta\": \"Establecimiento\"\n};\n\n// ----------------------------------------\n// Función auxiliar para leer paths como \"Productos[0].Marca\"\n// ----------------------------------------\nfunction getValueByPath(obj, path) {\n  try {\n    return path\n      .split(/[\\.\\[\\]]/)\n      .filter(Boolean)\n      .reduce((acc, key) => acc?.[key], obj);\n  } catch {\n    return \"\";\n  }\n}\n\n// ----------------------------------------\n// Construcción de customFields\n// ----------------------------------------\nconst customFields = Object.keys(values)\n  .map(fieldKey => {\n    const fieldDef = metadata.find(f => f.fieldKey === fieldKey);\n    if (!fieldDef) return null;\n\n    let rawValue = getValueByPath(inputData, values[fieldKey]) || \"\";\n\n    // Caso especial: cortar CodigoDANE para departamento\n    if (fieldKey === \"contact.dane_departamento\" && rawValue) {\n      rawValue = rawValue.toString().substring(0, 2);\n    }\n\n    return {\n      id: fieldDef.id,\n      key: fieldKey.replace(\"contact.\", \"\"),\n      field_value: rawValue\n    };\n  })\n  .filter(Boolean);\n\n// ----------------------------------------\n// Retorno\n// ----------------------------------------\nreturn [{ json: { customFields } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4180,
+        -720
+      ],
+      "id": "510408de-d997-4cb3-8a45-c68934cd86f0",
+      "name": "mapear custom fields oportunidad"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/opportunities/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "pipelineId",
+              "value": "={{ $('Sacar id del pipeline y stage1').item.json.pipeline.id }}"
+            },
+            {
+              "name": "locationId",
+              "value": "={{ $('Webhook').item.json.params.id_location }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $('Crear contacto').item.json.contact.firstName }} {{ $('Crear contacto').item.json.contact.lastName }}"
+            },
+            {
+              "name": "pipelineStageId",
+              "value": "={{ $('Sacar id del pipeline y stage1').item.json.stage.id }}"
+            },
+            {
+              "name": "status",
+              "value": "open"
+            },
+            {
+              "name": "contactId",
+              "value": "={{ $('Crear contacto').item.json.contact.id }}"
+            },
+            {
+              "name": "customFields",
+              "value": "={{ $json.customFields }}"
+            },
+            {
+              "name": "source",
+              "value": "={{ $('valido el email y phone?').first().json.Origen }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4180,
+        -320
+      ],
+      "id": "af7d8ce4-0e4a-48f9-b286-fb043f921e5d",
+      "name": "Crear nueva oportunidad1"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/getCustomValue",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "lead_pipeline"
+            },
+            {
+              "name": "id_location",
+              "value": "={{ $('Webhook').item.json.params.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2900,
+        -240
+      ],
+      "id": "a809aa25-8ccc-41a9-ab30-de0f7b13a8a5",
+      "name": "obtener el nombre del pipeline de llegada del lead1"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/getCustomValue",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "name",
+              "value": "lead_pipeline_stage"
+            },
+            {
+              "name": "id_location",
+              "value": "={{ $('Webhook').item.json.params.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3080,
+        -220
+      ],
+      "id": "ddac52dc-8a0b-41ab-ad38-876c57ed1895",
+      "name": "obtener el nombre del stage de llegada del lead1"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/opportunities/pipelines",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "={{ $('Webhook').item.json.params.id_location }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3300,
+        -220
+      ],
+      "id": "d388b6f4-52f9-42f0-b3ee-21f07eb0a863",
+      "name": "Obtener pipelines de la subcuenta1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Variables de búsqueda (puedes pasarlas dinámicamente desde el workflow)\nconst pipeline_name = $('obtener el nombre del pipeline de llegada del lead1').first().json.value; \nconst stage_name = $('obtener el nombre del stage de llegada del lead1').first().json.value;\n\n// Obtener datos de entrada (el array que mostraste)\nconst input = items[0].json;\n\n// Extraer pipelines\nconst pipelines = input.pipelines || [];\n\nlet pipelineObj = null;\nlet stageObj = null;\n\n// Buscar pipeline por nombre\npipelineObj = pipelines.find(p => p.name === pipeline_name);\n\nif (pipelineObj) {\n  // Buscar stage dentro de ese pipeline\n  stageObj = pipelineObj.stages.find(s => s.name === stage_name) || null;\n}\n\n// Retornar resultado\nreturn [\n  {\n    json: {\n      pipeline: pipelineObj || {},\n      stage: stageObj || {},\n      found: !!(pipelineObj && stageObj)\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3520,
+        -220
+      ],
+      "id": "45c798f5-0b13-4b81-9553-af9d3b2a584e",
+      "name": "Sacar id del pipeline y stage1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fd214e96-778e-41ff-b5cd-4b9f0e79eb8e",
+              "leftValue": "={{ $json.found }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3740,
+        -220
+      ],
+      "id": "99270f41-ec1d-4891-91ef-506d4396ea8e",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n    message: \"No se encontró el pipeline o el stage.\"\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3960,
+        -120
+      ],
+      "id": "6aa2eeb8-a551-4978-8260-adeab74d39f6",
+      "name": "devolver que no se encontró el pipeline/stage1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ----------------------------------------\n// Metadata = array de campos (custom fields de GoHighLevel)\n// ----------------------------------------\nconst metadata =\n  $('Obtener custom fields de la subcuenta1').first().json.customFields;\n\nconsole.log(metadata);\n\n// ----------------------------------------\n// Webhook trigger trae el body aquí\n// ----------------------------------------\nconst inputData = $('Webhook').first().json.body;\n\n// ----------------------------------------\n// Mapeo: { fieldKey_en_GHL : propiedad_en_body }\n// ----------------------------------------\nconst values = {\n  \"opportunity.id_crm\": \"ID\",\n  \"opportunity.origen\": \"Origen\",\n  \"opportunity.campaign\": \"Campanna\",\n  \"opportunity.modelo_de_inters\": \"modelo_interes\",\n  \"opportunity.marca_de_inters\": \"marca_interes\",\n  \"opportunity.observaciones\": \"Observaciones\",\n  \"opportunity.element\": \"Sistema\",\n  \"opportunity.dane\": \"CodigoDANE\",\n  \"opportunity.dane_departamento\": \"CodigoDANE\", // se corta en substring(0,2)\n  \"opportunity.codigo_nivel_interes\": \"NivelInteres\",\n  \"opportunity.documento_de_identidad_nitcc\": \"Documento\",\n  \"opportunity.estado_impulsa\": \"Estado\",\n  \"opportunity.codigo_punto_de_venta\": \"Establecimiento\"\n};\n\n// ----------------------------------------\n// Función auxiliar para leer paths como \"Productos[0].Marca\"\n// ----------------------------------------\nfunction getValueByPath(obj, path) {\n  try {\n    return path\n      .split(/[\\.\\[\\]]/)\n      .filter(Boolean)\n      .reduce((acc, key) => acc?.[key], obj);\n  } catch {\n    return \"\";\n  }\n}\n\n// ----------------------------------------\n// Construcción de customFields\n// ----------------------------------------\nconst customFields = Object.keys(values)\n  .map(fieldKey => {\n    const fieldDef = metadata.find(f => f.fieldKey === fieldKey);\n    if (!fieldDef) return null;\n\n    let rawValue = getValueByPath(inputData, values[fieldKey]) || \"\";\n\n    // Caso especial: cortar CodigoDANE para departamento\n    if (fieldKey === \"contact.dane_departamento\" && rawValue) {\n      rawValue = rawValue.toString().substring(0, 2);\n    }\n\n    return {\n      id: fieldDef.id,\n      key: fieldKey.replace(\"contact.\", \"\"),\n      field_value: rawValue\n    };\n  })\n  .filter(Boolean);\n\n// ----------------------------------------\n// Retorno\n// ----------------------------------------\nreturn [{ json: { customFields } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3960,
+        -320
+      ],
+      "id": "a9ed85b6-64ee-4331-a9f6-cb8b39793efe",
+      "name": "mapear custom fields oportunidad1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $('Buscar oportunidades del contacto').first().json.opportunities;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4620,
+        -800
+      ],
+      "id": "33943f9a-b938-4601-8e20-1d45db5215a4",
+      "name": "devolver todas las oportunidades"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Si no hay items de entrada, devolver false por defecto\nif (!items || items.length === 0) {\n  return [\n    {\n      json: {\n        hasOpen: false\n      }\n    }\n  ];\n}\n\n// Obtener todas las oportunidades de la entrada\nconst opportunities = items.map(item => item.json);\n\n// Verificar si al menos una tiene status = \"open\"\nconst hasOpen = opportunities.some(opportunity => opportunity.status === \"open\");\n\n// Retornar un único item con el resultado\nreturn [\n  {\n    json: {\n      hasOpen\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4840,
+        -800
+      ],
+      "id": "7ed1c08c-aa14-4513-b8cf-b481369a06d4",
+      "name": "buscar status open en las oportunidades"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b9786c45-6939-43a0-bbe5-ec4984eb37c4",
+              "leftValue": "={{ $json.hasOpen }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        5060,
+        -800
+      ],
+      "id": "f0e6de7e-a37b-4b55-abc9-075a30614896",
+      "name": "Hay almenos 1 en open?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/opportunities/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').first().json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "pipelineId",
+              "value": "={{ $('Sacar id del pipeline y stage').first().json.pipeline.id }}"
+            },
+            {
+              "name": "locationId",
+              "value": "={{ $('Webhook').first().json.params.id_location }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $('Buscar contacto').first().json.contacts[0].firstName }} {{ $('Buscar contacto').first().json.contacts[0].lastName }}"
+            },
+            {
+              "name": "pipelineStageId",
+              "value": "={{ $('Sacar id del pipeline y stage').first().json.stage.id }}"
+            },
+            {
+              "name": "status",
+              "value": "abandoned"
+            },
+            {
+              "name": "contactId",
+              "value": "={{ $('Buscar contacto').first().json.contacts[0].id }}"
+            },
+            {
+              "name": "customFields",
+              "value": "={{ $('mapear custom fields oportunidad').first().json.customFields }}"
+            },
+            {
+              "name": "source",
+              "value": "={{ $('valido el email y phone?').first().json.Origen }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5420,
+        -820
+      ],
+      "id": "146f292e-56c1-4627-abd5-20e4ac8512fb",
+      "name": "Crear nueva oportunidad abandonada"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/opportunities/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').first().json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "pipelineId",
+              "value": "={{ $('Sacar id del pipeline y stage').first().json.pipeline.id }}"
+            },
+            {
+              "name": "locationId",
+              "value": "={{ $('Webhook').first().json.params.id_location }}"
+            },
+            {
+              "name": "name",
+              "value": "={{ $('Buscar contacto').first().json.contacts[0].firstName }} {{ $('Buscar contacto').first().json.contacts[0].lastName }}"
+            },
+            {
+              "name": "pipelineStageId",
+              "value": "={{ $('Sacar id del pipeline y stage').first().json.stage.id }}"
+            },
+            {
+              "name": "status",
+              "value": "open"
+            },
+            {
+              "name": "contactId",
+              "value": "={{ $('Buscar contacto').first().json.contacts[0].id }}"
+            },
+            {
+              "name": "customFields",
+              "value": "={{ $('mapear custom fields oportunidad').first().json.customFields }}"
+            },
+            {
+              "name": "source",
+              "value": "={{ $('valido el email y phone?').first().json.Origen }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5420,
+        -620
+      ],
+      "id": "270d7fcd-21fa-4ab3-a87b-7773d52395ea",
+      "name": "crear nueva oportunidad abierta"
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_opportunities_impulsa",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_opportunities_impulsa"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_impulsa": "={{ $('Webhook').first().json.body.ID }}",
+            "id_location": "={{ $('Webhook').first().json.params.id_location }}",
+            "updated_at": "2025-09-02T14:53:37",
+            "created_at": "2025-09-02T14:53:39",
+            "id_opportunity": "={{ $json.opportunity.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id_impulsa",
+              "displayName": "id_impulsa",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "id_location",
+              "displayName": "id_location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id_opportunity",
+              "displayName": "id_opportunity",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        5100,
+        -180
+      ],
+      "id": "aa9caa9a-8c1e-4aa2-99bd-f5655bc938e0",
+      "name": "guardar en tabla intermedia",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c265fcec-0f68-4f76-852d-91dd24f3610c",
+              "leftValue": "={{ $('Buscar oportunidades del contacto').item.json.opportunities }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4400,
+        -720
+      ],
+      "id": "b50f3d3e-fc81-4272-be05-8419227ac1ae",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $json.contact.id }}/tags/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"tags\": [\n    \"impulsa\"\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2700,
+        -620
+      ],
+      "id": "96f9e246-e933-4041-b31d-ac9b7b02c187",
+      "name": "Actualizar tags"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  message: \"Contacto ya creado\"\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        -20
+      ],
+      "id": "7345474b-6fac-4ed9-997d-7c22a3b78177",
+      "name": "devolver que el contacto ya está creado"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "*/*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "PostmanRuntime/7.45.0",
+            "accept-encoding": "gzip, deflate, br",
+            "authorization": "",
+            "cache-control": "no-cache",
+            "max-forwards": "10",
+            "postman-token": "76f97be4-1daf-47bc-879d-7adc0545178a",
+            "x-arr-log-id": "39e50294-7644-47c8-93b4-0849475d86ca",
+            "client-ip": "206.84.80.49:57993",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "206.84.80.49:57993",
+            "x-original-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/CZPs2xh8x6Mlc0piLSy8",
+            "x-waws-unencoded-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/CZPs2xh8x6Mlc0piLSy8",
+            "x-client-ip": "206.84.80.49",
+            "x-client-port": "57993",
+            "content-type": "application/json",
+            "content-length": "827"
+          },
+          "params": {
+            "id_location": "CZPs2xh8x6Mlc0piLSy8"
+          },
+          "query": {},
+          "body": {
+            "ID": 3456782,
+            "IDOportunidadAuteco": "W1282999",
+            "Origen": "Auteco SAS",
+            "Campanna": "Página Web",
+            "Establecimiento": "550011625",
+            "Productos": [
+              {
+                "Producto": "TVS APACHE RTR 160 4V FI ABS;",
+                "Marca": "TVS"
+              }
+            ],
+            "Observaciones": "2025/01/14- pago: Crédito / tipo_documento: Cédula de ciudadanía / cuota_inicial: Sin cuota inicial / plazos: 72 meses / fuente: FINANCIACION /",
+            "TipoDocumento": "CC",
+            "Documento": "1037641361",
+            "NombreContacto": "Andres ropofy",
+            "Email": "andres@bike2web.com",
+            "Telefono2": "3135684490",
+            "CodigoDANE": "00000",
+            "Direccion": null,
+            "HabeasData": true,
+            "Sistema": "multimarca",
+            "NivelInteres": "BB",
+            "Usuario": "Prueba",
+            "Estado": "PE",
+            "NitCompania": "1037641361"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/:id_location",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -953,7 +2041,7 @@
   },
   "staticData": null,
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-09-01T20:49:55.087Z",
-  "versionId": "faf66002-be14-46e9-9a1b-8f9ece616f22"
+  "triggerCount": 1,
+  "updatedAt": "2025-09-02T21:34:00.045Z",
+  "versionId": "1f1180a8-c072-4f57-9f1a-3ecb5b7b8984"
 }
