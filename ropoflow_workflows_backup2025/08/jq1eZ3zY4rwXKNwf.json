@@ -81,17 +81,6 @@
         ]
       ]
     },
-    "Buscar contacto": {
-      "main": [
-        [
-          {
-            "node": "existe?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "valido el email y phone?": {
       "main": [
         [
@@ -114,7 +103,7 @@
       "main": [
         [
           {
-            "node": "Buscar contacto",
+            "node": "Buscar contacto por phone",
             "type": "main",
             "index": 0
           }
@@ -198,25 +187,7 @@
       "main": [
         [
           {
-            "node": "If",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If": {
-      "main": [
-        [
-          {
-            "node": "mapear custom fields oportunidad",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "devolver que no se encontró el pipeline/stage",
+            "node": "si tiene los cusotm values de pipeline?",
             "type": "main",
             "index": 0
           }
@@ -260,7 +231,7 @@
       "main": [
         [
           {
-            "node": "Crear contacto",
+            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -289,7 +260,7 @@
       "main": [
         [
           {
-            "node": "If2",
+            "node": "el contacto tiene oportunidades asignadas?",
             "type": "main",
             "index": 0
           }
@@ -395,7 +366,7 @@
       "main": [
         [
           {
-            "node": "Crear nueva oportunidad abandonada",
+            "node": "Wait1",
             "type": "main",
             "index": 0
           }
@@ -442,7 +413,87 @@
         ]
       ]
     },
-    "If2": {
+    "Actualizar tags": {
+      "main": [
+        [
+          {
+            "node": "Buscar oportunidades del contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "existe?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar por phone +57",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar contacto por phone": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar por phone +57": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "existe?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar por email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar por email": {
+      "main": [
+        [
+          {
+            "node": "existe?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "el contacto tiene oportunidades asignadas?": {
       "main": [
         [
           {
@@ -460,11 +511,40 @@
         ]
       ]
     },
-    "Actualizar tags": {
+    "si tiene los cusotm values de pipeline?": {
       "main": [
         [
           {
-            "node": "Buscar oportunidades del contacto",
+            "node": "mapear custom fields oportunidad",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "devolver que no se encontró el pipeline/stage",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Crear contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Crear nueva oportunidad abandonada",
             "type": "main",
             "index": 0
           }
@@ -489,7 +569,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        0,
+        -1080,
         -120
       ],
       "id": "df1854a3-94df-4298-af03-753483e4e3f7",
@@ -522,7 +602,7 @@
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1.1,
       "position": [
-        220,
+        -860,
         -120
       ],
       "id": "2cfe4481-3a8c-49ef-9c2a-a2efa1dc03de",
@@ -556,7 +636,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        880,
+        -200,
         -220
       ],
       "id": "06eae1e0-80d3-4244-bacd-b73af88368c0",
@@ -641,7 +721,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        440,
+        -640,
         -120
       ],
       "id": "c248c7e0-fe5e-45e4-90e8-c798ae35a16f",
@@ -679,7 +759,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        660,
+        -420,
         -220
       ],
       "id": "7ed7ccd4-882d-4d6b-8ad6-f582b2b49345",
@@ -699,46 +779,11 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1100,
+        20,
         -320
       ],
       "id": "11b43055-10b8-4515-8408-bb0608d7d302",
       "name": "Validar email y phone"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://services.leadconnectorhq.com/contacts/search",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Accept",
-              "value": "application/json"
-            },
-            {
-              "name": "Authorization",
-              "value": "={{ $json.token }}"
-            },
-            {
-              "name": "Version",
-              "value": "2021-07-28"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"locationId\": \"{{ $json.location_id }}\",\n  \"page\": 1,\n  \"pageLimit\": 1,\n  \"filters\": [\n    {\n      \"group\": \"OR\",\n      \"filters\": [\n        {\n          \"field\": \"phone\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ $('Validar email y phone').item.json.Telefono2 }}\"\n        },\n        {\n          \"field\": \"email\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ $('Validar email y phone').item.json.Email }}\"\n        }\n      ]\n    }\n  ]\n}",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1760,
-        -420
-      ],
-      "id": "3ae81e1d-5ecb-4e8c-a8f5-291c682a37bb",
-      "name": "Buscar contacto"
     },
     {
       "parameters": {
@@ -768,7 +813,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1980,
+        1920,
         -420
       ],
       "id": "c007508d-1291-404a-aa5e-733c859c27d1",
@@ -781,7 +826,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1100,
+        20,
         -120
       ],
       "id": "e8222e53-09f1-4b82-9acf-ca316cee67f3",
@@ -815,7 +860,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1320,
+        240,
         -320
       ],
       "id": "fbe1e418-a3d2-4732-96a1-9bbb9490ebd8",
@@ -828,7 +873,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1540,
+        460,
         -220
       ],
       "id": "737493ce-5604-4fa3-ba7b-b5aca2ce61ac",
@@ -862,7 +907,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        1540,
+        460,
         -420
       ],
       "id": "67244e27-2f40-4d2a-b1ad-1b6f4d2c4b8a",
@@ -881,7 +926,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        660,
+        -420,
         -20
       ],
       "id": "e6fed878-780c-43b7-a800-223ac9d35e33",
@@ -890,7 +935,7 @@
     {
       "parameters": {
         "method": "PUT",
-        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('Buscar contacto').item.json.contacts[0].id }}",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $('existe?').item.json.contacts[0].id }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -914,6 +959,14 @@
             {
               "name": "customFields",
               "value": "={{ $json.customFields }}"
+            },
+            {
+              "name": "email",
+              "value": "={{ $('Validar email y phone').item.json.Email }}"
+            },
+            {
+              "name": "phone",
+              "value": "={{ $('Validar email y phone').item.json.Telefono2 }}"
             }
           ]
         },
@@ -931,7 +984,7 @@
     {
       "parameters": {
         "content": "Proceso de contactos",
-        "height": 920,
+        "height": 1040,
         "width": 880,
         "color": 5
       },
@@ -956,7 +1009,7 @@
             },
             {
               "name": "contact_id",
-              "value": "={{ $('Buscar contacto').item.json.contacts[0].id }}"
+              "value": "={{ $('Buscar contacto por phone').item.json.contacts[0].id }}"
             }
           ]
         },
@@ -991,7 +1044,7 @@
     {
       "parameters": {
         "content": "Proceso de oportunidades",
-        "height": 920,
+        "height": 1040,
         "width": 2900,
         "color": 4
       },
@@ -1113,40 +1166,6 @@
     },
     {
       "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "fd214e96-778e-41ff-b5cd-4b9f0e79eb8e",
-              "leftValue": "={{ $json.found }}",
-              "rightValue": "",
-              "operator": {
-                "type": "boolean",
-                "operation": "true",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        3960,
-        -620
-      ],
-      "id": "144cfc5d-ab09-4299-825a-e19020c249ad",
-      "name": "If"
-    },
-    {
-      "parameters": {
         "jsCode": "return {\n    message: \"No se encontró el pipeline o el stage.\"\n}"
       },
       "type": "n8n-nodes-base.code",
@@ -1245,7 +1264,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2200,
+        2120,
         -220
       ],
       "id": "b0dce9d5-f7cf-4e13-869b-85bfcd15dfda",
@@ -1258,7 +1277,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2420,
+        2340,
         -220
       ],
       "id": "1be1672b-b8e4-4ff3-9f4f-f0cd94d88359",
@@ -1327,7 +1346,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2640,
+        2860,
         -220
       ],
       "id": "b9051174-8b60-416e-b728-f0b479109512",
@@ -1410,7 +1429,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4180,
+        4400,
         -320
       ],
       "id": "af7d8ce4-0e4a-48f9-b286-fb043f921e5d",
@@ -1437,7 +1456,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2900,
+        3120,
         -240
       ],
       "id": "a809aa25-8ccc-41a9-ab30-de0f7b13a8a5",
@@ -1464,7 +1483,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3080,
+        3300,
         -220
       ],
       "id": "ddac52dc-8a0b-41ab-ad38-876c57ed1895",
@@ -1504,7 +1523,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3300,
+        3520,
         -220
       ],
       "id": "d388b6f4-52f9-42f0-b3ee-21f07eb0a863",
@@ -1517,7 +1536,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3520,
+        3740,
         -220
       ],
       "id": "45c798f5-0b13-4b81-9553-af9d3b2a584e",
@@ -1551,7 +1570,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        3740,
+        3960,
         -220
       ],
       "id": "99270f41-ec1d-4891-91ef-506d4396ea8e",
@@ -1564,7 +1583,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3960,
+        4180,
         -120
       ],
       "id": "6aa2eeb8-a551-4978-8260-adeab74d39f6",
@@ -1577,7 +1596,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3960,
+        4180,
         -320
       ],
       "id": "a9ed85b6-64ee-4331-a9f6-cb8b39793efe",
@@ -1677,7 +1696,7 @@
             },
             {
               "name": "name",
-              "value": "={{ $('Buscar contacto').first().json.contacts[0].firstName }} {{ $('Buscar contacto').first().json.contacts[0].lastName }}"
+              "value": "={{ $('existe?').first().json.contacts[0].firstName }} {{ $('existe?').first().json.contacts[0].lastName }}"
             },
             {
               "name": "pipelineStageId",
@@ -1689,7 +1708,7 @@
             },
             {
               "name": "contactId",
-              "value": "={{ $('Buscar contacto').first().json.contacts[0].id }}"
+              "value": "={{ $('existe?').first().json.contacts[0].id }}"
             },
             {
               "name": "customFields",
@@ -1706,7 +1725,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5420,
+        5640,
         -820
       ],
       "id": "146f292e-56c1-4627-abd5-20e4ac8512fb",
@@ -1746,7 +1765,7 @@
             },
             {
               "name": "name",
-              "value": "={{ $('Buscar contacto').first().json.contacts[0].firstName }} {{ $('Buscar contacto').first().json.contacts[0].lastName }}"
+              "value": "={{ $('existe?').first().json.contacts[0].firstName }} {{ $('existe?').first().json.contacts[0].lastName }}"
             },
             {
               "name": "pipelineStageId",
@@ -1758,7 +1777,7 @@
             },
             {
               "name": "contactId",
-              "value": "={{ $('Buscar contacto').first().json.contacts[0].id }}"
+              "value": "={{ $('existe?').first().json.contacts[0].id }}"
             },
             {
               "name": "customFields",
@@ -1775,7 +1794,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        5420,
+        5640,
         -620
       ],
       "id": "270d7fcd-21fa-4ab3-a87b-7773d52395ea",
@@ -1871,7 +1890,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        5100,
+        5540,
         -180
       ],
       "id": "aa9caa9a-8c1e-4aa2-99bd-f5655bc938e0",
@@ -1882,40 +1901,6 @@
           "name": "Base de datos APIS"
         }
       }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "c265fcec-0f68-4f76-852d-91dd24f3610c",
-              "leftValue": "={{ $('Buscar oportunidades del contacto').item.json.opportunities }}",
-              "rightValue": "",
-              "operator": {
-                "type": "array",
-                "operation": "notEmpty",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        4400,
-        -720
-      ],
-      "id": "b50f3d3e-fc81-4272-be05-8419227ac1ae",
-      "name": "If2"
     },
     {
       "parameters": {
@@ -1959,11 +1944,280 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2900,
+        3120,
         -20
       ],
       "id": "7345474b-6fac-4ed9-997d-7c22a3b78177",
       "name": "devolver que el contacto ya está creado"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7b1be91b-7610-4eb4-9eaf-61955c631796",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        -420
+      ],
+      "id": "77a3f014-7bd1-4129-a134-95578d5e5c99",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"{{ $json.location_id }}\",\n  \"page\": 1,\n  \"pageLimit\": 1,\n  \"filters\": [\n    {\n      \"field\": \"phone\",\n      \"operator\": \"eq\",\n      \"value\": \"{{ $('Validar email y phone').item.json.Telefono2 }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        680,
+        -420
+      ],
+      "id": "3ae81e1d-5ecb-4e8c-a8f5-291c682a37bb",
+      "name": "Buscar contacto por phone"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"{{ $('Webhook').item.json.params.id_location }}\",\n  \"page\": 1,\n  \"pageLimit\": 1,\n  \"filters\": [\n    {\n      \"field\": \"phone\",\n      \"operator\": \"eq\",\n      \"value\": \"+57{{ $('Validar email y phone').item.json.Telefono2 }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        -340
+      ],
+      "id": "21d121d6-7ca5-42d6-8c78-b1789127cc72",
+      "name": "buscar por phone +57"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "7b1be91b-7610-4eb4-9eaf-61955c631796",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1440,
+        -240
+      ],
+      "id": "b9e22ac6-8ee9-4124-a0c3-70da6a6ad621",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"{{ $('Webhook').item.json.params.id_location }}\",\n  \"page\": 1,\n  \"pageLimit\": 1,\n  \"filters\": [\n    {\n      \"field\": \"email\",\n      \"operator\": \"eq\",\n      \"value\": \"{{ $('Validar email y phone').item.json.Email }}\"\n    }\n  ]\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1620,
+        -120
+      ],
+      "id": "63bfcf51-a623-4315-8fde-2c1a7354d35b",
+      "name": "buscar por email"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c265fcec-0f68-4f76-852d-91dd24f3610c",
+              "leftValue": "={{ $('Buscar oportunidades del contacto').item.json.opportunities }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4400,
+        -720
+      ],
+      "id": "b50f3d3e-fc81-4272-be05-8419227ac1ae",
+      "name": "el contacto tiene oportunidades asignadas?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fd214e96-778e-41ff-b5cd-4b9f0e79eb8e",
+              "leftValue": "={{ $json.found }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3960,
+        -620
+      ],
+      "id": "144cfc5d-ab09-4299-825a-e19020c249ad",
+      "name": "si tiene los cusotm values de pipeline?"
+    },
+    {
+      "parameters": {
+        "amount": 30
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2600,
+        -220
+      ],
+      "id": "a23d4deb-0e25-4bb3-b900-ac2c7e5b5eb3",
+      "name": "Wait",
+      "webhookId": "a72edf55-82f9-4331-b5fe-3b9e199337ab"
+    },
+    {
+      "parameters": {
+        "amount": 60
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        5280,
+        -900
+      ],
+      "id": "8f6151cc-6565-4fc9-b028-030d9a574244",
+      "name": "Wait1",
+      "webhookId": "30590bbe-ae07-4001-b38a-6dfaa7415dd9"
     }
   ],
   "pinData": {
@@ -1978,9 +2232,9 @@
             "authorization": "",
             "cache-control": "no-cache",
             "max-forwards": "10",
-            "postman-token": "76f97be4-1daf-47bc-879d-7adc0545178a",
-            "x-arr-log-id": "39e50294-7644-47c8-93b4-0849475d86ca",
-            "client-ip": "206.84.80.49:57993",
+            "postman-token": "55049905-15a0-4aef-8528-6d2e9a89526d",
+            "x-arr-log-id": "1841db7e-54a6-40f0-9ae0-72cf6c7ad05d",
+            "client-ip": "206.84.80.49:60363",
             "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "x-site-deployment-id": "ropoflow",
             "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
@@ -1988,20 +2242,20 @@
             "x-appservice-proto": "https",
             "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
             "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "206.84.80.49:57993",
+            "x-forwarded-for": "206.84.80.49:60363",
             "x-original-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/CZPs2xh8x6Mlc0piLSy8",
             "x-waws-unencoded-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/CZPs2xh8x6Mlc0piLSy8",
             "x-client-ip": "206.84.80.49",
-            "x-client-port": "57993",
+            "x-client-port": "60363",
             "content-type": "application/json",
-            "content-length": "827"
+            "content-length": "835"
           },
           "params": {
             "id_location": "CZPs2xh8x6Mlc0piLSy8"
           },
           "query": {},
           "body": {
-            "ID": 3456782,
+            "ID": 34567345,
             "IDOportunidadAuteco": "W1282999",
             "Origen": "Auteco SAS",
             "Campanna": "Página Web",
@@ -2015,9 +2269,9 @@
             "Observaciones": "2025/01/14- pago: Crédito / tipo_documento: Cédula de ciudadanía / cuota_inicial: Sin cuota inicial / plazos: 72 meses / fuente: FINANCIACION /",
             "TipoDocumento": "CC",
             "Documento": "1037641361",
-            "NombreContacto": "Andres ropofy",
-            "Email": "andres@bike2web.com",
-            "Telefono2": "3135684490",
+            "NombreContacto": "sebas ropofy",
+            "Email": "sebasanoprofundo@ropofy.com",
+            "Telefono2": "3182014502",
             "CodigoDANE": "00000",
             "Direccion": null,
             "HabeasData": true,
@@ -2042,6 +2296,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-02T21:34:00.045Z",
-  "versionId": "1f1180a8-c072-4f57-9f1a-3ecb5b7b8984"
+  "updatedAt": "2025-09-03T19:55:57.622Z",
+  "versionId": "b9717751-f9a2-44dc-88d1-eafd59b93303"
 }
