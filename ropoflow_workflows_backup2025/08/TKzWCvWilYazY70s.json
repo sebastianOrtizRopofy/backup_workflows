@@ -1677,7 +1677,7 @@
               "paginationCompleteWhen": "receiveSpecificStatusCodes",
               "statusCodesWhenComplete": "404",
               "limitPagesFetched": true,
-              "maxRequests": 2000,
+              "maxRequests": 1000,
               "requestInterval": 700
             }
           }
@@ -1765,7 +1765,7 @@
             {
               "id": "349ceaec-c0f1-45c7-98b6-73701204f3d0",
               "name": "page_inicio",
-              "value": "2105",
+              "value": "3205",
               "type": "string"
             },
             {
@@ -2722,19 +2722,13 @@
       "typeVersion": 1,
       "position": [
         -6960,
-        1840
+        1860
       ],
       "id": "469b6ba9-e28f-4c99-a235-32b3f5c250e6",
       "name": "When clicking ‘Execute workflow’"
     }
   ],
-  "pinData": {
-    "When clicking ‘Execute workflow’": [
-      {
-        "json": {}
-      }
-    ]
-  },
+  "pinData": {},
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -2744,6 +2738,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-30T02:23:25.110Z",
-  "versionId": "4c1ac84c-7ecd-4382-892b-9fee65e0e65f"
+  "updatedAt": "2025-09-03T14:58:59.069Z",
+  "versionId": "02f20160-4b56-47ea-b48e-2771a0ebc7a9"
 }
