@@ -1,0 +1,199 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        []
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-04T20:46:27.684Z",
+  "id": "FmD2YKhxtnopkMcQ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "API - Consultar clientes Ropofy",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "705884c9-0d80-48e4-838c-c640463f3aa2",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "bda4693d-c66d-48a0-83e5-880a6139d0cc",
+      "name": "Webhook",
+      "webhookId": "705884c9-0d80-48e4-838c-c640463f3aa2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Trae todos los items de entrada\nconst allItems = $input.all();\n \n// Extrae el JSON de cada item\nconst allData = allItems.map(item => item.json);\n \n// Devuelve un solo item con un array adentro\nreturn [\n  {\n    json: {\n      merged: allData\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        0
+      ],
+      "id": "793f0c5d-27a4-49d6-9020-b3ca9e0c5813",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.leadconnectorhq.com/locations/elasticsearch/v2",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "companyId",
+              "value": "1XnoZddSkArrsZCIiiZE"
+            },
+            {
+              "name": "companyId",
+              "value": "1XnoZddSkArrsZCIiiZE"
+            },
+            {
+              "name": "limit",
+              "value": "50"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "accept-language",
+              "value": "es-CO,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6"
+            },
+            {
+              "name": "channel",
+              "value": "APP"
+            },
+            {
+              "name": "origin",
+              "value": "https://app.ropofy.com"
+            },
+            {
+              "name": "priority",
+              "value": "u=1, i"
+            },
+            {
+              "name": "referer",
+              "value": "https://app.ropofy.com/"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Not;A=Brand\";v=\"99\", \"Google Chrome\";v=\"139\", \"Chromium\";v=\"139\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "empty"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "cors"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "cross-site"
+            },
+            {
+              "name": "source",
+              "value": "WEB_USER"
+            },
+            {
+              "name": "source-id",
+              "value": "locations"
+            },
+            {
+              "name": "token-id",
+              "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImUzZWU3ZTAyOGUzODg1YTM0NWNlMDcwNTVmODQ2ODYyMjU1YTcwNDYiLCJ0eXAiOiJKV1QifQ.eyJ1c2VyX2lkIjoieXB3c25vNDdLQkZCb0thbHZSbEYiLCJjb21wYW55X2lkIjoiMVhub1pkZFNrQXJyc1pDSWlpWkUiLCJyb2xlIjoiYWRtaW4iLCJ0eXBlIjoiYWdlbmN5IiwibG9jYXRpb25zIjpbIjVEUW85Rmp0cThZcDRGQm8xdmtxIiwiYVBVRU5sbkhxckhPdjh2SVJDVksiLCJRTFgySDBQaTh0R1RqOW1Wb2xZRyIsIlRZZ1M5Nm1GUFBRTHgwZkpVZVZnIiwiczZoeDlGdU1Dcktoa0theDJsSEQiLCJnd3huUVAwamVWOThraEZaRE5TayIsIlp2Rk5Mc0RNRXJpcWE3TFltaUJTIiwiSUhsWVA0SjFsbTBqdnFoSHJYbWsiLCJIU1dCR2JaNzBXR3pVWUxCSjFEcCIsIjFhRkkwZGp5Yk5xV0ZnZkxnYmlkIiwiR041MnpBOFpNM0duQWtEN3NSemwiLCI2bVM5QTFHeE83QnFlUjNQSGZaWCIsIjNZR2d4cXZlNmNBQmpFMEtDakxzIiwiem5VYndZUnFFalJ2THg4WnF4TFEiLCJSYm1sM0s2ZmxZWVZuVzBEWHh5YyIsIkxxR2ZBbW5OOXV0VndWTzRVbmt3IiwiMk4wOUs0YU1mQVUxeGd4M2ZhYUgiLCJPeThZTEc3SG5lNUlEeFJWa2FzSiIsIkpybk1pTjJuMnhhODVkRGtMckNGIiwiM2dmOHhyeE9DSUx3bDE1NGphdG8iXSwidmVyc2lvbiI6MiwicGVybWlzc2lvbnMiOnsid29ya2Zsb3dzX2VuYWJsZWQiOnRydWUsIndvcmtmbG93c19yZWFkX29ubHkiOmZhbHNlfSwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2hpZ2hsZXZlbC1iYWNrZW5kIiwiYXVkIjoiaGlnaGxldmVsLWJhY2tlbmQiLCJhdXRoX3RpbWUiOjE3NTcwMjM4NjksInN1YiI6Inlwd3NubzQ3S0JGQm9LYWx2UmxGIiwiaWF0IjoxNzU3MDI0MDEzLCJleHAiOjE3NTcwMjc2MTMsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnt9LCJzaWduX2luX3Byb3ZpZGVyIjoiY3VzdG9tIn19.r-JHd_cDihWMA6pnAs5kLbkwil3F5wqp-BV0aHh8tCeOwLPV8T0tJMU_K2xOnERTnPslUWCOs5FsJ3UI4-FifHcOdpPxceOGVATVPYghrcS8sWLRaYEbhPQ05k6IZXMeQq5d8emqnvXiXVZKjUVJlTA3jsCsFrsJx1iAR7wY3oBwya7vnkl2VkPT3jtwDPzYuzw2XY_P62gdr6EoncOI7GinLHko62ziJ0ngTTSOb07G3s_aHndg-HNtXqJL_FCH0GQB182WMiR1CxLduxkwVxxB-iFfSboJotC17SWk7aSNzGl5XCmzhibesjT69dSPHu_xlyqoWrafz408Qdl4AQ"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "version",
+              "value": "2021-04-15"
+            },
+            {
+              "name": "version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"companyId\": \"1XnoZddSkArrsZCIiiZE\",\n  \"filters\": [],\n  \"pageLimit\": 30,\n  \"offset\": 0,\n  \"sort\": [\n    {\n      \"field\": \"name_sort\",\n      \"direction\": \"asc\"\n    }\n  ]\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "11512a29-3046-44fe-9d80-55a8ed66d517",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-04T22:22:39.116Z",
+  "versionId": "fdffe84b-a834-4e0f-8995-5d5fee07f079"
+}
