@@ -1,0 +1,64 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-08T15:04:35.613Z",
+  "id": "pWSN5TJx6I9MhlUl",
+  "isArchived": false,
+  "meta": null,
+  "name": "reportar error webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/error/log",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "0e838fea-3010-4f74-a100-548cb413dbb8",
+      "name": "Webhook",
+      "webhookId": "ae41bc9f-ad8b-4549-a69c-e4b89a7334ca"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "c3f21d00-0417-4e60-96d5-3d624d0212d3",
+      "name": "Code"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-08T15:07:22.220Z",
+  "versionId": "6171427c-ab0a-410d-9d28-69aa51e61e78"
+}
