@@ -984,14 +984,14 @@
     {
       "parameters": {
         "content": "Proceso de contactos",
-        "height": 1040,
+        "height": 1140,
         "width": 880,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         1880,
-        -880
+        -980
       ],
       "typeVersion": 1,
       "id": "fc66e3c8-ae9f-4791-bbb9-aca2c7332e09",
@@ -1009,7 +1009,7 @@
             },
             {
               "name": "contact_id",
-              "value": "={{ $('Buscar contacto por phone').item.json.contacts[0].id }}"
+              "value": "={{ $('Buscar contacto por phone').item.json.contacts.first()?.id ?? $('buscar por phone +57').item.json.contacts.first()?.id ?? $('buscar por email').item.json.contacts.first()?.id }}"
             }
           ]
         },
@@ -1044,14 +1044,14 @@
     {
       "parameters": {
         "content": "Proceso de oportunidades",
-        "height": 1040,
-        "width": 2900,
+        "height": 1140,
+        "width": 3080,
         "color": 4
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
         2760,
-        -880
+        -980
       ],
       "typeVersion": 1,
       "id": "1604a3aa-ae9c-41fd-abc9-1a671c76e77a",
@@ -2225,16 +2225,11 @@
       {
         "json": {
           "headers": {
-            "accept": "*/*",
             "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "user-agent": "PostmanRuntime/7.45.0",
-            "accept-encoding": "gzip, deflate, br",
-            "authorization": "",
-            "cache-control": "no-cache",
+            "user-agent": "GuzzleHttp/7",
             "max-forwards": "10",
-            "postman-token": "55049905-15a0-4aef-8528-6d2e9a89526d",
-            "x-arr-log-id": "1841db7e-54a6-40f0-9ae0-72cf6c7ad05d",
-            "client-ip": "206.84.80.49:60363",
+            "x-arr-log-id": "496946fb-c398-4236-b852-5605aae71501",
+            "client-ip": "35.209.139.90:40100",
             "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "x-site-deployment-id": "ropoflow",
             "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
@@ -2242,20 +2237,20 @@
             "x-appservice-proto": "https",
             "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
             "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "206.84.80.49:60363",
+            "x-forwarded-for": "35.209.139.90:40100",
             "x-original-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/CZPs2xh8x6Mlc0piLSy8",
             "x-waws-unencoded-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/CZPs2xh8x6Mlc0piLSy8",
-            "x-client-ip": "206.84.80.49",
-            "x-client-port": "60363",
+            "x-client-ip": "35.209.139.90",
+            "x-client-port": "40100",
             "content-type": "application/json",
-            "content-length": "835"
+            "content-length": "678"
           },
           "params": {
             "id_location": "CZPs2xh8x6Mlc0piLSy8"
           },
           "query": {},
           "body": {
-            "ID": 34567345,
+            "ID": 4563787,
             "IDOportunidadAuteco": "W1282999",
             "Origen": "Auteco SAS",
             "Campanna": "Página Web",
@@ -2269,9 +2264,9 @@
             "Observaciones": "2025/01/14- pago: Crédito / tipo_documento: Cédula de ciudadanía / cuota_inicial: Sin cuota inicial / plazos: 72 meses / fuente: FINANCIACION /",
             "TipoDocumento": "CC",
             "Documento": "1037641361",
-            "NombreContacto": "sebas ropofy",
-            "Email": "sebasanoprofundo@ropofy.com",
-            "Telefono2": "3182014502",
+            "NombreContacto": "Andres ropofy",
+            "Email": "andres@bike2web.com",
+            "Telefono2": "3135684490",
             "CodigoDANE": "00000",
             "Direccion": null,
             "HabeasData": true,
@@ -2296,6 +2291,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-03T19:55:57.622Z",
-  "versionId": "b9717751-f9a2-44dc-88d1-eafd59b93303"
+  "updatedAt": "2025-09-08T22:26:00.773Z",
+  "versionId": "ec705b6f-a1ac-4506-ae9c-be4f15e205c8"
 }
