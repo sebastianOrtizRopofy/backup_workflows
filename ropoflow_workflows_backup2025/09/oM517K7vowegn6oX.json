@@ -1,0 +1,55 @@
+{
+  "active": true,
+  "connections": {},
+  "createdAt": "2025-09-08T23:17:39.181Z",
+  "id": "oM517K7vowegn6oX",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boosters - Registro compra de booster",
+  "nodes": [
+    {
+      "parameters": {
+        "events": [
+          "invoice.payment_succeeded"
+        ]
+      },
+      "type": "n8n-nodes-base.stripeTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "7102bb4c-8b29-40ab-9be6-09cb09c293d5",
+      "name": "Stripe Trigger",
+      "webhookId": "af0e9bb9-0960-43e2-a8bf-a2f5ebbca856",
+      "credentials": {
+        "stripeApi": {
+          "id": "4oDodak2zj7sZUyE",
+          "name": "Stripe account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Stripe Trigger": {
+      "webhookId": "we_1S5ENLIjUQf988WXSFORJ9sN",
+      "webhookEvents": [
+        "invoice.payment_succeeded"
+      ],
+      "webhookSecret": "whsec_xMZ6bbaVo5BUu2OC97636heDAJND6JNQ"
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-08T23:21:31.463Z",
+  "versionId": "2a52b99e-31ba-4a74-863e-bbd609b6959a"
+}
