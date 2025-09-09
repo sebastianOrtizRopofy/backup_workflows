@@ -1,0 +1,305 @@
+{
+  "active": false,
+  "connections": {
+    "Buscar cliente": {
+      "main": [
+        [
+          {
+            "node": "¿Existe el cliente?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Crear cliente": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "¿Existe el cliente?": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Crear cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Buscar cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-08T20:09:28.235Z",
+  "id": "Qco7MVHkYGhLnxn3",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Crear Clientes masivamente",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2668ba98-4c4c-80ca-85e6-e58149118e95",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://www.notion.so/2668ba984c4c80ca85e6e58149118e95"
+        },
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "ID Cliente|rich_text",
+              "condition": "equals",
+              "richTextValue": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1000,
+        120
+      ],
+      "id": "87527d1a-b984-4c38-8740-78aa9c454efd",
+      "name": "Buscar cliente",
+      "alwaysOutputData": true,
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2668ba98-4c4c-80ca-85e6-e58149118e95",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://www.notion.so/2668ba984c4c80ca85e6e58149118e95"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "ID Cliente|rich_text",
+              "textContent": "={{ $('Loop Over Items').item.json.id }}"
+            },
+            {
+              "key": "Name|title",
+              "title": "={{ $('Loop Over Items').item.json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1440,
+        340
+      ],
+      "id": "e8e0714f-ce10-4d46-b9b3-567b2edf7799",
+      "name": "Crear cliente",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "190c9392-8444-4e06-b33b-05f1ea090e1a",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        120
+      ],
+      "id": "a00fbd36-d97a-430a-88f6-2d7f02ac8fb5",
+      "name": "¿Existe el cliente?"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        100,
+        60
+      ],
+      "id": "e4412550-2ada-427b-b9c3-c164a34b2e72",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/705884c9-0d80-48e4-838c-c640463f3aa2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        60
+      ],
+      "id": "2f48fbe7-b76d-4df1-bd25-bd831775dfe5",
+      "name": "HTTP Request",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "\nreturn $input.first().json.merged[0].locations;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        540,
+        60
+      ],
+      "id": "8be8e87f-7838-4635-96cc-21c0f6708d35",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        760,
+        60
+      ],
+      "id": "c7ef8488-f16b-42f4-a4da-82637785c3fa",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        340
+      ],
+      "id": "23ec8207-e62d-4c62-9f88-665e8d5b1149"
+    }
+  ],
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-08T22:01:04.635Z",
+  "versionId": "f374d466-22ea-4c8f-886f-09c0a1bbaf59"
+}
