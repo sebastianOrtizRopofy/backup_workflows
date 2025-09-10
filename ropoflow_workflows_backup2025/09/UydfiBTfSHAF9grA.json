@@ -1,0 +1,101 @@
+{
+  "active": true,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Create a database page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-08T23:12:13.032Z",
+  "id": "UydfiBTfSHAF9grA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Boosters mensuales",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6395f813-0093-448e-9e6a-bb765b8a96d0",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2688ba98-4c4c-80cc-bf41-e5d924e3245a",
+          "mode": "list",
+          "cachedResultName": "Compra boosters",
+          "cachedResultUrl": "https://www.notion.so/2688ba984c4c80ccbf41e5d924e3245a"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Cliente|relation",
+              "relationValue": [
+                "2688ba984c4c81878f21e56a059d5f21"
+              ]
+            },
+            {
+              "key": "Boosters|number",
+              "numberValue": 30
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "2dbac2a6-7825-4b04-8a0d-1d65f8b79029",
+      "name": "Create a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-08T23:16:29.459Z",
+  "versionId": "533ad8bc-e3ca-408f-a381-7922e95698d0"
+}
