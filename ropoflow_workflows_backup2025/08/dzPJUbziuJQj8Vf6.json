@@ -31,6 +31,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Create chat message",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     }
@@ -38,7 +45,9 @@
   "createdAt": "2025-08-28T21:45:30.034Z",
   "id": "dzPJUbziuJQj8Vf6",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "dolibar auteco",
   "nodes": [
     {
@@ -130,9 +139,90 @@
       ],
       "id": "49e89f53-d9ae-47ed-94c5-99392f1cc604",
       "name": "enviar contacto"
+    },
+    {
+      "parameters": {
+        "resource": "chatMessage",
+        "chatId": {
+          "__rl": true,
+          "value": "19:e6054ca4534d482c986110809ae05204@thread.v2",
+          "mode": "list",
+          "cachedResultName": "Notificaciones Integraciones (group)",
+          "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Ae6054ca4534d482c986110809ae05204%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
+        },
+        "message": "=Ocurrió un error en la integración dolibar, razón: {{ $json.data }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        760,
+        140
+      ],
+      "id": "8ce641e2-14fa-4c3f-b6d1-c88634e413d0",
+      "name": "Create chat message",
+      "webhookId": "97173f2f-ef7d-44e2-9924-e530df7ac6d4",
+      "executeOnce": true,
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "ZN6rkGlpvuVkKKom",
+          "name": "Microsoft Teams account"
+        }
+      }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36",
+            "max-forwards": "10",
+            "x-arr-log-id": "70dfe67e-e881-4416-96cb-93adf108a5da",
+            "client-ip": "4.174.177.33:23360",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "4.174.177.33:23360",
+            "x-original-url": "/webhook/dolibar",
+            "x-waws-unencoded-url": "/webhook/dolibar",
+            "x-client-ip": "4.174.177.33",
+            "x-client-port": "23360",
+            "content-type": "application/json",
+            "content-length": "425"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "uso": null,
+            "tipo_pago": null,
+            "cuando_compra": null,
+            "comment": "INTERESADO EN COMPRAR STARK E-TRUCK 1.4T LITE - STARK",
+            "impulsa_campanna": "STARKE-TRUCK1.4TLITE - formulario-contacto",
+            "codigo_dane": "05001",
+            "codigo_sap": "",
+            "id_lead": 665754,
+            "name": "ENERGITEL SAS",
+            "phone": "3163653710",
+            "email": "",
+            "cedula": "",
+            "product": "STARK E-TRUCK 1.4T LITE",
+            "brand": "STARK",
+            "source": "organico",
+            "campaign": "STARKE-TRUCK1.4TLITE",
+            "id_dealer": "15"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/dolibar",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -142,6 +232,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-08T20:44:21.176Z",
-  "versionId": "6acf57e2-f5d3-40fe-9a05-f547ddfbdb2a"
+  "updatedAt": "2025-09-10T16:07:02.787Z",
+  "versionId": "a8881afc-09d9-47e0-958d-3d517ed9ee12"
 }
