@@ -1,6 +1,62 @@
 {
   "active": true,
-  "connections": {},
+  "connections": {
+    "Stripe Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Cliente1": {
+      "main": [
+        [
+          {
+            "node": "Buscar Cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Cliente": {
+      "main": [
+        [
+          {
+            "node": "Registrar compra de Booster",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Buscar Cliente1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2025-09-08T23:17:39.181Z",
   "id": "oM517K7vowegn6oX",
   "isArchived": false,
@@ -30,9 +86,455 @@
           "name": "Stripe account"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8c9c094d-13f9-4945-b191-dee73c3d49ca",
+              "leftValue": "={{ $json.data.object.lines.data[0].description }}",
+              "rightValue": "boosters",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "323bce71-f3e7-4ce9-8327-89ec76f430b2",
+              "leftValue": "={{ $json.data.object.lines.data[0].description }}",
+              "rightValue": "Boosters",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "f7200d48-b73f-4235-bf3d-db243fc8e900",
+              "leftValue": "={{ $json.data.object.lines.data[0].description }}",
+              "rightValue": "booster",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "d89f8b35-50ec-469a-844b-ec0ebe9409de",
+              "leftValue": "={{ $json.data.object.lines.data[0].description }}",
+              "rightValue": "Booster",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        180,
+        0
+      ],
+      "id": "8de2e32a-f9e0-427d-a44d-251711bd1e86",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2668ba98-4c4c-80ca-85e6-e58149118e95",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://www.notion.so/2668ba984c4c80ca85e6e58149118e95"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "ID Cliente|rich_text",
+              "condition": "contains",
+              "richTextValue": "={{ $json.metadata.location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        800,
+        0
+      ],
+      "id": "32bf4470-ccd4-48ac-8254-e7c806fd97ff",
+      "name": "Buscar Cliente",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "customer",
+        "customerId": "={{ $('Stripe Trigger').item.json.data.object.customer }}"
+      },
+      "type": "n8n-nodes-base.stripe",
+      "typeVersion": 1,
+      "position": [
+        600,
+        0
+      ],
+      "id": "eb737c22-32d1-4fd9-aa6e-483851f45cfe",
+      "name": "Buscar Cliente1",
+      "credentials": {
+        "stripeApi": {
+          "id": "4oDodak2zj7sZUyE",
+          "name": "Stripe account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const str = $('Stripe Trigger').first().json.data.object.lines.data[0].description;\n\n\n// Extraer el número del string\nconst number = str.match(/\\d+/);\n\n// Crear un objeto con el resultado\nconst result = {\n  number: number ? parseInt(number[0], 10) : 0\n};\n\n// Retornar el objeto dentro de un array\nreturn [{ json: result }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        380,
+        0
+      ],
+      "id": "09a25985-3c8c-40db-a1c3-2d77c3ccfb24",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "2688ba98-4c4c-80cc-bf41-e5d924e3245a",
+          "mode": "list",
+          "cachedResultName": "Compra boosters",
+          "cachedResultUrl": "https://www.notion.so/2688ba984c4c80ccbf41e5d924e3245a"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Boosters|number",
+              "numberValue": "={{ $('Code').item.json.number }}"
+            },
+            {
+              "key": "Cliente|relation",
+              "relationValue": [
+                "={{ $json.id }}"
+              ]
+            },
+            {
+              "key": "ID Factura|title",
+              "title": "={{ $('Stripe Trigger').item.json.data.object.number }}"
+            },
+            {
+              "key": "Amount|number",
+              "numberValue": "={{ $('Stripe Trigger').item.json.data.object.amount_paid }}"
+            },
+            {
+              "key": "Invoice|url",
+              "urlValue": "={{ $('Stripe Trigger').item.json.data.object.invoice_pdf }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1000,
+        0
+      ],
+      "id": "fb15126a-6544-4442-84bd-13f6b4332998",
+      "name": "Registrar compra de Booster",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Stripe Trigger": [
+      {
+        "json": {
+          "id": "evt_1S5U42IjUQf988WXwzfatIXp",
+          "object": "event",
+          "api_version": "2023-10-16",
+          "created": 1757433997,
+          "data": {
+            "object": {
+              "id": "in_1S5U38IjUQf988WX8wRmujaU",
+              "object": "invoice",
+              "account_country": "CA",
+              "account_name": "Ropofy",
+              "account_tax_ids": null,
+              "amount_due": 0,
+              "amount_overpaid": 0,
+              "amount_paid": 0,
+              "amount_remaining": 0,
+              "amount_shipping": 0,
+              "application": null,
+              "application_fee_amount": null,
+              "attempt_count": 0,
+              "attempted": true,
+              "auto_advance": false,
+              "automatic_tax": {
+                "disabled_reason": null,
+                "enabled": true,
+                "liability": {
+                  "type": "self"
+                },
+                "provider": "stripe",
+                "status": "complete"
+              },
+              "automatically_finalizes_at": null,
+              "billing_reason": "manual",
+              "charge": null,
+              "collection_method": "charge_automatically",
+              "created": 1757433942,
+              "currency": "usd",
+              "custom_fields": null,
+              "customer": "cus_PtTCUgewzWTneG",
+              "customer_address": {
+                "city": "Medellín",
+                "country": "CO",
+                "line1": "CR 15 9A-36",
+                "line2": "",
+                "postal_code": "",
+                "state": "ANT"
+              },
+              "customer_email": "recepcionfactura@bike2web.com",
+              "customer_name": "Ropofy",
+              "customer_phone": "+5732087187933",
+              "customer_shipping": null,
+              "customer_tax_exempt": "none",
+              "customer_tax_ids": [],
+              "default_payment_method": null,
+              "default_source": null,
+              "default_tax_rates": [],
+              "description": "Digittant Consulting Inc.",
+              "discount": null,
+              "discounts": [],
+              "due_date": null,
+              "effective_at": 1757433996,
+              "ending_balance": 0,
+              "footer": "Digittant Consulting Inc.",
+              "from_invoice": null,
+              "hosted_invoice_url": "https://invoice.stripe.com/i/acct_1OMDTkIjUQf988WX/live_YWNjdF8xT01EVGtJalVRZjk4OFdYLF9UMVg3OFBudnoyR0hGRkNrSE9IMEw2d3Jsek9paUdmLDE0Nzk3NDc5OA0200gcwoveas?s=ap",
+              "invoice_pdf": "https://pay.stripe.com/invoice/acct_1OMDTkIjUQf988WX/live_YWNjdF8xT01EVGtJalVRZjk4OFdYLF9UMVg3OFBudnoyR0hGRkNrSE9IMEw2d3Jsek9paUdmLDE0Nzk3NDc5OA0200gcwoveas/pdf?s=ap",
+              "issuer": {
+                "type": "self"
+              },
+              "last_finalization_error": null,
+              "latest_revision": null,
+              "lines": {
+                "object": "list",
+                "data": [
+                  {
+                    "id": "il_1S5U3lIjUQf988WX7Zow5iBd",
+                    "object": "line_item",
+                    "amount": 0,
+                    "amount_excluding_tax": 0,
+                    "currency": "usd",
+                    "description": "35 Boosters",
+                    "discount_amounts": [],
+                    "discountable": true,
+                    "discounts": [],
+                    "invoice": "in_1S5U38IjUQf988WX8wRmujaU",
+                    "invoice_item": "ii_1S5U3lIjUQf988WXuN1V1n7h",
+                    "livemode": true,
+                    "metadata": {},
+                    "parent": {
+                      "invoice_item_details": {
+                        "invoice_item": "ii_1S5U3lIjUQf988WXuN1V1n7h",
+                        "proration": false,
+                        "proration_details": {
+                          "credited_items": null
+                        },
+                        "subscription": null
+                      },
+                      "subscription_item_details": null,
+                      "type": "invoice_item_details"
+                    },
+                    "period": {
+                      "end": 1757433981,
+                      "start": 1757433981
+                    },
+                    "plan": null,
+                    "pretax_credit_amounts": [],
+                    "price": {
+                      "id": "price_1S5TmTIjUQf988WX6jZNAzqz",
+                      "object": "price",
+                      "active": true,
+                      "billing_scheme": "per_unit",
+                      "created": 1757432909,
+                      "currency": "usd",
+                      "custom_unit_amount": null,
+                      "livemode": true,
+                      "lookup_key": null,
+                      "metadata": {},
+                      "nickname": null,
+                      "product": "prod_Sh0pSqJyAo8I7R",
+                      "recurring": null,
+                      "tax_behavior": "unspecified",
+                      "tiers_mode": null,
+                      "transform_quantity": null,
+                      "type": "one_time",
+                      "unit_amount": 0,
+                      "unit_amount_decimal": "0"
+                    },
+                    "pricing": {
+                      "price_details": {
+                        "price": "price_1S5TmTIjUQf988WX6jZNAzqz",
+                        "product": "prod_Sh0pSqJyAo8I7R"
+                      },
+                      "type": "price_details",
+                      "unit_amount_decimal": "0"
+                    },
+                    "proration": false,
+                    "proration_details": {
+                      "credited_items": null
+                    },
+                    "quantity": 1,
+                    "subscription": null,
+                    "tax_amounts": [
+                      {
+                        "amount": 0,
+                        "inclusive": false,
+                        "tax_rate": "txr_1P6yyoIjUQf988WXDSmCblUS",
+                        "taxability_reason": "not_collecting",
+                        "taxable_amount": 0
+                      }
+                    ],
+                    "tax_rates": [],
+                    "taxes": [
+                      {
+                        "amount": 0,
+                        "tax_behavior": "exclusive",
+                        "tax_rate_details": {
+                          "tax_rate": "txr_1P6yyoIjUQf988WXDSmCblUS"
+                        },
+                        "taxability_reason": "not_collecting",
+                        "taxable_amount": 0,
+                        "type": "tax_rate_details"
+                      }
+                    ],
+                    "type": "invoiceitem",
+                    "unit_amount_excluding_tax": "0"
+                  }
+                ],
+                "has_more": false,
+                "total_count": 1,
+                "url": "/v1/invoices/in_1S5U38IjUQf988WX8wRmujaU/lines"
+              },
+              "livemode": true,
+              "metadata": {},
+              "next_payment_attempt": null,
+              "number": "F68B4B34-0003",
+              "on_behalf_of": null,
+              "paid": true,
+              "paid_out_of_band": false,
+              "parent": null,
+              "payment_intent": null,
+              "payment_settings": {
+                "default_mandate": null,
+                "payment_method_options": null,
+                "payment_method_types": null
+              },
+              "period_end": 1757433935,
+              "period_start": 1757433935,
+              "post_payment_credit_notes_amount": 0,
+              "pre_payment_credit_notes_amount": 0,
+              "quote": null,
+              "receipt_number": null,
+              "rendering": {
+                "amount_tax_display": null,
+                "pdf": null,
+                "template": null,
+                "template_version": null
+              },
+              "rendering_options": null,
+              "shipping_cost": null,
+              "shipping_details": null,
+              "starting_balance": 0,
+              "statement_descriptor": null,
+              "status": "paid",
+              "status_transitions": {
+                "finalized_at": 1757433996,
+                "marked_uncollectible_at": null,
+                "paid_at": 1757433996,
+                "voided_at": null
+              },
+              "subscription": null,
+              "subscription_details": {
+                "metadata": null
+              },
+              "subtotal": 0,
+              "subtotal_excluding_tax": 0,
+              "tax": 0,
+              "test_clock": null,
+              "total": 0,
+              "total_discount_amounts": [],
+              "total_excluding_tax": 0,
+              "total_pretax_credit_amounts": [],
+              "total_tax_amounts": [
+                {
+                  "amount": 0,
+                  "inclusive": false,
+                  "tax_rate": "txr_1P6yyoIjUQf988WXDSmCblUS",
+                  "taxability_reason": "not_collecting",
+                  "taxable_amount": 0
+                }
+              ],
+              "total_taxes": [
+                {
+                  "amount": 0,
+                  "tax_behavior": "exclusive",
+                  "tax_rate_details": {
+                    "tax_rate": "txr_1P6yyoIjUQf988WXDSmCblUS"
+                  },
+                  "taxability_reason": "not_collecting",
+                  "taxable_amount": 0,
+                  "type": "tax_rate_details"
+                }
+              ],
+              "transfer_data": null,
+              "webhooks_delivered_at": 1757433945
+            }
+          },
+          "livemode": true,
+          "pending_webhooks": 1,
+          "request": {
+            "id": "req_F7LHdJBfYiRqhQ",
+            "idempotency_key": "54f97288-68a9-4361-b8b0-d7966f21719c"
+          },
+          "type": "invoice.payment_succeeded"
+        }
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -41,15 +543,15 @@
   },
   "staticData": {
     "node:Stripe Trigger": {
-      "webhookId": "we_1S5ENLIjUQf988WXSFORJ9sN",
+      "webhookId": "we_1S5VTmIjUQf988WXl9GB1iUN",
       "webhookEvents": [
         "invoice.payment_succeeded"
       ],
-      "webhookSecret": "whsec_xMZ6bbaVo5BUu2OC97636heDAJND6JNQ"
+      "webhookSecret": "whsec_hfKLvDGtSvRk0q9oy1DJmhSKxoqRRW4Q"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-08T23:21:31.463Z",
-  "versionId": "2a52b99e-31ba-4a74-863e-bbd609b6959a"
+  "updatedAt": "2025-09-09T17:37:18.156Z",
+  "versionId": "0d68b07c-60e1-45cf-8e2b-6a7e89375513"
 }
