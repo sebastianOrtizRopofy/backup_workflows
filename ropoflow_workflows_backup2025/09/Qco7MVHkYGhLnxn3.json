@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "Buscar cliente": {
       "main": [
@@ -28,7 +28,7 @@
       "main": [
         [
           {
-            "node": "Replace Me",
+            "node": "Update a database page",
             "type": "main",
             "index": 0
           }
@@ -92,6 +92,28 @@
         [
           {
             "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a database page": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
@@ -174,7 +196,7 @@
       "type": "n8n-nodes-base.notion",
       "typeVersion": 2.2,
       "position": [
-        1440,
+        1400,
         340
       ],
       "id": "e8e0714f-ce10-4d46-b9b3-567b2edf7799",
@@ -278,10 +300,61 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        1820,
+        1620,
         340
       ],
       "id": "23ec8207-e62d-4c62-9f88-665e8d5b1149"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "update",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $('Buscar cliente').item.json.id }}",
+          "mode": "id"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Name|title",
+              "title": "={{ $('Buscar cliente').item.json.name }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1420,
+        120
+      ],
+      "id": "b8678e7f-d0eb-4656-919c-16efdf1ede59",
+      "name": "Update a database page",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        100,
+        -100
+      ],
+      "id": "35f3484b-b0b2-4298-b294-6881d77339bd",
+      "name": "Schedule Trigger"
     }
   ],
   "pinData": {
@@ -297,9 +370,13 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-08T22:01:04.635Z",
-  "versionId": "f374d466-22ea-4c8f-886f-09c0a1bbaf59"
+  "updatedAt": "2025-09-09T19:46:39.841Z",
+  "versionId": "38d060fd-05f1-4ccd-9e4a-bbcb2d386db5"
 }
