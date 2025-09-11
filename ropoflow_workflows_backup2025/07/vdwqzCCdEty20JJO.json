@@ -49,6 +49,17 @@
           }
         ]
       ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get many products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-07-18T19:34:43.418Z",
@@ -64,8 +75,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        0,
-        80
+        -100,
+        20
       ],
       "id": "3483e5fc-6224-45a7-a032-69a713781c04",
       "name": "When clicking ‘Execute workflow’"
@@ -139,8 +150,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        0,
-        -60
+        -100,
+        -140
       ],
       "id": "4ee6ae7d-8772-4ef2-b936-8d17af249a23",
       "name": "Schedule Trigger"
@@ -221,6 +232,21 @@
       ],
       "id": "acd63b86-91b5-44ee-848e-acaf340aa338",
       "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "path": "/ejecutarCronMateMundo",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -100,
+        180
+      ],
+      "id": "620f9469-56b2-4762-be52-856aa8870af0",
+      "name": "Webhook",
+      "webhookId": "5766bc19-0671-453c-a58e-9818f2a04cb2"
     }
   ],
   "pinData": {
@@ -254,7 +280,7 @@
     }
   },
   "tags": [],
-  "triggerCount": 1,
-  "updatedAt": "2025-08-27T14:59:29.600Z",
-  "versionId": "d81b5c99-e4bb-4bb4-a7d0-d1374373cb34"
+  "triggerCount": 2,
+  "updatedAt": "2025-09-10T22:09:16.793Z",
+  "versionId": "8f49fbd1-2c48-464c-b169-fa881e8306f3"
 }
