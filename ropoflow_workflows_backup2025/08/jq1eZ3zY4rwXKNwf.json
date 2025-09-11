@@ -979,7 +979,10 @@
         -620
       ],
       "id": "7dd4874a-3b5e-48eb-9d3f-a746dfee0f5f",
-      "name": "Actualizar custom fields"
+      "name": "Actualizar custom fields",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1039,7 +1042,10 @@
         -620
       ],
       "id": "50c60ebc-b7b1-4063-be1c-3a591af5278b",
-      "name": "Buscar oportunidades del contacto"
+      "name": "Buscar oportunidades del contacto",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1082,7 +1088,10 @@
         -620
       ],
       "id": "3a49d805-b5a3-41a9-b251-4f0a57acbdad",
-      "name": "obtener el nombre del pipeline de llegada del lead"
+      "name": "obtener el nombre del pipeline de llegada del lead",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1109,7 +1118,10 @@
         -620
       ],
       "id": "a42551ad-9609-45d7-9619-5f8fa163c1a6",
-      "name": "obtener el nombre del stage de llegada del lead"
+      "name": "obtener el nombre del stage de llegada del lead",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1149,7 +1161,10 @@
         -620
       ],
       "id": "74a2d259-a5f1-4c0c-b3b5-dbb86ba4aea3",
-      "name": "Obtener pipelines de la subcuenta"
+      "name": "Obtener pipelines de la subcuenta",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1215,7 +1230,10 @@
         -620
       ],
       "id": "b2c3392b-c80e-45be-a450-d3d6fa97edde",
-      "name": "Obtener custom fields de la subcuenta"
+      "name": "Obtener custom fields de la subcuenta",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1268,7 +1286,9 @@
         -220
       ],
       "id": "b0dce9d5-f7cf-4e13-869b-85bfcd15dfda",
-      "name": "Obtener custom fields de la subcuenta1"
+      "name": "Obtener custom fields de la subcuenta1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1351,6 +1371,9 @@
       ],
       "id": "b9051174-8b60-416e-b728-f0b479109512",
       "name": "Crear contacto",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
       "onError": "continueErrorOutput"
     },
     {
@@ -1433,7 +1456,10 @@
         -320
       ],
       "id": "af7d8ce4-0e4a-48f9-b286-fb043f921e5d",
-      "name": "Crear nueva oportunidad1"
+      "name": "Crear nueva oportunidad1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1460,7 +1486,10 @@
         -240
       ],
       "id": "a809aa25-8ccc-41a9-ab30-de0f7b13a8a5",
-      "name": "obtener el nombre del pipeline de llegada del lead1"
+      "name": "obtener el nombre del pipeline de llegada del lead1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1487,7 +1516,10 @@
         -220
       ],
       "id": "ddac52dc-8a0b-41ab-ad38-876c57ed1895",
-      "name": "obtener el nombre del stage de llegada del lead1"
+      "name": "obtener el nombre del stage de llegada del lead1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1527,7 +1559,10 @@
         -220
       ],
       "id": "d388b6f4-52f9-42f0-b3ee-21f07eb0a863",
-      "name": "Obtener pipelines de la subcuenta1"
+      "name": "Obtener pipelines de la subcuenta1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1729,7 +1764,10 @@
         -820
       ],
       "id": "146f292e-56c1-4627-abd5-20e4ac8512fb",
-      "name": "Crear nueva oportunidad abandonada"
+      "name": "Crear nueva oportunidad abandonada",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1798,7 +1836,10 @@
         -620
       ],
       "id": "270d7fcd-21fa-4ab3-a87b-7773d52395ea",
-      "name": "crear nueva oportunidad abierta"
+      "name": "crear nueva oportunidad abierta",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -1935,7 +1976,10 @@
         -620
       ],
       "id": "96f9e246-e933-4041-b31d-ac9b7b02c187",
-      "name": "Actualizar tags"
+      "name": "Actualizar tags",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -2017,7 +2061,10 @@
         -420
       ],
       "id": "3ae81e1d-5ecb-4e8c-a8f5-291c682a37bb",
-      "name": "Buscar contacto por phone"
+      "name": "Buscar contacto por phone",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -2052,7 +2099,9 @@
         -340
       ],
       "id": "21d121d6-7ca5-42d6-8c78-b1789127cc72",
-      "name": "buscar por phone +57"
+      "name": "buscar por phone +57",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -2121,7 +2170,9 @@
         -120
       ],
       "id": "63bfcf51-a623-4315-8fde-2c1a7354d35b",
-      "name": "buscar por email"
+      "name": "buscar por email",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000
     },
     {
       "parameters": {
@@ -2291,6 +2342,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-08T22:26:00.773Z",
-  "versionId": "ec705b6f-a1ac-4506-ae9c-be4f15e205c8"
+  "updatedAt": "2025-09-10T21:24:38.901Z",
+  "versionId": "5f5e32cd-5639-4552-a83d-ecd10c3c7a1f"
 }
