@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Get solicitud",
             "type": "main",
             "index": 0
           }
@@ -15,6 +15,39 @@
     "HTTP Request": {
       "main": [
         []
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get cliente": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get solicitud": {
+      "main": [
+        [
+          {
+            "node": "Get cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -47,80 +80,83 @@
         "method": "POST",
         "url": "https://defaulte67529fc68be4f5baa27edbad4a44b.14.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/a1080fcc51754081b2c20c79d68e8c3a/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=1_RMdKwEH4HagYvwkyPReyUPhuczsKyzO45lakiyFu0",
         "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {
-              "name": "responsable_name",
-              "value": "={{ $json.body.data.properties['Assigned To'].people.first()?.name || ' '  }}"
-            },
-            {
-              "name": "responsable_email",
-              "value": "={{ $json.body.data.properties['Assigned To'].people.first()?.email || ' ' }}"
-            },
-            {
-              "name": "status",
-              "value": "={{ $json.body.data.properties.Status.status.name }}"
-            },
-            {
-              "name": "date_start",
-              "value": "={{ $json.body.data.properties.Date.date?.start || ' ' }}"
-            },
-            {
-              "name": "date_end",
-              "value": "={{ $json.body.data.properties.Date.date?.end || ' ' }}"
-            },
-            {
-              "name": "estimacion",
-              "value": "={{ $json.body.data.properties['Estimación (horas)']?.number || 0 }}"
-            },
-            {
-              "name": "cliente",
-              "value": "={{ $json.body.data.properties.Cliente.rich_text[0].text.content }}"
-            },
-            {
-              "name": "tipo",
-              "value": "={{ $json.body.data.properties.Tipo.select.name }}"
-            },
-            {
-              "name": "solicitante_name",
-              "value": "={{ $json.body.data.properties.Solicitante.people.first()?.name || ' ' }}"
-            },
-            {
-              "name": "solicitante_email",
-              "value": "={{ $json.body.data.properties.Solicitante.people.first()?.email || ' ' }}"
-            },
-            {
-              "name": "requerimiento_name",
-              "value": "={{ $json.body.data.properties.Name.title[0].text.content }}"
-            },
-            {
-              "name": "requerimiento_url",
-              "value": "={{ $json.body.data.url }}"
-            },
-            {
-              "name": "fecha_creacion",
-              "value": "={{ $json.body.data.created_time }}"
-            },
-            {
-              "name": "solicitante_foto",
-              "value": "={{ $json.body.data.properties.Solicitante.people.first()?.avatar_url || '' }}"
-            },
-            {
-              "name": "responsable_foto",
-              "value": "={{ $json.body.data.properties['Assigned To'].people.first()?.avatar_url || '' }}"
-            }
-          ]
-        },
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($('Edit Fields').item.json) }}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        240,
+        900,
         0
       ],
       "id": "6be9c3d0-641e-4b6a-9de1-faee7245df4e",
       "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"nombre\": \"{{ $('Get solicitud').item.json.name }}\",\n  \"url\": \"{{ $('Get solicitud').item.json.url }}\",\n  \"date_creado\": \"{{ $('Get solicitud').item.json.property_created_time }}\",\n  \"date_inicio\": \"{{ $('Get solicitud').item.json.property_fecha_de_inicio_fin.start }}\",\n  \"date_fin\": \"{{ $('Get solicitud').item.json.property_fecha_de_inicio_fin.end }}\",\n  \"status\": \"{{ $('Get solicitud').item.json.property_status }}\",\n  \"estimacion\": \"{{ $('Get solicitud').item.json.property_estimaci_n_horas }}\",\n  \"tipo\": \"{{ $('Get solicitud').item.json.property_tipo }}\",\n  \"cliente_nombre\": \"{{ $('Get cliente').item.json.name }}\",\n  \"cliente_img\": \"\",\n  \"solicitante_nombre\": \"{{ $('Webhook').item.json.body.data.properties.Solicitante.people[0].name }}\",\n  \"solicitante_img\": \"{{ $('Webhook').item.json.body.data.properties.Solicitante.people[0].avatar_url }}\",\n  \"solicitante_email\": \"{{ $('Webhook').item.json.body.data.properties.Solicitante.people[0].person.email }}\",\n  \"asignado_nombre\": \"{{ $('Webhook').item.json.body.data.properties['Assigned To'].people[0].name }}\",\n  \"asignado_img\": \"{{ $('Webhook').item.json.body.data.properties['Assigned To'].people[0].avatar_url }}\",\n  \"asignado_email\": \"{{ $('Webhook').item.json.body.data.properties['Assigned To'].people[0].person.email }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        660,
+        0
+      ],
+      "id": "8972ea42-f29c-463c-af5a-1e2ac7530817",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.property_cliente[0] }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "a88bb842-e35d-4a92-ab2d-40dc34d3f94b",
+      "name": "Get cliente",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "get",
+        "pageId": {
+          "__rl": true,
+          "value": "={{ $json.body.data.id }}",
+          "mode": "id"
+        }
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "6bd92bca-e929-425e-9168-188ae632605b",
+      "name": "Get solicitud",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -130,12 +166,12 @@
           "headers": {
             "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "user-agent": "NotionAutomation",
-            "baggage": "sentry-environment=production,sentry-release=0.0.4412,sentry-public_key=529a6d1990e5471d874257842c4f4ad8,sentry-trace_id=b544ad27e4794d28955d95eae71c5fa7",
+            "baggage": "sentry-environment=production,sentry-release=20250911.1656-6c89c78,sentry-public_key=529a6d1990e5471d874257842c4f4ad8,sentry-trace_id=d0ff33dc692840ec8b982b0a53562533",
             "max-forwards": "10",
-            "traceparent": "00-b6bca0d04a5c28279e1896c5b26af4cc-cac327a941b681f7-00",
-            "sentry-trace": "b544ad27e4794d28955d95eae71c5fa7-a6fa164185ca61aa",
-            "x-arr-log-id": "8b2b2860-8e5f-487f-8859-a19d3416b491",
-            "client-ip": "54.191.35.95:30592",
+            "traceparent": "00-2e6ca3a672d7784642bdc43cbd44fd1a-d5cc6bb67e8f7ede-00",
+            "sentry-trace": "d0ff33dc692840ec8b982b0a53562533-91a6858c8ad0c8d9",
+            "x-arr-log-id": "1a01dd40-070f-422f-a2ac-5cd3ad65a511",
+            "client-ip": "35.95.200.202:17651",
             "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "x-site-deployment-id": "ropoflow",
             "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
@@ -143,13 +179,13 @@
             "x-appservice-proto": "https",
             "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
             "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "54.191.35.95:30592",
+            "x-forwarded-for": "35.95.200.202:17651",
             "x-original-url": "/webhook/3969e49f-afee-41fd-9a87-2a510e5a2a82",
             "x-waws-unencoded-url": "/webhook/3969e49f-afee-41fd-9a87-2a510e5a2a82",
-            "x-client-ip": "54.191.35.95",
-            "x-client-port": "30592",
+            "x-client-ip": "35.95.200.202",
+            "x-client-port": "17651",
             "content-type": "application/json",
-            "content-length": "2115"
+            "content-length": "2245"
           },
           "params": {},
           "query": {},
@@ -158,24 +194,27 @@
               "type": "automation",
               "automation_id": "25e8ba98-4c4c-803c-b658-004dcfe7b8f3",
               "action_id": "25e8ba98-4c4c-8059-8221-005a2fbe8ffe",
-              "event_id": "9b471098-3788-4ff7-93b5-c2a3ca96376a",
+              "event_id": "4746f9ae-5a39-4354-bd99-f1f5d6a6d32e",
               "attempt": 1
             },
             "data": {
               "object": "page",
-              "id": "25e8ba98-4c4c-8107-90d1-ff83f3b4559d",
-              "created_time": "2025-08-29T20:58:00.000Z",
-              "last_edited_time": "2025-08-29T20:58:00.000Z",
+              "id": "26a8ba98-4c4c-81d4-96a1-e71b57053c8b",
+              "created_time": "2025-09-10T20:39:00.000Z",
+              "last_edited_time": "2025-09-11T18:38:00.000Z",
               "created_by": {
                 "object": "user",
                 "id": "bef2122a-6925-400e-bc19-9e3e508bd37f"
               },
               "last_edited_by": {
                 "object": "user",
-                "id": "bef2122a-6925-400e-bc19-9e3e508bd37f"
+                "id": "6cb448bb-c4cd-4e3b-a45b-82d27fffc790"
               },
               "cover": null,
-              "icon": null,
+              "icon": {
+                "type": "emoji",
+                "emoji": "🏣"
+              },
               "parent": {
                 "type": "database_id",
                 "database_id": "25d8ba98-4c4c-802d-8025-d47b7c908521"
@@ -186,12 +225,27 @@
                 "Assigned To": {
                   "id": "AAAh",
                   "type": "people",
-                  "people": []
+                  "people": [
+                    {
+                      "object": "user",
+                      "id": "242d872b-594c-817c-9474-0002aa91e472",
+                      "name": "Erica Cupajita ",
+                      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/400a98f7-b6ba-4bac-b12f-187a4324b179/FOTOS_ERICA_CUPAJITA_(4).png",
+                      "type": "person",
+                      "person": {
+                        "email": "erica@ropofy.com"
+                      }
+                    }
+                  ]
                 },
-                "Date": {
+                "Fecha de inicio - fin": {
                   "id": "IwRS",
                   "type": "date",
-                  "date": null
+                  "date": {
+                    "start": "2025-09-10",
+                    "end": "2025-09-15",
+                    "time_zone": null
+                  }
                 },
                 "Status": {
                   "id": "Q%3AiW",
@@ -199,49 +253,13 @@
                   "status": {
                     "id": "c85d85ad-60eb-4c7a-bcf0-cf11328df46e",
                     "name": "Solicitado",
-                    "color": "default"
+                    "color": "gray"
                   }
                 },
                 "Estimación (horas)": {
                   "id": "S%7DQ%3D",
                   "type": "number",
-                  "number": null
-                },
-                "Adjuntos": {
-                  "id": "iKBL",
-                  "type": "files",
-                  "files": [
-                    {
-                      "name": "Adjunto",
-                      "type": "external",
-                      "external": {
-                        "url": "https://services.leadconnectorhq.com/documents/download/pypnvE47D3tMHneo9yCR"
-                      }
-                    }
-                  ]
-                },
-                "Cliente": {
-                  "id": "nNn_",
-                  "type": "rich_text",
-                  "rich_text": [
-                    {
-                      "type": "text",
-                      "text": {
-                        "content": "Test SAS",
-                        "link": null
-                      },
-                      "annotations": {
-                        "bold": false,
-                        "italic": false,
-                        "strikethrough": false,
-                        "underline": false,
-                        "code": false,
-                        "color": "default"
-                      },
-                      "plain_text": "Test SAS",
-                      "href": null
-                    }
-                  ]
+                  "number": 7
                 },
                 "Esfuerzo real (horas)": {
                   "id": "t~%40d",
@@ -252,15 +270,26 @@
                   "id": "%7B%5EoP",
                   "type": "select",
                   "select": {
-                    "id": "BXk}",
-                    "name": "Kit",
-                    "color": "default"
+                    "id": "Ddfm",
+                    "name": "Booster",
+                    "color": "yellow"
                   }
                 },
                 "Solicitante": {
                   "id": "%7DWaP",
                   "type": "people",
-                  "people": []
+                  "people": [
+                    {
+                      "object": "user",
+                      "id": "6cb448bb-c4cd-4e3b-a45b-82d27fffc790",
+                      "name": "Pipe",
+                      "avatar_url": "https://s3-us-west-2.amazonaws.com/public.notion-static.com/8d563000-20a0-40d5-b25a-3c55522d98cc/perfil2.jpg",
+                      "type": "person",
+                      "person": {
+                        "email": "felipe@bike2web.com"
+                      }
+                    }
+                  ]
                 },
                 "Name": {
                   "id": "title",
@@ -269,7 +298,7 @@
                     {
                       "type": "text",
                       "text": {
-                        "content": "Modificar sincronizador AUTECO",
+                        "content": "TEST TES TEST",
                         "link": null
                       },
                       "annotations": {
@@ -280,15 +309,15 @@
                         "code": false,
                         "color": "default"
                       },
-                      "plain_text": "Modificar sincronizador AUTECO",
+                      "plain_text": "TEST TES TEST",
                       "href": null
                     }
                   ]
                 }
               },
-              "url": "https://www.notion.so/Modificar-sincronizador-AUTECO-25e8ba984c4c810790d1ff83f3b4559d",
+              "url": "https://www.notion.so/TEST-TES-TEST-26a8ba984c4c81d496a1e71b57053c8b",
               "public_url": null,
-              "request_id": "5e4b838f-5d84-48a7-bc72-bdd65320cbd0"
+              "request_id": "0c01b50b-59f2-4994-8c92-5d24c70bda3d"
             }
           },
           "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/3969e49f-afee-41fd-9a87-2a510e5a2a82",
@@ -306,6 +335,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-29T21:19:12.099Z",
-  "versionId": "289f2bd4-75fb-4f41-b715-55c4bb8437ca"
+  "updatedAt": "2025-09-11T19:19:03.341Z",
+  "versionId": "78b9d65e-f3e2-4cdb-b343-d1d9148923a9"
 }
