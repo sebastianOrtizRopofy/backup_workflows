@@ -1,0 +1,142 @@
+{
+  "active": true,
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-16T14:19:22.539Z",
+  "id": "0ES4HrTO1c1S05gX",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "My workflow 8",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes",
+          "mode": "list",
+          "cachedResultName": "Prueba ropoflow",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1ffd6e52-fe80-412e-95cf-c54ace5c456e",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "Kew3MGga23r6R1U1",
+          "name": "google sheet v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes",
+          "mode": "list",
+          "cachedResultName": "Prueba ropoflow",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Hoja 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        220,
+        0
+      ],
+      "id": "b4c35c6e-33d7-4c0d-8e26-f26c27b4b342",
+      "name": "Get row(s) in sheet",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ztucaupDmUhPbAPT",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Trae todos los items de entrada\nconst allItems = $input.all();\n// Extrae el JSON de cada item\nconst allData = allItems.map(item => item.json);\n// Devuelve un solo item con un array adentro\nreturn [\n  {\n    json: {\n      merged: allData\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "67cf3181-6aed-4309-9b3f-9b15e1170bed",
+      "name": "Code"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Google Sheets Trigger": {
+      "documentId": "1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes",
+      "sheetId": 0,
+      "lastRevision": 27,
+      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes&revision=27&exportFormat=xlsx"
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-16T14:34:40.828Z",
+  "versionId": "0c38f963-1d5d-480d-84fe-1b17b5cfc1c3"
+}
