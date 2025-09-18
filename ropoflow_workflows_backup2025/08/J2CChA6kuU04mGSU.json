@@ -50,7 +50,7 @@
   "id": "J2CChA6kuU04mGSU",
   "isArchived": false,
   "meta": null,
-  "name": "webhook dismerca",
+  "name": "webhook opportunities",
   "nodes": [
     {
       "parameters": {
@@ -218,6 +218,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-21T04:15:19.148Z",
-  "versionId": "73faeec1-9753-462d-9b65-e5775cf46c64"
+  "updatedAt": "2025-09-17T18:58:01.858Z",
+  "versionId": "0deb91cf-4116-4e70-9833-d4e4d2a2ca84"
 }
