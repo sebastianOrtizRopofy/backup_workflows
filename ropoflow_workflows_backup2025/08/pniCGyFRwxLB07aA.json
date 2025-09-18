@@ -128,7 +128,7 @@
         ],
         [
           {
-            "node": "Workflow proyecto inmobiliaria1",
+            "node": "Workflow dos r",
             "type": "main",
             "index": 0
           }
@@ -136,6 +136,13 @@
         [
           {
             "node": "Workflow proyecto dosR",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Workflow marcali",
             "type": "main",
             "index": 0
           }
@@ -160,7 +167,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -1060,
+        -1620,
         1400
       ],
       "id": "93e254a6-5d0d-432a-b183-e28d6fb0f47e",
@@ -583,6 +590,29 @@
                 ],
                 "combinator": "and"
               }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "d39e335f-56ef-4820-9f9a-5c751fefcd31",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "ID50GJ39dGHTTlrk77Hx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
             }
           ]
         },
@@ -591,7 +621,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -840,
+        -1260,
         1100
       ],
       "id": "0b49fb04-a502-456a-a35b-cc544ee1940c",
@@ -628,9 +658,9 @@
       "parameters": {
         "workflowId": {
           "__rl": true,
-          "value": "xyOvIc7As7Tzr53z",
+          "value": "zhMgG5BCtDLsnrJm",
           "mode": "list",
-          "cachedResultName": "Cincronización Contactos Dismerca"
+          "cachedResultName": "Sincronización Contactos Dismerca"
         },
         "workflowInputs": {
           "mappingMode": "defineBelow",
@@ -1051,10 +1081,10 @@
       "typeVersion": 1.2,
       "position": [
         -620,
-        3100
+        2100
       ],
-      "id": "dcf97ad4-4b77-45b9-b81d-f9e76e7fa51e",
-      "name": "Workflow proyecto inmobiliaria1"
+      "id": "d233fdaf-dc9c-4feb-b731-5f1dd87ae0c9",
+      "name": "Workflow proyecto dosR"
     },
     {
       "parameters": {
@@ -1078,10 +1108,37 @@
       "typeVersion": 1.2,
       "position": [
         -620,
-        2100
+        3100
       ],
-      "id": "d233fdaf-dc9c-4feb-b731-5f1dd87ae0c9",
-      "name": "Workflow proyecto dosR"
+      "id": "dcf97ad4-4b77-45b9-b81d-f9e76e7fa51e",
+      "name": "Workflow dos r"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "xyOvIc7As7Tzr53z",
+          "mode": "list",
+          "cachedResultName": "Cincronización Contactos Marcali"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -620,
+        3320
+      ],
+      "id": "e6de24ed-8abd-410f-a8b0-a31836f7776d",
+      "name": "Workflow marcali"
     }
   ],
   "pinData": {},
@@ -1094,6 +1151,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-01T21:44:49.019Z",
-  "versionId": "78562dd9-e56f-4b0c-8f3a-5cfc1b9f458a"
+  "updatedAt": "2025-09-17T15:01:46.195Z",
+  "versionId": "4594839e-d68f-4f99-8865-bd08498c1c67"
 }
