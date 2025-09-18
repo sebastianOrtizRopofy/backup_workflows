@@ -118,6 +118,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Sincronización Marcali",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     }
@@ -491,6 +498,29 @@
                 ],
                 "combinator": "and"
               }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7e59a4cd-917c-4a7f-a6b4-86b16edb3072",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "ID50GJ39dGHTTlrk77Hx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
             }
           ]
         },
@@ -850,7 +880,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        480,
+        680,
         1100
       ],
       "id": "7698fca7-5e30-4bef-9eb4-e8b90f5c64cc",
@@ -877,8 +907,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        300,
-        1220
+        680,
+        1240
       ],
       "id": "d4eb0ba3-ff01-499e-b0e7-70a3a0118569",
       "name": "Sincronización Moldex"
@@ -904,11 +934,38 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        140,
-        1380
+        680,
+        1400
       ],
       "id": "90df6a21-b5c2-4e9b-b3b5-60c4691ee193",
       "name": "Sincronización Autecoblue"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "7tnhbcebTGc7SYHk",
+          "mode": "list",
+          "cachedResultName": "Sincronizar custom fields marcali"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        500,
+        1540
+      ],
+      "id": "1e25338c-c8ee-4dcb-8b37-ee38906873fc",
+      "name": "Sincronización Marcali"
     }
   ],
   "pinData": {},
@@ -921,6 +978,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-07-28T12:02:04.283Z",
-  "versionId": "fc338797-be1e-42bb-952a-ec924a32101d"
+  "updatedAt": "2025-09-17T21:14:44.874Z",
+  "versionId": "1e4050dd-ba70-40f2-be88-93a34081fbf9"
 }
