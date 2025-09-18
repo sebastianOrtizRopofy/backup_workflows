@@ -130,7 +130,7 @@
   "id": "xyOvIc7As7Tzr53z",
   "isArchived": false,
   "meta": null,
-  "name": "Cincronización Contactos Dismerca",
+  "name": "Sincronización Contactos Marcali",
   "nodes": [
     {
       "parameters": {
@@ -151,8 +151,8 @@
       "name": "Guardar contacto",
       "credentials": {
         "postgres": {
-          "id": "GW7bwJbUsTeQSjFL",
-          "name": "Dismerca db account"
+          "id": "qE3f9BjUgDSZpVZM",
+          "name": "Marcali bi"
         }
       },
       "onError": "continueErrorOutput"
@@ -213,8 +213,8 @@
       "name": "guardar conversaciones1",
       "credentials": {
         "postgres": {
-          "id": "GW7bwJbUsTeQSjFL",
-          "name": "Dismerca db account"
+          "id": "qE3f9BjUgDSZpVZM",
+          "name": "Marcali bi"
         }
       },
       "onError": "continueErrorOutput"
@@ -236,8 +236,8 @@
       "alwaysOutputData": false,
       "credentials": {
         "postgres": {
-          "id": "GW7bwJbUsTeQSjFL",
-          "name": "Dismerca db account"
+          "id": "qE3f9BjUgDSZpVZM",
+          "name": "Marcali bi"
         }
       },
       "onError": "continueErrorOutput"
@@ -270,8 +270,8 @@
       "maxTries": 5,
       "credentials": {
         "ropofyOAuth2Api": {
-          "id": "jMr90Bd4S7hbuc4j",
-          "name": "Dismerca - App dismercaBi"
+          "id": "Q8ymaJM5LC5Shczf",
+          "name": "marcali bi - app marcali bi"
         }
       },
       "onError": "continueRegularOutput"
@@ -303,8 +303,8 @@
       "maxTries": 5,
       "credentials": {
         "ropofyOAuth2Api": {
-          "id": "jMr90Bd4S7hbuc4j",
-          "name": "Dismerca - App dismercaBi"
+          "id": "Q8ymaJM5LC5Shczf",
+          "name": "marcali bi - app marcali bi"
         }
       },
       "onError": "continueErrorOutput"
@@ -335,8 +335,8 @@
       "maxTries": 5,
       "credentials": {
         "ropofyOAuth2Api": {
-          "id": "jMr90Bd4S7hbuc4j",
-          "name": "Dismerca - App dismercaBi"
+          "id": "Q8ymaJM5LC5Shczf",
+          "name": "marcali bi - app marcali bi"
         }
       },
       "onError": "continueErrorOutput"
@@ -364,8 +364,8 @@
       "name": "Search contacts con filtros avanzados",
       "credentials": {
         "ropofyOAuth2Api": {
-          "id": "jMr90Bd4S7hbuc4j",
-          "name": "Dismerca - App dismercaBi"
+          "id": "Q8ymaJM5LC5Shczf",
+          "name": "marcali bi - app marcali bi"
         }
       }
     },
@@ -430,6 +430,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-15T13:51:33.230Z",
-  "versionId": "991df52e-c387-419c-9cec-c81526beed30"
+  "updatedAt": "2025-09-17T18:51:57.418Z",
+  "versionId": "ed67a3bb-c5da-4e84-a2b9-21bcb3d5eead"
 }
