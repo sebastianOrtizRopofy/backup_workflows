@@ -1,0 +1,185 @@
+{
+  "active": true,
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-17T16:56:49.530Z",
+  "id": "QI27DQKj70E2ATX1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Preguntas frecuentes",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg",
+          "mode": "list",
+          "cachedResultName": "E bikes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1274666438,
+          "mode": "list",
+          "cachedResultName": "preguntas frecuentes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg/edit#gid=1274666438"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        180,
+        0
+      ],
+      "id": "7a1b2eee-6b9e-4d27-adac-5b933057e71d",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "DoRMeXZ2ksvnZPtB",
+          "name": "E-Bikes"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg",
+          "mode": "list",
+          "cachedResultName": "E bikes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1274666438,
+          "mode": "list",
+          "cachedResultName": "preguntas frecuentes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg/edit#gid=1274666438"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        440,
+        0
+      ],
+      "id": "9267e477-def4-412a-80db-14f0bfba5a77",
+      "name": "Get row(s) in sheet",
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "mUyNU2w33r5Da7qe",
+          "name": "E - Bikes 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Trae todos los items de entrada\nconst allItems = $input.all();\n// Extrae el JSON de cada item\nconst allData = allItems.map(item => item.json);\n// Devuelve un solo item con un array adentro\nreturn [\n  {\n    json: {\n      merged: allData\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "884c1d6f-14e1-4f05-818e-dbc70ab63485",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/setCustomValue",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_location",
+              "value": "Z4u5UDrfx4PBfmXNBpOo"
+            },
+            {
+              "name": "name",
+              "value": "preguntas_frecuentes"
+            },
+            {
+              "name": "value",
+              "value": "={{ JSON.stringify($json.merged) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        0
+      ],
+      "id": "492fbbbf-ea3a-4ae1-817b-678ff8df58cd",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Google Sheets Trigger": {
+      "documentId": "19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg",
+      "sheetId": 1274666438,
+      "lastRevision": 11,
+      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg&revision=11&exportFormat=xlsx"
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-17T16:58:03.514Z",
+  "versionId": "4ab79a2d-4174-490b-9137-b5e468635d7d"
+}
