@@ -22,6 +22,17 @@
           }
         ]
       ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-16T14:19:22.539Z",
@@ -30,7 +41,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "My workflow 8",
+  "name": "Todos los productos",
   "nodes": [
     {
       "parameters": {
@@ -43,32 +54,32 @@
         },
         "documentId": {
           "__rl": true,
-          "value": "1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes",
+          "value": "19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg",
           "mode": "list",
-          "cachedResultName": "Prueba ropoflow",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes/edit?usp=drivesdk"
+          "cachedResultName": "E bikes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "Hoja 1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes/edit#gid=0"
+          "cachedResultName": "todos los productos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg/edit#gid=0"
         },
         "options": {}
       },
       "type": "n8n-nodes-base.googleSheetsTrigger",
       "typeVersion": 1,
       "position": [
-        0,
+        180,
         0
       ],
       "id": "1ffd6e52-fe80-412e-95cf-c54ace5c456e",
       "name": "Google Sheets Trigger",
       "credentials": {
         "googleSheetsTriggerOAuth2Api": {
-          "id": "Kew3MGga23r6R1U1",
-          "name": "google sheet v2"
+          "id": "DoRMeXZ2ksvnZPtB",
+          "name": "E-Bikes"
         }
       }
     },
@@ -76,24 +87,24 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes",
+          "value": "19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg",
           "mode": "list",
-          "cachedResultName": "Prueba ropoflow",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes/edit?usp=drivesdk"
+          "cachedResultName": "E bikes",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "Hoja 1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes/edit#gid=0"
+          "cachedResultName": "todos los productos",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg/edit#gid=0"
         },
         "options": {}
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        220,
+        440,
         0
       ],
       "id": "b4c35c6e-33d7-4c0d-8e26-f26c27b4b342",
@@ -101,8 +112,8 @@
       "executeOnce": true,
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "ztucaupDmUhPbAPT",
-          "name": "Google Sheets account 2"
+          "id": "mUyNU2w33r5Da7qe",
+          "name": "E - Bikes 2"
         }
       }
     },
@@ -113,11 +124,43 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        440,
+        660,
         0
       ],
       "id": "67cf3181-6aed-4309-9b3f-9b15e1170bed",
       "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/setCustomValue",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_location",
+              "value": "Z4u5UDrfx4PBfmXNBpOo"
+            },
+            {
+              "name": "name",
+              "value": "products"
+            },
+            {
+              "name": "value",
+              "value": "={{ JSON.stringify($json.merged) }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        0
+      ],
+      "id": "5e4f32ec-8fab-4ccd-90ad-3ab071325768",
+      "name": "HTTP Request"
     }
   ],
   "pinData": {},
@@ -129,14 +172,14 @@
   },
   "staticData": {
     "node:Google Sheets Trigger": {
-      "documentId": "1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes",
+      "documentId": "19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg",
       "sheetId": 0,
-      "lastRevision": 27,
-      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=1hKkt-FD1vfjEDTuFAE15EUsQYyW5On3tKV6hrrlNDes&revision=27&exportFormat=xlsx"
+      "lastRevision": 11,
+      "lastRevisionLink": "https://docs.google.com/spreadsheets/export?id=19ezezaCnEDvXV-lLdwpH6U5v-JFHopSoUNR9s2rFkOg&revision=11&exportFormat=xlsx"
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-16T14:34:40.828Z",
-  "versionId": "0c38f963-1d5d-480d-84fe-1b17b5cfc1c3"
+  "updatedAt": "2025-09-17T16:56:33.183Z",
+  "versionId": "8b7ac033-ba36-4640-aea5-76bfe659e050"
 }
