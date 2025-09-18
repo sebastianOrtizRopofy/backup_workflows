@@ -1,0 +1,145 @@
+{
+  "active": true,
+  "connections": {
+    "Info": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-17T16:50:08.405Z",
+  "id": "HDNTg6ck9WpXPGNi",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "IMAP - info",
+  "nodes": [
+    {
+      "parameters": {
+        "downloadAttachments": true,
+        "options": {
+          "forceReconnect": 60
+        }
+      },
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d382c291-1220-4e2d-9493-f2b1d0269a91",
+      "name": "Info",
+      "credentials": {
+        "imap": {
+          "id": "hxeeSKEGpRXMhj0V",
+          "name": "Necod - info"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"from\": \"value\",\n  \"to\": \"value\",\n  \"subject\": \"value\",\n  \"body\": \"value\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ],
+      "id": "74b7d156-9793-4e39-b4b4-8593687d00b8",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {
+    "Info": [
+      {
+        "json": {
+          "textHtml": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\r\n<style type=\"text/css\" style=\"display:none;\"> P {margin-top:0;margin-bottom:0;} </style>\r\n</head>\r\n<body dir=\"ltr\">\r\n<div style=\"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);\" class=\"elementToProof\">\r\nBuen dia</div>\r\n<div style=\"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);\" class=\"elementToProof\">\r\nPor favor solicito presupuesto <img style=\"max-width: 460px;\" size=\"638668\" data-outlook-trace=\"F:1|T:1\" src=\"cid:0a1d7aba-fafe-4395-9f8e-f4cfd83f3e03\"></div>\r\n<div style=\"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);\" class=\"elementToProof\">\r\nSaludos</div>\r\n<div class=\"elementToProof\" id=\"Signature\">\r\n<div style=\"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);\" class=\"elementToProof\">\r\n<br>\r\n</div>\r\n<p style=\"text-align: left; text-indent: 0px; background-color: rgb(255, 255, 255); margin-top: 1em; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 9.5pt; color: rgb(89, 89, 89);\"><b>| Administrativo Delegación</b></span></p>\r\n<p style=\"text-align: left; text-indent: 0px; background-color: rgb(255, 255, 255); margin-top: 1em; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 9.5pt; color: rgb(0, 169, 180);\"><b>&nbsp;</b></span></p>\r\n<p style=\"text-align: left; text-indent: 0px; background-color: rgb(255, 255, 255); margin-top: 1em; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 9.5pt; color: rgb(0, 169, 180);\"><b>Chaloum Ezequiel</b></span></p>\r\n<p style=\"text-align: left; text-indent: 0px; background-color: rgb(255, 255, 255); margin-top: 1em; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: rgb(118, 113, 113);\"><b>Delegación Paraná</b></span></p>\r\n<p style=\"text-align: left; text-indent: 0px; line-height: 15pt; background-color: rgb(255, 255, 255); margin-top: 2.7pt; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: gray;\">Fijo: (0343)</span><span style=\"letter-spacing: 0.05pt; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: gray;\">&nbsp;</span><span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: gray;\">4217435/4217202</span><span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: black;\">&nbsp;</span></p>\r\n<p style=\"text-align: left; text-indent: 0px; line-height: 15pt; background-color: rgb(255, 255, 255); margin-top: 2.7pt; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: gray;\"><b>San Martin 597&nbsp;&nbsp;</b></span></p>\r\n<p style=\"text-align: left; text-indent: 0px; line-height: 15pt; background-color: rgb(255, 255, 255); margin-top: 2.7pt; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: gray;\"><b>(E3100ADH)</b></span><span style=\"letter-spacing: 0.1pt; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: gray;\"><b>&nbsp;</b></span><span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: gray;\"><b>Paraná\r\n - E.R.</b></span><span style=\"letter-spacing: 0.1pt; font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: gray;\"><b>-\r\n</b></span><span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: gray;\"><b>Argentina</b></span></p>\r\n<p style=\"text-align: left; text-indent: 0px; background-color: rgb(255, 255, 255); margin-top: 1em; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: rgb(118, 113, 113);\"><b>&nbsp;</b></span></p>\r\n<p style=\"text-align: left; text-indent: 0px; background-color: rgb(255, 255, 255); margin-top: 1em; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8pt; color: rgb(118, 113, 113);\"><a style=\"color: rgb(118, 113, 113); margin: 0px;\" data-auth=\"NotApplicable\" data-linkindex=\"1\" title=\"http://www.ospesalud.com.ar/\" href=\"http://www.ospesalud.com.ar/\">www.ospesalud.com.ar</a></span></p>\r\n<p style=\"text-align: left; text-indent: 0px; background-color: rgb(255, 255, 255); margin-top: 1em; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8.5pt; color: rgb(36, 36, 36);\">&nbsp;</span></p>\r\n<p style=\"text-align: left; text-indent: 0px; background-color: rgb(255, 255, 255); margin-top: 1em; margin-bottom: 1em;\" class=\"elementToProof\">\r\n<span style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 8.5pt; color: rgb(36, 36, 36);\"><img style=\"width: 1.572in; height: 0.281in; max-width: 722px; min-width: auto; min-height: auto; margin: 0px;\" height=\"26\" width=\"150\" alt=\"Interfaz de usuario gráfica, Aplicación\n\nDescripción generada automáticamente\" data-outlook-trace=\"F:3|T:3\" src=\"cid:1938b96c-9e50-4cab-b73d-62dd3eb23d96\"></span></p>\r\n<div style=\"font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif; font-size: 11pt; color: rgb(0, 0, 0);\" class=\"elementToProof\">\r\n<br>\r\n</div>\r\n</div>\r\n</body>\r\n</html>\r\n",
+          "textPlain": "Buen dia\r\nPor favor solicito presupuesto [cid:0a1d7aba-fafe-4395-9f8e-f4cfd83f3e03]\r\nSaludos\r\n\r\n\r\n| Administrativo Delegación\r\n\r\n\r\n\r\nChaloum Ezequiel\r\n\r\nDelegación Paraná\r\n\r\nFijo: (0343) 4217435/4217202\r\n\r\nSan Martin 597\r\n\r\n(E3100ADH) Paraná - E.R.- Argentina\r\n\r\n\r\n\r\nwww.ospesalud.com.ar<http://www.ospesalud.com.ar/>\r\n\r\n\r\n\r\n[Interfaz de usuario gráfica, Aplicación  Descripción generada automáticamente]\r\n\r\n",
+          "metadata": {
+            "return-path": "<ernesto@necod.com.ar>",
+            "envelope-to": "info@necod.com.ar, ernesto@necod.com.ar",
+            "delivery-date": "Wed, 17 Sep 2025 15:06:10 -0300",
+            "received": "from [2a01:111:f403:c105::7] (helo=CH4PR04CU002.outbound.protection.outlook.com)\tby c264.dattaweb.com with esmtps   (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\t(Exim)\t (envelope-from <echaloum@ospesalud.com.ar>)\tid 1uywXb-0004EM-Re; Wed, 17 Sep 2025 15:06:09 -0300",
+            "arc-seal": "i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none; b=r7OGURMh7KOjM6FV+A2Wv3gEJBIraR1eQN23p/58JDkr2u86BoPvYGo3d+dpeVKEdUcyTTgCz07lnD8ApjaPwRSWsWwEyaSHpWiXViqrYFhTk4MPubJrW+6HxjJBPzPbehUubZyxGzkiG7OtixYI/95TbWVw03o/lejuo7IRuMpJA1sUz/RCn2e3eARKIIaBYBm5v1W1SnZrybu1lI3Ch6ZOZAEXA+sO6cy45nLA4gQ64f+zM4RWJfqHbDXhnI0TNHacsM2L4hrbDmHCFx0hL9v+QVUGQOKbAGbXQIT1DuLQp6qUijBWktoxYdDxub/54LVRX1kcxDlit0DZ1eo5kg==",
+            "arc-message-signature": "i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; s=arcselector10001; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1; bh=Xr9OxfQ0V8h9sASwcIAGyTeNb0H1MGr9Ab9SMEvraXM=; b=jak7ntjMrozHtUf+6HclViihVttkAy5nQ7EJgLOvgZVJeTWzrcY3g3CYwut6Fc19ul8UkELtNLwZWFwxTgS9v38D0dy7NoBCyR1zB6Dm4yQXJ3CkB4mGfMSN65hlfujPupOh6Or3Bd8B5kSEZDb9BrF7PFDtdryQxSq3V7ALNVDJxUoDvaGE1wkhbpS1vNWkpsMoao6NPTQb8ZxauOtRB/nfgIET3fJNt1HPppeLVKxWHEsLWKTNlG50b7BRyLpNNjPD9utMKUvF0V3zgb/jJBIefqPwxOBY9ktJchMbpmkMckQIujXrpyvtWoTFAcb2BDqJ24b5bmZTRCazlM2v2g==",
+            "arc-authentication-results": "i=1; mx.microsoft.com 1; spf=pass smtp.mailfrom=ospesalud.com.ar; dmarc=pass action=none header.from=ospesalud.com.ar; dkim=pass header.d=ospesalud.com.ar; arc=none",
+            "dkim-signature": "v=1; a=rsa-sha256; c=relaxed/relaxed; d=ospesalud.com.ar; s=selector1; h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck; bh=Xr9OxfQ0V8h9sASwcIAGyTeNb0H1MGr9Ab9SMEvraXM=; b=TDBsopcULwsQDrxCFOmmsWdjaLAuyatM3HLzzTlw8PZc5mn9GMMsKmTEFFV5vwVfAt+0dAuO4ChAb8jLdcAIu/5JRjHtY/e0wEj2y40iwC+EdROVHhnZn6WaDFRQ8dRoG6rIeKkpPh8K3a1lvy0ZGJliX9hz1qN9V8qurkLghMo=",
+            "thread-topic": "logiuratto sergio cotizacion",
+            "thread-index": "AQHcJ/2t0IL8kqtYc0+/0q8iBB7UXw==",
+            "message-id": " <PH7PR11MB5888CA11A1CB9388F012ACA5FA17A@PH7PR11MB5888.namprd11.prod.outlook.com>",
+            "accept-language": "es-ES, en-US",
+            "content-language": "es-ES",
+            "x-ms-has-attach": "yes",
+            "x-ms-tnef-correlator": "",
+            "msip_labels": "",
+            "authentication-results": "dkim=none (message not signed) header.d=none;dmarc=none action=none header.from=ospesalud.com.ar;",
+            "x-ms-publictraffictype": "Email",
+            "x-ms-traffictypediagnostic": "PH7PR11MB5888:EE_|CO1PR11MB4897:EE_",
+            "x-ms-office365-filtering-correlation-id": "5225d75c-f7bc-4473-9c15-08ddf614d85f",
+            "x-ms-exchange-senderadcheck": "1",
+            "x-ms-exchange-antispam-relay": "0",
+            "x-microsoft-antispam": " BCL:0;ARA:13230040|1800799024|366016|7416014|376014|27013499003|38070700021|13003099007|4053099003|8096899003;",
+            "x-microsoft-antispam-message-info": " jC7Vd5Vs4VLoOO4yNGvWZfef9ehnuJV52A8vC0J04jocnpDVWbICK/6XdreVxFEgjrR6nJVtWNeK8AAijrREL+8cwlVNZ4Upmkvwt2CKOVbbCFpnYhmZR1UktjUb9dI08s1WIQstLjv4VmZ4oVnf81WvEbJyTnuf1PMe+pB0HwRiL9VLX/TJOWLyietsqGf8JKXCVXKJsrFRU0dBvTmcS3VvDgE2OskzylA94Mp6SEEmZ5TRyk8iLb9fxVP13kFYQsR7nA6XLNHzgf5u3JKz1sMyrMrK470g2njQPtQBb5l3QVOGpxk5u1gIU7+VtVSF3mX7ZvsEsmJq/jFka5P+VpUetE4Nt9tbpD6aKW/0wup1Ns6Wde6uqDd32VKvDKXmyujBk/1frZ1z3BoFOzmcZW+S6DgYKebwEC97RRFZGw9bbtZt9JvRdr0fYdyp9JNfGiUpHYBb6H077XJt72kFKrrSiXbKLs5BiN8w9hZPsrDbPAI7SoLRggb+G3Vp27ch+YfVEVr9Rf+2qikTXSCFfchh2E5P+oPUu54uhICwO7KAiACR5YaqC5cRafpKLEA6SZej9ZfKIw1VdU91jI71+fflCBW8mji+13VJiYKRNu0b6tKOW0YfHMhjQlh89sPj38cTi/117+bfrmWzGGSdpVQmQoO2dvxAClUgDvKrayidCQd355VHbbuantpCiNuf+ErLaQaoAD0g9lG4oSwOzIVeEmGA+xnmf8dQWOhMmRrw6oN2SmOEfgEmQsfkqHzOf3A+l/SgZNexckxxVuE2lbcbOZyVKmLKUse7SsmthPenG1HMGiTpC2Px/WZ40DsI3jieIKgxdGhT6zP53wB8pURv4qOyOqscdallVnDNIhc28CdxhhrpBHssCmMSMUGvbzPzFqNH5JvmpwAnD/YOCNwzu8M4U8V6nQ+Y7Xd4ZSEXzpi/DHMpMnuIzuqrhoAVHtRodBAtZzGcxaqqse9wcO+G9XcDrG5aFa17quE12ihLmgMSHksAka6h3TNHcC3smReYLiHDY6O6lZDn5qL7rPrjJhp05JFrc6PVutVBSqQbVJ5ZbeGauT9NmT+Ul3ncLEemMgsjvJewqjTQoSvzhpqzcXOZIeYnAcI+Q85NlrG9Rpn56AhUsgd6YNKevX+RZ/QPsVmiu1wlKh92omCIq2qeGRzi/klsnyviOKjuLXm0UBPqdALJ8/1nzgeoSqhyCCE+njDn9iKo+Ppgf7FYjMpGj0p4Hr8G8pmSgS3ydg7M7lYe48lNLDj1G6brjBrL1TQSfTDyJ8IK5erlcyehBmpo7EwxB0hMHAFDc5xz9HJG7Qt7yELy7OaOeViJzxwZ2RXklEl/1ngdAkTpbFBXlG4V3JiTxatRkcxTdiLEB96GVAd6XgtppGQh0rLetWgoB0hLtIBXym1rO+i9mdbQSg8bWgx0qDSdgIFGoMwEVZw=",
+            "x-forefront-antispam-report": " CIP:255.255.255.255;CTRY:;LANG:es;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR11MB5888.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(27013499003)(38070700021)(13003099007)(4053099003)(8096899003);DIR:OUT;SFP:1102;",
+            "x-ms-exchange-antispam-messagedata-chunkcount": "1",
+            "x-ms-exchange-antispam-messagedata-0": " dhFP2WVARFAksRW/6RragKW3agW0c02SNJai/1UYYEAnmXPUYqLROGKWtWzCaiKLrLUCPAEWb84/rTz8Pnuf1Ehdn/yeFDN0n/4am24X5cSNaMfQ/sUMx9ZAfctIQPEkFQp0ljI3j7KQnDBM/docwVip1EdB2vLdTNEMWjsvAKnWszXzDDIQVXjzMYv5lWYmUhOazhje6A0J5Ev1hJbBu5177fbvicIsJdW6Fwq3pT3WMRvkPe6Zpzc3eVJjPl2gc7UTFP6eKJ9CIa+po/tLttDP/bGAVYLb1rbyW/lwKPEuHv2rJ4UNshwJaeQA4SqHZUqtk1yFihfT//jrLLHZct3ovTgAyVJ1yidv1j0tbPbij/7qE7SoDgEfxaI7hOniseoksOiDj3nLG4PPxjK92aKCkJREZ7MoG5lq/mO+Y/nVGoTrMQUuZfHJGLeCa1Q7ktWWkiT5Vj7/KqE8nGnraycJ0jc+zvWe/Vvy2J1qJqXsllp2HAF7g/RXucIEtaZ1w2+vGyETjBLZVMH/3G7K3K8rvjPYZorFCDYxavGbt3ZD99Btl0YAebY4k0MNo5kVPwCkihcPJOMxGSeri7a1V365NiUH4zbp5xKEUwK9tCmyB8MP/xxUAqWeTC8+r9oAtcI+ZCT/xh0ZOZa+xn3PeFh2d4z4svufmOeHhq2BO0T8SlOCAs3DYG+CIqM5376IR8llSO6UX/PupyIeCfuQAzCu81xQR59CBsF7/uq5XrOUxB7v+pN1Alno8Zi7O/p7j/yIjtTcwIJkrHx9TiJWy779MXKKzrzH7ShsHy1EyX6zkV+58CwlAozogqk0akdm2q2FQFyIdjODE+7/vdUAdPpCXZDPVgCrB8N6+LdKttxex7rdRegak8QIXGYcUbMB8+nEgnYZHSXT3i7eNShUVPY9shEHSARqSw45kirgFt8a0D+b+WBvxipH+MA6yfsCG2eOZJ+HwZ83Si/481QfRYduk4seCr6sfNsf8lQmXxMHkOlGtTbCHejsBcvq0IXd6tHnBRPSCoh01tBCeq5ugU4uqLthghRxlUAIPzmGHBtSPclFLcmHNmrr9ArfiE0p70HUT0pfpmmFhdzo75LF4yiLmGLD5uF4fFLrBCSfiqSlrq9LeadqDTthvpASL++pGm5JKZQ7LV1O5esgRO6Z+dHdq3KiBEB6jma/AtNKGSH8Gpa5awEr0SrLqimk5s0qguDv+9oIJP6nb0+NAWXjzwrOgJ/WD4ZhXpuv8mrphh6yInL28ZVZoR5zm1lvAPpffPZ3JcMNEriylFSC1WclCqijlQiV+n6qD7pMkXJ+lR6yStg2feK0N3QH1gyy3h5Wy6QeCZjxYzN3V81xJ+kFyViC5xv3FHqsdDGdLrzHrapL1tkxL9mUiyreXCDz+Geyrb8gQxdz+p9w6UMhN1DnJOMDQU5aIVsBRNSo0fcc038mskyzgIn28TPpDIHDiMKD8jFMlRpDJPbs2YD/RO0ViBGCxn/YnI9appXRj0rwEDbh9CFrG3UYfMXuMfvxc9/RxL4RB+yP8mmV8jc2ra49vtgeW/egKtWK/G0j0Biy4usvCmX3MYQI8gIyZYFFhaWY",
+            "content-type": "multipart/related;\tboundary=\"_005_PH7PR11MB5888CA11A1CB9388F012ACA5FA17APH7PR11MB5888namp_\";\ttype=\"multipart/alternative\"",
+            "mime-version": "1.0",
+            "x-originatororg": "ospesalud.com.ar",
+            "x-ms-exchange-crosstenant-authas": "Internal",
+            "x-ms-exchange-crosstenant-authsource": "PH7PR11MB5888.namprd11.prod.outlook.com",
+            "x-ms-exchange-crosstenant-network-message-id": "5225d75c-f7bc-4473-9c15-08ddf614d85f",
+            "x-ms-exchange-crosstenant-originalarrivaltime": "17 Sep 2025 18:05:54.6339 (UTC)",
+            "x-ms-exchange-crosstenant-fromentityheader": "Hosted",
+            "x-ms-exchange-crosstenant-id": "3c50f895-58db-46ec-8fcb-c05702e13389",
+            "x-ms-exchange-crosstenant-mailboxtype": "HOSTED",
+            "x-ms-exchange-crosstenant-userprincipalname": "K0SZ53YL9qYrC9K6EvlwMdZJHSh1OVcVb2LVCgWiFfphJy4Ak3qqHJ9HyQXFigGcaGo83f2iskjPvu/pSwrcrjkDxGnYRBwBhZ4tcOIScEs=",
+            "x-ms-exchange-transport-crosstenantheadersstamped": "CO1PR11MB4897",
+            "x-viruschecked": "Checked",
+            "x-spam-score": "-0.6",
+            "x-spam-score-int": "-5",
+            "x-spam-bar": "/",
+            "x-spam-report": "Action: no action Symbol: MISSING_TO(2.00) Symbol: FROM_HAS_DN(0.00) Symbol: FROM_EQ_ENVFROM(0.00) Symbol: DMARC_POLICY_ALLOW(0.00) Symbol: BAYES_HAM(-4.82) Symbol: MX_GOOD(0.00) Symbol: RCVD_TLS_LAST(0.00) Symbol: URIBL_HOSTKARMA_OLDER_10D(0.10) Symbol: R_DKIM_ALLOW(0.00) Symbol: MIME_GOOD(-0.10) Symbol: RCVD_COUNT_THREE(0.00) Symbol: DBL_BLOCKED(0.15) Symbol: R_SPF_ALLOW(0.00) Symbol: ARC_ALLOW(0.00) Symbol: MISSING_XM_UA(0.77) Symbol: MIME_TRACE(0.00) Symbol: URIBL_HOSTKARMA_YELLOW(0.30) Symbol: BAD_REP_POLICIES(1.00) Symbol: DKIM_TRACE(0.00) Message-ID: PH7PR11MB5888CA11A1CB9388F012ACA5FA17A@PH7PR11MB5888.namprd11.prod.outlook.com",
+            "x-spam-flag": "NO",
+            "x-spam-status": "NO",
+            "x-spam-threshold": "70"
+          },
+          "attributes": {
+            "uid": 124163900
+          },
+          "from": "Ezequiel Chaloum <echaloum@ospesalud.com.ar>",
+          "subject": "logiuratto sergio cotizacion",
+          "date": "Wed, 17 Sep 2025 18:05:54 +0000"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Email Trigger (IMAP)": {
+      "lastMessageUid": 124163909
+    },
+    "node:Info": {
+      "lastMessageUid": 124163912
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-09-17T21:24:08.857Z",
+  "versionId": "ac91d311-7303-48ca-9009-35fbec132a1e"
+}
