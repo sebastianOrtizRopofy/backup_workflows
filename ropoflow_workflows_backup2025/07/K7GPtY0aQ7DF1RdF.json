@@ -139,6 +139,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Workflow marcali",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
@@ -193,8 +200,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -1060,
-        1400
+        -1860,
+        1420
       ],
       "id": "f1cdea39-f76a-4aa2-8a71-5e295a56c7ff",
       "name": "Webhook1",
@@ -616,6 +623,31 @@
                 ],
                 "combinator": "and"
               }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "14ead122-4a1f-40f3-b268-1f073358ba33",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "ID50GJ39dGHTTlrk77Hx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Marcali"
             }
           ]
         },
@@ -624,7 +656,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -840,
+        -1500,
         1100
       ],
       "id": "01ed32bd-45cf-4497-bd56-d2070ad4f12e",
@@ -661,7 +693,7 @@
       "parameters": {
         "workflowId": {
           "__rl": true,
-          "value": "xyOvIc7As7Tzr53z",
+          "value": "zhMgG5BCtDLsnrJm",
           "mode": "list",
           "cachedResultName": "Cincronización Contactos Dismerca"
         },
@@ -1160,6 +1192,33 @@
       "id": "cfec4a54-50d2-4380-965a-a2fedf7169d5",
       "name": "Wait2",
       "webhookId": "46f19b2f-de24-44a8-8e2e-f3444c926d15"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "xyOvIc7As7Tzr53z",
+          "mode": "list",
+          "cachedResultName": "Cincronización Contactos Marcali"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        -620,
+        3320
+      ],
+      "id": "ea25642f-050f-40df-a91d-2b4e8c075b60",
+      "name": "Workflow marcali"
     }
   ],
   "pinData": {
@@ -1228,6 +1287,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-01T17:22:15.231Z",
-  "versionId": "76b06b7a-bde1-4d68-9fd9-f3f19d4a1719"
+  "updatedAt": "2025-09-17T14:59:06.985Z",
+  "versionId": "a20f803d-147d-49bd-9a55-4038c1cb3264"
 }
