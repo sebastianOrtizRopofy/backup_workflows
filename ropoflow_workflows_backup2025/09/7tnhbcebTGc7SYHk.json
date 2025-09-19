@@ -120,7 +120,7 @@
           "values": [
             {
               "column": "location_id",
-              "value": "={{ $json.body.id_location }}"
+              "value": "=ID50GJ39dGHTTlrk77Hx"
             }
           ]
         },
@@ -173,8 +173,8 @@
       "name": "Execute a SQL query",
       "credentials": {
         "postgres": {
-          "id": "GW7bwJbUsTeQSjFL",
-          "name": "Dismerca db account"
+          "id": "qE3f9BjUgDSZpVZM",
+          "name": "Marcali bi"
         }
       }
     },
@@ -203,6 +203,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-17T21:15:26.024Z",
-  "versionId": "831861dc-ca0c-4a26-9c21-dfc9cd8e8956"
+  "updatedAt": "2025-09-18T14:19:55.341Z",
+  "versionId": "7d9ddb5a-5b8f-4685-b9c6-a22147f4819c"
 }
