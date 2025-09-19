@@ -1,0 +1,208 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-18T14:04:32.100Z",
+  "id": "wCxt694rCqA9m19o",
+  "isArchived": false,
+  "meta": null,
+  "name": "custom values marcali",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -160
+      ],
+      "id": "fa762bcd-ba2f-4ead-8ad8-be1fb1e7099e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.leadconnectorhq.com/locations/{{ $json.location_id }}/customValues",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        420,
+        -160
+      ],
+      "id": "83ac43bd-329c-442b-8812-8e1e4a11e773",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "=ID50GJ39dGHTTlrk77Hx"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        200,
+        -160
+      ],
+      "id": "9922d097-4b3e-414a-8e52-3e6359589c26",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.customValues"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        -160
+      ],
+      "id": "8fcfcfed-53a5-4bf3-a34e-8a40caaa3566",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1080,
+        -160
+      ],
+      "id": "889e63ff-64b9-4a35-b33c-f959f30943cd",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "qE3f9BjUgDSZpVZM",
+          "name": "Marcali bi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.\"customValues\" (\n      \"id\", \"name\", \"fieldKey\", \"value\", \"locationId\", \"created_at\", \"updated_at\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, NOW(), NOW()\n    )\n    ON CONFLICT (\"id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"fieldKey\" = EXCLUDED.\"fieldKey\",\n      \"value\" = EXCLUDED.\"value\",\n      \"locationId\" = EXCLUDED.\"locationId\",\n      \"updated_at\" = NOW()\n  `,\n  values: [\n    d.id,\n    d.name,\n    d.fieldKey,\n    d.value,\n    d.locationId\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        860,
+        -160
+      ],
+      "id": "83a9dfaf-fcda-4e65-92d9-808a3d7b14c8",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-18T14:18:57.971Z",
+  "versionId": "cc0efd29-e3e6-4b5e-9fe9-2a8ff9053f5c"
+}
