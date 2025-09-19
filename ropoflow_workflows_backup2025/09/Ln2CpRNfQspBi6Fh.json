@@ -55,7 +55,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "/webhook/opportunity",
+        "path": "/webhook/opportunity/marcali",
         "options": {}
       },
       "type": "n8n-nodes-base.webhook",
@@ -129,8 +129,7 @@
           "id": "Q8ymaJM5LC5Shczf",
           "name": "marcali bi - app marcali bi"
         }
-      },
-      "onError": "continueErrorOutput"
+      }
     },
     {
       "parameters": {
@@ -218,6 +217,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-17T19:01:24.199Z",
-  "versionId": "1cead413-06fc-4f9f-94bb-48e153b9243b"
+  "updatedAt": "2025-09-18T14:12:21.185Z",
+  "versionId": "6f8a4b45-e070-4a7d-bbf0-ef5c9b1178d0"
 }
