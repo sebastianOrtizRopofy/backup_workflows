@@ -55,7 +55,7 @@
     {
       "parameters": {
         "httpMethod": "POST",
-        "path": "/dismerca/contacts",
+        "path": "/marcali/contacts",
         "options": {}
       },
       "type": "n8n-nodes-base.webhook",
@@ -166,6 +166,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-17T18:57:28.600Z",
-  "versionId": "49286c06-2ccf-4523-97be-9cb2058a0638"
+  "updatedAt": "2025-09-18T14:13:44.984Z",
+  "versionId": "1d30c577-064a-4adf-af41-2ee30d366f0b"
 }
