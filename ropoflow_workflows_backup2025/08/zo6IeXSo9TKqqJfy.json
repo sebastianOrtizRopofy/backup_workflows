@@ -23,28 +23,14 @@
         ],
         [
           {
+            "node": "Create Ajuste Kit",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
             "node": "Create BOOSTER",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Create SNAPSHOT",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Create SNAPSHOT",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Create SNAPSHOT",
             "type": "main",
             "index": 0
           }
@@ -126,11 +112,6 @@
       ]
     },
     "Create BOOSTER": {
-      "main": [
-        []
-      ]
-    },
-    "Create SNAPSHOT": {
       "main": [
         []
       ]
@@ -221,6 +202,31 @@
                 },
                 "conditions": [
                   {
+                    "id": "7c5f3a5b-91b1-47e0-abd6-2eb0d3580339",
+                    "leftValue": "={{ $('Webhook').item.json.body.customData.tipo }}",
+                    "rightValue": "Ajuste Kit",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "=Ajuste Kit }}"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
                     "id": "a7ff639a-039c-48eb-8924-fc2bea7ad1e4",
                     "leftValue": "={{ $('Webhook').item.json.body.customData.tipo }}",
                     "rightValue": "Booster",
@@ -235,81 +241,6 @@
               },
               "renameOutput": true,
               "outputKey": "Booster"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "aed9f606-2a4d-415f-bb38-b3f619b8f046",
-                    "leftValue": "={{ $('Webhook').item.json.body.customData.tipo }}",
-                    "rightValue": "Snapshot",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Snapshot"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "a639dd9b-c5c3-4667-bb20-3bff5ccce2a3",
-                    "leftValue": "={{ $('Webhook').item.json.body.customData.tipo }}",
-                    "rightValue": "Funcionalidad",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Nueva funcionalidad"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "b70ddb30-d0e1-44f6-b80a-05c6c73fdf8b",
-                    "leftValue": "={{ $('Webhook').item.json.body.customData.tipo }}",
-                    "rightValue": "Otro",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Otro"
             },
             {
               "conditions": {
@@ -565,98 +496,10 @@
       "typeVersion": 2.2,
       "position": [
         1740,
-        -160
+        40
       ],
       "id": "215854d8-d072-4e33-b4ed-d0319c0e3847",
       "name": "Create BOOSTER",
-      "credentials": {
-        "notionApi": {
-          "id": "Kipfztru4Y3rb4o1",
-          "name": "Notion account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "resource": "databasePage",
-        "databaseId": {
-          "__rl": true,
-          "value": "25d8ba98-4c4c-802d-8025-d47b7c908521",
-          "mode": "list",
-          "cachedResultName": "Operaciones",
-          "cachedResultUrl": "https://www.notion.so/25d8ba984c4c802d8025d47b7c908521"
-        },
-        "propertiesUi": {
-          "propertyValues": [
-            {
-              "key": "Name|title",
-              "title": "={{ $('Webhook').item.json.body.Asunto }}"
-            },
-            {
-              "key": "Solicitante|people",
-              "peopleValue": "={{ $('Webhook').item.json.body.customData['id_solicitante notion'] }}"
-            },
-            {
-              "key": "Tipo|select",
-              "selectValue": "={{ $('Webhook').item.json.body.customData.tipo }}"
-            },
-            {
-              "key": "Cliente|relation",
-              "relationValue": [
-                "={{ $('Switch').item.json.id }}"
-              ]
-            }
-          ]
-        },
-        "blockUi": {
-          "blockValues": [
-            {
-              "type": "heading_1",
-              "textContent": "Detalle de la solicitud"
-            },
-            {
-              "richText": true,
-              "text": {
-                "text": [
-                  {
-                    "text": "=📎 Adjuntos:",
-                    "annotationUi": {
-                      "bold": false
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "richText": true,
-              "text": {
-                "text": [
-                  {
-                    "text": "={{ $('Organizar Adjuntos').item.json.string_adjuntos }}",
-                    "annotationUi": {}
-                  }
-                ]
-              }
-            },
-            {
-              "type": "heading_3",
-              "textContent": "=Descripción"
-            },
-            {
-              "textContent": "={{ $('Webhook').item.json.body.customData.descripcion }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.notion",
-      "typeVersion": 2.2,
-      "position": [
-        1740,
-        40
-      ],
-      "id": "b959d73a-efcb-4a14-bf4d-d4a97c5563b2",
-      "name": "Create SNAPSHOT",
       "credentials": {
         "notionApi": {
           "id": "Kipfztru4Y3rb4o1",
@@ -944,6 +787,111 @@
       ],
       "id": "bab8414c-ee77-4a78-898f-ccd9a2c26fdc",
       "name": "If"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "25d8ba98-4c4c-802d-8025-d47b7c908521",
+          "mode": "list",
+          "cachedResultName": "Operaciones",
+          "cachedResultUrl": "https://www.notion.so/25d8ba984c4c802d8025d47b7c908521"
+        },
+        "propertiesUi": {
+          "propertyValues": [
+            {
+              "key": "Name|title",
+              "title": "=Ajuste - {{ $('Webhook').item.json.body.Cliente }}"
+            },
+            {
+              "key": "Solicitante|people",
+              "peopleValue": "={{ $('Webhook').item.json.body.customData['id_solicitante notion'] }}"
+            },
+            {
+              "key": "Tipo|select",
+              "selectValue": "=Ajuste Kit"
+            },
+            {
+              "key": "Cliente|relation",
+              "relationValue": [
+                "={{ $('Switch').item.json.id }}"
+              ]
+            }
+          ]
+        },
+        "blockUi": {
+          "blockValues": [
+            {
+              "type": "heading_1",
+              "textContent": "Detalle de la solicitud"
+            },
+            {
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "👤 Cliente:  ",
+                    "annotationUi": {
+                      "bold": true
+                    }
+                  },
+                  {
+                    "text": "={{ $('Webhook').item.json.body.Cliente }}",
+                    "annotationUi": {}
+                  }
+                ]
+              }
+            },
+            {
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "=📎 Adjuntos:",
+                    "annotationUi": {
+                      "bold": false
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "richText": true,
+              "text": {
+                "text": [
+                  {
+                    "text": "={{ $('Organizar Adjuntos').item.json.string_adjuntos }}",
+                    "annotationUi": {}
+                  }
+                ]
+              }
+            },
+            {
+              "type": "heading_3",
+              "textContent": "=Descripción"
+            },
+            {
+              "textContent": "={{ $('Webhook').item.json.body.customData.descripcion }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        1740,
+        -140
+      ],
+      "id": "cbd033ab-09ad-4fe1-b5f9-e304e0f09154",
+      "name": "Create Ajuste Kit",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -956,8 +904,9 @@
             "user-agent": "axios/1.7.7",
             "accept-encoding": "gzip, compress, deflate, br",
             "max-forwards": "10",
-            "x-arr-log-id": "6efc7479-2dee-4c2c-a7f3-c980246fcc8b",
-            "client-ip": "34.44.57.85:48338",
+            "traceparent": "00-cb5da18e61fc52e9f49838bc31734f48-8454aecf47e55c3a-00",
+            "x-arr-log-id": "054fedcb-f55b-4136-b064-263d0464150d",
+            "client-ip": "34.133.163.69:56246",
             "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "x-site-deployment-id": "ropoflow",
             "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
@@ -965,20 +914,20 @@
             "x-appservice-proto": "https",
             "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
             "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "34.44.57.85:48338",
+            "x-forwarded-for": "34.133.163.69:56246",
             "x-original-url": "/webhook/bf4d2713-e903-4b41-9f59-9429c735d8cb",
             "x-waws-unencoded-url": "/webhook/bf4d2713-e903-4b41-9f59-9429c735d8cb",
-            "x-client-ip": "34.44.57.85",
-            "x-client-port": "48338",
+            "x-client-ip": "34.133.163.69",
+            "x-client-port": "56246",
             "content-type": "application/json",
-            "content-length": "41289"
+            "content-length": "8879"
           },
           "params": {},
           "query": {},
           "body": {
             "ACEPTA TERMINOS Y CONDICIONES": "",
             "Estado": "",
-            "Lead Score": 4,
+            "Lead Score": "",
             "Observación": "",
             "Ropofy es fácil de usar": "",
             "Country_name": "",
@@ -1004,10 +953,7 @@
             "Score 2lip": "",
             "¿Estás asistiendo a los talleres en vivo de los jueves?": "",
             "Asesor": "",
-            "Anexo": [
-              "https://services.leadconnectorhq.com/documents/download/p8ab8wnURVRjJpuLbCxS",
-              "https://services.leadconnectorhq.com/documents/download/ontU0lN5jl24gl2VdWxU"
-            ],
+            "Anexo": "",
             "Pagina de origen": "",
             "6.\tEn función de tu experiencia con Ropofy hasta el momento, ¿qué probabilidad hay de que nos recomiendes a un amigo, familiar o colega? Califica tu respuesta en una escala de 0 a 10, donde 0 significa 'Nada probable' y 10 'Totalmente probable'.": "",
             "1. Gestión de la Reputación Online": "",
@@ -1032,7 +978,6 @@
             "Element": "",
             "¿Cómo te podemos apoyar para que puedas vender y referirnos exitosamente?": "",
             "Event time": "",
-            "¿Cuánto inviertes en actividades de marketing cada mes? (Agencia, pauta, personal, tiempo)": "",
             "Reminders": "",
             "¿Cómo te pareció nuestro Master Class?": "",
             "Event date": "",
@@ -1043,7 +988,7 @@
             "1.\tEstoy satisfecho con el acompañamiento y la capacitación brindados por el equipo de Ropofy. ": "",
             "RUT": "",
             "¿Cuentas con un presupuesto superior a 500 mil pesos mensuales (130 usd/mes)  para invertir en herramientas o sistemas de marketing y ventas?": "",
-            "Descripcion": "TEST TES TEST",
+            "Descripcion": "df ds fsd f",
             "Radio 23ek1": "",
             "4.\tRopofy ha tenido un impacto significativo en la optimización de mis procesos empresariales.": "",
             "Acompañamiento y capacitación": "",
@@ -1058,9 +1003,7 @@
             "Single Line 37ke4": "",
             "o\tRopofy es un sistema estable (no se cae ni tiene errores)": "",
             "¿Qué volumen de conversaciones tienes al mes?": "",
-            "General Source": [
-              "Marketing"
-            ],
+            "General Source": "",
             "Algún comentario adicional": "",
             "Ad_type": "",
             "Industria ": "",
@@ -1092,7 +1035,7 @@
             "Join link": "",
             "Comentarios": "",
             "Observaciones sesión despegue (de 1 a 3 estrellas)": "",
-            "Tipo de solicitud": "Booster",
+            "Tipo de solicitud": "Ajuste Kit",
             "Nombre de la empresa del partner": "",
             "Rol en Ropofy": "",
             "Nombre completo del contacto principal del referido": "",
@@ -1123,7 +1066,7 @@
             "Evaluación Set up (kits de implementación)": "",
             "Location Id account": "",
             "5.\t¿Qué funcionalidades adicionales te gustaría que Ropofy incorpore o mejore?": "",
-            "Link referidor": "https://apis.ropofy.com/widget/booking/DQcpLIZbhCntwg1btE23?am_id=Fe_Li_Pe",
+            "Link referidor": "",
             "Detalles de Matias BOT": "",
             "Estoy de acuerdo con los Términos y Condiciones de la Red Ropofy y con el tratamiento de datos de personales. (Encontrados en nuestro sitio web)": "",
             "GPT Detalles Matias BOT": "",
@@ -1133,33 +1076,26 @@
             "Implementacion - Matias": "",
             "Presupuesto - Matias": "",
             "Cargo": "",
-            "Transcripción": "  Nicanor Carazo Realtors-20250821_113616-Grabación de la reunión\n21 de agosto de 2025, 4:36p.m.\n38 min 49 s\n\nLeonardo Perilla Vargas ha iniciado la transcripción\n\nLeonardo Perilla Vargas   0:03\nBien, bien, todo bien la en la en el transcurso de la semana que viene ya ya deberías tener habilitado el botagendador. Yo escalé la solicitud, pues la semana pasada, cuando hablamos con soporte, pero han estado como un poquito atareados, entonces ya para la semana que viene debería debería quedar hoy lo que vamos a hacer es migrar al al nuevo WhatsApp al WhatsApp Business, entonces.\n\nNicanor Carazo - Brokers Inmobiliarios   0:19\nSí.\nO K.\n\nLeonardo Perilla Vargas   0:24\n¿Entonces digamos que si quieres, vamos de una vez con esto YY así no, no te quito mucho tiempo YY puedes adelantar tus pendientes?\n\nNicanor Carazo - Brokers Inmobiliarios   0:27\nO K.\nSí, sí, yo, yo eso para mí es muy importante, porque tú sabes que no podemos perder el número porque el número es muy importante ya.\n\nLeonardo Perilla Vargas   0:40\nSí, sí, sí, sí, sí. Por ejemplo. Ahí está en en estos días he visto que si tienes bastante tráfico sobre la línea de teléfono, entonces mejor no no arriesgar, perfecto.\n\nNicanor Carazo - Brokers Inmobiliarios   0:42\nY.\nCorrecto, así es, no, no, no, totalmente. ¿Entonces qué hacemos?\n\nLeonardo Perilla Vargas   0:55\n¿Entonces con puedes proyectarme pantalla ingresas en en rock Office directamente?\n\nNicanor Carazo - Brokers Inmobiliarios   0:59\nSí.\n¿O K ya hemos disco o comparto pantalla acá?\n¿Listo, aquí estamos, no?\n\nLeonardo Perilla Vargas   1:08\nListo y vámonos a configuración.\n\nNicanor Carazo - Brokers Inmobiliarios   1:11\nAl final sí.\n\nLeonardo Perilla Vargas   1:17\nY buscamos la opción que dice WhatsApp.\n\nNicanor Carazo - Brokers Inmobiliarios   1:27\nO K.\n\nLeonardo Perilla Vargas   1:29\nListo en el acá lo único que vamos a hacer es borrar ese número de teléfono que que tenemos, dale ahí y borrar número.\n\nNicanor Carazo - Brokers Inmobiliarios   1:36\nSí.\n\nLeonardo Perilla Vargas   1:37\nContinuar.\nListo y en la en la canékila.\n\nNicanor Carazo - Brokers Inmobiliarios   1:47\nBorra aquí.\n\nLeonardo Perilla Vargas   1:48\nSí, señor.\n\nNicanor Carazo - Brokers Inmobiliarios   2:01\nEliminar.\nSí.\n\nLeonardo Perilla Vargas   2:09\nListo, vamos al rojo y lo recargamos.\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   2:16\nAhora te pongo que lo mando otra vez.\n\nLeonardo Perilla Vargas   2:18\nNo si quieres solamente darle cancelado ahí y recargar la página.\n\nNicanor Carazo - Brokers Inmobiliarios   2:23\nAhorita lo cierro.\n¿Pero sigue aquí, no?\n\nLeonardo Perilla Vargas   2:44\nSi quieres, dale control FF 5. No sea que se haya quedado por el cache. Pega.\n\nNicanor Carazo - Brokers Inmobiliarios   2:49\nAlmohada.\nVale, sí.\nPorque no lo borro.\n\nLeonardo Perilla Vargas   3:01\nLa ley otra vez, pero a veces se demora como unos minuticos mientras sincroniza el meta. ¿Ah, no? Pero mira que ahí sí.\n\nNicanor Carazo - Brokers Inmobiliarios   3:08\nAh, sí, está está ya en un proceso de eliminación sí se acaba.\n\nLeonardo Perilla Vargas   3:13\nPlease, bueno.\n\nNicanor Carazo - Brokers Inmobiliarios   3:13\nEntonces, me imagino que por eso no aparece todavía aparece o K.\n\nLeonardo Perilla Vargas   3:16\nSí, este un minutico.\nY volvemos a refrescar toda vez si eso siempre sale, el aviso que se demora como de 2 a 3 minutos.\n\nNicanor Carazo - Brokers Inmobiliarios   3:23\nClaro.\nO K.\n\nLeonardo Perilla Vargas   3:37\n¿Tú conoces de de Barranquilla a una constructora que se llama CLB?\n\nNicanor Carazo - Brokers Inmobiliarios   3:44\nPLB.\n\nLeonardo Perilla Vargas   3:45\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   3:46\nSí, sí, sí, lo conozco.\n\nLeonardo Perilla Vargas   3:48\n¿Qué tan grandes son los proyectos que ellos manejan?\n\nNicanor Carazo - Brokers Inmobiliarios   3:53\nNormales, o sea, son no son proyectos tan grandes, o sea, los que conozco o sea de 7080 apartamentos más o menos.\n\nLeonardo Perilla Vargas   3:59\nAjá.\n¿Ah, o KY tú apoyas con a ellos? ¿También con ventas o o el negocio?\n\nNicanor Carazo - Brokers Inmobiliarios   4:09\nNo, no, no, a ellos no. O sea, CLBCL si es la misma CLB que yo pienso sí, lo apoyamos en ventas con un proyecto aquí en Cartagena, sí.\n\nLeonardo Perilla Vargas   4:19\nAh o K sí es que por ahí estuvieron, están haciendo la activación de Rocko Fay y pues que mencionaron a a un nicanor me imaginé que eras tú por el nuestro.\n\nNicanor Carazo - Brokers Inmobiliarios   4:30\nAh o K sí, pues sí, a lo mejor puede ser.\n\nLeonardo Perilla Vargas   4:34\nListo. Bueno, te tengo que refrescarlo a ver.\n\nNicanor Carazo - Brokers Inmobiliarios   4:38\nAjá.\nVamos a ver.\nYa ya no aparece.\n\nLeonardo Perilla Vargas   4:58\n¿O K, listo, perfecto, damos alguien añadir número?\n\nNicanor Carazo - Brokers Inmobiliarios   5:02\nSí.\n\nLeonardo Perilla Vargas   5:07\nY vamos a ponerle ahí el número del teléfono a 57 y el teléfono.\n\nNicanor Carazo - Brokers Inmobiliarios   5:12\n¿Una pregunta, coloco el número que que tengo activo para esto no se pierden los chats ni nada, no?\n\nLeonardo Perilla Vargas   5:18\nNo, no debería perderse los chats.\n\nNicanor Carazo - Brokers Inmobiliarios   5:22\nO K.\nListo a proceder para verificar sí.\n\nLeonardo Perilla Vargas   5:26\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   5:35\nSí.\n\nLeonardo Perilla Vargas   5:39\nDale verificar cuál es el mensaje a ver qué pasa.\nAlejo, sí ves lo que te está pasando.\n\nAlejandro Bernal   5:56\nDime.\n\nLeonardo Perilla Vargas   5:58\nNo nos deja asociarlo por lo que el número fijo de Estados Unidos que hayamos puesto provisional es un número de de WhatsApp. Api nos tocaría desconectar la cuenta de ropofy y volver a conectar la la la cuenta de de de de WhatsApp Business.\n\nAlejandro Bernal   6:17\nO K siempre pasa eso.\n\nLeonardo Perilla Vargas   6:20\nPues sí, mira que que que ya me pasó con el que tenía que con mi Cano está exactamente lo mismo, entonces vamos a vamos a hacerlo y revisamos a ver si nos borra las plantillas. ¿La idea sería que no nos borra las plantillas, no?\n\nNicanor Carazo - Brokers Inmobiliarios   6:33\nMhm.\n\nAlejandro Bernal   6:33\nCorrecto.\n\nLeonardo Perilla Vargas   6:33\nEntonces, dale ahí en la XY arriba de donde añadíamos el número, aparecen como unos 3 puntitos.\n\nNicanor Carazo - Brokers Inmobiliarios   6:43\nSí.\n\nLeonardo Perilla Vargas   6:45\nArriba a la derecha, dale ahí y dale a desconectar.\n\nNicanor Carazo - Brokers Inmobiliarios   6:50\n¿Eh? ¿Desconectar?\n\nLeonardo Perilla Vargas   6:51\nSí.\nEste dale a la a la izquierda, donde dice conectar la aplicación de WhatsApp Business.\n\nNicanor Carazo - Brokers Inmobiliarios   7:23\nAquí.\n\nLeonardo Perilla Vargas   7:25\nNo en el en el sí.\n\nNicanor Carazo - Brokers Inmobiliarios   7:27\nConectar la aplicación de WhatsApp, vine, sí.\nHola.\n¿Qué hago aquí?\n\nLeonardo Perilla Vargas   7:44\nListo este es el portafolio listo, dale siguiente.\n\nNicanor Carazo - Brokers Inmobiliarios   7:49\n¿Eh?\nEn este.\n\nLeonardo Perilla Vargas   7:59\nConectar un WhatsApp web existente WhatsApp Business existente el primero.\n\nNicanor Carazo - Brokers Inmobiliarios   8:06\nEh, siguiente.\n\nLeonardo Perilla Vargas   8:08\nSiguiente.\nY según pongamos el número listo, entonces vas a ingresar en el celular, ingresas a WhatsApp y te vas a ir a la configuración.\n\nNicanor Carazo - Brokers Inmobiliarios   8:25\nSí.\nO K.\nMe voy a la configuración.\n\nLeonardo Perilla Vargas   8:44\nSí, genial.\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   8:46\nYa estoy en configuración, ahora me voy a.\n\nLeonardo Perilla Vargas   8:50\nVete a una opción que dice, cuenta, es como la primera opción.\n\nNicanor Carazo - Brokers Inmobiliarios   8:55\n40, sí.\n\nLeonardo Perilla Vargas   8:58\nY luego hay una opción que dice opciones para empresas.\n\nNicanor Carazo - Brokers Inmobiliarios   9:04\nOpciones para empresa.\n\nLeonardo Perilla Vargas   9:06\nO sí, es algo parecido para empresas.\n\nNicanor Carazo - Brokers Inmobiliarios   9:12\nPlataforma para empresa.\n\nLeonardo Perilla Vargas   9:14\nEs plataforma para empresas.\n\nNicanor Carazo - Brokers Inmobiliarios   9:16\nSí, conectar plataforma para empresas.\nCompartir todos los chats y continuar con los clientes actuales, correcto.\n\nLeonardo Perilla Vargas   9:25\nSí, correcto.\n\nNicanor Carazo - Brokers Inmobiliarios   9:28\n¿Eh?\nO K un segundito ya.\n\nLeonardo Perilla Vargas   9:41\nY luego debería de llevar hasta escanearse lo que ocurre.\n\nNicanor Carazo - Brokers Inmobiliarios   9:43\nSí, ya ya, ya lo escaneé está, me dice que puede tardar hasta 45 segundos. Dame y responde aquí unos unos mensajitos.\n\nLeonardo Perilla Vargas   9:52\nDe una.\n\nNicanor Carazo - Brokers Inmobiliarios   9:53\nEl pienso sea.\n¿Que me tienen bombardeado en el WhatsApp, vale?\n¿Qué te iba a decir?\n¿YY, o sea, todo queda igual o cambia algo?\n\nLeonardo Perilla Vargas   10:37\nLa diferencia es que dentro de ropo dentro de ropofile ya no vas a contestar por la opción que dice SMS, sino por la opción que dice WhatsApp ahora.\n\nNicanor Carazo - Brokers Inmobiliarios   10:48\n¿Ah, bueno, pero, pero el resto? Todo queda igual.\n\nLeonardo Perilla Vargas   10:51\n¿Sí hay un tema con los bots que hemos evidenciado y es el tema de que, por ejemplo, el Bot está hablando con el cliente que si en algún momento el asesor comercial entra a chatear con el cliente, el Bot debería parar cierto?\n\nNicanor Carazo - Brokers Inmobiliarios   11:06\nSí.\n\nLeonardo Perilla Vargas   11:06\nPero entonces hemos identificado que cuando el asesor le responde al cliente desde el celular o desde la aplicación web de WhatsApp, no está parando el tiene que responder a través de Ropopay. Entonces de pronto, para el equipo de trabajo y para irlas mentalizando y para irlas, digamos que acostumbrando contesten los chats a través de Ropopa.\nSería ideal.\n\nNicanor Carazo - Brokers Inmobiliarios   11:29\nAy mi madre, o sea, para que para que pueda parar la conversación, no va a tomar ya el de el del mensaje directo por la aplicación de WhatsApp, sino entrar al link conector de ropa five y ahí y ahí empezar a hablar para que te detenga.\n\nLeonardo Perilla Vargas   11:45\nPara que se detenga el Bot. Sí, lo otro que estoy viendo es que no están usando el el tema de las oportunidades comerciales, las oportunidades comerciales se están quedando ahí como en el en el aire, no sé si de pronto necesitas algún apoyo para para poder aclarar cómo funcionan y demás y que puedas ser el mensual.\n\nNicanor Carazo - Brokers Inmobiliarios   12:01\nSí, sí, sí, la verdad, sí, la verdad, me gustaría que me ayudaras con con con alguien que me ayudara a a a sacarle más jugo al al sistema, la verdad.\n\nLeonardo Perilla Vargas   12:13\nY.\nSí, porque o que están aterrizando ahí, pero no hay, no hay como conclusión ni nada, yo pueda.\n\nNicanor Carazo - Brokers Inmobiliarios   12:23\nSí no, no hay, no hay un, hay un manejo del cliente, es que todavía no he aprendido a usar esa parte.\n\nLeonardo Perilla Vargas   12:31\nSí, y ese o sea, es indispensable que tú tengas como el manejo full, para que así mismo se lo puedas transmitir a las chicas con la misma seguridad.\n\nNicanor Carazo - Brokers Inmobiliarios   12:39\n¿Lo que pasa que te explico, yo vengo de otra plataforma que es wasp verdad, y en wasi nosotros sí tenemos los embudos organizados, pero los tenemos en wasi no los tenemos acá, cuando yo ingresé a rompofile yo les dije, qué posibilidades hay de que los clientes que ingresen inmediatamente se registren en en wasi?\n\nLeonardo Perilla Vargas   12:42\nDe verdad.\n\nNicanor Carazo - Brokers Inmobiliarios   13:00\n¿Verdad?\nPero no sucede, sí me entiendes. Eso no creo que dentro de las instrucciones no, no pasa, o sea, no, no, no pasaba el registro del cliente ya, o eso lo tiene.\n\nLeonardo Perilla Vargas   13:15\nPues en realidad, o sea, los clientes que llegan a ropofy si vienen de portales inmobiliarios, igual van a estar creados en wasi y en ropofy. También hay embudos. Que cuál sería la idea para sacarle más provecho el tema de que los embudos puedan funcionar en ropofy y que adicional a eso tú tengas el tema por ejemplo de agendamiento de citas también en Ropofy para que tú puedas enviar confirmación de citas.\nLos recordatorios, por ejemplo, así como te llegan los de nosotros, de ahí nos vemos, mañana nos vemos dentro 1 hora nos vemos en 15 minutos, o sea, todo eso que tú también lo puedas tener funcionando en tu cuenta y también hay una parte de seguimiento, entonces es que por ejemplo de está el inmueble, pero no ha pasado a la parte de contratación y la la oportunidad.\n\nNicanor Carazo - Brokers Inmobiliarios   13:45\nSí.\nSí.\nO K.\nSí.\n\nLeonardo Perilla Vargas   14:00\n¿Abierta entonces que el mismo sistema le mande? Pues un mensaje o varios mensajes haciéndoles seguimiento. ¿Como oye, qué pensaste? ¿Cuéntame, cómo va tu proceso de búsqueda? ¿Aún estás buscando, aún estás interesado y que eso que normalmente estaría el asesor en especial en las primeras etapas del del Paiden, que es cuando tenemos mayor volumen?\n\nNicanor Carazo - Brokers Inmobiliarios   14:18\nSí.\n\nLeonardo Perilla Vargas   14:18\nClientes lo empiece a apoyar el sistema y que las chicas liberen tiempo para enfocarle más energía a los clientes que ya van en procesos más avanzados. Procesos de contratación, firma de contrato, entregas, etcétera.\n\nNicanor Carazo - Brokers Inmobiliarios   14:22\nO K.\nSí.\n\nLeonardo Perilla Vargas   14:35\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   14:36\nSí, el tema, el tema aquí, el tema aquí es el el la, la migración, sí me entiendes de trabajo, porque yo primero a mí me gustaría comenzar por mis clientes que estoy atendiendo primero como para para para cogerle bien el el huevo, porque para TI te hace fácil, porque tú trabajas ahí y tú pues obviamente tienes.\nEl total control, pero para nosotros poder implementarlo tenemos que como que aprender y adicionalmente que mi gente aprenda y mire para acá ya.\n\nLeonardo Perilla Vargas   15:00\nEs el diario.\nSí, listo.\n\nNicanor Carazo - Brokers Inmobiliarios   15:11\nEs que ese es el cuento, el cuento es ese, ya el sistema, yo sé que funciona, pero a mí me gustaría aprendérmelo al detalle para yo poder transmitir la información y empezar a a trabajar con con ropa five y tener que mirar todos los embudos de trabajo para acá. ¿Sí me entiendes?\n\nLeonardo Perilla Vargas   15:15\nPues sí, tenemos que ver el.\nSí pues, hay un buen punto de partida que es hacer el curso de asesor de la Academia, porque eso te da mucho contexto de cómo manejarlo. ¿Entonces, pues no sé si de pronto le quieres, le quieres pegar una o de pronto tú ya lo hiciste, tú ya lo viste?\n\nNicanor Carazo - Brokers Inmobiliarios   15:47\nNo, no voy a voy a hacerlo, ese es el que está al final.\nQue dice que es el el de la clase. Sí, es que no te lo te lo te lo juro que no me he puesto a a a conocer el el, el el sistema del detalle, porque es que yo este sistema yo este sistema lo me lo entregaron en plenas vacaciones.\n\nLeonardo Perilla Vargas   16:03\n¿Y si quiere?\n\nNicanor Carazo - Brokers Inmobiliarios   16:09\nYa y yo llegué de vacaciones hace como 10 días. Entonces ahora es que estoy como que, poniéndome al día con el el sistema de ropa, sí me entiendes.\n\nLeonardo Perilla Vargas   16:19\nSí o K.\n\nNicanor Carazo - Brokers Inmobiliarios   16:20\nO sea, este producto, este proyecto no me lo me lo debía haber entregado Jorge, como 2 semanas antes de yo irme pero siempre se aplazaba y se aplazaba y se aplazaba y se aplazaba ya entonces si te das cuenta prácticamente el sistema comenzó como entre.\n\nLeonardo Perilla Vargas   16:35\n¿Eh?\n\nNicanor Carazo - Brokers Inmobiliarios   16:43\nLos días del mes del del o sea como a finales del mes de Julio. Si no estoy mal o a mediados, perdón, como a mediados del mes de Julio y yo ya para esa feria. Yo ya me había ido, entonces obviamente estoy como aprendiendo el sistema y voy a empezar a hacer los cursos y todo.\nOye, mira, aquí ya conecto.\nDice, plataforma conectada a link connector.\n\nLeonardo Perilla Vargas   17:09\n¿Tan raro?\nListo, pero vamos a ver, porque como que no nos aparece.\n\nNicanor Carazo - Brokers Inmobiliarios   17:20\nRefresco.\n\nLeonardo Perilla Vargas   17:22\nSí, el reflex que vamos a ver que.\n¿Tan raro?\n\nNicanor Carazo - Brokers Inmobiliarios   17:38\nAgregó.\n\nLeonardo Perilla Vargas   17:40\nNo, no, agrego.\nO K.\n¿Qué hacemos acá? Sería intentar eliminar la conexión y volverla a establecer, podrías meterte al administrador comercial de Facebook y Borramos la la conexión del número.\n\nNicanor Carazo - Brokers Inmobiliarios   18:04\n¿Qué hago ahora?\n\nLeonardo Perilla Vargas   18:07\nAbre una nueva pestaña YY métete al Facebook.\n\nNicanor Carazo - Brokers Inmobiliarios   18:11\nAl administrador del anuncio.\n\nLeonardo Perilla Vargas   18:14\nSí pues, al administrador del portáculo comercial pero bueno, entra, YY ya de ahí.\nDale arriba a la izquierda en el icono de meta.\n\nNicanor Carazo - Brokers Inmobiliarios   18:36\n¿Ven?\n\nLeonardo Perilla Vargas   18:38\nNo te lleva a ningún lado.\n\nNicanor Carazo - Brokers Inmobiliarios   18:40\nYa, ya.\n\nLeonardo Perilla Vargas   18:46\n¿Ah, pero te sigue dejando acá? Bueno, si le das abajo el piñoncito de configuración.\n\nNicanor Carazo - Brokers Inmobiliarios   18:57\n¿Dónde, acá?\n\nLeonardo Perilla Vargas   18:59\nOh, sí, ojo. En el de configuración.\n\nNicanor Carazo - Brokers Inmobiliarios   19:03\nConfiguración de negocio.\n\nLeonardo Perilla Vargas   19:13\nEl.\n\nNicanor Carazo - Brokers Inmobiliarios   19:13\nAh OK.\n\nLeonardo Perilla Vargas   19:16\nDale proteger mi cuenta te va a tocar habilitar el la autenticación en los pasos.\nSelecciona ahí el ese.\n\nNicanor Carazo - Brokers Inmobiliarios   19:32\nEste.\n\nLeonardo Perilla Vargas   19:33\nNo el el Facebook.\n\nNicanor Carazo - Brokers Inmobiliarios   19:35\n¿Cuál era el el otro?\n\nLeonardo Perilla Vargas   19:38\nEl el el primero.\n\nNicanor Carazo - Brokers Inmobiliarios   19:40\nEl de Facebook.\n\nLeonardo Perilla Vargas   19:41\n¿Ante ahí, ahí lo seleccionaste, bien, listo, súper bien, te ha llegado un código?\n\nNicanor Carazo - Brokers Inmobiliarios   19:47\nBueno.\nSí.\n\nLeonardo Perilla Vargas   20:03\nY eso ahí, pues lo mejor es SMS o WhatsApp, es la parte más fácil que se puede hacer.\n\nNicanor Carazo - Brokers Inmobiliarios   20:10\n¿Dónde? ¿Acá lo lo dejo aquí?\n\nLeonardo Perilla Vargas   20:11\nNo.\n¿Esa es la SMSU WhatsApp, la segunda opción?\nDale continuar.\nSiguiente.\n\nNicanor Carazo - Brokers Inmobiliarios   21:03\nOtro.\n\nLeonardo Perilla Vargas   21:18\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   21:19\nTiene que llegarme otro código.\n\nLeonardo Perilla Vargas   21:23\nPues pues va a ingresar el mismo tan raro.\n\nNicanor Carazo - Brokers Inmobiliarios   21:26\n¿Sí pidió otra vez el voy a poner el mismo código, no?\n\nLeonardo Perilla Vargas   21:30\nSí, sí, sí.\n¿No te ha llegado ningún otro nuevo, cierto?\n\nNicanor Carazo - Brokers Inmobiliarios   21:43\nNo, todavía no me ha llegado ningún último.\n\nLeonardo Perilla Vargas   21:47\nHemos de pronto a ver.\n\nNicanor Carazo - Brokers Inmobiliarios   21:49\nQué raro.\n\nLeonardo Perilla Vargas   21:51\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   21:53\nPodremos enviar un nuevo código en 2 minutos.\n¿O será el el anterior?\n¿Ah, no?\nOh.\n\nLeonardo Perilla Vargas   22:16\nBueno, es un momento a ver.\n\nNicanor Carazo - Brokers Inmobiliarios   23:59\nEstá.\nO tener o tener el nuevo código.\n\nLeonardo Perilla Vargas   24:04\nSí.\nPero a ver, llega.\n\nNicanor Carazo - Brokers Inmobiliarios   24:19\nYa, ya llegó.\n\nLeonardo Perilla Vargas   24:22\nPonlo a ver.\nListo, ahora dale donde dice cuentas.\n\nNicanor Carazo - Brokers Inmobiliarios   24:46\nDonde dice cuentas.\n\nLeonardo Perilla Vargas   24:48\nSí, la última opción a la izquierda.\nPero no, no nos deja. ¿Eso es para allá y si le das a la derecha en la X?\n\nNicanor Carazo - Brokers Inmobiliarios   25:02\nAquí.\n\nLeonardo Perilla Vargas   25:03\nSí.\nListo, baja a la izquierda en ese menú, a ver si nos apareciera el portafolio comercial.\nAh, no, listo, entonces vamos arriba a la derecha y dale en la foto de perfil o dale en el icono de Facebook arriba a la izquierda, cualquiera de las 2:00.\n\nNicanor Carazo - Brokers Inmobiliarios   25:30\nAquí.\n\nLeonardo Perilla Vargas   25:31\nHola, salimos en el Home, Sí.\nYa le cambió a nicanor. ¿Cuál es el la cuenta que utilizas, la de blocker o la de Realtors?\n\nNicanor Carazo - Brokers Inmobiliarios   25:39\nEl.\nNi que nunca era eso de Aldo, sí.\n\nLeonardo Perilla Vargas   25:44\nListo, dale ahí.\n¿Listo?\n\nNicanor Carazo - Brokers Inmobiliarios   25:57\nDame un segundito, puedo irme a la otra para estar seguro, porque no sé si es esta vuelta, dame un segundito.\nQue creo que esta no es.\nPorque es que hay una que es la que está conectada con Instagram, la otra no se no.\n\nLeonardo Perilla Vargas   26:17\nAh, o K, entonces si quieres sale arriba a la izquierda en el home de Facebook y ahí, pues igual, ahí vamos a a ver.\nCuando cuando nos metemos a la cuenta de al portafolio comercial, pues que ya tenga todo asociado y tal en el icono del Facebook.\n\nNicanor Carazo - Brokers Inmobiliarios   26:31\nBueno.\n¿Qué hago ahora?\n\nLeonardo Perilla Vargas   26:35\nArriba a la izquierda en el icono del Facebook.\n\nNicanor Carazo - Brokers Inmobiliarios   26:39\nAquí.\n\nLeonardo Perilla Vargas   26:40\nSí, señor.\nListo y es que está raro, dale en ver más.\n\nNicanor Carazo - Brokers Inmobiliarios   26:52\nVer más.\n\nLeonardo Perilla Vargas   26:53\n¿Y dónde estabas en el menú de de la s?\n¿Es que está raro porque solamente aparece el administrador de anuncios, no te aparece el portafolio comercial?\n\nNicanor Carazo - Brokers Inmobiliarios   27:06\nHay que hacer lo que no me acuerdo, sé que tenía un tema con con la cuenta, pero es que no sé si es bueno, ahorita tendríamos que probar si es con este.\n\nLeonardo Perilla Vargas   27:16\nProbemos, entremos a una y después entramos a la otra verso. ¿De cuál de las 2:00 nos habilita?\n\nNicanor Carazo - Brokers Inmobiliarios   27:22\nDale.\n\nLeonardo Perilla Vargas   27:24\nEntonces métete en la, por ejemplo, a la primera que te aparece allá abajo, la de.\nEl canor inmobiliario.\n\nNicanor Carazo - Brokers Inmobiliarios   27:32\nO K gracias.\n\nLeonardo Perilla Vargas   27:37\nMeta business suite creo que esta es la que tiene todo.\n\nNicanor Carazo - Brokers Inmobiliarios   27:42\nEn el.\n\nLeonardo Perilla Vargas   27:44\nEn el menú de la izquierda te aparece una opción que dice meta business suite.\n\nNicanor Carazo - Brokers Inmobiliarios   27:49\nSí.\n\nLeonardo Perilla Vargas   27:50\nMetámonos ahí a ver.\nDale en configuración abajo a la izquierda.\nY ahí busquemos la opción que diga cuentas de WhatsApp, Ah, pero mira que no nos aparece completo.\n¿Tan raro listo si quieres cierra esta nos devolvemos y entonces vamos YY buscamos, nos metimos en la Ebro inmobiliaria, cierto?\n\nNicanor Carazo - Brokers Inmobiliarios   28:12\nSí.\nSí, en la otra.\n\nLeonardo Perilla Vargas   28:22\nLo intentemos en la otra vez.\nEn el Directorio Altox.\n\nNicanor Carazo - Brokers Inmobiliarios   28:32\nCorrecto el real.\n\nLeonardo Perilla Vargas   28:34\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   28:35\n¿Cómo me voy allá?\n\nLeonardo Perilla Vargas   28:37\nDale ahí en el menú desplegable de la izquierda arriba. Mira que ahí te aparecía.\n\nNicanor Carazo - Brokers Inmobiliarios   28:43\nAquí esto.\n\nLeonardo Perilla Vargas   28:44\nSí, mira que te aparecen, ah, muy altos no es.\n\nNicanor Carazo - Brokers Inmobiliarios   28:46\nPero no va. Ah o K Este este sí es.\nEste correcto, este es el que estamos usando ahora mismo.\n\nLeonardo Perilla Vargas   28:55\nDale configuración otra vez.\nAh, mira que acá sí aparece cuentas de WhatsApp.\n\nNicanor Carazo - Brokers Inmobiliarios   29:06\nSí, sí, aquí es aquí es.\n\nLeonardo Perilla Vargas   29:08\nListo, dale donde dice cuenta de WhatsApp.\nY vamos a eliminarlas. Entonces dale eliminar del portafolio comercial.\n\nNicanor Carazo - Brokers Inmobiliarios   29:21\nEste.\n\nLeonardo Perilla Vargas   29:22\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   29:33\nSeguro.\n\nLeonardo Perilla Vargas   29:35\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   29:47\n¿Y estos?\n\nLeonardo Perilla Vargas   29:48\nTambién esos también eliminemos.\n\nNicanor Carazo - Brokers Inmobiliarios   29:55\n¿Pues, se le mira a alguien quién?\n\nLeonardo Perilla Vargas   29:57\nSí, y ahí salen los 3 puntitos que están arriba.\n\nNicanor Carazo - Brokers Inmobiliarios   30:03\nY eso no me afecta a mí en en algo ahora no.\n\nLeonardo Perilla Vargas   30:03\nHola.\nNo.\nEliminar del portafolio comercial.\nEliminar.\n\nNicanor Carazo - Brokers Inmobiliarios   30:19\n¿Elimino?\n\nLeonardo Perilla Vargas   30:20\nSí.\nListo y esa otra también detalles.\nEliminar cuenta, sí, y vámonos e intentemos hacer otra vez la conexión en el en el celular te sigue apareciendo que está conectado a lead conector.\n\nNicanor Carazo - Brokers Inmobiliarios   30:44\nElimina.\nDame un segundito.\n¿Qué hago aquí? ¿Tu cuenta? ¿Tienen un nuevo punto, pueden enviar, qué hago?\n\nLeonardo Perilla Vargas   31:08\nO K Desconecté el celular en la en en el teléfono donde conectamos ahorita.\nEl WhatsApp Business Desvincula.\n\nNicanor Carazo - Brokers Inmobiliarios   31:21\nO K, o sea, lo del vínculo de.\nFinalizar configuración linconector.\n\nLeonardo Perilla Vargas   31:27\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   31:41\nPero sí está como desconectado.\n\nLeonardo Perilla Vargas   31:44\n¿Sí, ya te ya no te aparece la conexión ahí, cierto?\n\nNicanor Carazo - Brokers Inmobiliarios   31:49\nNo, ya no me parece, pero.\nMe da la opción otra vez de escanear el código y esa vaina.\n\nLeonardo Perilla Vargas   31:56\nAh, listo, bueno, y se eliminan la información de de la cuenta de foto primera un mensajes.\n\nNicanor Carazo - Brokers Inmobiliarios   32:03\n¿Cómo?\n\nLeonardo Perilla Vargas   32:04\nCancelar tan raro que no nos deje acá.\nEntonces dale los 3 puntos, pero dale donde dice administrar WhatsApp.\n\nNicanor Carazo - Brokers Inmobiliarios   32:15\nA los 3 juntos.\n\nLeonardo Perilla Vargas   32:17\nLos 3 puntos donde le DAS para eliminar la cuenta la cuenta, pero te hacen el y no el de WhatsApp, exactamente, y miramos qué número es el que está asociado ahí.\n\nNicanor Carazo - Brokers Inmobiliarios   32:20\nAh, o K Ah, Mira, te voy a dar de WhatsApp es.\n\nLeonardo Perilla Vargas   32:32\n¿Ese 312, ese es el que vamos a asociar ahorita, cierto?\n\nNicanor Carazo - Brokers Inmobiliarios   32:37\nNo.\n\nLeonardo Perilla Vargas   32:38\nEste es otro número.\n\nNicanor Carazo - Brokers Inmobiliarios   32:41\n¿Pero ese número no?\n¿No sé de dónde de quién es? Ah, sí, sí, sí. Este era otro número que yo tenía asociado en este era otro número que yo tenía asociado a una SIM Card, pero ya no la estoy usando.\n\nLeonardo Perilla Vargas   32:46\nSí.\nAh, entonces si quieres eliminémoslo de una vez, eliminémoslo en la canequita.\n\nNicanor Carazo - Brokers Inmobiliarios   33:01\nSí.\n\nLeonardo Perilla Vargas   33:03\nSiguiente.\nY así lo dejamos de una vez actualizado.\n\nNicanor Carazo - Brokers Inmobiliarios   33:16\nYa.\n\nLeonardo Perilla Vargas   33:17\n¿Listo y tú? Ya puedes cerrar esta y vamos, intentamos eliminar otra vez la cuenta de WhatsApp.\n\nNicanor Carazo - Brokers Inmobiliarios   33:28\nEn este momento tengo campañas con WhatsApp, eso no me afecta.\n\nLeonardo Perilla Vargas   33:37\nNo, porque las lo que conecta es el o sea, eso no tiene nada que ver con el número de teléfono que acabamos de borrar. ¿Cierto? Porque él me dice que ese ya no lo usabas.\n\nNicanor Carazo - Brokers Inmobiliarios   33:47\nNo, no, no, sí, pero yo tengo al número de teléfono que yo borré aquí. Yo tengo unas campañas rodando, sí me entiende. ¿Entonces mi pregunta es la siguiente, si yo elimino estos números de teléfono, tengo que parar las campañas o qué hago?\n\nLeonardo Perilla Vargas   34:04\nNo, no, no, no, no pasa nada porque las campañas tienen ese el el call to action que los llevan a que a que escriban en ese número no debería influir en nada.\n\nNicanor Carazo - Brokers Inmobiliarios   34:14\n¿O K Bueno, lo dice entonces, elimino?\n\nLeonardo Perilla Vargas   34:16\nSí.\n\nNicanor Carazo - Brokers Inmobiliarios   34:21\n¿Listo?\n\nLeonardo Perilla Vargas   34:21\n¿Listo? Ahora vámonos al ropa, pero intentamos conectarlo otra vez.\n\nNicanor Carazo - Brokers Inmobiliarios   34:27\nConectar la aplicación.\nContinuar.\n\nLeonardo Perilla Vargas   34:37\nSí.\nContinuar continuar, empezar, listo siguiente.\nUsar un WhatsApp Business conectado.\n\nNicanor Carazo - Brokers Inmobiliarios   35:27\nListo ya escaneo el código.\n\nLeonardo Perilla Vargas   35:29\nEsperemos a ver qué hace.\n¿Te arrojo algún mensaje en el celular, no?\n\nNicanor Carazo - Brokers Inmobiliarios   35:49\nQue no se puede escanear el código, el código, por favor, vuelve a intentarlo. ¿Cerrarlo?\n\nLeonardo Perilla Vargas   35:55\nYa le doy.\n\nNicanor Carazo - Brokers Inmobiliarios   36:08\n¿Qué dice?\n\nLeonardo Perilla Vargas   36:10\nValidate change resumen.\nDale, no tan raro, dale volver.\nSiguiente.\nEntra a ver.\n\nNicanor Carazo - Brokers Inmobiliarios   36:40\nYa.\n\nLeonardo Perilla Vargas   36:42\nListo selecciona la zona horaria y Bogotá.\n\nNicanor Carazo - Brokers Inmobiliarios   36:47\nTan.\nSiguiente.\n\nLeonardo Perilla Vargas   36:52\nEsto sí.\n\nNicanor Carazo - Brokers Inmobiliarios   36:52\nGuardar.\n\nLeonardo Perilla Vargas   37:00\nEsto penaliza.\n\nNicanor Carazo - Brokers Inmobiliarios   37:01\nYa, ahora sí.\n¿Y con Héctor es alguna, es empresa de ellos también, no?\n\nLeonardo Perilla Vargas   37:18\nEs por es por donde hacemos la la conexión del WhatsApp. Ah, y listo, súper bien. Ya ya empezó entonces, ya nos ya mismo, nos ponemos a trabajar para que para que empiece a funcionar con este la única diferencia sería esa, avanza el curso no dura más de 2 horas, realmente 2 horas 2:30 de asesor si quieres podemos programar para ver por ahí el miércoles.\n¿En la tarde y que ya tengas el curso para que tengas un mejor contexto, te parece?\n\nNicanor Carazo - Brokers Inmobiliarios   37:42\nSí.\nSí, sí, me parece bien. Prográmame la la reunión entonces para que podamos organizar YYY, ayúdame también entonces con el agendamiento de citas, y eso para ver cuándo comenzaría. Oís.\n\nLeonardo Perilla Vargas   38:01\nNo listo de buena de buena. Muchísimas gracias que estés muy bien, chao.\n\nNicanor Carazo - Brokers Inmobiliarios   38:03\n¿Listo, vale, vale, gracias a ti, vale? Gracias chao.\n\nAlejandro Bernal   38:08\nHello.\n\nLeonardo Perilla Vargas ha detenido la transcripción\n",
-            "Kit": "Presencia y reputación",
+            "Transcripción": "",
+            "Kit": "",
             "Cliente": "zzDesarrollo - Ropofy",
-            "Status Lead Score ": "Descalificado",
+            "Status Lead Score ": "",
             "ID Notion": "6cb448bb-c4cd-4e3b-a45b-82d27fffc790",
-            "kits": [
-              "Presencia y reputación"
-            ],
+            "kits": "",
             "Cuando tiene pensado la compra": "",
             "Id Cliente": "gwxnQP0jeV98khFZDNSk",
-            "contact_id": "4TWock1suwmtm4M3YqE7",
+            "contact_id": "UEuiLUqKAm5Fawg1qRZj",
             "first_name": "Felipe",
             "last_name": "Arango",
             "full_name": "Felipe Arango",
             "email": "felipe@bike2web.com",
             "phone": "+573103583216",
-            "tags": "en_atencion",
-            "address1": "Cr 15 9a 36, Agencia Digital para Movilidad SAS",
-            "city": "Medellin",
-            "state": "Antioquia",
-            "country": "CO",
+            "tags": "en_atencion,atendido_por_taniabot",
+            "country": "CA",
             "timezone": "America/Bogota",
-            "date_created": "2023-12-11T16:27:17.796Z",
-            "postal_code": "050002",
-            "company_name": "Felipe Arango",
-            "contact_source": "form de whatsapp",
-            "full_address": "Cr 15 9a 36, Agencia Digital para Movilidad SAS, Medellin Antioquia 050002",
+            "date_created": "2025-09-10T22:18:23.181Z",
+            "contact_source": "chat widget",
+            "full_address": "",
             "contact_type": "lead",
             "location": {
               "name": "Ropofy",
@@ -1184,14 +1120,10 @@
             },
             "triggerData": {},
             "contact": {
-              "attributionSource": {
-                "sessionSource": "Others",
-                "mediumId": null,
-                "medium": "conversation"
-              },
+              "attributionSource": {},
               "lastAttributionSource": {
                 "sessionSource": "Direct traffic",
-                "url": "https://web.ropofy.com/operaciones-solicitud?tipo_de_solicitud=Booster",
+                "url": "https://web.ropofy.com/operaciones-solicitud?tipo_de_solicitud=Ajuste+Kit",
                 "utmSource": null,
                 "utmMedium": null,
                 "utmContent": null,
@@ -1241,11 +1173,11 @@
             },
             "customData": {
               "solicitante_phone": "+57 310 3583216",
-              "tipo": "Booster",
-              "kit": "Presencia y reputación",
+              "tipo": "Ajuste Kit",
+              "kit": "",
               "asunto": "TEST TES TEST",
-              "descripcion": "TEST TES TEST",
-              "anexo": "https://services.leadconnectorhq.com/documents/download/p8ab8wnURVRjJpuLbCxS",
+              "descripcion": "df ds fsd f",
+              "anexo": "",
               "cliente": "zzDesarrollo - Ropofy",
               "solicitante_id_notion": "6cb448bb-c4cd-4e3b-a45b-82d27fffc790",
               "id_cliente": "gwxnQP0jeV98khFZDNSk",
@@ -1267,6 +1199,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-10T18:07:02.894Z",
-  "versionId": "4eea1731-8bfc-4c00-bf4e-b05760791b6b"
+  "updatedAt": "2025-09-19T02:36:29.938Z",
+  "versionId": "e4e0ef51-9d7f-48ca-a0e9-578576271598"
 }
