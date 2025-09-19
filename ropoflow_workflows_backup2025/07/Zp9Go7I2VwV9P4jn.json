@@ -132,6 +132,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Select rows from a table3",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
@@ -178,6 +185,50 @@
           }
         ]
       ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "Code6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code6": {
+      "main": [
+        [
+          {
+            "node": "Code7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code7": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table3": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-07-14T15:08:37.661Z",
@@ -198,7 +249,7 @@
       "typeVersion": 2,
       "position": [
         -440,
-        300
+        400
       ],
       "id": "92576de1-c8c7-4d0b-b372-75561b065ed8",
       "name": "Webhook",
@@ -741,6 +792,31 @@
                 ],
                 "combinator": "and"
               }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "e74f97c0-0aa6-4964-baa8-76e23cd7977b",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "ID50GJ39dGHTTlrk77Hx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Marcali"
             }
           ]
         },
@@ -878,6 +954,130 @@
           "name": "Base de datos APIS"
         }
       }
+    },
+    {
+      "parameters": {
+        "url": "=https://backend.leadconnectorhq.com/users/?locationId={{ $('Webhook').item.json.body.id_location }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        320,
+        840
+      ],
+      "id": "cd95b84a-c4e1-4546-b766-ea9c86d2c7bc",
+      "name": "HTTP Request3"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.users;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        540,
+        840
+      ],
+      "id": "0c3fa31a-845e-4538-b924-9b0c2eff9fdc",
+      "name": "Code6"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        980,
+        840
+      ],
+      "id": "92644dcc-0e47-43fd-9e41-94df01a6376d",
+      "name": "Execute a SQL query3",
+      "credentials": {
+        "postgres": {
+          "id": "qE3f9BjUgDSZpVZM",
+          "name": "Marcali bi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json;\n\nconst query = {\n  text: `\n    INSERT INTO public.\"users\" (\n      \"id\", \"firstName\", \"lastName\", \"email\", \"phone\", \"extension\", \"name\", \"deleted\", \"created_at\", \"updated_at\"\n    ) VALUES (\n      $1, $2, $3, $4, $5, $6, $7, $8, NOW(), NOW()\n    )\n    ON CONFLICT (\"id\") DO UPDATE SET\n      \"firstName\" = EXCLUDED.\"firstName\",\n      \"lastName\" = EXCLUDED.\"lastName\",\n      \"email\" = EXCLUDED.\"email\",\n      \"phone\" = EXCLUDED.\"phone\",\n      \"extension\" = EXCLUDED.\"extension\",\n      \"name\" = EXCLUDED.\"name\",\n      \"deleted\" = EXCLUDED.\"deleted\",\n      \"updated_at\" = NOW()\n  `,\n  values: [\n    d.id,\n    d.firstName,\n    d.lastName,\n    d.email,\n    d.phone,\n    d.extension || '',\n    d.name,\n    d.deleted || false\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        760,
+        840
+      ],
+      "id": "582e3c4d-bebe-4909-bd83-018470a1d20b",
+      "name": "Code7"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.body.id_location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        80,
+        820
+      ],
+      "id": "7aaf52d5-e6ab-4de7-9f01-e0f6b54c5e7c",
+      "name": "Select rows from a table3",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
     }
   ],
   "pinData": {
@@ -910,7 +1110,7 @@
           "params": {},
           "query": {},
           "body": {
-            "id_location": "y4xcJQV4laYTBejxivBn",
+            "id_location": "ID50GJ39dGHTTlrk77Hx",
             "date": "2025-08-20T04:00:00.000Z",
             "endDate": "2025-08-21T04:00:00.000Z"
           },
@@ -929,6 +1129,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-21T04:15:50.648Z",
-  "versionId": "5f1fcbca-20e4-4083-b711-54f10e0c21c6"
+  "updatedAt": "2025-09-18T14:20:43.152Z",
+  "versionId": "1404c5b6-7f3c-44da-b3c7-aa8ec5596909"
 }
