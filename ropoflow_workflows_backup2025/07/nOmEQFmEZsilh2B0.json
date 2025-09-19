@@ -118,6 +118,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Sincronizar marcali",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     }
@@ -491,6 +498,31 @@
                 ],
                 "combinator": "and"
               }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f8c33fd0-e0fc-44fb-92e0-298d2fa3b065",
+                    "leftValue": "={{ $json.body.id_location }}",
+                    "rightValue": "ID50GJ39dGHTTlrk77Hx",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Marcali"
             }
           ]
         },
@@ -850,8 +882,8 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        -80,
-        400
+        420,
+        700
       ],
       "id": "bfa367fa-f74f-4144-97a1-64aa1a8d93c8",
       "name": "Sincronizar Autecoblue"
@@ -877,7 +909,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        320,
+        420,
         520
       ],
       "id": "cb27d05f-bf54-41a4-a239-296f20b8de13",
@@ -909,6 +941,33 @@
       ],
       "id": "6a5ca964-847b-47e8-bcf3-6b81b50f4a65",
       "name": "Sincronizar Evg"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "P7Pf3Lv5Sb5TDV8z",
+          "mode": "list",
+          "cachedResultName": "pipelines marcali"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        380,
+        880
+      ],
+      "id": "2896247a-0579-416d-9857-b3a68b4540b4",
+      "name": "Sincronizar marcali"
     }
   ],
   "pinData": {},
@@ -921,6 +980,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-07-28T13:38:27.630Z",
-  "versionId": "db589817-ef67-4328-a48a-d1c4adc82103"
+  "updatedAt": "2025-09-18T14:06:56.100Z",
+  "versionId": "1888523b-165a-40ab-9cfe-1738649c7da6"
 }
