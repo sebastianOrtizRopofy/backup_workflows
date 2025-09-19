@@ -1,0 +1,22 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-09-18T14:08:37.159Z",
+  "id": "33mBGlrl8eBIQcp5",
+  "isArchived": true,
+  "meta": null,
+  "name": "users marcali",
+  "nodes": [],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-18T14:15:23.488Z",
+  "versionId": "80492add-799a-4557-8f58-3a7e35e33b0b"
+}
