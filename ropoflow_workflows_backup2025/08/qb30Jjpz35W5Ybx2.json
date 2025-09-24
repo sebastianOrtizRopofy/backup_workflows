@@ -19,7 +19,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "Solicitud - Stopper",
+  "name": "Notificación - Solicitud - Stopper",
   "nodes": [
     {
       "parameters": {
@@ -132,6 +132,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-29T10:29:26.985Z",
-  "versionId": "f5e5f23d-99fb-46d3-826d-d2a762df6857"
+  "updatedAt": "2025-09-23T14:50:09.077Z",
+  "versionId": "c0040caf-5ca8-4294-834e-75ef48008b84"
 }
