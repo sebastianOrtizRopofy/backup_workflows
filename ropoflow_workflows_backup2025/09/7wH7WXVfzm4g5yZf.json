@@ -151,7 +151,7 @@
       "credentials": {
         "ropofyOAuth2Api": {
           "id": "Xt6tvndwmTlNAjfi",
-          "name": "Auteco Blue MEX"
+          "name": "Auteco Blue MEX - app autecoblue bi"
         }
       }
     }
@@ -166,6 +166,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-19T15:31:15.412Z",
-  "versionId": "592b8aa3-07e6-4160-b903-243610890d30"
+  "updatedAt": "2025-09-23T14:55:34.883Z",
+  "versionId": "a3124b6a-b5c9-444d-b4c5-b8b7a3ce6f5e"
 }
