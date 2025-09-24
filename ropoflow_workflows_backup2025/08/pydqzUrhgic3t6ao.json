@@ -57,7 +57,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "Solicitud - Cambio de estado",
+  "name": "Notificación - Solicitud - Cambio de estado",
   "nodes": [
     {
       "parameters": {
@@ -335,6 +335,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-11T19:19:03.341Z",
-  "versionId": "78b9d65e-f3e2-4cdb-b343-d1d9148923a9"
+  "updatedAt": "2025-09-23T14:50:21.273Z",
+  "versionId": "af30d99e-3fed-4a29-b33c-430f91ac43d0"
 }
