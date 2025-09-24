@@ -2101,7 +2101,8 @@
       "id": "21d121d6-7ca5-42d6-8c78-b1789127cc72",
       "name": "buscar por phone +57",
       "retryOnFail": true,
-      "waitBetweenTries": 5000
+      "waitBetweenTries": 5000,
+      "maxTries": 5
     },
     {
       "parameters": {
@@ -2342,6 +2343,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-20T17:15:43.835Z",
-  "versionId": "97d40b2d-a39a-416a-889a-fb4f2d103391"
+  "updatedAt": "2025-09-23T14:59:10.744Z",
+  "versionId": "6f8c213a-58cf-4b8b-a857-bad68b5eda22"
 }
