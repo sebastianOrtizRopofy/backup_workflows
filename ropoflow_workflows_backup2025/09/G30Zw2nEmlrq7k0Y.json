@@ -1,0 +1,22 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-09-24T23:40:14.739Z",
+  "id": "G30Zw2nEmlrq7k0Y",
+  "isArchived": false,
+  "meta": null,
+  "name": "Sincronización de contactos - Ropofy  -> Zendesk",
+  "nodes": [],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-24T23:40:14.739Z",
+  "versionId": "a97c97a1-6280-42e6-83a1-b1bbdaad3176"
+}
