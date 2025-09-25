@@ -306,7 +306,13 @@
     },
     "Loop Over Items1": {
       "main": [
-        [],
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
         [
           {
             "node": "return contact clientify1",
@@ -1677,7 +1683,7 @@
               "paginationCompleteWhen": "receiveSpecificStatusCodes",
               "statusCodesWhenComplete": "404",
               "limitPagesFetched": true,
-              "maxRequests": 1000,
+              "maxRequests": 740,
               "requestInterval": 700
             }
           }
@@ -1694,7 +1700,7 @@
       "retryOnFail": true,
       "waitBetweenTries": 4000,
       "executeOnce": true,
-      "onError": "continueErrorOutput"
+      "onError": "continueRegularOutput"
     },
     {
       "parameters": {
@@ -2726,9 +2732,28 @@
       ],
       "id": "469b6ba9-e28f-4c99-a235-32b3f5c250e6",
       "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4740,
+        1760
+      ],
+      "id": "04594a74-5657-4811-b8af-316f0c7e8722",
+      "name": "Code2"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -2738,6 +2763,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-23T13:54:11.459Z",
-  "versionId": "0c3e097a-0449-42f0-820c-a9625a141f42"
+  "updatedAt": "2025-09-24T21:16:12.606Z",
+  "versionId": "3d5f5315-9613-4b63-b9d3-afeb8a3d7ce1"
 }
