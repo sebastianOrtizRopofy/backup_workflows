@@ -1,17 +1,6 @@
 {
   "active": false,
   "connections": {
-    "When clicking ‘Execute workflow’": {
-      "main": [
-        [
-          {
-            "node": "buscar oportunidades",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Create an opportunity": {
       "main": [
         [
@@ -539,6 +528,17 @@
           }
         ]
       ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "buscar oportunidades",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-08-19T20:35:54.756Z",
@@ -549,17 +549,6 @@
   },
   "name": "Sincronizar oportunidades",
   "nodes": [
-    {
-      "parameters": {},
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        -500,
-        320
-      ],
-      "id": "1706d7ef-f631-4bb3-9943-b460b3511023",
-      "name": "When clicking ‘Execute workflow’"
-    },
     {
       "parameters": {
         "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
@@ -2207,6 +2196,17 @@
       ],
       "id": "f00a10fc-f565-435d-bfab-11074d2b3e82",
       "name": "Code"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -360,
+        320
+      ],
+      "id": "1706d7ef-f631-4bb3-9943-b460b3511023",
+      "name": "When clicking ‘Execute workflow’"
     }
   ],
   "pinData": {},
@@ -2219,6 +2219,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-22T15:27:33.612Z",
-  "versionId": "c3416786-ff80-4b50-a03e-7055ffdabd84"
+  "updatedAt": "2025-09-24T21:28:32.268Z",
+  "versionId": "2075ee0f-60c0-458b-ac43-d136d1adde3c"
 }
