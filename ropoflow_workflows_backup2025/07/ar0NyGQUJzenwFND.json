@@ -235,6 +235,15 @@
     {
       "parameters": {
         "url": "=https://services.leadconnectorhq.com/products/?locationId={{ $json.location_id }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "1000"
+            }
+          ]
+        },
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -363,7 +372,48 @@
       "name": "Code1"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "*/*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "PostmanRuntime/7.47.1",
+            "accept-encoding": "gzip, deflate, br",
+            "cache-control": "no-cache",
+            "max-forwards": "10",
+            "postman-token": "c0795fe6-e4eb-4865-9214-1999cf54e3c9",
+            "x-arr-log-id": "6b542f15-3289-437f-8974-dc4c9a26fa28",
+            "client-ip": "38.156.230.65:60400",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "38.156.230.65:60400",
+            "x-original-url": "/webhook/api/generarJsonMotos",
+            "x-waws-unencoded-url": "/webhook/api/generarJsonMotos",
+            "x-client-ip": "38.156.230.65",
+            "x-client-port": "60400",
+            "content-type": "application/json",
+            "content-length": "100"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "source": "motos-combustion",
+            "status": "done",
+            "location": "CZPs2xh8x6Mlc0piLSy8"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/generarJsonMotos",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -373,6 +423,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-07-11T20:59:48.729Z",
-  "versionId": "f05385ea-4fca-414d-a651-dd55c77465d7"
+  "updatedAt": "2025-09-24T20:21:52.272Z",
+  "versionId": "1b65caf1-0c1c-4c95-a96d-2a144f284c13"
 }
