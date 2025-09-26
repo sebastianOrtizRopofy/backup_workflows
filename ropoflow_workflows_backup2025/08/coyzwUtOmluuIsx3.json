@@ -283,27 +283,57 @@
     },
     "Edit Fields8": {
       "main": [
-        []
+        [
+          {
+            "node": "Get many contacts7",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Edit Fields9": {
       "main": [
-        []
+        [
+          {
+            "node": "Get many contacts8",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Edit Fields10": {
       "main": [
-        []
+        [
+          {
+            "node": "Get many contacts9",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Edit Fields11": {
       "main": [
-        []
+        [
+          {
+            "node": "Get many contacts10",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Edit Fields12": {
       "main": [
-        []
+        [
+          {
+            "node": "Get many contacts11",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "Code1": {
@@ -539,6 +569,149 @@
           }
         ]
       ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity7": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts7": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity8": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts8": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity8",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity9": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts9": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity9",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity10": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts10": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity10",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity11": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts11": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity11",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create an opportunity12": {
+      "main": [
+        [
+          {
+            "node": "juntar todas las oportunidades12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts12": {
+      "main": [
+        [
+          {
+            "node": "Create an opportunity12",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-08-19T20:35:54.756Z",
@@ -566,6 +739,11 @@
       "parameters": {
         "resource": "opportunity",
         "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
         "name": "={{ $json.name }} - CL",
         "additionalFields": {
           "tags": "={{ $json.tags }}",
@@ -955,7 +1133,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        780,
+        760,
         1020
       ],
       "id": "f72a61be-b9d7-41c2-b207-86a15d86187a",
@@ -1271,7 +1449,7 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        2400,
+        2080,
         -1500
       ],
       "id": "94a8f703-786c-4d13-adbd-ddc0d2a77a0a",
@@ -1719,7 +1897,7 @@
               "paginationCompleteWhen": "other",
               "completeExpression": "={{ null }}",
               "limitPagesFetched": true,
-              "maxRequests": 1,
+              "maxRequests": 5,
               "requestInterval": 250
             }
           }
@@ -1751,6 +1929,11 @@
       "parameters": {
         "resource": "opportunity",
         "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
         "name": "={{ $json.name }} - CL",
         "additionalFields": {
           "tags": "={{ $json.tags }}",
@@ -1826,6 +2009,11 @@
       "parameters": {
         "resource": "opportunity",
         "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
         "name": "={{ $json.name }} - CL",
         "additionalFields": {
           "tags": "={{ $json.tags }}",
@@ -1901,6 +2089,11 @@
       "parameters": {
         "resource": "opportunity",
         "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
         "name": "={{ $json.name }} - CL",
         "additionalFields": {
           "tags": "={{ $json.tags }}",
@@ -1976,6 +2169,11 @@
       "parameters": {
         "resource": "opportunity",
         "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
         "name": "={{ $json.name }} - CL",
         "additionalFields": {
           "tags": "={{ $json.tags }}",
@@ -2051,6 +2249,11 @@
       "parameters": {
         "resource": "opportunity",
         "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
         "name": "={{ $json.name }} - CL",
         "additionalFields": {
           "tags": "={{ $json.tags }}",
@@ -2126,6 +2329,11 @@
       "parameters": {
         "resource": "opportunity",
         "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
         "name": "={{ $json.name }} - CL",
         "additionalFields": {
           "tags": "={{ $json.tags }}",
@@ -2207,6 +2415,487 @@
       ],
       "id": "1706d7ef-f631-4bb3-9943-b460b3511023",
       "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -1020
+      ],
+      "id": "82da0694-42be-4cf7-86a3-557269dd79f6",
+      "name": "juntar todas las oportunidades7"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -1020
+      ],
+      "id": "b3206b88-cd67-4317-baaa-bc58e8b554a4",
+      "name": "Create an opportunity7",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -1020
+      ],
+      "id": "f53e5e7f-d64b-4626-af25-ae0bd2c59615",
+      "name": "Get many contacts7",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -820
+      ],
+      "id": "eb33b8e5-ae7e-4849-954c-8fca9c82bbe4",
+      "name": "juntar todas las oportunidades8"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -820
+      ],
+      "id": "a1f9ecab-ed9d-4b80-97c8-73ceb77aa432",
+      "name": "Create an opportunity8",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -820
+      ],
+      "id": "b36e2375-63f4-4600-a049-f2a196f0e617",
+      "name": "Get many contacts8",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -620
+      ],
+      "id": "43c6f8c4-374a-4a50-a540-63ae65bc1aab",
+      "name": "juntar todas las oportunidades9"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -620
+      ],
+      "id": "fd1e1dc8-bf98-4eb2-870f-e357758f4877",
+      "name": "Create an opportunity9",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -620
+      ],
+      "id": "525f10fd-57e1-4abf-8a6b-0816bdb113ec",
+      "name": "Get many contacts9",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -420
+      ],
+      "id": "088bd8b2-dfc2-453f-b990-0258507a7e89",
+      "name": "juntar todas las oportunidades10"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "name": "={{ $json.name }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -420
+      ],
+      "id": "ca03b08c-a0d2-4b84-abbd-e268aa3d15f5",
+      "name": "Create an opportunity10",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -420
+      ],
+      "id": "ea78ed05-476a-497f-ba1d-cebf02925679",
+      "name": "Get many contacts10",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3240,
+        -200
+      ],
+      "id": "f5143e39-91a4-4ea7-b979-effd7976384c",
+      "name": "juntar todas las oportunidades11"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "ubYbcNW50GcBM41OTFKb",
+        "contactId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "name": "={{ $json.firstName }} - CL",
+        "additionalFields": {
+          "tags": "={{ $json.tags }}",
+          "stageId": ""
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        3080,
+        -200
+      ],
+      "id": "1d676342-bbb1-4d04-a3b7-77f5180b0159",
+      "name": "Create an opportunity11",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        -200
+      ],
+      "id": "314ae9a1-e2ba-42f2-a7e2-25fed4e18d7f",
+      "name": "Get many contacts11",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let allOportunidades = [];\n\nfor (const page of $input.all()) {\n  // page.json.contacts es un array de contactos\n  allOportunidades.push(...page.json.results); // agregamos todos los contactos al array\n}\n\n// Devolverlos como items de n8n\nreturn allOportunidades.map(opportunity => ({ json: opportunity }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1900,
+        -400
+      ],
+      "id": "b9e12e40-5c89-4bb5-9f3f-41fa61c6be06",
+      "name": "juntar todas las oportunidades12"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "pipelineId": "G7XLpzBB9FnFsOWrxala",
+        "contactId": {
+          "__rl": true,
+          "value": "4YrISwZaP7zAVit8zy5u",
+          "mode": "list",
+          "cachedResultName": "sebastian@ropofy.com"
+        },
+        "name": "={{ $json.firstName }} - CL",
+        "additionalFields": {
+          "tags": "=unsubscribed,esxpoexterior2022,migration_clientify",
+          "stageId": "={{ $('Code').item.json.pipeline_stage }}"
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1580,
+        -400
+      ],
+      "id": "28caabfa-2c0d-482b-9ccc-d57a16129825",
+      "name": "Create an opportunity12",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "limit": 1,
+        "delayPagination": 500,
+        "filters": {
+          "query": "={{ $json.contact_phone }}"
+        },
+        "options": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1220,
+        -400
+      ],
+      "id": "7ba5b322-0237-4266-90cd-1c400cf695f5",
+      "name": "Get many contacts12",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "9EZZ771fViKZkfUg",
+          "name": "Blue studies - App ropoflow"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -2219,6 +2908,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-24T21:28:32.268Z",
-  "versionId": "2075ee0f-60c0-458b-ac43-d136d1adde3c"
+  "updatedAt": "2025-09-25T16:39:47.931Z",
+  "versionId": "70ada1b4-9d0e-4714-98be-12d7c945fdda"
 }
