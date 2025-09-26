@@ -132,7 +132,10 @@
   },
   "staticData": {
     "node:Email Trigger (IMAP)": {
-      "lastMessageUid": 124164312
+      "lastMessageUid": 124164351
+    },
+    "node:Info": {
+      "lastMessageUid": 124164383
     }
   },
   "tags": [],
