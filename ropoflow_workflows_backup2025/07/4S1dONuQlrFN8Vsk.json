@@ -59,7 +59,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nconst locationsSync = [\n  {\n    \"nombre\" : \"ropofy\",\n    \"location_id\": \"3YGgxqve6cABjE0KCjLs\",\n  },\n  {\n    \"nombre\" : \"dismerca\",\n    \"location_id\": \"NQS1rz0YlFTvbXDBx74N\",\n  },\n  {\n    \"nombre\" : \"dosR\",\n    \"location_id\": \"y4xcJQV4laYTBejxivBn\",\n  }\n];\n\nreturn locationsSync;"
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nconst locationsSync = [\n  {\n    \"nombre\" : \"ropofy\",\n    \"location_id\": \"3YGgxqve6cABjE0KCjLs\",\n  },\n  {\n    \"nombre\" : \"dismerca\",\n    \"location_id\": \"NQS1rz0YlFTvbXDBx74N\",\n  },\n  {\n    \"nombre\" : \"dosR\",\n    \"location_id\": \"y4xcJQV4laYTBejxivBn\",\n  },\n    {\n    \"nombre\" : \"auteco blue\",\n    \"location_id\": \"rJVQMiUdtLFfBO0aToyU\",\n  },\n];\n\nreturn locationsSync;"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -225,6 +225,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-08-25T13:38:45.878Z",
-  "versionId": "ac6587fb-081d-481d-a1a9-ba62312835f2"
+  "updatedAt": "2025-09-26T14:59:55.449Z",
+  "versionId": "47c9feaf-8fcd-485c-8317-668cbc6233ec"
 }
