@@ -1,0 +1,172 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get an opportunity": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "Get an opportunity",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-09-26T15:02:34.309Z",
+  "id": "szx4EcBZBMXbONhu",
+  "isArchived": false,
+  "meta": null,
+  "name": "opportunities webhook autecoblue",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/auteco/opportunity",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        -80
+      ],
+      "id": "0b146541-9fb7-49be-90e3-41be75f00616",
+      "name": "Webhook",
+      "webhookId": "54dcf31f-de51-4cdf-93dc-b8bdca18c8d0"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        480,
+        -80
+      ],
+      "id": "30e9bd48-a610-41ca-9947-6ef2155fd943",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "DeGEMvrSz25bAJdD",
+          "name": "Ropofy account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json.opportunity;\n\nconst query = {\n  text: `\n    INSERT INTO public.opportunities (\n      \"external_id\", \"name\", \"monetary_value\", \"pipeline_id\", \"pipeline_stage_id\",\n      \"assigned_to\", \"status\", \"source\", \"last_status_change_at\", \"last_stage_change_at\",\n      \"contact_id\", \"location_id\", \"custom_fields\", \"followers\", \"contact\",\n      \"created_at\", \"updated_at\", \"process\"\n    ) VALUES (\n      $1, $2, $3, $4, $5,\n      $6, $7, $8, $9, $10,\n      $11, $12, $13::jsonb, $14::jsonb, $15::jsonb,\n      $16, $17, $18\n    )\n    ON CONFLICT (\"external_id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"monetary_value\" = EXCLUDED.\"monetary_value\",\n      \"pipeline_id\" = EXCLUDED.\"pipeline_id\",\n      \"pipeline_stage_id\" = EXCLUDED.\"pipeline_stage_id\",\n      \"assigned_to\" = EXCLUDED.\"assigned_to\",\n      \"status\" = EXCLUDED.\"status\",\n      \"source\" = EXCLUDED.\"source\",\n      \"last_status_change_at\" = EXCLUDED.\"last_status_change_at\",\n      \"last_stage_change_at\" = EXCLUDED.\"last_stage_change_at\",\n      \"contact_id\" = EXCLUDED.\"contact_id\",\n      \"location_id\" = EXCLUDED.\"location_id\",\n      \"custom_fields\" = EXCLUDED.\"custom_fields\",\n      \"followers\" = EXCLUDED.\"followers\",\n      \"contact\" = EXCLUDED.\"contact\",\n      \"created_at\" = EXCLUDED.\"created_at\",\n      \"updated_at\" = EXCLUDED.\"updated_at\",\n      \"process\" = EXCLUDED.\"process\"\n  `,\n  values: [\n    d.id,                                // $1  - external_id\n    d.name,                              // $2\n    d.monetaryValue || 0,                // $3\n    d.pipelineId,                        // $4\n    d.pipelineStageId,                   // $5\n    d.assignedTo,                        // $6\n    d.status,                            // $7\n    d.source,                            // $8\n    d.lastStatusChangeAt,                // $9\n    d.lastStageChangeAt,                 // $10\n    d.contactId,                         // $11\n    d.locationId,                        // $12\n    JSON.stringify(d.customFields || []),// $13\n    JSON.stringify(d.followers || []),   // $14\n    JSON.stringify(d.contact || {}),     // $15\n    d.createdAt,                         // $16\n    d.updatedAt,                         // $17\n    false                                // $18 - process\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        -80
+      ],
+      "id": "d6a430de-c4c9-4477-8190-278d8dd178c5",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "operation": "get",
+        "opportunityId": "={{ $json.body.id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        40,
+        -80
+      ],
+      "id": "4c5d6f45-4769-4715-ab56-5f65ecf85740",
+      "name": "Get an opportunity",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "Xt6tvndwmTlNAjfi",
+          "name": "Auteco Blue MEX - app autecoblue bi"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "idOpportunity",
+              "value": "={{ $json.body.id }}"
+            },
+            {
+              "key": "idLocation",
+              "value": "={{ $json.body.locationId }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -180,
+        -80
+      ],
+      "id": "d7261380-0ce8-488e-82c8-3d1ef4344ecb",
+      "name": "Execution Data"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-09-26T15:04:52.055Z",
+  "versionId": "11c20800-4838-4086-8541-d534094f9d98"
+}
