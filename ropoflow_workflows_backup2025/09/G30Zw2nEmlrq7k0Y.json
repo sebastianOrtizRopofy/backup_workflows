@@ -1,12 +1,102 @@
 {
   "active": false,
-  "connections": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get many contacts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many contacts": {
+      "main": [
+        [
+          {
+            "node": "Create a user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2025-09-24T23:40:14.739Z",
   "id": "G30Zw2nEmlrq7k0Y",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Sincronización de contactos - Ropofy  -> Zendesk",
-  "nodes": [],
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "de1d059c-38d1-4423-ab23-894cb34ccb4a",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "delayPagination": 500,
+        "filters": {},
+        "options": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "955e4202-4694-41b8-a7cd-5e3c9ed9262b",
+      "name": "Get many contacts",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "xMw4PMvRcsXNeOLo",
+          "name": "Ropofy - App ropoflow"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "user",
+        "name": "Leonardo Perilla",
+        "additionalFields": {
+          "email": "leonardo@ropofy.com",
+          "phone": "+573214618112"
+        }
+      },
+      "type": "n8n-nodes-base.zendesk",
+      "typeVersion": 1,
+      "position": [
+        500,
+        0
+      ],
+      "id": "641b81b8-f367-4d4e-ab58-ae3ea9ed4eff",
+      "name": "Create a user",
+      "credentials": {
+        "zendeskApi": {
+          "id": "XDy7iD63AFkVQWCL",
+          "name": "Zendesk account"
+        }
+      }
+    }
+  ],
   "pinData": {},
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
@@ -17,6 +107,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-24T23:40:14.739Z",
-  "versionId": "a97c97a1-6280-42e6-83a1-b1bbdaad3176"
+  "updatedAt": "2025-09-26T14:18:23.611Z",
+  "versionId": "c6c6095a-db1a-4589-9111-db5252202bae"
 }
