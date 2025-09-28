@@ -171,17 +171,6 @@
         ]
       ]
     },
-    "Get many contacts12": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Encontrar el stage id": {
       "main": [
         [
@@ -296,18 +285,7 @@
       "main": [
         [
           {
-            "node": "Select rows from a table",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Select rows from a table": {
-      "main": [
-        [
-          {
-            "node": "If",
+            "node": "Loop Over Items1",
             "type": "main",
             "index": 0
           }
@@ -325,7 +303,7 @@
         ],
         [
           {
-            "node": "Get many contacts12",
+            "node": "Replace Me",
             "type": "main",
             "index": 0
           }
@@ -347,58 +325,7 @@
       "main": [
         [
           {
-            "node": "Select rows from a table1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Select rows from a table1": {
-      "main": [
-        [
-          {
-            "node": "If1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If1": {
-      "main": [
-        [
-          {
-            "node": "Get a contact1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Get many contacts",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get a contact1": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get many contacts": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad1",
+            "node": "Loop Over Items2",
             "type": "main",
             "index": 0
           }
@@ -409,58 +336,7 @@
       "main": [
         [
           {
-            "node": "Select rows from a table2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Select rows from a table2": {
-      "main": [
-        [
-          {
-            "node": "If2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If2": {
-      "main": [
-        [
-          {
-            "node": "Get a contact2",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Get many contacts13",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get a contact2": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get many contacts13": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad",
+            "node": "Loop Over Items3",
             "type": "main",
             "index": 0
           }
@@ -471,58 +347,7 @@
       "main": [
         [
           {
-            "node": "Select rows from a table3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Select rows from a table3": {
-      "main": [
-        [
-          {
-            "node": "If3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If3": {
-      "main": [
-        [
-          {
-            "node": "Get a contact3",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Get many contacts14",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get a contact3": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get many contacts14": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad3",
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -533,58 +358,7 @@
       "main": [
         [
           {
-            "node": "Select rows from a table4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Select rows from a table4": {
-      "main": [
-        [
-          {
-            "node": "If4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If4": {
-      "main": [
-        [
-          {
-            "node": "Get a contact4",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Get many contacts15",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get a contact4": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get many contacts15": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad4",
+            "node": "Loop Over Items4",
             "type": "main",
             "index": 0
           }
@@ -606,58 +380,7 @@
       "main": [
         [
           {
-            "node": "Select rows from a table5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Select rows from a table5": {
-      "main": [
-        [
-          {
-            "node": "If5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If5": {
-      "main": [
-        [
-          {
-            "node": "Get a contact5",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Get many contacts16",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get a contact5": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get many contacts16": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad5",
+            "node": "Loop Over Items5",
             "type": "main",
             "index": 0
           }
@@ -686,62 +409,11 @@
         ]
       ]
     },
-    "Get many contacts17": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "obtener id contact clientify6": {
       "main": [
         [
           {
-            "node": "Select rows from a table6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Select rows from a table6": {
-      "main": [
-        [
-          {
-            "node": "If6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If6": {
-      "main": [
-        [
-          {
-            "node": "Get a contact6",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Get many contacts17",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get a contact6": {
-      "main": [
-        [
-          {
-            "node": "guardar oportunidad6",
+            "node": "Loop Over Items6",
             "type": "main",
             "index": 0
           }
@@ -759,83 +431,6 @@
         ]
       ]
     },
-    "juntar todas las oportunidades12": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "juntar todas las oportunidades1": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "juntar todas las oportunidades": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "juntar todas las oportunidades2": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "juntar todas las oportunidades4": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "juntar todas las oportunidades5": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "juntar todas las oportunidades6": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "obtener token": {
       "main": [
         [
@@ -847,33 +442,188 @@
         ]
       ]
     },
-    "guardar oportunidad": {
-      "main": [
-        [
-          {
-            "node": "juntar todas las oportunidades",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "guardar oportunidad1": {
-      "main": [
-        [
-          {
-            "node": "juntar todas las oportunidades1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "guardar oportunidad2": {
       "main": [
         [
           {
-            "node": "juntar todas las oportunidades12",
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar match",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar match": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Get a contact1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a contact1": {
+      "main": [
+        [
+          {
+            "node": "guardar oportunidad",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar oportunidad": {
+      "main": [
+        [
+          {
+            "node": "Replace Me1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar match1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar match1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Get a contact2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a contact2": {
+      "main": [
+        [
+          {
+            "node": "guardar oportunidad3",
             "type": "main",
             "index": 0
           }
@@ -884,7 +634,90 @@
       "main": [
         [
           {
-            "node": "juntar todas las oportunidades2",
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar match2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar match2": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Get a contact3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a contact3": {
+      "main": [
+        [
+          {
+            "node": "guardar oportunidad4",
             "type": "main",
             "index": 0
           }
@@ -895,7 +728,90 @@
       "main": [
         [
           {
-            "node": "juntar todas las oportunidades4",
+            "node": "Replace Me3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items3": {
+      "main": [
+        [
+          {
+            "node": "Code3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar match3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar match3": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Get a contact4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a contact4": {
+      "main": [
+        [
+          {
+            "node": "guardar oportunidad5",
             "type": "main",
             "index": 0
           }
@@ -906,7 +822,90 @@
       "main": [
         [
           {
-            "node": "juntar todas las oportunidades5",
+            "node": "Replace Me4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items4": {
+      "main": [
+        [
+          {
+            "node": "Code4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar match4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar match4": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me4": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Get a contact5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a contact5": {
+      "main": [
+        [
+          {
+            "node": "guardar oportunidad6",
             "type": "main",
             "index": 0
           }
@@ -917,7 +916,155 @@
       "main": [
         [
           {
-            "node": "juntar todas las oportunidades6",
+            "node": "Replace Me5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items5": {
+      "main": [
+        [
+          {
+            "node": "Code5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar match5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar match5": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me5": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "Get a contact6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a contact6": {
+      "main": [
+        [
+          {
+            "node": "guardar oportunidad7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar oportunidad7": {
+      "main": [
+        [
+          {
+            "node": "Replace Me6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items6": {
+      "main": [
+        [
+          {
+            "node": "Code6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "buscar match6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar match6": {
+      "main": [
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me6": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items6",
             "type": "main",
             "index": 0
           }
@@ -1335,7 +1482,7 @@
     },
     {
       "parameters": {
-        "url": "https://api.clientify.net/v1/deals?page=2",
+        "url": "https://api.clientify.net/v1/deals?page=1",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -1362,7 +1509,7 @@
               "paginationCompleteWhen": "other",
               "completeExpression": "={{ null }}",
               "limitPagesFetched": true,
-              "maxRequests": 1000,
+              "maxRequests": 500,
               "requestInterval": 250
             }
           }
@@ -1387,55 +1534,6 @@
       ],
       "id": "1706d7ef-f631-4bb3-9943-b460b3511023",
       "name": "When clicking ‘Execute workflow’"
-    },
-    {
-      "parameters": {
-        "jsCode": "return $json;"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2720,
-        -420
-      ],
-      "id": "b9e12e40-5c89-4bb5-9f3f-41fa61c6be06",
-      "name": "juntar todas las oportunidades12"
-    },
-    {
-      "parameters": {
-        "operation": "getAll",
-        "limit": 1,
-        "delayPagination": 500,
-        "filters": {
-          "query": "={{ $json.contact_phone }}"
-        },
-        "options": {},
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        -320
-      ],
-      "id": "7ba5b322-0237-4266-90cd-1c400cf695f5",
-      "name": "Get many contacts12",
-      "retryOnFail": true,
-      "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "9EZZ771fViKZkfUg",
-          "name": "Blue studies - App ropoflow"
-        }
-      }
     },
     {
       "parameters": {
@@ -1478,19 +1576,6 @@
     },
     {
       "parameters": {
-        "jsCode": "return $json;"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2720,
-        380
-      ],
-      "id": "32937cdf-ce42-46c2-8de3-79eace387afa",
-      "name": "juntar todas las oportunidades"
-    },
-    {
-      "parameters": {
         "jsCode": "let match = {\n  \"Asignacion- Latam\" : \"cedad6d5-dc90-4368-9082-91293430c394\",\n  \"Contactar estudiante - Latam- Latam\": \"59a9eb69-2a24-4218-b5a4-19d400447ec9\",\n  \"Reunion Documentos Académicos - Latam\": \"54e71d34-624c-4597-81a7-00f3838a0e66\",\n  \"Aplicación a institución - Latam\": \"3d48fd20-691d-4a39-adf3-71557f8fbe8f\",\n  \"LOO - Latam\": \"18e8e41d-9e5d-4f32-b982-c375d36aceca\",\n  \"Pagos - Latam\": \"100ea645-b82c-40e3-b909-aeb84c367e23\",\n  \"COE LOA  - Latam\": \"16fbf31a-b4d1-43b2-870b-25340905a831\",\n  \"Reunion Documentos visa - Latam\": \"24dda578-cea7-43ca-8cf3-9a6a25eced44\",\n  \"Stand by - Latam\": \"58d5127e-5803-463d-bfd8-2fa3da3d0643\",\n  \"Reembolsos - Latam\": \"92688a9c-2f89-495f-a9d6-e9876b4b25f4\",\n  \"Visa Aplicada - Latam\": \"4c1e597d-e4af-48bd-aa5e-41ebde966275\"\n}\n\n// recorrer los items, mirando su pipeline_stage_desc y comparando\nreturn $input.all().map(item => {\n  let desc = item.json.pipeline_stage_desc;\n  \n  if (match[desc]) {\n    item.json.pipeline_stage = match[desc];\n  } else {\n    // si no hay match, puedes dejarlo nulo o igual al original\n    item.json.pipeline_stage = null;\n  }\n  \n  return item;\n});"
       },
       "type": "n8n-nodes-base.code",
@@ -1517,19 +1602,6 @@
     },
     {
       "parameters": {
-        "jsCode": "return $json;"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2720,
-        -20
-      ],
-      "id": "d8cadc9b-a53d-44fa-8503-a390b8d4a9d5",
-      "name": "juntar todas las oportunidades1"
-    },
-    {
-      "parameters": {
         "jsCode": "let match = {\n  \"Cuenta que deposito\": {\n    id: \"mPbI3JvvW2tUAXBHXV9n\",\n    key: \"opportunity.cuenta_que_deposito\"\n  },\n  \"Tipo de aplicación\": {\n    id: \"p7lJUWQtkaoRXlVikvXj\",\n    key: \"opportunity.tipo_de_aplicacin\"\n  }\n};\n\nreturn $input.all().map(item => {\n  let customFields = item.json.custom_fields || [];\n\n  let customFieldsFixed = customFields\n    .filter(cf => match[cf.field]) // solo si hay match\n    .map(cf => {\n      return {\n        id: match[cf.field].id,\n        key: match[cf.field].key,\n        field_value: cf.value\n      };\n    });\n\n  item.json.custom_fields_fixed = customFieldsFixed;\n\n  return item;\n});\n"
       },
       "type": "n8n-nodes-base.code",
@@ -1540,19 +1612,6 @@
       ],
       "id": "8819eae4-af59-41fd-8199-533f2ce5f707",
       "name": "encontrar el custom field3"
-    },
-    {
-      "parameters": {
-        "jsCode": "return $json;"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2720,
-        780
-      ],
-      "id": "c4e1ecef-1d88-4e83-b059-f1bc7f1dc08f",
-      "name": "juntar todas las oportunidades2"
     },
     {
       "parameters": {
@@ -1596,7 +1655,7 @@
     {
       "parameters": {
         "mode": "runOnceForEachItem",
-        "jsCode": "let url = $json.contact;\nconst parts = url.split(\"/\").filter(Boolean); // elimina los vacíos\nconst id = parts[parts.length - 1]; // último segmento\n\n$json.id_contact = id;\n\nreturn $json;\n"
+        "jsCode": "let url = $json.contact;\n\nif(url){\n  const parts = url.split(\"/\").filter(Boolean); // elimina los vacíos\n  const id = parts[parts.length - 1]; // último segmento\n  \n  $json.id_contact = id;\n  \n  return $json;\n}else{\n  $json.id_contact = \"000000\";\n  return $json;\n}\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -1606,46 +1665,6 @@
       ],
       "id": "2a481287-b808-4382-9a5a-08aad9e0885d",
       "name": "obtener id contact clientify"
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "schema": {
-          "__rl": true,
-          "mode": "list",
-          "value": "public"
-        },
-        "table": {
-          "__rl": true,
-          "value": "match_contacts",
-          "mode": "list",
-          "cachedResultName": "match_contacts"
-        },
-        "limit": 1,
-        "where": {
-          "values": [
-            {
-              "column": "=id_contact_clientify",
-              "value": "={{ $json.id_contact }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1620,
-        -420
-      ],
-      "id": "726f432f-6a8b-45a5-97f6-e655eeea401a",
-      "name": "Select rows from a table",
-      "credentials": {
-        "postgres": {
-          "id": "tfjc18K49daMASdp",
-          "name": "Base de datos APIS"
-        }
-      }
     },
     {
       "parameters": {
@@ -1675,8 +1694,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1840,
-        -420
+        2360,
+        700
       ],
       "id": "2617d6d4-0670-404a-82bb-40cc0e68f292",
       "name": "If"
@@ -1697,8 +1716,8 @@
       "type": "n8n-nodes-base.ropofy",
       "typeVersion": 2,
       "position": [
-        2060,
-        -520
+        2720,
+        660
       ],
       "id": "f5e8620b-6c67-49f4-b0f0-453b9c2ab386",
       "name": "Get a contact",
@@ -1706,42 +1725,6 @@
         "ropofyOAuth2Api": {
           "id": "ulmX2nODHk0Od8vs",
           "name": "Blue studies - migraciones"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "getAll",
-        "limit": 1,
-        "delayPagination": 500,
-        "filters": {
-          "query": "={{ $json.contact_phone }}"
-        },
-        "options": {},
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        80
-      ],
-      "id": "5c67d7d5-6a4b-49b1-b5c6-40f7332fcfe9",
-      "name": "Get many contacts",
-      "retryOnFail": true,
-      "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "9EZZ771fViKZkfUg",
-          "name": "Blue studies - App ropoflow"
         }
       }
     },
@@ -1761,144 +1744,6 @@
     },
     {
       "parameters": {
-        "operation": "select",
-        "schema": {
-          "__rl": true,
-          "mode": "list",
-          "value": "public"
-        },
-        "table": {
-          "__rl": true,
-          "value": "match_contacts",
-          "mode": "list",
-          "cachedResultName": "match_contacts"
-        },
-        "limit": 1,
-        "where": {
-          "values": [
-            {
-              "column": "=id_contact_clientify",
-              "value": "={{ $json.id_contact }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1620,
-        -20
-      ],
-      "id": "8eac3a61-3807-4589-8cc2-11a2c734e51f",
-      "name": "Select rows from a table1",
-      "credentials": {
-        "postgres": {
-          "id": "tfjc18K49daMASdp",
-          "name": "Base de datos APIS"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
-              "leftValue": "={{ $json.id_contact_ropofy }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "exists",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        1840,
-        -20
-      ],
-      "id": "6727550c-120e-4c71-999d-402ea9eff66e",
-      "name": "If1"
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "contactId": "={{ $json.id_contact_ropofy }}",
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        -120
-      ],
-      "id": "ad5ae3eb-b5a7-42b4-a911-fec7191881e0",
-      "name": "Get a contact1",
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "ulmX2nODHk0Od8vs",
-          "name": "Blue studies - migraciones"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "getAll",
-        "limit": 1,
-        "delayPagination": 500,
-        "filters": {
-          "query": "={{ $json.contact_phone }}"
-        },
-        "options": {},
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        480
-      ],
-      "id": "55ed19f4-5f0a-423c-8d9f-98059c4fc964",
-      "name": "Get many contacts13",
-      "retryOnFail": true,
-      "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "9EZZ771fViKZkfUg",
-          "name": "Blue studies - App ropoflow"
-        }
-      }
-    },
-    {
-      "parameters": {
         "mode": "runOnceForEachItem",
         "jsCode": "let url = $json.contact;\n\nif(url){\n  const parts = url.split(\"/\").filter(Boolean); // elimina los vacíos\n  const id = parts[parts.length - 1]; // último segmento\n  \n  $json.id_contact = id;\n  \n  return $json;\n}else{\n  $json.id_contact = \"000000\";\n  return $json;\n}\n"
       },
@@ -1910,144 +1755,6 @@
       ],
       "id": "0ca801b0-c9d6-47d6-9c1f-d23e629f8153",
       "name": "obtener id contact clientify2"
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "schema": {
-          "__rl": true,
-          "mode": "list",
-          "value": "public"
-        },
-        "table": {
-          "__rl": true,
-          "value": "match_contacts",
-          "mode": "list",
-          "cachedResultName": "match_contacts"
-        },
-        "limit": 1,
-        "where": {
-          "values": [
-            {
-              "column": "=id_contact_clientify",
-              "value": "={{ $json.id_contact }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1620,
-        380
-      ],
-      "id": "75569307-2b24-484c-a8b4-d9e34c6f0899",
-      "name": "Select rows from a table2",
-      "credentials": {
-        "postgres": {
-          "id": "tfjc18K49daMASdp",
-          "name": "Base de datos APIS"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
-              "leftValue": "={{ $json.id_contact_ropofy }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "exists",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        1840,
-        380
-      ],
-      "id": "0a470095-4e7f-4c98-ba05-6516b447aa50",
-      "name": "If2"
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "contactId": "={{ $json.id_contact_ropofy }}",
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        280
-      ],
-      "id": "30812161-f181-4df4-9310-4c9bf6e393bf",
-      "name": "Get a contact2",
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "ulmX2nODHk0Od8vs",
-          "name": "Blue studies - migraciones"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "getAll",
-        "limit": 1,
-        "delayPagination": 500,
-        "filters": {
-          "query": "={{ $json.contact_phone }}"
-        },
-        "options": {},
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        880
-      ],
-      "id": "255cf061-bbf0-47d8-86c4-6e539e5fc0d0",
-      "name": "Get many contacts14",
-      "retryOnFail": true,
-      "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "9EZZ771fViKZkfUg",
-          "name": "Blue studies - App ropoflow"
-        }
-      }
     },
     {
       "parameters": {
@@ -2065,144 +1772,6 @@
     },
     {
       "parameters": {
-        "operation": "select",
-        "schema": {
-          "__rl": true,
-          "mode": "list",
-          "value": "public"
-        },
-        "table": {
-          "__rl": true,
-          "value": "match_contacts",
-          "mode": "list",
-          "cachedResultName": "match_contacts"
-        },
-        "limit": 1,
-        "where": {
-          "values": [
-            {
-              "column": "=id_contact_clientify",
-              "value": "={{ $json.id_contact }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1620,
-        780
-      ],
-      "id": "73af97eb-490d-469d-a357-b629bdc501c1",
-      "name": "Select rows from a table3",
-      "credentials": {
-        "postgres": {
-          "id": "tfjc18K49daMASdp",
-          "name": "Base de datos APIS"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
-              "leftValue": "={{ $json.id_contact_ropofy }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "exists",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        1840,
-        780
-      ],
-      "id": "1003b907-8e29-48e1-8606-1013dfc9f011",
-      "name": "If3"
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "contactId": "={{ $json.id_contact_ropofy }}",
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        680
-      ],
-      "id": "ddb2673b-617d-46c4-a032-4a99ab26c866",
-      "name": "Get a contact3",
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "ulmX2nODHk0Od8vs",
-          "name": "Blue studies - migraciones"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "getAll",
-        "limit": 1,
-        "delayPagination": 500,
-        "filters": {
-          "query": "={{ $json.contact_phone }}"
-        },
-        "options": {},
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        1280
-      ],
-      "id": "5bae2bc8-4adc-4022-9c79-c1321ea59bbf",
-      "name": "Get many contacts15",
-      "retryOnFail": true,
-      "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "9EZZ771fViKZkfUg",
-          "name": "Blue studies - App ropoflow"
-        }
-      }
-    },
-    {
-      "parameters": {
         "mode": "runOnceForEachItem",
         "jsCode": "let url = $json.contact;\n\nif(url){\n  const parts = url.split(\"/\").filter(Boolean); // elimina los vacíos\n  const id = parts[parts.length - 1]; // último segmento\n  \n  $json.id_contact = id;\n  \n  return $json;\n}else{\n  $json.id_contact = \"000000\";\n  return $json;\n}\n"
       },
@@ -2214,121 +1783,6 @@
       ],
       "id": "6c6156f3-c888-460c-9bc9-71acdedef004",
       "name": "obtener id contact clientify4"
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "schema": {
-          "__rl": true,
-          "mode": "list",
-          "value": "public"
-        },
-        "table": {
-          "__rl": true,
-          "value": "match_contacts",
-          "mode": "list",
-          "cachedResultName": "match_contacts"
-        },
-        "limit": 1,
-        "where": {
-          "values": [
-            {
-              "column": "=id_contact_clientify",
-              "value": "={{ $json.id_contact }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1620,
-        1180
-      ],
-      "id": "8515788c-ed5f-4814-b0d8-144dbf077b1d",
-      "name": "Select rows from a table4",
-      "credentials": {
-        "postgres": {
-          "id": "tfjc18K49daMASdp",
-          "name": "Base de datos APIS"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
-              "leftValue": "={{ $json.id_contact_ropofy }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "exists",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        1840,
-        1180
-      ],
-      "id": "3739b3ac-5318-4bc3-b79d-e83782f63c01",
-      "name": "If4"
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "contactId": "={{ $json.id_contact_ropofy }}",
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        1080
-      ],
-      "id": "988cdd26-ac84-410c-8c9f-065300d0e7da",
-      "name": "Get a contact4",
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "ulmX2nODHk0Od8vs",
-          "name": "Blue studies - migraciones"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "return $json;"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2720,
-        1180
-      ],
-      "id": "c1bd3148-a60f-49a5-a0d4-7ad598f89865",
-      "name": "juntar todas las oportunidades4"
     },
     {
       "parameters": {
@@ -2345,42 +1799,6 @@
     },
     {
       "parameters": {
-        "operation": "getAll",
-        "limit": 1,
-        "delayPagination": 500,
-        "filters": {
-          "query": "={{ $json.contact_phone }}"
-        },
-        "options": {},
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        1680
-      ],
-      "id": "e594edaf-c864-4d0f-8f32-8bac787c14b7",
-      "name": "Get many contacts16",
-      "retryOnFail": true,
-      "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "9EZZ771fViKZkfUg",
-          "name": "Blue studies - App ropoflow"
-        }
-      }
-    },
-    {
-      "parameters": {
         "mode": "runOnceForEachItem",
         "jsCode": "let url = $json.contact;\n\nif(url){\n  const parts = url.split(\"/\").filter(Boolean); // elimina los vacíos\n  const id = parts[parts.length - 1]; // último segmento\n  \n  $json.id_contact = id;\n  \n  return $json;\n}else{\n  $json.id_contact = \"000000\";\n  return $json;\n}\n"
       },
@@ -2392,121 +1810,6 @@
       ],
       "id": "1bdf26a2-f63b-446d-8651-554bae7ddb8e",
       "name": "obtener id contact clientify5"
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "schema": {
-          "__rl": true,
-          "mode": "list",
-          "value": "public"
-        },
-        "table": {
-          "__rl": true,
-          "value": "match_contacts",
-          "mode": "list",
-          "cachedResultName": "match_contacts"
-        },
-        "limit": 1,
-        "where": {
-          "values": [
-            {
-              "column": "=id_contact_clientify",
-              "value": "={{ $json.id_contact }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1620,
-        1580
-      ],
-      "id": "75151571-262c-4f56-aee7-e0c12e53a3d6",
-      "name": "Select rows from a table5",
-      "credentials": {
-        "postgres": {
-          "id": "tfjc18K49daMASdp",
-          "name": "Base de datos APIS"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
-              "leftValue": "={{ $json.id_contact_ropofy }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "exists",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        1840,
-        1580
-      ],
-      "id": "7e912e25-a0d5-4726-adbd-d9899e1674a0",
-      "name": "If5"
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "contactId": "={{ $json.id_contact_ropofy }}",
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        1480
-      ],
-      "id": "87d5ee75-ff5c-4cae-94e5-a53fe74fe5de",
-      "name": "Get a contact5",
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "ulmX2nODHk0Od8vs",
-          "name": "Blue studies - migraciones"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "return $json;"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2720,
-        1580
-      ],
-      "id": "5a38392e-69af-4d2c-81b3-8472cb2787ea",
-      "name": "juntar todas las oportunidades5"
     },
     {
       "parameters": {
@@ -2536,42 +1839,6 @@
     },
     {
       "parameters": {
-        "operation": "getAll",
-        "limit": 1,
-        "delayPagination": 500,
-        "filters": {
-          "query": "={{ $json.contact_phone }}"
-        },
-        "options": {},
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        2080
-      ],
-      "id": "d964ea7b-4c32-4db1-859b-f6597969f2d7",
-      "name": "Get many contacts17",
-      "retryOnFail": true,
-      "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "9EZZ771fViKZkfUg",
-          "name": "Blue studies - App ropoflow"
-        }
-      }
-    },
-    {
-      "parameters": {
         "mode": "runOnceForEachItem",
         "jsCode": "let url = $json.contact;\n\nif(url){\n  const parts = url.split(\"/\").filter(Boolean); // elimina los vacíos\n  const id = parts[parts.length - 1]; // último segmento\n  \n  $json.id_contact = id;\n  \n  return $json;\n}else{\n  $json.id_contact = \"000000\";\n  return $json;\n}\n"
       },
@@ -2586,121 +1853,6 @@
     },
     {
       "parameters": {
-        "operation": "select",
-        "schema": {
-          "__rl": true,
-          "mode": "list",
-          "value": "public"
-        },
-        "table": {
-          "__rl": true,
-          "value": "match_contacts",
-          "mode": "list",
-          "cachedResultName": "match_contacts"
-        },
-        "limit": 1,
-        "where": {
-          "values": [
-            {
-              "column": "=id_contact_clientify",
-              "value": "={{ $json.id_contact }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1620,
-        1980
-      ],
-      "id": "37e0162a-8ebf-481f-9a5b-389e8b1bb49a",
-      "name": "Select rows from a table6",
-      "credentials": {
-        "postgres": {
-          "id": "tfjc18K49daMASdp",
-          "name": "Base de datos APIS"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
-              "leftValue": "={{ $json.id_contact_ropofy }}",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "exists",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        1840,
-        1980
-      ],
-      "id": "7199c17d-a55d-48c4-86a5-57029bea0ba2",
-      "name": "If6"
-    },
-    {
-      "parameters": {
-        "operation": "get",
-        "contactId": "={{ $json.id_contact_ropofy }}",
-        "requestOptions": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 500
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.ropofy",
-      "typeVersion": 2,
-      "position": [
-        2060,
-        1880
-      ],
-      "id": "960b2911-a8af-4e3e-bfb0-ae6264408111",
-      "name": "Get a contact6",
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "ulmX2nODHk0Od8vs",
-          "name": "Blue studies - migraciones"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "jsCode": "return $json;"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        2720,
-        1980
-      ],
-      "id": "996d87e9-5722-41fe-b988-8693bf6cbde9",
-      "name": "juntar todas las oportunidades6"
-    },
-    {
-      "parameters": {
         "jsCode": "let match = {\n  \"Not use 1\" : \"92447d20-5ae5-43a4-b8e7-bc1cb1efa8b1\",\n}\n\n// recorrer los items, mirando su pipeline_stage_desc y comparando\nreturn $input.all().map(item => {\n  let desc = item.json.pipeline_stage_desc;\n  \n  if (match[desc]) {\n    item.json.pipeline_stage = match[desc];\n  } else {\n    // si no hay match, puedes dejarlo nulo o igual al original\n    item.json.pipeline_stage = null;\n  }\n  \n  return item;\n});"
       },
       "type": "n8n-nodes-base.code",
@@ -2711,19 +1863,6 @@
       ],
       "id": "4583ec07-7750-43fd-a244-e4eeeef0f22a",
       "name": "Encontrar el stage id 6"
-    },
-    {
-      "parameters": {
-        "jsCode": "return $input.all();"
-      },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        3540,
-        860
-      ],
-      "id": "69f57567-a25a-4127-aa56-40224dbe4ab6",
-      "name": "Code"
     },
     {
       "parameters": {
@@ -2778,7 +1917,7 @@
             },
             {
               "name": "Authorization",
-              "value": "={{ $('obtener token').item.json.token }}"
+              "value": "={{ $('obtener token').first().json.token }}"
             },
             {
               "name": "Version",
@@ -2788,99 +1927,175 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Encontrar el stage id 2').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('obtener token').item.json.location_id }}\",\n  \"name\": \"{{ $('Admin latam').item.json.name }} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Encontrar el stage id 2').item.json.pipeline_stage }}\",\n  \"status\": \"{{ $('Encontrar el stage id 2').first().json.status == 4 ? 'lost' : $('Encontrar el stage id 2').first().json.status == 3 ? 'won' : $('Encontrar el stage id 2').first().json.status == 2 ? 'abandoned' : $('Encontrar el stage id 2').first().json.status == 1 ? 'open' : 'Desconocido' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Admin latam').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('encontrar el custom field1').item.json.custom_fields_fixed) ? $('encontrar el custom field1').item.json.custom_fields_fixed : []) }}\n}\n",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2400,
-        380
-      ],
-      "id": "4762102d-33fb-48fd-82e1-3376b6aee870",
-      "name": "guardar oportunidad",
-      "retryOnFail": true,
-      "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://services.leadconnectorhq.com/opportunities/",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Accept",
-              "value": "application/json"
-            },
-            {
-              "name": "Authorization",
-              "value": "={{ $('obtener token').item.json.token }}"
-            },
-            {
-              "name": "Version",
-              "value": "2021-07-28"
+        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Loop Over Items').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('Get a contact').item.json.locationId }}\",\n  \"name\": \"{{ $('Loop Over Items').item.json.name}} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Loop Over Items').item.json.pipeline_stage}}\",\n  \"status\": \"{{ $('Loop Over Items').item.json.status == 4 ? 'lost' : $('Loop Over Items').item.json.status == 3 ? 'won' : $('Loop Over Items').item.json.status == 2 ? 'abandoned' : $('Loop Over Items').item.json.status == 1 ? 'open' : 'open' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Loop Over Items').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('Loop Over Items').item.json.custom_fields_fixed) ? $('Loop Over Items').item.json.custom_fields_fixed : []) }}\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
             }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Telemercadeo').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('obtener token').item.json.location_id }}\",\n  \"name\": \"{{ $json.firstName }} - CLIENTIFY\",\n  \"pipelineStageId\": \"44ff8a36-886f-40b6-8861-d9b494cb3c70\",\n  \"status\": \"{{ $('Edit Fields').first().json.status == 4 ? 'lost' : $('Edit Fields').first().json.status == 3 ? 'won' : $('Edit Fields').first().json.status == 2 ? 'abandoned' : $('Edit Fields').first().json.status == 1 ? 'open' : 'open' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Edit Fields').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('encontrar el custom field2').item.json.custom_fields_fixed) ? $('encontrar el custom field2').item.json.custom_fields_fixed : []) }}\n}\n",
-        "options": {}
+          }
+        }
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2400,
-        -20
-      ],
-      "id": "76857658-3540-4d7b-a9f5-8f9445d0cc6b",
-      "name": "guardar oportunidad1",
-      "retryOnFail": true,
-      "maxTries": 5,
-      "waitBetweenTries": 5000,
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "https://services.leadconnectorhq.com/opportunities/",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Accept",
-              "value": "application/json"
-            },
-            {
-              "name": "Authorization",
-              "value": "={{ $('obtener token').item.json.token }}"
-            },
-            {
-              "name": "Version",
-              "value": "2021-07-28"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Comercial').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('obtener token').item.json.location_id }}\",\n  \"name\": \"{{ $('Comercial').item.name}} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Encontrar el stage id').item.pipeline_stage}}\",\n  \"status\": \"{{ $('Encontrar el stage id').first().json.status == 4 ? 'lost' : $('Encontrar el stage id').first().json.status == 3 ? 'won' : $('Encontrar el stage id').first().json.status == 2 ? 'abandoned' : $('Encontrar el stage id').first().json.status == 1 ? 'open' : 'open' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Encontrar el stage id').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('encontrar el custom field').item.json.custom_fields_fixed) ? $('encontrar el custom field').item.json.custom_fields_fixed : []) }}\n}\n",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2400,
-        -420
+        2920,
+        660
       ],
       "id": "b6eec42c-ba86-423e-b951-fc61a1656780",
       "name": "guardar oportunidad2",
       "retryOnFail": true,
       "maxTries": 5,
       "waitBetweenTries": 5000,
+      "executeOnce": false,
       "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        780
+      ],
+      "id": "ee2c2105-786a-4579-b27b-d2d28beb157f",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2060,
+        640
+      ],
+      "id": "5ad2fec7-fe93-47e6-8cea-8a6bd211a80c",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "=id_contact_clientify",
+              "value": "={{ $json.id_contact }}"
+            }
+          ]
+        },
+        "options": {
+          "queryBatching": "independently"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2060,
+        800
+      ],
+      "id": "726f432f-6a8b-45a5-97f6-e655eeea401a",
+      "name": "buscar match",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        3260,
+        800
+      ],
+      "id": "48f0f9a1-94f2-4af4-a9ba-55dc3b6f0c13",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
+              "leftValue": "={{ $json.id_contact_ropofy }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2400,
+        -500
+      ],
+      "id": "2299ca7b-7a23-4ac4-bc86-592f7c3260de",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.id_contact_ropofy }}",
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2760,
+        -540
+      ],
+      "id": "1a91c7d8-2cc6-4e8b-af0c-cec0e64461cb",
+      "name": "Get a contact1",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      }
     },
     {
       "parameters": {
@@ -2895,7 +2110,7 @@
             },
             {
               "name": "Authorization",
-              "value": "={{ $('obtener token').item.json.token }}"
+              "value": "={{ $('obtener token').first().json.token }}"
             },
             {
               "name": "Version",
@@ -2905,21 +2120,368 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Encontrar el stage id 3').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('obtener token').item.json.location_id }}\",\n  \"name\": \"{{ $('Encontrar el stage id 3').item.json.name }} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Encontrar el stage id 3').item.json.pipeline_stage }}\",\n  \"status\": \"{{ $('Encontrar el stage id 3').first().json.status == 4 ? 'lost' : $('Encontrar el stage id 3').first().json.status == 3 ? 'won' : $('Encontrar el stage id 3').first().json.status == 2 ? 'abandoned' : $('Encontrar el stage id 3').first().json.status == 1 ? 'open' : 'Desconocido' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('encontrar el custom field3').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('encontrar el custom field3').item.json.custom_fields_fixed) ? $('encontrar el custom field3').item.json.custom_fields_fixed : []) }}\n}\n",
-        "options": {}
+        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Loop Over Items1').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('Get a contact1').item.json.locationId }}\",\n  \"name\": \"{{ $('Loop Over Items1').item.json.name}} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Loop Over Items1').item.json.pipeline_stage}}\",\n  \"status\": \"{{ $('Loop Over Items1').item.json.status == 4 ? 'lost' : $('Loop Over Items1').item.json.status == 3 ? 'won' : $('Loop Over Items1').item.json.status == 2 ? 'abandoned' : $('Loop Over Items1').item.json.status == 1 ? 'open' : 'open' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Loop Over Items1').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('Loop Over Items1').item.json.custom_fields_fixed) ? $('Loop Over Items1').item.json.custom_fields_fixed : []) }}\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          }
+        }
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2400,
-        780
+        2960,
+        -540
       ],
-      "id": "9a8565eb-d8a9-4cf4-a10b-66115d6ef999",
+      "id": "aad327c8-a597-49f3-8f7b-a70dd064a822",
+      "name": "guardar oportunidad",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "executeOnce": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1800,
+        -420
+      ],
+      "id": "045ca16e-d3b0-49b3-b78d-358022152d26",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2100,
+        -560
+      ],
+      "id": "ad85db45-f59f-4b19-9366-f06cf252720d",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "=id_contact_clientify",
+              "value": "={{ $json.id_contact }}"
+            }
+          ]
+        },
+        "options": {
+          "queryBatching": "independently"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2100,
+        -400
+      ],
+      "id": "eb08e871-8b1f-424b-a08f-f3033f164899",
+      "name": "buscar match1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me1",
+      "typeVersion": 1,
+      "position": [
+        3300,
+        -400
+      ],
+      "id": "274ca189-9e82-4a67-ba80-55fe51340669",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
+              "leftValue": "={{ $json.id_contact_ropofy }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2420,
+        -100
+      ],
+      "id": "923790f9-d685-4b18-b7f2-0bbbd7df1cc0",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.id_contact_ropofy }}",
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2780,
+        -140
+      ],
+      "id": "b384adca-6688-49de-8898-dfce1ecf12c3",
+      "name": "Get a contact2",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/opportunities/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').first().json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Loop Over Items2').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('Get a contact2').item.json.locationId }}\",\n  \"name\": \"{{ $('Loop Over Items2').item.json.name}} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Loop Over Items2').item.json.pipeline_stage}}\",\n  \"status\": \"{{ $('Loop Over Items2').item.json.status == 4 ? 'lost' : $('Loop Over Items2').item.json.status == 3 ? 'won' : $('Loop Over Items2').item.json.status == 2 ? 'abandoned' : $('Loop Over Items2').item.json.status == 1 ? 'open' : 'open' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Loop Over Items2').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('Loop Over Items2').item.json.custom_fields_fixed) ? $('Loop Over Items2').item.json.custom_fields_fixed : []) }}\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2980,
+        -140
+      ],
+      "id": "25887662-e5ce-4328-a9f4-c4d44e365010",
       "name": "guardar oportunidad3",
       "retryOnFail": true,
       "maxTries": 5,
       "waitBetweenTries": 5000,
+      "executeOnce": false,
       "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1820,
+        -20
+      ],
+      "id": "c11a0ea4-4f12-4ea4-9d7f-09bfbb0fe2da",
+      "name": "Loop Over Items2"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2120,
+        -160
+      ],
+      "id": "8157b97c-bcf0-4d62-81d9-ff296ab497d0",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "=id_contact_clientify",
+              "value": "={{ $json.id_contact }}"
+            }
+          ]
+        },
+        "options": {
+          "queryBatching": "independently"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2120,
+        0
+      ],
+      "id": "fd1b0267-1f43-40a0-b1f0-9810a0c7a960",
+      "name": "buscar match2",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me2",
+      "typeVersion": 1,
+      "position": [
+        3320,
+        0
+      ],
+      "id": "cb0b94dd-b5bb-4eb2-960c-64abd1b521a0",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
+              "leftValue": "={{ $json.id_contact_ropofy }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2360,
+        300
+      ],
+      "id": "928c92de-b7a2-45d2-a0a0-52b9b19647bb",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.id_contact_ropofy }}",
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        260
+      ],
+      "id": "78af4196-a4a2-4298-9812-3dc66e01535b",
+      "name": "Get a contact3",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      }
     },
     {
       "parameters": {
@@ -2934,7 +2496,7 @@
             },
             {
               "name": "Authorization",
-              "value": "={{ $('obtener token').item.json.token }}"
+              "value": "={{ $('obtener token').first().json.token }}"
             },
             {
               "name": "Version",
@@ -2944,21 +2506,175 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"pipelineId\": \"{{ $('obtener id contact clientify4').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('obtener token').item.json.location_id }}\",\n  \"name\": \"{{ $('obtener id contact clientify4').item.json.name }} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('obtener id contact clientify4').item.json.pipeline_stage }}\",\n  \"status\": \"{{ $('Encontrar el stage id 4').first().json.status == 4 ? 'lost' : $('Encontrar el stage id 4').first().json.status == 3 ? 'won' : $('Encontrar el stage id 4').first().json.status == 2 ? 'abandoned' : $('Encontrar el stage id 4').first().json.status == 1 ? 'open' : 'Desconocido' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Encontrar el stage id 4').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('Encontrar el stage id 4').item.json.custom_fields_fixed) ? $('Encontrar el stage id 4').item.json.custom_fields_fixed : []) }}\n}\n",
-        "options": {}
+        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Loop Over Items3').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('Get a contact3').item.json.locationId }}\",\n  \"name\": \"{{ $('Loop Over Items3').item.json.name}} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Loop Over Items3').item.json.pipeline_stage}}\",\n  \"status\": \"{{ $('Loop Over Items3').item.json.status == 4 ? 'lost' : $('Loop Over Items3').item.json.status == 3 ? 'won' : $('Loop Over Items3').item.json.status == 2 ? 'abandoned' : $('Loop Over Items3').item.json.status == 1 ? 'open' : 'open' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Loop Over Items3').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('Loop Over Items3').item.json.custom_fields_fixed) ? $('Loop Over Items3').item.json.custom_fields_fixed : []) }}\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          }
+        }
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2400,
-        1180
+        2920,
+        260
       ],
-      "id": "8d91cee6-244a-48e7-be7b-826aee77537e",
+      "id": "3a17a046-824a-436e-892c-6662c81efb43",
       "name": "guardar oportunidad4",
       "retryOnFail": true,
       "maxTries": 5,
       "waitBetweenTries": 5000,
+      "executeOnce": false,
       "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        380
+      ],
+      "id": "e6cc4eb5-6087-4f1f-b5b3-9e84ed2863d2",
+      "name": "Loop Over Items3"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2060,
+        240
+      ],
+      "id": "31727c16-d029-4039-86fa-171df436b4f6",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "=id_contact_clientify",
+              "value": "={{ $json.id_contact }}"
+            }
+          ]
+        },
+        "options": {
+          "queryBatching": "independently"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2060,
+        400
+      ],
+      "id": "6e99a02c-ac2f-4357-955a-2be03b3cab59",
+      "name": "buscar match3",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me3",
+      "typeVersion": 1,
+      "position": [
+        3260,
+        400
+      ],
+      "id": "af8e1f4f-445e-4488-b0c5-d07226cbf1bd",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
+              "leftValue": "={{ $json.id_contact_ropofy }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2360,
+        1100
+      ],
+      "id": "4a07dc7b-b21f-4e49-b57e-c1e434b6fb0b",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.id_contact_ropofy }}",
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        1060
+      ],
+      "id": "56fdb611-ad0b-4533-893c-09332fb8b4ce",
+      "name": "Get a contact4",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      }
     },
     {
       "parameters": {
@@ -2973,7 +2689,7 @@
             },
             {
               "name": "Authorization",
-              "value": "={{ $('obtener token').item.json.token }}"
+              "value": "={{ $('obtener token').first().json.token }}"
             },
             {
               "name": "Version",
@@ -2983,21 +2699,175 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"pipelineId\": \"{{ $('obtener id contact clientify5').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('obtener token').item.json.location_id }}\",\n  \"name\": \"{{ $('obtener id contact clientify5').item.json.name }} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('obtener id contact clientify5').item.json.pipeline_stage }}\",\n  \"status\": \"{{ $('Encontrar el stage id 5').first().json.status == 4 ? 'lost' : $('Encontrar el stage id 5').first().json.status == 3 ? 'won' : $('Encontrar el stage id 5').first().json.status == 2 ? 'abandoned' : $('Encontrar el stage id 5').first().json.status == 1 ? 'open' : 'Desconocido' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Encontrar el stage id 5').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('encontrar el custom field5').item.json.custom_fields_fixed) ? $('encontrar el custom field5').item.json.custom_fields_fixed : []) }}\n}\n",
-        "options": {}
+        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Loop Over Items4').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('Get a contact4').item.json.locationId }}\",\n  \"name\": \"{{ $('Loop Over Items4').item.json.name}} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Loop Over Items4').item.json.pipeline_stage}}\",\n  \"status\": \"{{ $('Loop Over Items4').item.json.status == 4 ? 'lost' : $('Loop Over Items4').item.json.status == 3 ? 'won' : $('Loop Over Items4').item.json.status == 2 ? 'abandoned' : $('Loop Over Items4').item.json.status == 1 ? 'open' : 'open' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Loop Over Items4').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('Loop Over Items4').item.json.custom_fields_fixed) ? $('Loop Over Items4').item.json.custom_fields_fixed : []) }}\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          }
+        }
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2400,
-        1580
+        2920,
+        1060
       ],
-      "id": "00e88c1f-a61b-411e-8899-12a78175a680",
+      "id": "25a37d6e-4d41-4b0c-ac12-82a7386d3ea0",
       "name": "guardar oportunidad5",
       "retryOnFail": true,
       "maxTries": 5,
       "waitBetweenTries": 5000,
+      "executeOnce": false,
       "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        1180
+      ],
+      "id": "61df9ad9-f1b5-4e51-9c42-94a78534a451",
+      "name": "Loop Over Items4"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2060,
+        1040
+      ],
+      "id": "25e7084f-7916-4fee-a585-dbb7539bc7ff",
+      "name": "Code4"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "=id_contact_clientify",
+              "value": "={{ $json.id_contact }}"
+            }
+          ]
+        },
+        "options": {
+          "queryBatching": "independently"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2060,
+        1200
+      ],
+      "id": "71192c87-7044-4797-bf52-263d87242a0d",
+      "name": "buscar match4",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me4",
+      "typeVersion": 1,
+      "position": [
+        3260,
+        1200
+      ],
+      "id": "352d315a-9026-4ea3-b875-5a919262b110",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
+              "leftValue": "={{ $json.id_contact_ropofy }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2360,
+        1500
+      ],
+      "id": "00c4509a-e619-4cb8-82b8-0cef7d8509b1",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.id_contact_ropofy }}",
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        1460
+      ],
+      "id": "2d587faa-6d15-4ae4-8530-6d1769a19e36",
+      "name": "Get a contact5",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      }
     },
     {
       "parameters": {
@@ -3012,7 +2882,7 @@
             },
             {
               "name": "Authorization",
-              "value": "={{ $('obtener token').item.json.token }}"
+              "value": "={{ $('obtener token').first().json.token }}"
             },
             {
               "name": "Version",
@@ -3022,24 +2892,315 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"pipelineId\": \"{{ $('obtener id contact clientify6').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('obtener token').item.json.location_id }}\",\n  \"name\": \"{{ $('obtener id contact clientify6').item.json.name }} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('obtener id contact clientify6').item.json.pipeline_stage }}\",\n  \"status\": \"{{ $('Encontrar el stage id 6').first().json.status == 4 ? 'lost' : $('Encontrar el stage id 6').first().json.status == 3 ? 'won' : $('Encontrar el stage id 6').first().json.status == 2 ? 'abandoned' : $('Encontrar el stage id 6').first().json.status == 1 ? 'open' : 'Desconocido' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Encontrar el stage id 6').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('encontrar el custom field6').item.json.custom_fields_fixed) ? $('encontrar el custom field6').item.json.custom_fields_fixed : []) }}\n}\n",
-        "options": {}
+        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Loop Over Items5').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('Get a contact5').item.json.locationId }}\",\n  \"name\": \"{{ $('Loop Over Items5').item.json.name}} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Loop Over Items5').item.json.pipeline_stage}}\",\n  \"status\": \"{{ $('Loop Over Items5').item.json.status == 4 ? 'lost' : $('Loop Over Items5').item.json.status == 3 ? 'won' : $('Loop Over Items5').item.json.status == 2 ? 'abandoned' : $('Loop Over Items5').item.json.status == 1 ? 'open' : 'open' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Loop Over Items5').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('Loop Over Items5').item.json.custom_fields_fixed) ? $('Loop Over Items5').item.json.custom_fields_fixed : []) }}\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          }
+        }
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2400,
-        1980
+        2920,
+        1460
       ],
-      "id": "6c46e591-20df-44af-b0de-eb8e4c2fdc56",
+      "id": "3850f98d-06ad-4175-9daa-cac023f530e3",
       "name": "guardar oportunidad6",
       "retryOnFail": true,
       "maxTries": 5,
       "waitBetweenTries": 5000,
+      "executeOnce": false,
       "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        1580
+      ],
+      "id": "4e1c79e8-99a8-4775-bb9a-4744f96bbe42",
+      "name": "Loop Over Items5"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2060,
+        1440
+      ],
+      "id": "73275bce-155e-4f85-8c7b-f0d32d9f6f33",
+      "name": "Code5"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "=id_contact_clientify",
+              "value": "={{ $json.id_contact }}"
+            }
+          ]
+        },
+        "options": {
+          "queryBatching": "independently"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2060,
+        1600
+      ],
+      "id": "63fae148-050a-4ce4-972a-5655d488b7f4",
+      "name": "buscar match5",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me5",
+      "typeVersion": 1,
+      "position": [
+        3260,
+        1600
+      ],
+      "id": "0e0ecc5a-d12e-4bbc-9a56-383121b70c99",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "45fb38c8-63d7-4f3d-9774-6c277710022c",
+              "leftValue": "={{ $json.id_contact_ropofy }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2360,
+        1900
+      ],
+      "id": "c3416993-f652-45f6-9f0f-e270c4ed2816",
+      "name": "If6"
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "contactId": "={{ $json.id_contact_ropofy }}",
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        1860
+      ],
+      "id": "4994b474-c688-474a-9bbc-39c96ff749c5",
+      "name": "Get a contact6",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "ulmX2nODHk0Od8vs",
+          "name": "Blue studies - migraciones"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/opportunities/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('obtener token').first().json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"pipelineId\": \"{{ $('Loop Over Items6').item.json.pipeline }}\",\n  \"locationId\": \"{{ $('Get a contact6').item.json.locationId }}\",\n  \"name\": \"{{ $('Loop Over Items6').item.json.name}} - CLIENTIFY\",\n  \"pipelineStageId\": \"{{ $('Loop Over Items6').item.json.pipeline_stage}}\",\n  \"status\": \"{{ $('Loop Over Items6').item.json.status == 4 ? 'lost' : $('Loop Over Items6').item.json.status == 3 ? 'won' : $('Loop Over Items6').item.json.status == 2 ? 'abandoned' : $('Loop Over Items6').item.json.status == 1 ? 'open' : 'open' }}\",\n  \"contactId\": \"{{ $json.id }}\",\n  \"monetaryValue\": {{ $('Loop Over Items6').item.json.amount.toNumber().round() }},\n  \"customFields\": {{ JSON.stringify(Array.isArray($('Loop Over Items6').item.json.custom_fields_fixed) ? $('Loop Over Items6').item.json.custom_fields_fixed : []) }}\n}\n",
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2920,
+        1860
+      ],
+      "id": "b77ad1d3-9669-4ed8-b284-5803786720a3",
+      "name": "guardar oportunidad7",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 5000,
+      "executeOnce": false,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1760,
+        1980
+      ],
+      "id": "e7d71a78-5b15-4635-b7b8-af517a1ba582",
+      "name": "Loop Over Items6"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2060,
+        1840
+      ],
+      "id": "379549dc-d36f-4211-8e89-cf45289c1082",
+      "name": "Code6"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "=id_contact_clientify",
+              "value": "={{ $json.id_contact }}"
+            }
+          ]
+        },
+        "options": {
+          "queryBatching": "independently"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2060,
+        2000
+      ],
+      "id": "ed80ea28-0f78-4cca-a308-1fa8ed197fd7",
+      "name": "buscar match6",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "alwaysOutputData": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me6",
+      "typeVersion": 1,
+      "position": [
+        3260,
+        2000
+      ],
+      "id": "4d6c1608-995e-423d-95a7-749771005dca",
+      "executeOnce": true
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -3049,6 +3210,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-27T03:30:57.458Z",
-  "versionId": "2cf5f152-0377-4f88-8e56-b8e0024c74f8"
+  "updatedAt": "2025-09-28T00:12:46.689Z",
+  "versionId": "2b7a3a18-ac30-4ee5-8ce5-930eef52a8f7"
 }
