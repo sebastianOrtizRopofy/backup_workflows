@@ -1482,7 +1482,7 @@
     },
     {
       "parameters": {
-        "url": "https://api.clientify.net/v1/deals?page=1",
+        "url": "https://api.clientify.net/v1/deals?page=1502",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -1509,7 +1509,7 @@
               "paginationCompleteWhen": "other",
               "completeExpression": "={{ null }}",
               "limitPagesFetched": true,
-              "maxRequests": 500,
+              "maxRequests": 623,
               "requestInterval": 250
             }
           }
@@ -3210,6 +3210,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-28T00:12:46.689Z",
-  "versionId": "2b7a3a18-ac30-4ee5-8ce5-930eef52a8f7"
+  "updatedAt": "2025-09-28T18:39:24.699Z",
+  "versionId": "b0752434-b98a-4c4e-8c5b-847e188f2976"
 }
