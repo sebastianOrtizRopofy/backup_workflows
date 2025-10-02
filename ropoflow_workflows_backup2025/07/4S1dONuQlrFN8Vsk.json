@@ -91,7 +91,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/cronjob/opportunities",
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/opportunities",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 15 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
@@ -225,6 +225,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-26T14:59:55.449Z",
-  "versionId": "47c9feaf-8fcd-485c-8317-668cbc6233ec"
+  "updatedAt": "2025-10-01T13:25:07.340Z",
+  "versionId": "4cd3e070-908d-403c-9f65-e7ad2ce3ea7f"
 }
