@@ -8,6 +8,11 @@
             "node": "Get many opportunities",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Create chat message",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -33,12 +38,25 @@
           }
         ]
       ]
+    },
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "node": "Create chat message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-07-22T13:25:03.834Z",
   "id": "H8OFUc70DPOsGgF5",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "Sincronización Opportunities AutecoBlue",
   "nodes": [
     {
@@ -46,7 +64,7 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -140,
+        -220,
         -40
       ],
       "id": "459cf62a-d2a3-4f35-8a17-7420e76c2adc",
@@ -116,58 +134,69 @@
           "name": "Auteco Blue MEX - app autecoblue bi"
         }
       }
-    }
-  ],
-  "pinData": {
-    "When clicking ‘Execute workflow’": [
-      {
-        "json": {
-          "headers": {
-            "accept": "*/*",
-            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
-            "accept-encoding": "gzip, deflate, br, zstd",
-            "accept-language": "es-419,es;q=0.8",
-            "max-forwards": "10",
-            "origin": "https://victorious-mud-0f646a10f.1.azurestaticapps.net",
-            "sec-ch-ua-platform": "\"macOS\"",
-            "sec-ch-ua": "\"Not;A=Brand\";v=\"99\", \"Brave\";v=\"139\", \"Chromium\";v=\"139\"",
-            "sec-ch-ua-mobile": "?0",
-            "sec-gpc": "1",
-            "sec-fetch-site": "cross-site",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-dest": "empty",
-            "x-arr-log-id": "3d850583-2f5a-4142-8d12-4569b30f69f9",
-            "client-ip": "190.108.78.130:4790",
-            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "x-site-deployment-id": "ropoflow",
-            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "x-forwarded-proto": "https",
-            "x-appservice-proto": "https",
-            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
-            "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "190.108.78.130:4790",
-            "x-original-url": "/webhook/config/opportunities",
-            "x-waws-unencoded-url": "/webhook/config/opportunities",
-            "x-client-ip": "190.108.78.130",
-            "x-client-port": "4790",
-            "content-type": "application/json",
-            "content-length": "101"
-          },
-          "params": {},
-          "query": {},
-          "body": {
-            "id_location": "rJVQMiUdtLFfBO0aToyU",
-            "date": "01-01-2023",
-            "endDate": "09-24-2025",
-            "isSimulated": false
-          },
-          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/opportunities",
-          "executionMode": "production"
+    },
+    {
+      "parameters": {
+        "resource": "chatMessage",
+        "chatId": {
+          "__rl": true,
+          "value": "19:ec02bea368b3402882b2d90fa1e9ee6a@thread.v2",
+          "mode": "list",
+          "cachedResultName": "📊🔔 Notificaciones sync data - Power BI (group)",
+          "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Aec02bea368b3402882b2d90fa1e9ee6a%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
+        },
+        "message": "=Se lanzó una sincronización de oportunidades para <strong>autecoblue</strong>, rango de fechas: {{ $json.body.date }} -> {{ $json.body.endDate }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        60,
+        -220
+      ],
+      "id": "f3165e17-71a2-4fe6-9b83-215e8398fba6",
+      "name": "Create chat message",
+      "webhookId": "eadd561f-7289-4b70-8d5d-5cd4dfef3a47",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "ZN6rkGlpvuVkKKom",
+          "name": "Microsoft Teams account"
         }
       }
-    ]
-  },
+    },
+    {
+      "parameters": {
+        "resource": "chatMessage",
+        "chatId": {
+          "__rl": true,
+          "value": "19:ec02bea368b3402882b2d90fa1e9ee6a@thread.v2",
+          "mode": "list",
+          "cachedResultName": "📊🔔 Notificaciones sync data - Power BI (group)",
+          "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Aec02bea368b3402882b2d90fa1e9ee6a%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
+        },
+        "message": "=Se sincronizó correctamente la información de oportunidades para <strong>autecoblue</strong>, cantidad: {{ $input.all().length }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        720,
+        -40
+      ],
+      "id": "805e2ca5-32ad-4dcf-ba29-2701d2db5025",
+      "name": "Create chat message1",
+      "webhookId": "eadd561f-7289-4b70-8d5d-5cd4dfef3a47",
+      "retryOnFail": false,
+      "executeOnce": true,
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "ZN6rkGlpvuVkKKom",
+          "name": "Microsoft Teams account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -177,6 +206,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-24T13:34:54.290Z",
-  "versionId": "84465bcb-feff-4d4c-bf21-5e3bbdc2d29e"
+  "updatedAt": "2025-10-01T13:49:22.030Z",
+  "versionId": "ca63feb6-7bda-4c9b-82f7-5657c3e50631"
 }
