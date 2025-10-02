@@ -127,6 +127,22 @@
             "node": "Search contacts con filtros avanzados1",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Create chat message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Create chat message1",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -378,11 +394,71 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -900,
+        -980,
         260
       ],
       "id": "147491ba-1cf4-4a57-b652-7d4408e093e6",
       "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "chatMessage",
+        "chatId": {
+          "__rl": true,
+          "value": "19:ec02bea368b3402882b2d90fa1e9ee6a@thread.v2",
+          "mode": "list",
+          "cachedResultName": "📊🔔 Notificaciones sync data - Power BI (group)",
+          "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Aec02bea368b3402882b2d90fa1e9ee6a%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
+        },
+        "message": "=Se lanzó una sincronización de contactos para <strong>autecoblue</strong>, rango de fechas: {{ $json.body.date }} -> {{ $json.body.endDate }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        20
+      ],
+      "id": "6255f599-3fa9-471b-bcd8-0dcf79e7a2ae",
+      "name": "Create chat message",
+      "webhookId": "eadd561f-7289-4b70-8d5d-5cd4dfef3a47",
+      "executeOnce": true,
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "ZN6rkGlpvuVkKKom",
+          "name": "Microsoft Teams account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "chatMessage",
+        "chatId": {
+          "__rl": true,
+          "value": "19:ec02bea368b3402882b2d90fa1e9ee6a@thread.v2",
+          "mode": "list",
+          "cachedResultName": "📊🔔 Notificaciones sync data - Power BI (group)",
+          "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Aec02bea368b3402882b2d90fa1e9ee6a%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
+        },
+        "message": "=Se sincronizó correctamente la información de contactos para <strong>autecoblue</strong>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        660,
+        360
+      ],
+      "id": "a6e7dd68-64c7-46ab-bca9-f657908bc164",
+      "name": "Create chat message1",
+      "webhookId": "eadd561f-7289-4b70-8d5d-5cd4dfef3a47",
+      "executeOnce": true,
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "ZN6rkGlpvuVkKKom",
+          "name": "Microsoft Teams account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -425,8 +501,8 @@
           "query": {},
           "body": {
             "id_location": "rJVQMiUdtLFfBO0aToyU",
-            "date": "2023-01-01T05:00:00.000Z",
-            "endDate": "2025-09-24T05:00:00.000Z",
+            "date": "2025-09-01T05:00:00.000Z",
+            "endDate": "2025-09-30T05:00:00.000Z",
             "created": true,
             "updated": true,
             "proccessConversations": false,
@@ -451,6 +527,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-09-24T15:55:09.739Z",
-  "versionId": "3f127cb2-5334-431b-bc76-5fc829d2e7d1"
+  "updatedAt": "2025-10-01T14:04:49.214Z",
+  "versionId": "2c040041-fc4a-40a1-805e-3c8e66ee9125"
 }
