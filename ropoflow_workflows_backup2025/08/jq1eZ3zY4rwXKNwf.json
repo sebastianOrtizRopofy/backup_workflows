@@ -1378,7 +1378,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// ----------------------------------------\n// Metadata = array de campos (custom fields de GoHighLevel)\n// ----------------------------------------\nconst metadata =\n  $('Obtener custom fields de la subcuenta').first().json.customFields;\n\nconsole.log(metadata);\n\n// ----------------------------------------\n// Webhook trigger trae el body aquí\n// ----------------------------------------\nconst inputData = $('Webhook').first().json.body;\n\n// ----------------------------------------\n// Mapeo: { fieldKey_en_GHL : propiedad_en_body }\n// ----------------------------------------\nconst values = {\n  \"opportunity.id_crm\": \"ID\",\n  \"opportunity.origen\": \"Origen\",\n  \"opportunity.campaign\": \"Campanna\",\n  \"opportunity.modelo_de_inters\": \"modelo_interes\",\n  \"opportunity.marca_de_inters\": \"marca_interes\",\n  \"opportunity.observaciones\": \"Observaciones\",\n  \"opportunity.element\": \"Sistema\",\n  \"opportunity.dane\": \"CodigoDANE\",\n  \"opportunity.dane_departamento\": \"CodigoDANE\", // se corta en substring(0,2)\n  \"opportunity.codigo_nivel_interes\": \"NivelInteres\",\n  \"opportunity.documento_de_identidad_nitcc\": \"Documento\",\n  \"opportunity.estado_impulsa\": \"Estado\",\n  \"opportunity.codigo_punto_de_venta\": \"Establecimiento\"\n};\n\n// ----------------------------------------\n// Función auxiliar para leer paths como \"Productos[0].Marca\"\n// ----------------------------------------\nfunction getValueByPath(obj, path) {\n  try {\n    return path\n      .split(/[\\.\\[\\]]/)\n      .filter(Boolean)\n      .reduce((acc, key) => acc?.[key], obj);\n  } catch {\n    return \"\";\n  }\n}\n\n// ----------------------------------------\n// Construcción de customFields\n// ----------------------------------------\nconst customFields = Object.keys(values)\n  .map(fieldKey => {\n    const fieldDef = metadata.find(f => f.fieldKey === fieldKey);\n    if (!fieldDef) return null;\n\n    let rawValue = getValueByPath(inputData, values[fieldKey]) || \"\";\n\n    // Caso especial: cortar CodigoDANE para departamento\n    if (fieldKey === \"contact.dane_departamento\" && rawValue) {\n      rawValue = rawValue.toString().substring(0, 2);\n    }\n\n    return {\n      id: fieldDef.id,\n      key: fieldKey.replace(\"contact.\", \"\"),\n      field_value: rawValue\n    };\n  })\n  .filter(Boolean);\n\n// ----------------------------------------\n// Retorno\n// ----------------------------------------\nreturn [{ json: { customFields } }];\n"
+        "jsCode": "// ----------------------------------------\n// Metadata = array de campos (custom fields de GoHighLevel)\n// ----------------------------------------\nconst metadata =\n  $('Obtener custom fields de la subcuenta').first().json.customFields;\n\nconsole.log(metadata);\n\n// ----------------------------------------\n// Webhook trigger trae el body aquí\n// ----------------------------------------\nconst inputData = $('Webhook').first().json.body;\n\n// ----------------------------------------\n// Mapeo: { fieldKey_en_GHL : propiedad_en_body }\n// NOTA: en Productos, tomamos siempre el primer item (índice 0)\n// ----------------------------------------\nconst values = {\n  \"opportunity.id_crm\": \"ID\",\n  \"opportunity.origen\": \"Origen\",\n  \"opportunity.campaign\": \"Campanna\",\n  \"opportunity.modelo_de_inters\": \"Productos[0].Producto\",   // 👈 modelo_interes viene de Producto\n  \"opportunity.marca_de_inters\": \"Productos[0].Marca\",       // 👈 marca_interes viene de Marca\n  \"opportunity.observaciones\": \"Observaciones\",\n  \"opportunity.element\": \"Sistema\",\n  \"opportunity.dane\": \"CodigoDANE\",\n  \"opportunity.codigo_nivel_interes\": \"NivelInteres\",\n  \"opportunity.documento_de_identidad_nitcc\": \"Documento\",\n  \"opportunity.estado_impulsa\": \"Estado\",\n  \"opportunity.codigo_punto_de_venta\": \"Establecimiento\"\n};\n\n// ----------------------------------------\n// Función auxiliar para leer paths como \"Productos[0].Marca\"\n// ----------------------------------------\nfunction getValueByPath(obj, path) {\n  try {\n    return path\n      .split(/[\\.\\[\\]]/)\n      .filter(Boolean)\n      .reduce((acc, key) => acc?.[key], obj);\n  } catch {\n    return \"\";\n  }\n}\n\n// ----------------------------------------\n// Construcción de customFields\n// ----------------------------------------\nconst customFields = Object.keys(values)\n  .map(fieldKey => {\n    const fieldDef = metadata.find(f => f.fieldKey === fieldKey);\n    if (!fieldDef) return null;\n\n    let rawValue = getValueByPath(inputData, values[fieldKey]) || \"\";\n\n    // Caso especial: cortar CodigoDANE para departamento\n    if (fieldKey === \"contact.dane_departamento\" && rawValue) {\n      rawValue = rawValue.toString().substring(0, 2);\n    }\n\n    return {\n      id: fieldDef.id,\n      key: fieldKey.replace(\"contact.\", \"\"),\n      field_value: rawValue\n    };\n  })\n  .filter(Boolean);\n\n// ----------------------------------------\n// Retorno\n// ----------------------------------------\nreturn [{ json: { customFields } }];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -2272,68 +2272,7 @@
       "webhookId": "30590bbe-ae07-4001-b38a-6dfaa7415dd9"
     }
   ],
-  "pinData": {
-    "Webhook": [
-      {
-        "json": {
-          "headers": {
-            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "user-agent": "GuzzleHttp/7",
-            "max-forwards": "10",
-            "x-arr-log-id": "496946fb-c398-4236-b852-5605aae71501",
-            "client-ip": "35.209.139.90:40100",
-            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "x-site-deployment-id": "ropoflow",
-            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "x-forwarded-proto": "https",
-            "x-appservice-proto": "https",
-            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
-            "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "35.209.139.90:40100",
-            "x-original-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/CZPs2xh8x6Mlc0piLSy8",
-            "x-waws-unencoded-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/CZPs2xh8x6Mlc0piLSy8",
-            "x-client-ip": "35.209.139.90",
-            "x-client-port": "40100",
-            "content-type": "application/json",
-            "content-length": "678"
-          },
-          "params": {
-            "id_location": "CZPs2xh8x6Mlc0piLSy8"
-          },
-          "query": {},
-          "body": {
-            "ID": 4563787,
-            "IDOportunidadAuteco": "W1282999",
-            "Origen": "Auteco SAS",
-            "Campanna": "Página Web",
-            "Establecimiento": "550011625",
-            "Productos": [
-              {
-                "Producto": "TVS APACHE RTR 160 4V FI ABS;",
-                "Marca": "TVS"
-              }
-            ],
-            "Observaciones": "2025/01/14- pago: Crédito / tipo_documento: Cédula de ciudadanía / cuota_inicial: Sin cuota inicial / plazos: 72 meses / fuente: FINANCIACION /",
-            "TipoDocumento": "CC",
-            "Documento": "1037641361",
-            "NombreContacto": "Andres ropofy",
-            "Email": "andres@bike2web.com",
-            "Telefono2": "3135684490",
-            "CodigoDANE": "00000",
-            "Direccion": null,
-            "HabeasData": true,
-            "Sistema": "multimarca",
-            "NivelInteres": "BB",
-            "Usuario": "Prueba",
-            "Estado": "PE",
-            "NitCompania": "1037641361"
-          },
-          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/:id_location",
-          "executionMode": "production"
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -2343,6 +2282,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-23T14:59:10.744Z",
-  "versionId": "6f8c213a-58cf-4b8b-a857-bad68b5eda22"
+  "updatedAt": "2025-10-07T15:47:53.890Z",
+  "versionId": "7f4a1b3a-a98c-41ba-b735-a3528121827c"
 }
