@@ -1,0 +1,372 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear orden": {
+      "main": [
+        [
+          {
+            "node": "Crear nota de creacion desde ropofy",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update a contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pedido": {
+      "main": [
+        [
+          {
+            "node": "generar json woocommerce",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "generar json woocommerce": {
+      "main": [
+        [
+          {
+            "node": "crear orden",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "pedido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-09T15:20:32.548Z",
+  "id": "gOrPNY1gNoSxCMuA",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "integracion woocommerce v2",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/v2/integracionWoo/",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e91369bd-6a09-4db2-ae7d-d7e60af74303",
+      "name": "Webhook",
+      "webhookId": "68ce8261-443c-44c1-b8dd-d12bd30f6cf3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://matemundo.com.ar/wp-json/wc/v3/orders",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "consumer_key",
+              "value": "ck_2cd792733a169668b322011064ef7514abd2f7cc"
+            },
+            {
+              "name": "consumer_secret",
+              "value": "cs_8a6e815ffdc78babd23c461f3b9e0da3cc8f4002"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        0
+      ],
+      "id": "563582ad-2a94-4eb5-b3c4-0b83f19b81b8",
+      "name": "crear orden",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "let jsonProducts = JSON.parse($('Webhook').first().json.body.customData.pedido ?? \"{}\");\n\nreturn jsonProducts;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "5b289ab9-1463-4a45-b727-8368f5a22211",
+      "name": "pedido",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos el JSON de entrada (tu pedido)\nconst data = items[0].json;\n\n// Creamos array de line_items a partir de cada producto\nconst line_items = data.pedido.map(p => {\n  if (p.type === \"variable\") {\n    // Producto variable -> se envía con variation_id\n    return {\n      product_id: p.codigo_producto,\n      variation_id: p.id_variacion,\n      quantity: p.cantidad,\n      price: p.precio_unitario\n    };\n  } else {\n    // Producto simple -> NO se envía variation_id\n    return {\n      product_id: p.codigo_producto,\n      quantity: p.cantidad,\n      price: p.precio_unitario\n    };\n  }\n});\n\n// Construimos la orden con datos quemados de billing/shipping\nconst order = {\n  payment_method: \"bacs\",\n  payment_method_title: \"Transferencia bancaria\",\n  customer_note: \"Pedido generado desde Ropofy\", // 👈 nota fija\n  set_paid: false,\n  billing: {\n    first_name: $('Webhook').first().json.body.first_name,\n    last_name: \"\",\n    address_1: $input.first().json.direccion,\n    city: $input.first().json.ciudad,\n    country: \"AR\",\n    email: $('Webhook').first().json.body.email,\n    phone: $('Webhook').first().json.body.phone\n  },\n  shipping: {\n    first_name: $('Webhook').first().json.body.first_name,\n    last_name: \"\",\n    address_1: $input.first().json.direccion,\n    city: $input.first().json.ciudad,\n    country: \"AR\"\n  },\n  line_items\n};\n\n// Retornamos en el formato que n8n espera (un único item con el JSON)\nreturn [\n  {\n    json: order\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "25017614-16df-44bc-8f9b-a0e8cdf8cbfd",
+      "name": "generar json woocommerce"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "email",
+              "value": "={{ $json.body.email }}"
+            },
+            {
+              "key": "phone",
+              "value": "={{ $json.body.phone }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "00ab2828-e801-4397-af67-64988fe477f0",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://matemundo.com.ar/wp-json/wc/v3/orders/{{ $json.id }}/notes",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "consumer_key",
+              "value": "ck_2cd792733a169668b322011064ef7514abd2f7cc"
+            },
+            {
+              "name": "consumer_secret",
+              "value": "cs_8a6e815ffdc78babd23c461f3b9e0da3cc8f4002"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "note",
+              "value": "Generado desde ropofy"
+            },
+            {
+              "name": "customer_note",
+              "value": "false"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1100,
+        0
+      ],
+      "id": "4aa87264-a600-405f-9ad7-9e55addc8650",
+      "name": "Crear nota de creacion desde ropofy"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "contactId": "={{ $('Webhook').item.json.body.contact_id }}",
+        "updateFields": {
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "H3WMBP3zrfoRZc6jVABy",
+                  "mode": "list",
+                  "cachedResultName": "Notificacion"
+                },
+                "fieldValue": "Error"
+              }
+            ]
+          }
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1100,
+        180
+      ],
+      "id": "3a198973-af52-48fc-a25a-318e7b64c18f",
+      "name": "Update a contact",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "k333jA62tFGbp7Fa",
+          "name": "matemundo - ropoflow"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/1.7.7",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "max-forwards": "10",
+            "traceparent": "00-b16da1933d89e9b5753345f30a28ec85-a416a283c0dcd293-00",
+            "x-arr-log-id": "ef58ad25-f0cd-4e51-afda-4383ab18da23",
+            "client-ip": "35.232.11.120:44074",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "35.232.11.120:44074",
+            "x-original-url": "/webhook/v2/integracionWoo/",
+            "x-waws-unencoded-url": "/webhook/v2/integracionWoo/",
+            "x-client-ip": "35.232.11.120",
+            "x-client-port": "44074",
+            "content-type": "application/json",
+            "content-length": "15119"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "CUIT o DNI": "",
+            "Transporte": "",
+            "N° Cliente ENEXPRO": "",
+            "Link al pedido": "",
+            "Tipo de cliente": "Cliente Mayorista",
+            "Tipo de Solicitud": "Hacer un pedido",
+            "Tipo de envío": "A domicilio",
+            "Pedido": "-1 × Yerbera y Azucarera Cordura Set de yerbera y azucarera forradas en cordura. Precio unitario: $2.990 -30 × Cámara con Impresión Childrens Precio unitario: $29.750",
+            "Sys single line": " ",
+            "Final pedido": "",
+            "Dirección cliente": "",
+            "Ciudad Domilicio": "",
+            "Correo - BOT": "",
+            "Telefono - BOT": "A domicilio",
+            "Tipo de reclamo": "",
+            "Nombre - BOT": "Andres",
+            "Variable": "",
+            "Conversacion": "[{\"body\":\"Rosario, la dirrecion es Buenos Aires 789, S2000CEB\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T17:06:01.092Z\"},{\"body\":\"Por favor, indícanos la ciudad y dirección completa para la entrega.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T17:04:54.000Z\"},{\"body\":\"a domicilio\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T17:04:31.952Z\"},{\"body\":\"¡Genial! 😊 Ahora, para finalizar tu pedido:\\n👉 ¿Preferís que te enviemos el pedido a domicilio 📦 o lo querés retirar en el local 🏬?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T17:03:43.000Z\"},{\"body\":\"Si\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T17:03:26.124Z\"},{\"body\":\"Resumen de tu orden:\\n🛍️ Productos seleccionados:\\n\\n30 × Copón Térmico 240ml - WATERDOG → $600.000\\n30 × Mate Calabaza Parsec - Base → $85.200\\n20 × Pack x6 Tapón 1 Litro - LUMILAGRO ACERO → $606.000\\n\\n\\nValor total = $1.291.200 + IVA\\n¿Aceptás esta orden de compra?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T17:01:58.000Z\"},{\"body\":\"asi esta bien\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T17:01:30.406Z\"},{\"body\":\"¡Listo! Sumo a tu pedido:\\n-20 × Pack x6 Tapón 1 Litro - LUMILAGRO ACERO\\nPrecio unitario: $30.300\\nLink: https://matemundo.com.ar/producto/pack-x6-tapon-1-litro-lumilagro-acero/   \\n¿Querés agregar algún otro producto o variación? Si no, avísame y te paso el resumen de tu orden.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T17:01:11.000Z\"},{\"body\":\"Pack x6 Tapón 1 Litro - LUMILAGRO ACERO dame 20\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T17:00:53.055Z\"},{\"body\":\"¡Perfecto! Agrego a tu pedido:\\n-30 × Mate Calabaza Parsec - Base\\nPrecio unitario: $2.840\\nLink: https://matemundo.com.ar/producto/mate-parsec-base-calabaza/   \\n¿Querés agregar algún otro producto o variación? Si no, avísame y te paso el resumen de tu orden.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T17:00:41.000Z\"},{\"body\":\"dame el mate calabaza parsec base unos 30\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T17:00:24.067Z\"},{\"body\":\"¡Perfecto! Tenemos varias opciones de mate calabaza. Te detallo algunas disponibles:\\n\\nMate Calabaza Parsec - Base → $2.840\\nhttps://matemundo.com.ar/producto/mate-parsec-base-calabaza/ \\n\\nMate Calabaza Forrado - CHACARERO (Colores: Rosa, Beige, Azul, Marrón, Negro) → $9.750\\nhttps://matemundo.com.ar/producto/mate-calabaza-forrado-chacarero/ \\n\\nMate Calabaza Alpaca - RODOCROSITA .40 → $21.600\\nhttps://matemundo.com.ar/producto/mate-calabaza-alpaca-rodocrosita-40/ \\n\\nMate Calabaza Alpaca - TALLADO CON VIROLA → $9.880\\nhttps://matemundo.com.ar/producto/mate-calabaza-alpaca-tallado-con-virola/ \\n\\n\\n\\n¿Te gustaría alguno de estos modelos? Si sí, decime cuál, la cantidad y el color (si corresponde).\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T16:59:50.000Z\"},{\"body\":\"Mate Calabaza\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T16:59:24.784Z\"},{\"body\":\"¡Gracias por tu pedido! Te informo que el producto \\\"Mate Algarrobo - CAMIONERO CRUDO DÍA DEL PADRE\\\" actualmente no está disponible en stock.\\n¿Querés elegir otro modelo de mate algarrobo o agregar algún otro producto? Si necesitás ver opciones, avisame y te ayudo con la selección.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T16:59:03.000Z\"},{\"body\":\"Mate Algarrobo - CAMIONERO CRUDO DÍA DEL PADRE dame 30\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T16:58:45.089Z\"},{\"body\":\"¡Perfecto! Te detallo la opción disponible:\\n-30 × Copón Térmico 240ml - WATERDOG\\nPrecio unitario: $20.000\\nLink: https://matemundo.com.ar/producto/copon-termico-240ml-waterdog/   \\n¿Querés agregar algún otro producto o variación? Si no, avísame y te paso el resumen de tu orden.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T16:58:14.000Z\"},{\"body\":\"dame 30 Copón Térmico 240ml - WATERDOG\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T16:57:54.109Z\"},{\"body\":\"¡Buenísimo! 😊 Recordá que el monto mínimo de compra es de $100.000 + IVA.\\n👉 ¿Ya tenés los productos que deseas pedir o te ayudo con la selección?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T16:55:45.000Z\"},{\"body\":\"Hacer un pedido\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T16:55:27.174Z\"},{\"body\":\"¡Gracias por confirmarlo! 😊\\n¿Querés consultar un pedido en curso, hacer un pedido, o realizar un reclamo?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T16:54:20.000Z\"},{\"body\":\"Mayorista\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T16:53:57.881Z\"},{\"body\":\"¡Hola! 😊 Bienvenido a MateMundo. ¿Sos cliente mayorista o cliente minorista?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T16:52:53.000Z\"},{\"body\":\"Hola\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T16:52:26.778Z\"},{\"body\":\"¡Perfecto! Tomé tu pedido para envío a domicilio en Buenos Aires, calle 145 # 37.\\nUn asesor se comunicará con vos para coordinar la entrega y los detalles finales. ¡Gracias por elegir MateMundo! Si necesitás algo más, estoy para ayudarte.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T05:08:40.000Z\"},{\"body\":\"Buenos Aires , calle 145 # 37\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:08:24.033Z\"},{\"body\":\"¡Genial! 😊 Por favor, indicanos la ciudad y la dirección completa donde querés recibir tu pedido.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T05:07:41.000Z\"},{\"body\":\"A domicilio\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:07:29.988Z\"},{\"body\":\"¡Gracias por tu confirmación! 😊\\nAhora, para finalizar tu pedido, decime por favor:\\n👉 ¿Preferís que te enviemos el pedido a domicilio 📦 o lo querés retirar en el local 🏬?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T05:07:20.000Z\"},{\"body\":\"Si\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:07:03.746Z\"},{\"body\":\"¡Gracias por tu confirmación! 😊 Te paso el resumen de tu orden:\\n🛍️ Productos seleccionados:\\n10 × Mate Imperial Calabaza - Acero Liso (Color: Marrón) → $132.600\\n1 × Yerbera y Azucarera Cordura → $2.990\\n20 × Yerbera y Azucarera Cordura → $59.800\\n30 × Cámara con Impresión Childrens → $892.500  \\nValor total = $1.087.890 + IVA\\n¿Aceptás esta orden de compra?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T05:06:35.000Z\"},{\"body\":\"Ya\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:06:14.016Z\"},{\"body\":\"Ya así está bien\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:04:21.116Z\"},{\"body\":\"¡Perfecto! Anoto tu pedido:\\n-30 × Cámara con Impresión Childrens\\nPrecio unitario: $29.750\\nLink: https://matemundo.com.ar/producto/camara-con-impresion-childrens/  \\n¿Querés agregar algún otro producto o variación? Si no, avísame y te paso el resumen de tu orden.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T05:03:39.000Z\"},{\"body\":\"Dane 30\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:03:26.711Z\"},{\"body\":\"¡Sí! Tenemos la Cámara con Impresión Childrens disponible.\\n\\nCámara con Impresión Childrens\\nPrecio unitario: $29.750\\nLink: https://matemundo.com.ar/producto/camara-con-impresion-childrens/ \\n\\n\\n¿Querés agregar una o varias cámaras a tu pedido? Si es así, decime cuántas unidades te gustaría sumar.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T05:03:11.000Z\"},{\"body\":\"Tienes cámara de impresión?\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:02:49.524Z\"},{\"body\":\"¡Perfecto! Para sumar 20 yerberas, te consulto:\\n¿Querés que sean todas Yerbera y Azucarera Cordura (set) o preferís solo yerberas de otro modelo/material?\\nPor favor, confirmame el modelo y, si es posible, el color que preferís para las 20 unidades. Así te armo el resumen exacto de tu pedido.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T05:02:30.000Z\"},{\"body\":\"Tienes cámaras con impresión?\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:02:26.629Z\"},{\"body\":\"Dame 20 yerberas\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:02:01.501Z\"},{\"body\":\"¡Listo! Te sumo la opción disponible:\\n-1 × Yerbera y Azucarera Cordura\\nSet de yerbera y azucarera forradas en cordura.\\nPrecio unitario: $2.990\\nLink: https://matemundo.com.ar/producto/yerbera-y-azucarera-cordura/ \\n¿Querés agregar algún otro producto o variación? Si no, avísame y te paso el resumen de tu orden.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T05:01:40.000Z\"},{\"body\":\"Dame una yerbera y azucarera cordura\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T05:01:18.001Z\"},{\"body\":\"¡Perfecto! Anoto tu pedido:\\n-10 × Mate Imperial Calabaza - Acero Liso (Color: Marrón)\\nPrecio unitario: $13.260\\nLink: https://matemundo.com.ar/producto/mate-imperial-calabaza-acero-liso/ \\n¿Querés agregar algún otro producto o variación? Si no, avísame y te paso el resumen de tu orden.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T05:00:00.000Z\"},{\"body\":\"Los Díaz en marrón\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T04:59:42.605Z\"},{\"body\":\"¡Perfecto! Te paso la opción disponible:\\nMate Imperial Calabaza - Acero Liso\\nForrado en cuero vaqueta, interior calabaza, virola de acero lisa.\\nPrecio unitario: $13.260\\nLink: https://matemundo.com.ar/producto/mate-imperial-calabaza-acero-liso/ \\n¿Querés los 10 en algún color específico? Las opciones suelen ser: Bordó, Marrón, Negro o Suela.\\nPor favor, decime el color que preferís para los 10 mates.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T04:58:45.000Z\"},{\"body\":\"El mate imperial calabaza en acero dame 10\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T04:58:13.159Z\"},{\"body\":\"¡Excelente elección! Los mates de calabaza son súper tradicionales y tenemos varias opciones. Te detallo los estilos más buscados:\\n\\nMate Imperial Calabaza (con virola de alpaca, acero o bronce, lisos o cincelados)\\nMate Camionero Calabaza (virola de alpaca, acero o aluminio, lisos o tallados)\\nMate Torpedo Calabaza (virola de alpaca o acero, lisos o cincelados)\\nMate Calabaza Forrado (en cuero, carpincho, trenzado, animal print, etc.)\\nMate Calabaza con Pie (con base de aluminio o alpaca)\\nMate Calabaza Vegano (interior calabaza, exterior simil cuero)\\n\\n\\n¿Te gustaría ver algún modelo en particular o querés que te pase opciones de cada uno? Si ya sabés el modelo, decime también el color o material que preferís.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T04:57:05.000Z\"},{\"body\":\"El mate de calabaza\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T04:56:48.579Z\"},{\"body\":\"¡Genial! En MateMundo tenemos una amplia variedad de mates. Para ayudarte mejor, ¿te interesa algún tipo en particular? Por ejemplo:\\n\\nMate de acero térmico\\nMate de calabaza (imperial, camionero, torpedo, etc.)\\nMate de madera (algarrobo, quebracho, palo santo)\\nMate de cerámica\\nMate alto impacto (plástico)\\nMate vegano (simil cuero)\\nMate vidrio forrado\\n\\n\\nDecime qué tipo te interesa o si querés ver opciones de todos los estilos. Así te paso los modelos y colores disponibles.\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T04:56:29.000Z\"},{\"body\":\"Que mates tienes?\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T04:56:07.311Z\"},{\"body\":\"¡Perfecto! 😊 Antes de empezar, te recuerdo que el monto mínimo de compra es de $100.000 + IVA.\\n👉 ¿Ya tenés los productos que deseas pedir o te ayudo con la selección?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T04:55:17.000Z\"},{\"body\":\"hacer un pedido\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T04:54:52.423Z\"},{\"body\":\"¡Gracias por tu respuesta! 😊 Ahora decime, por favor: 👉 ¿Querés consultar un pedido en curso, hacer un pedido, o realizar un reclamo?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T04:54:03.000Z\"},{\"body\":\"Mayorista\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T04:53:49.225Z\"},{\"body\":\"¡Bienvenido a MateMundo! 😊 Para poder ayudarte mejor, necesito saber: 👉 ¿Sos cliente mayorista o cliente minorista?\",\"direction\":\"outbound\",\"dateAdded\":\"2025-10-09T04:53:34.000Z\"},{\"body\":\"Hola\",\"direction\":\"inbound\",\"dateAdded\":\"2025-10-09T04:53:11.307Z\"}]",
+            "Notificacion": "",
+            "contact_id": "dlUwAcC4IAG6p0YO4LFd",
+            "first_name": "Andres",
+            "last_name": "Ropofy",
+            "full_name": "Andres Ropofy",
+            "email": "andres@ropofy.com",
+            "phone": "+573135684490",
+            "tags": "test,atendido por bot ai",
+            "city": "Buenos Aires",
+            "country": "AR",
+            "date_created": "2025-06-09T16:24:13.339Z",
+            "full_address": "Buenos Aires ",
+            "contact_type": "lead",
+            "location": {
+              "name": "Mate mundo",
+              "address": "Junin 449 ",
+              "city": "CABA",
+              "state": "Buenos Aires",
+              "country": "AR",
+              "postalCode": "1026",
+              "fullAddress": "Junin 449 , CABA Buenos Aires 1026",
+              "id": "ERJBpPNxe4pOmp7CkwAv"
+            },
+            "workflow": {
+              "id": "fc56f127-21a5-41e7-bd8a-9cfd258f9742",
+              "name": "Integración woocomerce V3"
+            },
+            "triggerData": {},
+            "contact": {
+              "attributionSource": {
+                "sessionSource": "CRM UI",
+                "medium": "manual",
+                "mediumId": null
+              },
+              "lastAttributionSource": {
+                "photoUrl": null,
+                "sessionSource": "Social media",
+                "adId": null,
+                "productId": null,
+                "videoUrl": null,
+                "igSid": "2251636475283047",
+                "mediumId": "2251636475283047",
+                "utmContent": null,
+                "medium": "instagram",
+                "postId": null,
+                "flowId": null
+              }
+            },
+            "attributionSource": {},
+            "customData": {
+              "pedido": "{   \"pedido\": [     {       \"producto\": \"Copón Térmico 240ml - WATERDOG\",       \"codigo_producto\": 23950,       \"variacion\": \"null\",       \"id_variacion\": null,       \"cantidad\": 30,       \"precio_unitario\": 20000,       \"type\": \"variable\"     },     {       \"producto\": \"Mate Calabaza Parsec - Base\",       \"codigo_producto\": 17833,       \"variacion\": null,       \"id_variacion\": null,       \"cantidad\": 30,       \"precio_unitario\": 2840,       \"type\": \"simple\"     },     {       \"producto\": \"Pack x6 Tapón 1 Litro - LUMILAGRO ACERO\",       \"codigo_producto\": 19415,       \"variacion\": null,       \"id_variacion\": null,       \"cantidad\": 20,       \"precio_unitario\": 30300,       \"type\": \"simple\"     }   ],   \"ciudad\": \"Rosario\",   \"direccion\": \"Buenos Aires 789, S2000CEB\" }"
+            }
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/v2/integracionWoo/",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-09T20:38:39.980Z",
+  "versionId": "d9f4f8f8-e7e5-4357-acb9-f79b6c6546ff"
+}
