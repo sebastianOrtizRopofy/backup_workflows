@@ -59,7 +59,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nconst locationsSync = [\n  {\n    \"nombre\" : \"ropofy\",\n    \"location_id\": \"3YGgxqve6cABjE0KCjLs\",\n  },\n  {\n    \"nombre\" : \"dismerca\",\n    \"location_id\": \"NQS1rz0YlFTvbXDBx74N\",\n  },\n  {\n    \"nombre\" : \"dosR\",\n    \"location_id\": \"y4xcJQV4laYTBejxivBn\",\n  },\n    {\n    \"nombre\" : \"auteco blue\",\n    \"location_id\": \"rJVQMiUdtLFfBO0aToyU\",\n  },\n];\n\nreturn locationsSync;"
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nconst locationsSync = [\n  {\n    \"nombre\" : \"ropofy\",\n    \"location_id\": \"3YGgxqve6cABjE0KCjLs\",\n  },\n  {\n    \"nombre\" : \"dismerca\",\n    \"location_id\": \"NQS1rz0YlFTvbXDBx74N\",\n  },\n  {\n    \"nombre\" : \"dosR\",\n    \"location_id\": \"y4xcJQV4laYTBejxivBn\",\n  },\n    {\n    \"nombre\" : \"auteco blue\",\n    \"location_id\": \"rJVQMiUdtLFfBO0aToyU\",\n  },\n  {\n    \"nombre\" : \"evg\",\n    \"location_id\": \"7MILzH0XhlEZiyb1OVYN\",\n  },\n  {\n    \"nombre\" : \"moldex\",\n    \"location_id\": \"OLEfHKjZkezljsd63c48\",\n  },\n    {\n    \"nombre\" : \"marcali\",\n    \"location_id\": \"ID50GJ39dGHTTlrk77Hx\",\n  }\n  \n];\n\nreturn locationsSync;"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -193,25 +193,7 @@
       "name": "Sync CustomValues"
     }
   ],
-  "pinData": {
-    "Schedule Trigger": [
-      {
-        "json": {
-          "timestamp": "2025-08-15T00:00:49.006-04:00",
-          "Readable date": "August 15th 2025, 12:00:49 am",
-          "Readable time": "12:00:49 am",
-          "Day of week": "Friday",
-          "Year": "2025",
-          "Month": "August",
-          "Day of month": "15",
-          "Hour": "00",
-          "Minute": "00",
-          "Second": "49",
-          "Timezone": "America/New_York (UTC-04:00)"
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -225,6 +207,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-06T13:15:15.316Z",
-  "versionId": "542524ce-db4c-4699-83dd-49df9095e3f6"
+  "updatedAt": "2025-10-10T20:17:16.705Z",
+  "versionId": "c447826f-6abe-4fc6-871c-cdd2db69c747"
 }
