@@ -1,35 +1,50 @@
 {
   "active": false,
-  "connections": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
   "createdAt": "2025-08-22T05:00:47.791Z",
   "id": "Hnug3TCLfXpopgwm",
-  "isArchived": false,
+  "isArchived": true,
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "My workflow 7",
+  "name": "test ip",
   "nodes": [
     {
-      "parameters": {
-        "options": {
-          "fields": []
-        }
-      },
-      "type": "n8n-nodes-base.zendeskTrigger",
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
         0,
         0
       ],
-      "id": "53f2e987-c3ae-4ab9-86a3-2e575e792aba",
-      "name": "Zendesk Trigger",
-      "webhookId": "7ff28480-7e28-40e8-b58a-731042e65ddd",
-      "credentials": {
-        "zendeskApi": {
-          "id": "XDy7iD63AFkVQWCL",
-          "name": "Zendesk account"
-        }
-      }
+      "id": "a79fedf7-42b6-4da5-a2d5-89ecb38c23a2",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://webhook.site/2447331a-30ad-4edc-a76b-ef61959fbca7",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        340,
+        -220
+      ],
+      "id": "1abf5b5f-a120-4c2a-afd3-129d41f738c0",
+      "name": "HTTP Request"
     }
   ],
   "pinData": {},
@@ -42,6 +57,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-08-22T05:00:47.791Z",
-  "versionId": "f2220d05-4516-45f7-afb3-fd5f6f10a095"
+  "updatedAt": "2025-10-15T22:38:45.428Z",
+  "versionId": "5be35e85-0238-470d-bbab-f4e551be44af"
 }
