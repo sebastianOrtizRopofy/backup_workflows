@@ -1,0 +1,173 @@
+{
+  "active": true,
+  "connections": {
+    "obtener token": {
+      "main": [
+        [
+          {
+            "node": "obtener usuarios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "obtener token",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener usuarios": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-10-16T21:04:06.349Z",
+  "id": "DxaCrIk7wuwjsmys",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 12",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "f02939af-fd65-4ba7-b79b-79d20dfd36da",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1245317c-7cb6-471f-aba2-f22724d3b64d",
+      "name": "Webhook",
+      "webhookId": "f02939af-fd65-4ba7-b79b-79d20dfd36da"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_agencies",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_agencies"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "f5164e55-1b66-4639-b073-7e360193124a"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        180,
+        0
+      ],
+      "id": "eed2bc1c-ba9c-4212-a851-62b5fbf75a2a",
+      "name": "obtener token",
+      "executeOnce": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://backend.leadconnectorhq.com/users/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "companyId",
+              "value": "={{ $json.company_id }}"
+            },
+            {
+              "name": "limit",
+              "value": "10000"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        0
+      ],
+      "id": "36fa88a3-e595-4ce6-8512-7d62da0bbd82",
+      "name": "obtener usuarios",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos la lista de usuarios desde el nodo anterior\nconst users = $('obtener usuarios').first().json.users || [];\n\n// Obtenemos el email que viene desde el webhook\nconst emailToFind = $('Webhook').first().json.query?.email;\n\n// Validamos si existe\nconst exists = users.some(user => user?.email === emailToFind);\n\n// Retornamos true o false\nreturn [{ exists }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        0
+      ],
+      "id": "9d7a5029-d39b-4458-a085-801f7b3bc62c",
+      "name": "Code"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-16T21:24:35.588Z",
+  "versionId": "0244eb6d-0eca-48c3-be53-41b466e5d98f"
+}
