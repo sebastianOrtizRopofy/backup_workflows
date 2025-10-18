@@ -1,0 +1,68 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-10-18T00:05:59.467Z",
+  "id": "4WCUa03PLpg9llVp",
+  "isArchived": false,
+  "meta": null,
+  "name": "wait",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "11d266cf-1b9d-4092-88f2-4101559f655b",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "2322d04a-ec0b-400d-9ef5-d35a7b059940",
+      "name": "Webhook",
+      "webhookId": "11d266cf-1b9d-4092-88f2-4101559f655b"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        220,
+        0
+      ],
+      "id": "414b355f-f6c1-4030-9ffa-fbf61dfb56c4",
+      "name": "Wait",
+      "webhookId": "a49faa92-197c-450c-b1ec-3b5c51fd696d"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-18T00:08:57.105Z",
+  "versionId": "12738c7d-b5be-4a11-b398-7bc9992e752c"
+}
