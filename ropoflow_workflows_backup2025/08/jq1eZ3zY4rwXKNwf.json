@@ -961,8 +961,8 @@
               "value": "={{ $json.customFields }}"
             },
             {
-              "name": "email",
-              "value": "={{ $('Validar email y phone').item.json.Email }}"
+              "name": "=email",
+              "value": "={{ $('Validar email y phone').item.json.Email ?? \"\"}}"
             },
             {
               "name": "phone",
@@ -2280,7 +2280,68 @@
       "webhookId": "30590bbe-ae07-4001-b38a-6dfaa7415dd9"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "GuzzleHttp/7",
+            "max-forwards": "10",
+            "x-arr-log-id": "b01e672e-7948-4f13-bfba-0bfae3d07ef3",
+            "client-ip": "35.209.139.90:38396",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 08, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "35.209.139.90:38396",
+            "x-original-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/NQS1rz0YlFTvbXDBx74N",
+            "x-waws-unencoded-url": "/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/NQS1rz0YlFTvbXDBx74N",
+            "x-client-ip": "35.209.139.90",
+            "x-client-port": "38396",
+            "content-type": "application/json",
+            "content-length": "690"
+          },
+          "params": {
+            "id_location": "NQS1rz0YlFTvbXDBx74N"
+          },
+          "query": {},
+          "body": {
+            "ID": 788305,
+            "IDOportunidadAuteco": "2147726",
+            "Origen": "MOBILITY LEAD",
+            "Campanna": "SIMULADOR CREDITO",
+            "Establecimiento": "550032262",
+            "Productos": [
+              {
+                "Producto": "VICTORY MRX 150 FOX",
+                "Marca": "VICTORY"
+              }
+            ],
+            "Observaciones": "2025/10/14- pago: Crédito / tipo_documento: Cédula de ciudadanía / cuota_inicial: Más de $6.001.000 / plazos: 12 meses / fuente: FINANCIACION /",
+            "TipoDocumento": "CC",
+            "Documento": "12345",
+            "NombreContacto": "MOTO DE LIBERTY ---",
+            "Email": "dasdsad@gam,co",
+            "Telefono2": "3333333333",
+            "CodigoDANE": "05001",
+            "Direccion": null,
+            "HabeasData": true,
+            "Sistema": "multimarca",
+            "NivelInteres": "CC",
+            "Usuario": "DB_A09BEB_RedDismerca",
+            "Estado": "PE",
+            "NitCompania": "900769511"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/56bafe2c-9754-4cd9-8f6e-dfce563b9878/impulsa/oportunidad/:id_location",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -2290,6 +2351,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-09T16:17:59.083Z",
-  "versionId": "f7d3ac70-9ff1-4f77-9613-cf509f53a389"
+  "updatedAt": "2025-10-17T16:49:24.052Z",
+  "versionId": "9442061c-2360-4e4b-b6e8-f3275c1034ac"
 }
