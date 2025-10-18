@@ -44,7 +44,7 @@
   "id": "DxaCrIk7wuwjsmys",
   "isArchived": false,
   "meta": null,
-  "name": "My workflow 12",
+  "name": "identificarse",
   "nodes": [
     {
       "parameters": {
@@ -146,7 +146,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Obtenemos la lista de usuarios desde el nodo anterior\nconst users = $('obtener usuarios').first().json.users || [];\n\n// Obtenemos el email que viene desde el webhook\nconst emailToFind = $('Webhook').first().json.query?.email;\n\n// Validamos si existe\nconst exists = users.some(user => user?.email === emailToFind);\n\n// Retornamos true o false\nreturn [{ exists }];\n"
+        "jsCode": "// Obtenemos la lista de usuarios desde el nodo anterior\nconst users = $('obtener usuarios').first().json.users || [];\n\n// Obtenemos el email que viene desde el webhook y lo pasamos a minúsculas\nconst emailToFind = ($('Webhook').first().json.query?.email || '').toLowerCase();\n\n// Validamos si existe (convirtiendo también cada email de los usuarios a minúsculas)\nconst exists = users.some(user => (user?.email || '').toLowerCase() === emailToFind);\n\n// Retornamos true o false\nreturn [{ exists }];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -168,6 +168,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-16T21:24:35.588Z",
-  "versionId": "0244eb6d-0eca-48c3-be53-41b466e5d98f"
+  "updatedAt": "2025-10-17T20:16:34.254Z",
+  "versionId": "13333682-f6fd-4592-a1a2-80ec7f7972f9"
 }
