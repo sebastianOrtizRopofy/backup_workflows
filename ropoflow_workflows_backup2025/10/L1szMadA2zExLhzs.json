@@ -1,0 +1,304 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many users": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Buscar nuevo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Update a user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar nuevo": {
+      "main": [
+        [
+          {
+            "node": "Buscar original",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar original": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get many users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a user": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "createdAt": "2025-10-18T13:38:42.469Z",
+  "id": "L1szMadA2zExLhzs",
+  "isArchived": true,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Asociar chat a usuario V2",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "2fd954ba-0bb0-4fc3-b152-c3c19af22448",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "02a6ed3e-b2dd-4f23-be19-a9b7cf76fb7c",
+      "name": "Webhook",
+      "webhookId": "2fd954ba-0bb0-4fc3-b152-c3c19af22448"
+    },
+    {
+      "parameters": {
+        "resource": "user",
+        "operation": "getAll",
+        "returnAll": true,
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.zendesk",
+      "typeVersion": 1,
+      "position": [
+        360,
+        0
+      ],
+      "id": "ece960c8-73fa-4e3d-b542-2b5bca690bb9",
+      "name": "Get many users",
+      "credentials": {
+        "zendeskApi": {
+          "id": "XDy7iD63AFkVQWCL",
+          "name": "Zendesk account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código va en un nodo \"Code\" (lenguaje JavaScript)\n\nconst allItems = $input.all(); // obtiene todos los items de entrada\n\n// Si querés armar un JSON con todos los items como array:\nreturn [\n  {\n    json: {\n      data: allItems.map(item => item.json) // unifica todos los .json\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        540,
+        0
+      ],
+      "id": "2bf5f7fd-bd56-4ab5-a8c9-710ab2389a8a",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://ropofy.zendesk.com/api/v2/users/{{ $('Buscar nuevo').item.json.matchedItem.id }}/merge.json",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "authorization",
+              "value": "Basic ZmVsaXBlQGJpa2Uyd2ViLmNvbS90b2tlbjp3TUIxd3piMzZGR2hCU0dVd1ZkTm9GVHBNdzFwNExRZHVEQmFMZ2ZP"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"user\": {\n    \"id\": {{ $json.matchedItem.id }}\n  }\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1080,
+        0
+      ],
+      "id": "18d663b2-f504-4ffa-8a11-1236f555729e",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 1) Traemos el array del nodo anterior (tu item tiene { data: [...] })\nconst users = $input.first().json.data || [];\n\n// 2) Leemos el valor del trigger (ajustá el nombre del nodo si no es \"Webhook\")\nconst rawFromWebhook =$('Webhook').first().json.body.user_name;\n\n// 3) Normalizador para evitar falsos negativos por espacios/case/unicode\nconst norm = (s) => String(s ?? \"\")\n  .normalize(\"NFKC\")\n  .replace(/\\s+/g, \" \")   // colapsa espacios múltiples\n  .trim()\n  .toLowerCase();\n\n// 4) Normalizamos ambos lados\nconst target = norm(rawFromWebhook);\n\n// 5) Buscamos coincidencia EXACTA (normalizada)\nconst match = users.find(u => norm(u?.name) === target);\n\n// --- DEBUG opcional en la consola del navegador (verás en \"Browser console\" de n8n)\nconsole.log(\"Target (normalizado):\", target);\nif (!match) {\n  // si no encuentra exacto, mostremos posibles cercanos\n  const near = users.filter(u => norm(u?.name).includes(target)).slice(0, 5);\n  console.log(\"No hubo match exacto. Cercanos:\", near.map(u => u?.name));\n}\n\n// 6) Retornamos resultado\nreturn [{\n  json: {\n    exists: Boolean(match),\n    matchedItem: match || null\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        0
+      ],
+      "id": "c4cf244d-344e-4feb-a9de-f93de15a810d",
+      "name": "Buscar nuevo"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos la lista de usuarios desde el nodo anterior\nconst users = $('Code').first().json.data || [];\n\n// Obtenemos el email que viene desde el webhook\nconst emailToFind = $('Webhook').first().json.body.email;\n\n// Buscamos el objeto\nconst match = users.find(data => data?.email === emailToFind);\n\n// Validamos si existe\nconst exists = Boolean(match);\n\n// Retornamos si existe y el objeto (o null si no existe)\nreturn [{\n  exists,\n  matchedItem: match || null\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        900,
+        0
+      ],
+      "id": "98d42157-f0a8-44ea-bb59-c32586ed891f",
+      "name": "Buscar original"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        180,
+        0
+      ],
+      "id": "da094bd3-429e-4d34-b830-3ada6ae67cd4",
+      "name": "Wait",
+      "webhookId": "f32afa70-071c-4f64-a7ab-eb5ef29a863c"
+    },
+    {
+      "parameters": {
+        "resource": "user",
+        "operation": "update",
+        "id": "={{ $json.user.id }}",
+        "updateFields": {
+          "external_id": "={{ $(\"Webhook\").first().json.body.user_name.replace(\"Web User \", \"\") }}",
+          "userFieldsUi": {
+            "userFieldValues": [
+              {
+                "field": "last_id_sesion",
+                "value": "={{ $(\"Webhook\").first().json.body.user_name.replace(\"Web User \", \"\") }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.zendesk",
+      "typeVersion": 1,
+      "position": [
+        1260,
+        0
+      ],
+      "id": "d66ebae8-d9cb-4146-a321-72d0b90ff6fc",
+      "name": "Update a user",
+      "credentials": {
+        "zendeskApi": {
+          "id": "XDy7iD63AFkVQWCL",
+          "name": "Zendesk account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "Zendesk Webhook",
+            "accept-encoding": "gzip",
+            "max-forwards": "10",
+            "traceparent": "00-68f2c3190000000009f5a56d2148b562-09f5a56d2148b562-00",
+            "tracestate": "dd=s:-1;p:09f5a56d2148b562",
+            "x-request-id": "ea26c30d-1add-4d99-bd71-fe96fb10405e",
+            "x-zendesk-account-id": "22976773",
+            "x-zendesk-webhook-id": "01K7RDBM87WTD94RCSFMT3V2FS",
+            "x-zendesk-webhook-invocation-id": "01K7T4M778CRB0EYA7A6271YP8",
+            "x-zendesk-webhook-signature": "dUHmabsJjnZRA/kacCMmffJ247ZtiLSAXr9mauAmLow=",
+            "x-zendesk-webhook-signature-timestamp": "2025-10-17T22:28:41Z",
+            "x-arr-log-id": "e2f79450-4cfb-440e-8972-e48ba1b865c6",
+            "client-ip": "216.198.2.158:1353",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 08, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "216.198.2.158:1353",
+            "x-original-url": "/webhook/61729ef1-ac25-4dd0-a2ae-f63b28df2e27",
+            "x-waws-unencoded-url": "/webhook/61729ef1-ac25-4dd0-a2ae-f63b28df2e27",
+            "x-client-ip": "216.198.2.158",
+            "x-client-port": "1353",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "163"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "ticket_id": "3794",
+            "user_name": "Web User 68f2c2d936457609f7cf8232",
+            "email": "felipe.arangog@gmail.com",
+            "ticket_asunto": "este si",
+            "tipo": "error"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/61729ef1-ac25-4dd0-a2ae-f63b28df2e27",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-18T13:45:10.736Z",
+  "versionId": "f4b6885f-1a60-4c12-84c6-6e833d505de3"
+}
