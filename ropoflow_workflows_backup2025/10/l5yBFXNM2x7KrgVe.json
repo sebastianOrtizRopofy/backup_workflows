@@ -1,0 +1,97 @@
+{
+  "active": true,
+  "connections": {
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Get a ticket",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-21T14:53:48.025Z",
+  "id": "l5yBFXNM2x7KrgVe",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Consultar ticket",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "get",
+        "id": "={{ $json.ticketNumber }}"
+      },
+      "type": "n8n-nodes-base.zendesk",
+      "typeVersion": 1,
+      "position": [
+        320,
+        -100
+      ],
+      "id": "49c737c4-2a39-45e3-9e20-18018f98a5f1",
+      "name": "Get a ticket",
+      "credentials": {
+        "zendeskApi": {
+          "id": "XDy7iD63AFkVQWCL",
+          "name": "Zendesk account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "ef1ef4b2-2947-4307-97cb-b91676d1d256",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -120,
+        -100
+      ],
+      "id": "269d9ef0-4af9-4029-865d-2a13e5def5e2",
+      "name": "Webhook",
+      "webhookId": "ef1ef4b2-2947-4307-97cb-b91676d1d256"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos el item del nodo anterior\nconst items = $input.all();\n\n// Procesamos cada item\nfor (const item of items) {\n  const ticket = item.json.query.ticket || \"\";\n\n  // Regex: captura todo hasta el primer \" -\"\n  const match = ticket.match(/^(\\d+)\\s*-/);\n\n  // Guardamos solo el número si existe coincidencia\n  item.json.ticketNumber = match ? match[1] : null;\n}\n\nreturn items;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        120,
+        -100
+      ],
+      "id": "6537dbd5-7623-4a62-9006-dfdfae128a3e",
+      "name": "Code"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-21T15:08:35.077Z",
+  "versionId": "22e75ea0-2951-4ac6-9471-5913a5a5aada"
+}
