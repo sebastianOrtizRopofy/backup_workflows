@@ -144,11 +144,11 @@
           "parameters": [
             {
               "name": "consumer_key",
-              "value": "ck_2cd792733a169668b322011064ef7514abd2f7cc"
+              "value": "ck_8d4f2ee62c1545f962e71274df4ba8561a1f8589"
             },
             {
               "name": "consumer_secret",
-              "value": "cs_8a6e815ffdc78babd23c461f3b9e0da3cc8f4002"
+              "value": "cs_3cc397dd2791b9a8f2c68a5e50a8a0be56eca64c"
             }
           ]
         },
@@ -229,11 +229,11 @@
           "parameters": [
             {
               "name": "consumer_key",
-              "value": "ck_2cd792733a169668b322011064ef7514abd2f7cc"
+              "value": "ck_8d4f2ee62c1545f962e71274df4ba8561a1f8589"
             },
             {
               "name": "consumer_secret",
-              "value": "cs_8a6e815ffdc78babd23c461f3b9e0da3cc8f4002"
+              "value": "cs_3cc397dd2791b9a8f2c68a5e50a8a0be56eca64c"
             }
           ]
         },
@@ -568,6 +568,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-20T22:02:52.559Z",
-  "versionId": "47c036a8-2c1c-43ce-98ed-9e3fbc6bdac2"
+  "updatedAt": "2025-10-22T21:19:22.979Z",
+  "versionId": "43a6c4f0-5937-4cb8-a635-1ca2621033f6"
 }
