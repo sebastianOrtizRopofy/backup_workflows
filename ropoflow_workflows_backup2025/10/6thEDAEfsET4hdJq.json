@@ -1,0 +1,38 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-10-27T20:04:20.015Z",
+  "id": "6thEDAEfsET4hdJq",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 12",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "91e3bff6-a9b7-4d71-a23b-f8cbcf72163d",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4cbbbef8-aed4-4592-991c-4e69f748962a",
+      "name": "Webhook",
+      "webhookId": "91e3bff6-a9b7-4d71-a23b-f8cbcf72163d"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-27T20:04:20.015Z",
+  "versionId": "685515e3-fdf8-43fc-af8b-4e75f3f2e59a"
+}
