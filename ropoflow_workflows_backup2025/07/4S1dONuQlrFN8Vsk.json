@@ -76,7 +76,7 @@
         "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/cronjob/contacts",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 5 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
+        "jsonBody": "={\n  \"id_location\": \"{{ $json.location_id }}\",\n  \"date\": \"{{ $now.minus({ days: 2 }).startOf('day').toUTC().toISO() }}\",\n  \"endDate\": \"{{ $now.startOf('day').toUTC().toISO() }}\"\n}\n",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
@@ -207,6 +207,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-10T20:17:16.705Z",
-  "versionId": "c447826f-6abe-4fc6-871c-cdd2db69c747"
+  "updatedAt": "2025-10-27T13:59:03.222Z",
+  "versionId": "7214299b-6e4c-4f09-a4f8-144d3d3fee97"
 }
