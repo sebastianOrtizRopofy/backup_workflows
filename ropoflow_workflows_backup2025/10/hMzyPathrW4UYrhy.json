@@ -1,0 +1,39 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-10-28T20:17:31.620Z",
+  "id": "hMzyPathrW4UYrhy",
+  "isArchived": false,
+  "meta": null,
+  "name": "Oportunidades",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/opportunity",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a548e845-b0c3-4fbe-9cf5-019fccb789b0",
+      "name": "Webhook",
+      "webhookId": "51e0cacf-534b-4012-8114-32620103ffa5"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-28T20:17:52.676Z",
+  "versionId": "7431f49d-163d-43e1-bf56-f3f1b30c38ee"
+}
