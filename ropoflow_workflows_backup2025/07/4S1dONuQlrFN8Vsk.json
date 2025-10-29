@@ -29,6 +29,21 @@
             "node": "Sync users",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Sync CustomFields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Sync Pipelines",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Sync CustomValues",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -207,6 +222,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-27T13:59:03.222Z",
-  "versionId": "7214299b-6e4c-4f09-a4f8-144d3d3fee97"
+  "updatedAt": "2025-10-28T20:55:19.389Z",
+  "versionId": "04e544d3-96c8-48a8-8435-7eae8b6ec8fe"
 }
