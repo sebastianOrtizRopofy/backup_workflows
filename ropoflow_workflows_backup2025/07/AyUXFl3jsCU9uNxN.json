@@ -273,7 +273,9 @@
       "parameters": {
         "operation": "executeQuery",
         "query": "INSERT INTO public.messages(\n  \"id\",\n  \"type\",\n  \"messageType\",\n  \"locationId\",\n  \"contactId\",\n  \"conversationId\",\n  \"dateAdded\",\n  \"body\",\n  \"direction\",\n  \"status\",\n  \"contentType\",\n  \"attachments\",\n  \"meta\",\n  \"source\",\n  \"userId\",\n  \"updated_at\",\n  \"created_at\"\n)\nVALUES (\n  '{{ $json.id }}',\n  '{{ $json.type ?? '' }}',\n  '{{ $json.messageType ?? '' }}',\n  '{{ $json.locationId ?? '' }}',\n  '{{ $json.contactId ?? '' }}',\n  '{{ $json.conversationId ?? '' }}',\n  {{ $json.dateAdded ? `'${$json.dateAdded}'::timestamptz` : 'NULL' }},\n  '{{ ($json.body ?? '').replace(/'/g, \"''\") }}',\n  '{{ $json.direction ?? '' }}',\n  '{{ $json.status ?? '' }}',\n  '{{ $json.contentType ?? '' }}',\n  '{{ JSON.stringify($json.attachments ?? []) }}'::jsonb,\n  '{{ JSON.stringify($json.meta ?? {}) }}'::jsonb,\n  '{{ $json.source ?? '' }}',\n  '{{ $json.userId ?? '' }}',\n  '{{ $json.dateAdded ?? '' }}',\n  '{{ $json.dateAdded ?? '' }}'\n)\nON CONFLICT DO NOTHING;\n",
-        "options": {}
+        "options": {
+          "queryBatching": "independently"
+        }
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
@@ -527,6 +529,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-10-01T14:04:49.214Z",
-  "versionId": "2c040041-fc4a-40a1-805e-3c8e66ee9125"
+  "updatedAt": "2025-10-29T15:22:28.181Z",
+  "versionId": "d8709fc2-9a07-4ade-beb4-fc03289c974f"
 }
