@@ -44,6 +44,11 @@
             "node": "Sync CustomValues",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Sync lostReasons",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -66,7 +71,7 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -120,
+        -140,
         380
       ],
       "id": "2daaaf15-faa1-474a-b56f-eb750cbbf0ba",
@@ -123,6 +128,7 @@
     },
     {
       "parameters": {
+        "method": "POST",
         "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/lostReasons",
         "sendBody": true,
         "specifyBody": "json",
@@ -158,6 +164,7 @@
     },
     {
       "parameters": {
+        "method": "POST",
         "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/pipelines",
         "sendBody": true,
         "specifyBody": "json",
@@ -175,6 +182,7 @@
     },
     {
       "parameters": {
+        "method": "POST",
         "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/customFields",
         "sendBody": true,
         "specifyBody": "json",
@@ -192,6 +200,7 @@
     },
     {
       "parameters": {
+        "method": "POST",
         "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/customValues",
         "sendBody": true,
         "specifyBody": "json",
@@ -222,6 +231,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-28T20:55:19.389Z",
-  "versionId": "04e544d3-96c8-48a8-8435-7eae8b6ec8fe"
+  "updatedAt": "2025-10-29T16:02:45.999Z",
+  "versionId": "8c7b23b3-f30c-412b-9ad9-2fc581a3ce36"
 }
