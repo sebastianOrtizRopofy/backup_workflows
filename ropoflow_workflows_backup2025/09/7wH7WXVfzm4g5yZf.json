@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "consultar contacto",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -44,12 +44,32 @@
           }
         ]
       ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "consultar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-09-19T13:28:30.907Z",
   "id": "7wH7WXVfzm4g5yZf",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "contact webhook autecoblue",
   "nodes": [
     {
@@ -61,7 +81,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -380,
+        -560,
         -20
       ],
       "id": "644e3a0a-075c-4b6f-b5dd-7cf75b3dbfa6",
@@ -79,6 +99,9 @@
             {
               "key": "idLocation",
               "value": "={{ $json.body.locationId }}"
+            },
+            {
+              "key": "type"
             }
           ]
         }
@@ -86,7 +109,7 @@
       "type": "n8n-nodes-base.executionData",
       "typeVersion": 1.1,
       "position": [
-        -160,
+        -240,
         -20
       ],
       "id": "0bde7548-29da-41c7-a009-7e7f9756f6c4",
@@ -104,7 +127,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        500,
+        940,
         -20
       ],
       "id": "4b25485b-dfd8-44a9-b161-75a1cc017fce",
@@ -125,7 +148,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        280,
+        720,
         -20
       ],
       "id": "e06ca404-2e5f-4464-bc44-cddf1985dfdd",
@@ -140,7 +163,7 @@
       "type": "n8n-nodes-base.ropofy",
       "typeVersion": 2,
       "position": [
-        60,
+        500,
         -20
       ],
       "id": "3936192e-8366-40d6-96d2-d83e3e2cbba6",
@@ -154,9 +177,537 @@
           "name": "Auteco Blue MEX - app autecoblue bi"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fe9c44c2-8c35-4ab9-a740-d8544e47110a",
+              "leftValue": "={{ $json.body.type }}",
+              "rightValue": "ContactDelete",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -20,
+        -20
+      ],
+      "id": "3faed425-2305-4b48-bd26-c2a883fad80b",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "contacts",
+          "mode": "list",
+          "cachedResultName": "contacts"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "deleted": "true",
+            "id": "={{ $json.body.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "location_id",
+              "displayName": "location_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "contact_name",
+              "displayName": "contact_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "first_name",
+              "displayName": "first_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "first_name_raw",
+              "displayName": "first_name_raw",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "last_name",
+              "displayName": "last_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "last_name_raw",
+              "displayName": "last_name_raw",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "company_name",
+              "displayName": "company_name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "phone",
+              "displayName": "phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "dnd",
+              "displayName": "dnd",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "dnd_settings",
+              "displayName": "dnd_settings",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "assigned_to",
+              "displayName": "assigned_to",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "city",
+              "displayName": "city",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "state",
+              "displayName": "state",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "postal_code",
+              "displayName": "postal_code",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "address1",
+              "displayName": "address1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "date_added",
+              "displayName": "date_added",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "date_updated",
+              "displayName": "date_updated",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "date_of_birth",
+              "displayName": "date_of_birth",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "business_id",
+              "displayName": "business_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "tags",
+              "displayName": "tags",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "followers",
+              "displayName": "followers",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "country",
+              "displayName": "country",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "website",
+              "displayName": "website",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "additional_emails",
+              "displayName": "additional_emails",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "attributions",
+              "displayName": "attributions",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "custom_fields",
+              "displayName": "custom_fields",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "process",
+              "displayName": "process",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "deleted",
+              "displayName": "deleted",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        200,
+        80
+      ],
+      "id": "3534ee5e-cc70-45f3-a4c5-b7708bc62d28",
+      "name": "Update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "dYSRkbNNFYOotBwk",
+          "name": "Autecoblue DB bi"
+        }
+      }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/0.21.4",
+            "max-forwards": "10",
+            "x-wh-signature": "MzRZYRZC0d3YwpJk6/iB8txdBeaiiDA4WM6+E4Yr5PQWiha5NYQkB86ceqXH8vHzxejUQVwX+ZC0L/RMwNMxMuRypl/0JwVTmjZDj8rpoB9CSuOvFmqC9rh4AE59yxEU02V3t3uFOcJAJ2RCjr9Bogx6uEt0YzM65TU6zIKSS+tHNs47OPrOVdvkv5ydDBlmFST+5KUW1DKrybeoPyWIEGgr8r3BAvolcOmBTCquSSiogAiA5MWsa6WAMGP7nF5TCsYLJURNnd8T4+AzXazuwffxciwsn/c4K6XkP7cnbB0PZATtAGheu36R7TLL44YzfWPq1P0MwatYE/zk9W9hMFaogKNknaDZCbbmzihJMWned4AE3IZsjCE4NBx139S59syAmonLYdEX/2HCHyE3rYUZd0tUeRysGyU3uxyw+9IuIB72W/d94hnoOmbb4vXZreRORq1kLX10iFuh6T8JGILQGhnJn4GmcD5mFtt0UeqbG+LpNdUN98awfV4ZE9DNE4pJl3ZW31GJCn2rxWDT4+9aapt1nZ+u6iroSwIkDAPhSEQH3wGTsJ33VxdPzwz/4bY3+8aF8I+jW9heHnKx6OF1YSF8njdRC4qVoFlqOFfWLd3aOO4aGDr8GaZ365fy8+eyGziDx189AqA0AsFYX0Gnxb8JtVDU8wBkZtNVMZA=",
+            "x-arr-log-id": "26b958a5-afd6-4d33-b20d-34124f548c5b",
+            "client-ip": "130.211.204.71:56806",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 08, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "130.211.204.71:56806",
+            "x-original-url": "/webhook/auteco/contacts",
+            "x-waws-unencoded-url": "/webhook/auteco/contacts",
+            "x-client-ip": "130.211.204.71",
+            "x-client-port": "56806",
+            "content-type": "application/json",
+            "content-length": "1405"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "ContactDelete",
+            "locationId": "rJVQMiUdtLFfBO0aToyU",
+            "versionId": "68cd5af0f13a2cf8bb164a14",
+            "appId": "68cd5af0f13a2cf8bb164a14",
+            "id": "AIR63Y9KTKBPpqlQyfVM",
+            "firstName": "sebas",
+            "lastName": "ropofy",
+            "phone": "+573182014502",
+            "additionalPhones": [],
+            "source": "nueva cotizacion",
+            "assignedTo": "sKcZ5bQRwSpJ5wJWWTGZ",
+            "tags": [],
+            "country": "MX",
+            "dateAdded": "2025-10-17T14:06:49.670Z",
+            "customFields": [
+              {
+                "id": "6WaoiaDivkBAf0k9PwLV",
+                "value": "10QrRewhA6bydw0lA6yc"
+              },
+              {
+                "id": "D7O6Nfr1Ja59i7PUgyaB",
+                "value": "E-truck 4.0MT 2024"
+              },
+              {
+                "id": "QKPJEjK7Vm33oR6Aai3n",
+                "value": "No aplica"
+              },
+              {
+                "id": "Vqb4lFwjCSjIsNpzJrKn",
+                "value": "Sebas Ropofy"
+              },
+              {
+                "id": "bJMJSst4ar6c89EuJuOK",
+                "value": 0
+              },
+              {
+                "id": "dIeHo05GkOgpA3m2aLRE",
+                "value": "681d09d2e996efd9114bfee4"
+              },
+              {
+                "id": "jmAsVj76dlD6PVM8PAe6",
+                "value": 0
+              },
+              {
+                "id": "kzvnFyf8WgHSEKz65F6R",
+                "value": "https://app.gohighlevel.com/v2/preview/0XlnKG8li5htqBdKZtJ6?oportunidad=10QrRewhA6bydw0lA6yc&page=0"
+              },
+              {
+                "id": "mKQ4nOdxF8Lt4aTxZGKc",
+                "value": 1167629
+              },
+              {
+                "id": "pLGfOYjGrQdCeIjNzggB",
+                "value": "Daniel Zapata"
+              },
+              {
+                "id": "t91CrVqGk0oWOtj3r9ng",
+                "value": 16
+              },
+              {
+                "id": "yYf5jetR1VmE4yWOQ0LE",
+                "value": 1167629
+              },
+              {
+                "id": "pDYMGbs4fsGF5ryGzWw5",
+                "value": "https://app.gohighlevel.com/v2/preview/0XlnKG8li5htqBdKZtJ6?oportunidad=10QrRewhA6bydw0lA6yc&page=0"
+              }
+            ],
+            "attributionSource": {
+              "medium": "conversation",
+              "mediumId": null,
+              "sessionSource": "CRM UI"
+            },
+            "timestamp": "2025-10-29T19:41:31.561Z",
+            "webhookId": "e142583a-e990-474c-9a4d-a2af4c49407d"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/auteco/contacts",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -166,6 +717,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-09-23T14:55:34.883Z",
-  "versionId": "a3124b6a-b5c9-444d-b4c5-b8b7a3ce6f5e"
+  "updatedAt": "2025-10-29T19:43:25.754Z",
+  "versionId": "99a47896-300f-4ae6-b544-eeac19d69cae"
 }
