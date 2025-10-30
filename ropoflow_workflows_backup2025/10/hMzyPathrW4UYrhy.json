@@ -3,7 +3,7 @@
   "connections": {},
   "createdAt": "2025-10-28T20:17:31.620Z",
   "id": "hMzyPathrW4UYrhy",
-  "isArchived": false,
+  "isArchived": true,
   "meta": null,
   "name": "Oportunidades",
   "nodes": [
@@ -34,6 +34,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-10-28T20:17:52.676Z",
-  "versionId": "7431f49d-163d-43e1-bf56-f3f1b30c38ee"
+  "updatedAt": "2025-10-29T15:02:17.859Z",
+  "versionId": "12128d85-0d3f-4ca1-8a6d-22b0945e3a04"
 }
