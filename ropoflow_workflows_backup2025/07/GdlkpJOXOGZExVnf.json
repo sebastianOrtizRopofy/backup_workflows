@@ -76,7 +76,7 @@
     },
     {
       "parameters": {
-        "url": "=https://backend.leadconnectorhq.com/opportunities/lost-reason?locationId={{ $('Webhook').item.json.body.id_location }}",
+        "url": "=https://backend.leadconnectorhq.com/opportunities/lost-reason?locationId={{ $json.location_id }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -193,7 +193,46 @@
       "name": "Code3"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json,text/html,application/xhtml+xml,application/xml,text/*;q=0.9, image/*;q=0.8, */*;q=0.7",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/1.8.3",
+            "accept-encoding": "gzip, compress, deflate, br",
+            "max-forwards": "10",
+            "x-arr-log-id": "47338165-cbed-4a15-a1c3-796433d5d58f",
+            "client-ip": "130.107.238.212:54738",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 08, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "130.107.238.212:54738",
+            "x-original-url": "/webhook/config/lostReasons",
+            "x-waws-unencoded-url": "/webhook/config/lostReasons",
+            "x-client-ip": "130.107.238.212",
+            "x-client-port": "54738",
+            "content-type": "application/json",
+            "content-length": "109"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "id_location": "rJVQMiUdtLFfBO0aToyU",
+            "date": "2025-10-29T04:00:00.000Z",
+            "endDate": "2025-10-30T04:00:00.000Z"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/config/lostReasons",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -203,6 +242,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-07-28T13:23:51.497Z",
-  "versionId": "271f3f90-49e2-4170-8b8a-0ca3f7c2c2cc"
+  "updatedAt": "2025-10-30T16:21:57.911Z",
+  "versionId": "806eb7d4-49cb-483a-838e-7d0ab4fc8246"
 }
