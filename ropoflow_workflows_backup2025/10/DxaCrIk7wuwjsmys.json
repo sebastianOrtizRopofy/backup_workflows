@@ -9,6 +9,13 @@
             "type": "main",
             "index": 0
           }
+        ],
+        [
+          {
+            "node": "Create chat message",
+            "type": "main",
+            "index": 0
+          }
         ]
       ]
     },
@@ -28,6 +35,13 @@
         [
           {
             "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create chat message",
             "type": "main",
             "index": 0
           }
@@ -101,7 +115,8 @@
           "id": "tfjc18K49daMASdp",
           "name": "Base de datos APIS"
         }
-      }
+      },
+      "onError": "continueErrorOutput"
     },
     {
       "parameters": {
@@ -137,12 +152,15 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        360,
+        380,
         0
       ],
       "id": "36fa88a3-e595-4ce6-8512-7d62da0bbd82",
       "name": "obtener usuarios",
-      "alwaysOutputData": false
+      "alwaysOutputData": false,
+      "retryOnFail": true,
+      "waitBetweenTries": 2000,
+      "onError": "continueErrorOutput"
     },
     {
       "parameters": {
@@ -156,9 +174,80 @@
       ],
       "id": "9d7a5029-d39b-4458-a085-801f7b3bc62c",
       "name": "Code"
+    },
+    {
+      "parameters": {
+        "resource": "chatMessage",
+        "chatId": {
+          "__rl": true,
+          "value": "19:ec02bea368b3402882b2d90fa1e9ee6a@thread.v2",
+          "mode": "list",
+          "cachedResultName": "📊🔔 Notificaciones Integraciones (group)",
+          "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Aec02bea368b3402882b2d90fa1e9ee6a%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
+        },
+        "message": "=🚨 Ocurrió un error en el flujo de identificación de correo de zendesk.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        580,
+        180
+      ],
+      "id": "33011566-31c8-4625-aa9e-0e71bb6dcba2",
+      "name": "Create chat message",
+      "webhookId": "eadd561f-7289-4b70-8d5d-5cd4dfef3a47",
+      "executeOnce": true,
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "ZN6rkGlpvuVkKKom",
+          "name": "Microsoft Teams account"
+        }
+      }
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "ZIS-Engine/1.0",
+            "accept-encoding": "gzip",
+            "max-forwards": "10",
+            "traceparent": "00-00000000000000005f8d8524e6c97abf-50c1af9c81dbaf1b-00",
+            "tracestate": "dd=s:0;p:50c1af9c81dbaf1b",
+            "x-request-id": "e5ff29d7-d4e6-4dec-9d30-1f513247c058",
+            "x-zis-authorization": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aXMiLCJleHAiOjE3NjI3ODc0NzAsImlhdCI6MTc2Mjc4NzE3MH0.q6FtgSyRyOib-YfAViIyJGCJury4EquuGuchi-jR9rZImrAjUw_eNMws6n03L53wXPhzwEgltOifA8eut2h8ldc2_gdoWHmfymuBL1miOeMdcZ1NQmFJA6_12SLfwZw6SifN4P-fHyEfkxqCzYewT2l8NNDz_5jPCAvcWVuX8IZn782e75kjw00f78_ZXIvB-ytrkmbZ1lIkb5jmZFe753d6tDJeM5B0JXoOx3Klxo1sSVdIvjaKzeP7j85Zl54-U5sjKHB1kbicm0-kTgWxY_Gn7dhsRxZ7N_Uutdwd0gbVmYxFRiKndT-wLla19j9ryYFIbaQBnTISKt8Mv0oCIg",
+            "x-arr-log-id": "7791d4d5-afc5-420f-9fc2-b1fb147e98c2",
+            "client-ip": "216.198.2.195:59123",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 08, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "216.198.2.195:59123",
+            "x-original-url": "/webhook/f02939af-fd65-4ba7-b79b-79d20dfd36da?email=felipe.arangog%40gmail.com",
+            "x-waws-unencoded-url": "/webhook/f02939af-fd65-4ba7-b79b-79d20dfd36da?email=felipe.arangog%40gmail.com",
+            "x-client-ip": "216.198.2.195",
+            "x-client-port": "59123",
+            "content-type": "application/json",
+            "content-length": "5"
+          },
+          "params": {},
+          "query": {
+            "email": "felipe.arangog@gmail.com"
+          },
+          "body": {},
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/f02939af-fd65-4ba7-b79b-79d20dfd36da",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -168,6 +257,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-17T20:16:34.254Z",
-  "versionId": "13333682-f6fd-4592-a1a2-80ec7f7972f9"
+  "updatedAt": "2025-11-10T15:28:33.289Z",
+  "versionId": "a0ebc78d-d6bd-4da9-9d5a-6aff828bc8ea"
 }
