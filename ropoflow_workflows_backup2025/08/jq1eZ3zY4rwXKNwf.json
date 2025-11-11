@@ -2278,6 +2278,19 @@
       "id": "8f6151cc-6565-4fc9-b028-030d9a574244",
       "name": "Wait1",
       "webhookId": "30590bbe-ae07-4001-b38a-6dfaa7415dd9"
+    },
+    {
+      "parameters": {
+        "content": "Este flujo se ejecuta cuando desde el proyecto apis, llega un lead (no se cambió la url a este webhook ya que impulsa tiene mapeada la de apis)."
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1120,
+        -320
+      ],
+      "typeVersion": 1,
+      "id": "3632ab9b-6407-4275-8fe0-bfbd0f27cd2e",
+      "name": "Sticky Note2"
     }
   ],
   "pinData": {
@@ -2351,6 +2364,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-10-17T16:49:24.052Z",
-  "versionId": "9442061c-2360-4e4b-b6e8-f3275c1034ac"
+  "updatedAt": "2025-11-10T14:00:49.215Z",
+  "versionId": "6a7de54e-2245-4116-abf7-7ecd09ceeb73"
 }
