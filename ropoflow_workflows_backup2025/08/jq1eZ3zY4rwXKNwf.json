@@ -595,6 +595,10 @@
             {
               "key": "phone",
               "value": "={{ $json.body.Telefono2 }}"
+            },
+            {
+              "key": "Estado",
+              "value": "={{ $json.body.Estado }}"
             }
           ]
         }
@@ -2364,6 +2368,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-10T14:00:49.215Z",
-  "versionId": "6a7de54e-2245-4116-abf7-7ecd09ceeb73"
+  "updatedAt": "2025-11-19T19:52:11.159Z",
+  "versionId": "b81e4c72-2868-42e2-8b79-8e4ee01d243e"
 }
