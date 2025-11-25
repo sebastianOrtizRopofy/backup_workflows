@@ -1,0 +1,85 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-24T15:18:33.361Z",
+  "id": "7j04Wtd36Q7xuDlB",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 14",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ca725ab9-4772-468a-abce-287373c9cbb4",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/opportunities/G5xDMGr07xRE6aSH1IYR",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "ropofyOAuth2Api",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "756586fe-ae85-4499-acde-d8578332bee1",
+      "name": "HTTP Request",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "gXPklN8f2wS7jUkF",
+          "name": "zzDesarrollo"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-24T15:18:33.361Z",
+  "versionId": "4ce71424-3802-4b48-ab89-9a7603a9e0d2"
+}
