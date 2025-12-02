@@ -1,0 +1,138 @@
+{
+  "active": true,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-01T21:45:13.346Z",
+  "id": "DQmgZ1S7QfQU7p0f",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Api Clientes con Boosters",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -40,
+        -160
+      ],
+      "id": "46b4ef9c-2fa7-42e5-9a09-b7015401bed2",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "2668ba98-4c4c-80ca-85e6-e58149118e95",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://www.notion.so/2668ba984c4c80ca85e6e58149118e95"
+        },
+        "returnAll": true,
+        "filterType": "manual",
+        "filters": {
+          "conditions": [
+            {
+              "key": "Disponibles|formula",
+              "condition": "greater_than",
+              "returnType": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        300,
+        -40
+      ],
+      "id": "930a63b8-a687-48dc-8898-9b4ded840e20",
+      "name": "Get many database pages",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "path": "cliente-con-boosters",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -60,
+        40
+      ],
+      "id": "7a468706-2765-489f-879a-98eb81357547",
+      "name": "Webhook",
+      "webhookId": "06a20112-9a83-482f-9c7d-ac86a23760df"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtenemos todos los items del nodo anterior\nconst items = $input.all();\n\n// Creamos un array para almacenar los datos\nconst result = [];\n\n// Iteramos sobre los items y los agregamos al array\nitems.forEach(item => {\n    result.push(item.json);\n});\n\n// Devolvemos el JSON con el array\nreturn [\n    {\n        json: {\n            data: result\n        }\n    }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        -40
+      ],
+      "id": "a63c964b-e6fe-4c28-93cd-acc7c9120721",
+      "name": "Code"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-12-01T22:22:00.152Z",
+  "versionId": "b8265ec7-4444-4b72-bb12-d0539c082274"
+}
