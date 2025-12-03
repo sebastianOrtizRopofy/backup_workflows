@@ -111,7 +111,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Obtenemos todos los items del nodo anterior\nconst items = $input.all();\n\n// Creamos un array para almacenar los datos\nconst result = [];\n\n// Iteramos sobre los items y los agregamos al array\nitems.forEach(item => {\n    result.push(item.json);\n});\n\n// Devolvemos el JSON con el array\nreturn [\n    {\n        json: {\n            data: result\n        }\n    }\n];\n"
+        "jsCode": "// Obtenemos todos los items del nodo anterior\nconst items = $input.all();\n\n// Creamos un array para almacenar los datos filtrados\nconst result = [];\n\n// Iteramos sobre los items y extraemos solo las propiedades requeridas\nitems.forEach(item => {\n    result.push({\n        name: item.json.name,\n        property_id_cliente: item.json.property_id_cliente,\n        property_disponibles: item.json.property_disponibles\n    });\n});\n\n// Devolvemos el JSON con el array filtrado\nreturn [\n    {\n        json: {\n            data: result\n        }\n    }\n];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -133,6 +133,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-01T22:22:00.152Z",
-  "versionId": "b8265ec7-4444-4b72-bb12-d0539c082274"
+  "updatedAt": "2025-12-02T13:51:32.614Z",
+  "versionId": "aa2c8287-82c5-41b6-a133-b0e59a487935"
 }
