@@ -32,15 +32,96 @@
     },
     {
       "parameters": {
-        "url": "https://services.leadconnectorhq.com/opportunities/G5xDMGr07xRE6aSH1IYR",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "ropofyOAuth2Api",
+        "url": "https://backend.leadconnectorhq.com/users/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "companyId",
+              "value": "1XnoZddSkArrsZCIiiZE"
+            },
+            {
+              "name": "query"
+            },
+            {
+              "name": "limit",
+              "value": "10"
+            },
+            {
+              "name": "skip",
+              "value": "0"
+            },
+            {
+              "name": "ids"
+            }
+          ]
+        },
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
-              "name": "Accept",
-              "value": "application/json"
+              "name": "accept",
+              "value": "application/json, text/plain, */*"
+            },
+            {
+              "name": "accept-language",
+              "value": "es-CO,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6"
+            },
+            {
+              "name": "authorization",
+              "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoQ2xhc3MiOiJVc2VyIiwiYXV0aENsYXNzSWQiOiJBTHB4cVVIZ2NGRnNCbGlVeXRNaiIsImNoYW5uZWwiOiJBUFAiLCJzb3VyY2UiOiJXRUJfVVNFUiIsInNvdXJjZUlkIjoiQUxweHFVSGdjRkZzQmxpVXl0TWoiLCJwcmltYXJ5QXV0aENsYXNzSWQiOiJBTHB4cVVIZ2NGRnNCbGlVeXRNaiIsImFwcE1ldGEiOnt9LCJpYXQiOjE3NjU1NzI1NDQuMTA2LCJleHAiOjE3NjU1NzYxNDQuMTA2LCJ1bmlxdWVJZCI6ImRjYWRkNjg0LTE2ZTMtNDgwOS1hMGFmLTU3NWEzMDk4ZWUxMSIsInYiOiIyIiwianRpIjoiNjkzYzdmYzA3MjA0YTQzODdiNDU1N2E2In0.Dg6TggBrBDCV16TwFFOGeRFyG_as1kqdF7Rm19wX5hrddn1uAHrUjNmSyNwVMWHk0SqRyB7A4ItcHmMqhGe_gK0_tOy1juOLR-CUp9F06PpXMPF8jcgTUvS-dUoYRQ5fWQrhw94IcWytUjtI8FvoirF1DYVDCtsKxP9pExUGtu-Mus87ubCkvkAje8kAcqZ70Plktd8x2Ms8_xgCKDviF6pJz5ki4J5TQumxC3SZQ_zp1-cLM8OpjcbKs4qH1xBsEZwRjGMFlRt2xY17c45nHjsBmjM3rwIsz3yd_iQ48hHFSflusQZ6az8ZXjOzFmQjS-xkYU1tbIUYUOZbVR9bxmjTg3ZyR0Q79zXhxC4UBhaanhizxkxhjwSSVvUcbyhthEnjEqmCdTqQ7Gh3M4oXt05AyLOh7GXuM7_4h7dpqsD5jyncgrrM6HIo7ZhvRSFM-AEC950Nw4VvZS0f2X6FU4wPcJY487rrr2wvg49OJkvnCOw2EIwrQUpzPx6mBbg_DNodrP72oTJDYICf07b6GCd2sxtkBXjZG1AhG15kmQ1iQ_GHLTcUPqsQSSeIw9Ea5hj-aT7aLiNBGfqX7rFOHX9CxMzjtUR395bb4cs2IJ7_iuT0D59OTrdY7XfgzPRagJLelqLQvlXt2rd9Ei-OEvOs0JEGTyDtQ2waypQu3JM"
+            },
+            {
+              "name": "channel",
+              "value": "APP"
+            },
+            {
+              "name": "origin",
+              "value": "https://client-app-crm-settings.leadconnectorhq.com"
+            },
+            {
+              "name": "priority",
+              "value": "u=1, i"
+            },
+            {
+              "name": "referer",
+              "value": "https://client-app-crm-settings.leadconnectorhq.com/"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Google Chrome\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "empty"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "cors"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "same-site"
+            },
+            {
+              "name": "source",
+              "value": "WEB_USER"
+            },
+            {
+              "name": "token-id",
+              "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjM4MTFiMDdmMjhiODQxZjRiNDllNDgyNTg1ZmQ2NmQ1NWUzOGRiNWQiLCJ0eXAiOiJKV1QifQ.eyJ1c2VyX2lkIjoiQUxweHFVSGdjRkZzQmxpVXl0TWoiLCJjb21wYW55X2lkIjoiMVhub1pkZFNrQXJyc1pDSWlpWkUiLCJyb2xlIjoiYWRtaW4iLCJ0eXBlIjoiYWdlbmN5IiwibG9jYXRpb25zIjpbIklIbFlQNEoxbG0wanZxaEhyWG1rIiwiM1lHZ3hxdmU2Y0FCakUwS0NqTHMiLCJKd1ZaUm9hbHhESmdhVFRKWjRnZiIsInM2aHg5RnVNQ3JLaGtLYXgybEhEIiwiVFlnUzk2bUZQUFFMeDBmSlVlVmciLCJYSFFYRkh2N1pnd2ZUaHQ5MUM3YSIsImd3eG5RUDBqZVY5OGtoRlpETlNrIiwiUUxYMkgwUGk4dEdUajltVm9sWUciLCJTNWdpbUNyZ3poSEpIZ2dWWHVZbSIsIlBtN2FETDJybTlJNHpGeThySTFHIiwickpWUU1pVWR0TEZmQk8wYVRveVUiLCJIU1dCR2JaNzBXR3pVWUxCSjFEcCIsInlxeEdkMElSdmc5M3l4dHJKOUFPIiwiRDdQTlhpNmdEZUNvUjI3M1I0TEQiLCJHTjUyekE4Wk0zR25Ba0Q3c1J6bCIsIkZSbEdRckoxREV3YzAybHBtajc0IiwiTHFHZkFtbk45dXRWd1ZPNFVua3ciLCJSSFY1dmRNV1ptaXNUdmYweWRyMCJdLCJ2ZXJzaW9uIjoyLCJwZXJtaXNzaW9ucyI6eyJ3b3JrZmxvd3NfZW5hYmxlZCI6dHJ1ZSwid29ya2Zsb3dzX3JlYWRfb25seSI6ZmFsc2V9LCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vaGlnaGxldmVsLWJhY2tlbmQiLCJhdWQiOiJoaWdobGV2ZWwtYmFja2VuZCIsImF1dGhfdGltZSI6MTc2NTU1NTg1NCwic3ViIjoiQUxweHFVSGdjRkZzQmxpVXl0TWoiLCJpYXQiOjE3NjU1NzIzNTksImV4cCI6MTc2NTU3NTk1OSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6e30sInNpZ25faW5fcHJvdmlkZXIiOiJjdXN0b20ifX0.ND6ndADyYiND-_nDlG31rjOsiypUtEeHZfUE-PkN-ShtQ6C-uBKOy_awNzwrG89hH9gwGz3-tlFhHYBjANl3sEn8RFDnEPrkCfNHTj4ki5V4GqcBVaWMrHzgCoJV_KdDr_3g2YLMxw7DF4fijrRuT7xARXxf9zL5v7CKuUkPNgIMFlgzngHqIeptEjoxgK-WAxMcXXsjDAkhYynNKRFMWFFrBulKAUwK2OCAb4WypghQc1UbaufRFJqklJ1SHxAFiyumjXbg79gZILNN8BXuGFPQ_FfzzZJ0dyZjJjWgJJVPr1EUUuuLGZpK9sMRW9FDiVcz48yGM1FU9vY6aKCVdQ"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36"
             },
             {
               "name": "Version",
@@ -60,14 +141,8 @@
         220,
         0
       ],
-      "id": "756586fe-ae85-4499-acde-d8578332bee1",
-      "name": "HTTP Request",
-      "credentials": {
-        "ropofyOAuth2Api": {
-          "id": "gXPklN8f2wS7jUkF",
-          "name": "zzDesarrollo"
-        }
-      }
+      "id": "5197d78d-5230-46ff-a75b-7dfdf3024e92",
+      "name": "HTTP Request"
     }
   ],
   "pinData": {},
@@ -80,6 +155,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-11-24T15:18:33.361Z",
-  "versionId": "4ce71424-3802-4b48-ab89-9a7603a9e0d2"
+  "updatedAt": "2025-12-12T21:16:08.465Z",
+  "versionId": "4ed484fa-c3ea-49db-8151-b3d6426791f7"
 }
