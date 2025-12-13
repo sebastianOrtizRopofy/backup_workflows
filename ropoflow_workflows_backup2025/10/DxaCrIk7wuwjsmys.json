@@ -1,29 +1,11 @@
 {
   "active": true,
   "connections": {
-    "obtener token": {
-      "main": [
-        [
-          {
-            "node": "obtener usuarios",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Create chat message",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Webhook": {
       "main": [
         [
           {
-            "node": "obtener token",
+            "node": "Search a user",
             "type": "main",
             "index": 0
           }
@@ -32,9 +14,20 @@
     },
     "obtener usuarios": {
       "main": [
+        [],
+        []
+      ]
+    },
+    "Code": {
+      "main": [
+        []
+      ]
+    },
+    "Search a user": {
+      "main": [
         [
           {
-            "node": "Code",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -48,16 +41,31 @@
         ]
       ]
     },
-    "Code": {
+    "If": {
       "main": [
-        []
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
   "createdAt": "2025-10-16T21:04:06.349Z",
   "id": "DxaCrIk7wuwjsmys",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "identificarse",
   "nodes": [
     {
@@ -70,53 +78,12 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        0,
+        -220,
         0
       ],
       "id": "1245317c-7cb6-471f-aba2-f22724d3b64d",
       "name": "Webhook",
       "webhookId": "f02939af-fd65-4ba7-b79b-79d20dfd36da"
-    },
-    {
-      "parameters": {
-        "operation": "select",
-        "schema": {
-          "__rl": true,
-          "mode": "list",
-          "value": "public"
-        },
-        "table": {
-          "__rl": true,
-          "value": "system_ropofy_agencies",
-          "mode": "list",
-          "cachedResultName": "system_ropofy_agencies"
-        },
-        "where": {
-          "values": [
-            {
-              "column": "id",
-              "value": "f5164e55-1b66-4639-b073-7e360193124a"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        180,
-        0
-      ],
-      "id": "eed2bc1c-ba9c-4212-a851-62b5fbf75a2a",
-      "name": "obtener token",
-      "executeOnce": true,
-      "credentials": {
-        "postgres": {
-          "id": "tfjc18K49daMASdp",
-          "name": "Base de datos APIS"
-        }
-      },
-      "onError": "continueErrorOutput"
     },
     {
       "parameters": {
@@ -152,8 +119,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        380,
-        0
+        1100,
+        -120
       ],
       "id": "36fa88a3-e595-4ce6-8512-7d62da0bbd82",
       "name": "obtener usuarios",
@@ -164,13 +131,13 @@
     },
     {
       "parameters": {
-        "jsCode": "// Obtenemos la lista de usuarios desde el nodo anterior\nconst users = $('obtener usuarios').first().json.users || [];\n\n// Obtenemos el email que viene desde el webhook y lo pasamos a minúsculas\nconst emailToFind = ($('Webhook').first().json.query?.email || '').toLowerCase();\n\n// Validamos si existe (convirtiendo también cada email de los usuarios a minúsculas)\nconst exists = users.some(user => (user?.email || '').toLowerCase() === emailToFind);\n\n// Retornamos true o false\nreturn [{ exists }];\n"
+        "jsCode": "// Obtenemos la lista de usuarios desde el nodo anterior\nconst users = $('Get many users').first().json.users || [];\n\n// Obtenemos el email que viene desde el webhook y lo pasamos a minúsculas\nconst emailToFind = ($('Webhook').first().json.query?.email || '').toLowerCase();\n\n// Validamos si existe (convirtiendo también cada email de los usuarios a minúsculas)\nconst exists = users.some(user => (user?.email || '').toLowerCase() === emailToFind);\n\n// Retornamos true o false\nreturn [{ exists }];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        580,
-        0
+        1100,
+        20
       ],
       "id": "9d7a5029-d39b-4458-a085-801f7b3bc62c",
       "name": "Code"
@@ -191,8 +158,8 @@
       "type": "n8n-nodes-base.microsoftTeams",
       "typeVersion": 2,
       "position": [
-        580,
-        180
+        280,
+        260
       ],
       "id": "33011566-31c8-4625-aa9e-0e71bb6dcba2",
       "name": "Create chat message",
@@ -204,6 +171,93 @@
           "name": "Microsoft Teams account"
         }
       }
+    },
+    {
+      "parameters": {
+        "resource": "user",
+        "operation": "search",
+        "limit": 1,
+        "filters": {
+          "query": "={{ $json.query.email }}"
+        }
+      },
+      "type": "n8n-nodes-base.zendesk",
+      "typeVersion": 1,
+      "position": [
+        40,
+        0
+      ],
+      "id": "1c0a561a-c171-4777-8967-a30e02e867c2",
+      "name": "Search a user",
+      "alwaysOutputData": true,
+      "retryOnFail": true,
+      "credentials": {
+        "zendeskApi": {
+          "id": "XDy7iD63AFkVQWCL",
+          "name": "Zendesk account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "36b3eff6-7668-4826-8fb7-47d07b2c5876",
+              "leftValue": "={{ $json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        280,
+        -20
+      ],
+      "id": "64e17777-510a-4529-b233-08a6e092c4db",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ exists: false }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        100
+      ],
+      "id": "7f2d8307-b0eb-4859-8ec9-e196698c4563",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ exists: true }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        500,
+        -100
+      ],
+      "id": "b81a6f49-7e60-49fa-a0ce-736b8e7ad3f0",
+      "name": "Code2"
     }
   ],
   "pinData": {
@@ -216,12 +270,12 @@
             "user-agent": "ZIS-Engine/1.0",
             "accept-encoding": "gzip",
             "max-forwards": "10",
-            "traceparent": "00-00000000000000005f8d8524e6c97abf-50c1af9c81dbaf1b-00",
-            "tracestate": "dd=s:0;p:50c1af9c81dbaf1b",
-            "x-request-id": "e5ff29d7-d4e6-4dec-9d30-1f513247c058",
-            "x-zis-authorization": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aXMiLCJleHAiOjE3NjI3ODc0NzAsImlhdCI6MTc2Mjc4NzE3MH0.q6FtgSyRyOib-YfAViIyJGCJury4EquuGuchi-jR9rZImrAjUw_eNMws6n03L53wXPhzwEgltOifA8eut2h8ldc2_gdoWHmfymuBL1miOeMdcZ1NQmFJA6_12SLfwZw6SifN4P-fHyEfkxqCzYewT2l8NNDz_5jPCAvcWVuX8IZn782e75kjw00f78_ZXIvB-ytrkmbZ1lIkb5jmZFe753d6tDJeM5B0JXoOx3Klxo1sSVdIvjaKzeP7j85Zl54-U5sjKHB1kbicm0-kTgWxY_Gn7dhsRxZ7N_Uutdwd0gbVmYxFRiKndT-wLla19j9ryYFIbaQBnTISKt8Mv0oCIg",
-            "x-arr-log-id": "7791d4d5-afc5-420f-9fc2-b1fb147e98c2",
-            "client-ip": "216.198.2.195:59123",
+            "traceparent": "00-0000000000000000275bd1eef73ff29d-5d6069a14bc33360-00",
+            "tracestate": "dd=s:0;p:5d6069a14bc33360",
+            "x-request-id": "b1361f8b-95f4-41bf-9e1e-9507d8dd1c54",
+            "x-zis-authorization": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aXMiLCJleHAiOjE3NjU1NzU3NzMsImlhdCI6MTc2NTU3NTQ3M30.O2UhpVb-IKlyX3RPOQ6cuQfvAHh9_R1dN3oNTgX_sCh9JXO4ez8gUWqmyZUNm9wmyi8Rfz81P3qNfCYl7OCXxJD6xr5BJ7Nu6loz3qNQvPoi19uLEBi2tiW8bpJAz0qzntSjoD5yhDBtRCSbU9A4daeTozgghhbsXKj5T0TjuXuebNKAIKuN8dXEYo0D3Tvmhoy87KDE_L4EjvbuXyqu2SGdOVL-rlME4bPhq2wAq23aU-Zq9KjwMz1SjyHuqsg3BIWOcxKrVaGST3vUMJs6WQqQzUicm7GcgkmbWM7Xcijpzp5PtkYTx3oB8jxwbrqyGOyFVaMYzK08xaFFdZAJUg",
+            "x-arr-log-id": "de46cdfd-87a9-4412-83b7-942300b2968a",
+            "client-ip": "216.198.2.146:23038",
             "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "x-site-deployment-id": "ropoflow",
             "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
@@ -229,17 +283,17 @@
             "x-appservice-proto": "https",
             "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 08, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
             "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "216.198.2.195:59123",
-            "x-original-url": "/webhook/f02939af-fd65-4ba7-b79b-79d20dfd36da?email=felipe.arangog%40gmail.com",
-            "x-waws-unencoded-url": "/webhook/f02939af-fd65-4ba7-b79b-79d20dfd36da?email=felipe.arangog%40gmail.com",
-            "x-client-ip": "216.198.2.195",
-            "x-client-port": "59123",
+            "x-forwarded-for": "216.198.2.146:23038",
+            "x-original-url": "/webhook/f02939af-fd65-4ba7-b79b-79d20dfd36da?email=felipe%40bike2web.com",
+            "x-waws-unencoded-url": "/webhook/f02939af-fd65-4ba7-b79b-79d20dfd36da?email=felipe%40bike2web.com",
+            "x-client-ip": "216.198.2.146",
+            "x-client-port": "23038",
             "content-type": "application/json",
             "content-length": "5"
           },
           "params": {},
           "query": {
-            "email": "felipe.arangog@gmail.com"
+            "email": "felipe@bike2web.com"
           },
           "body": {},
           "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/f02939af-fd65-4ba7-b79b-79d20dfd36da",
@@ -257,6 +311,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-10T15:28:33.289Z",
-  "versionId": "a0ebc78d-d6bd-4da9-9d5a-6aff828bc8ea"
+  "updatedAt": "2025-12-12T21:39:16.484Z",
+  "versionId": "0b3d5e0f-d22c-4913-9136-74510edf367e"
 }
