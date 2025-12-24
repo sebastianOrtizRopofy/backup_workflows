@@ -1,0 +1,1262 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "traer notas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "encontrar contacto": {
+      "main": [
+        [
+          {
+            "node": "Existe id_ropofy ya asignado?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Existe id_ropofy ya asignado?": {
+      "main": [
+        [
+          {
+            "node": "Es la subcuenta?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Es la subcuenta?": {
+      "main": [
+        [
+          {
+            "node": "obtener contacto subcuenta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "procesar comentarios",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "procesar nota",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear nota en la principal": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "traer notas": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "poner como procesado": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "encontrar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear nota en la principal1": {
+      "main": [
+        [
+          {
+            "node": "Replace Me1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "juntar ids notas creadas1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "procesar nota": {
+      "main": [
+        [
+          {
+            "node": "crear nota en la principal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "procesar comentarios": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "procesar nota1": {
+      "main": [
+        [
+          {
+            "node": "crear nota en la subcuenta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "procesar comentarios1": {
+      "main": [
+        [
+          {
+            "node": "crear nota en al subcuenta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "juntar ids notas creadas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "juntar ids notas creadas": {
+      "main": [
+        [
+          {
+            "node": "poner como procesado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "juntar ids notas creadas1": {
+      "main": [
+        [
+          {
+            "node": "poner como procesado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear nota en la subcuenta": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear nota en al subcuenta": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "obtener contacto subcuenta": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "procesar nota1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "procesar comentarios1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "devolver todas las notas guardadas en ropo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "devolver todas las notas guardadas en ropo": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "crear nota en la principal1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-22T13:24:56.844Z",
+  "id": "cHMTLOoappKpjMsx",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "postgres -> ropofy notas",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -200,
+        -365
+      ],
+      "id": "d3b56d72-e9bd-4921-bf21-da5d72b997e9",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        240,
+        -365
+      ],
+      "id": "0b9427eb-2ed7-4cc0-8471-81960ab53de7",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        3660,
+        -200
+      ],
+      "id": "3335009e-69c4-40ef-b58e-0ee603119776"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "contacts_bluestudies",
+          "mode": "list",
+          "cachedResultName": "contacts_bluestudies"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "id",
+              "value": "={{ $json.object_id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        680,
+        -540
+      ],
+      "id": "7d985675-e540-494f-aa46-0335cf49097e",
+      "name": "encontrar contacto",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c01b91ca-bd7f-429e-bb5a-ca5cd860a807",
+              "leftValue": "={{ $json.id_ropofy }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        900,
+        -540
+      ],
+      "id": "d2a55cf2-9de8-45ff-9425-94aabf8aea2f",
+      "name": "Existe id_ropofy ya asignado?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f9650192-66ac-4179-8b18-f237c165e79c",
+              "leftValue": "={{ $json.owner_name }}",
+              "rightValue": "MICHELLE ANDREA SALAMANCA MARTÍNEZ",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1120,
+        -540
+      ],
+      "id": "1068a8f2-312d-40c6-ac10-6e8c67d20f22",
+      "name": "Es la subcuenta?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.ropofy.com/api/v2/contacts/{{ $('encontrar contacto').item.json.id_ropofy }}/notes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer ygtUsqeG906cD9c4piwT"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "body",
+              "value": "=<strong>{{ $json.nota.note_name }}</strong> <br>\n{{ $json.nota.note_comment }}\n\n<strong>usuario en clientify que la hizo:</strong> {{ $('Edit Fields').item.json.user }}\n<strong>fecha:</strong> {{ $('Edit Fields').item.json.created }}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 0.3
+            }
+          },
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2020,
+        -440
+      ],
+      "id": "e0c4ee44-b4c8-4c93-9603-5a7e3d9e5796",
+      "name": "crear nota en la principal",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "notas_clientify",
+          "mode": "list",
+          "cachedResultName": "notas_clientify"
+        },
+        "limit": 10000,
+        "where": {
+          "values": [
+            {
+              "column": "guardado_ropofy",
+              "condition": "IS NULL"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        20,
+        -360
+      ],
+      "id": "3645d304-ef92-41a6-bd14-3470a70ea62a",
+      "name": "traer notas",
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "notas_clientify",
+          "mode": "list",
+          "cachedResultName": "notas_clientify"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id_contact_clientify }}",
+            "guardado_ropofy": "true",
+            "id_nota_ropofy": "={{ $json.ids }}",
+            "id_contact_ropofy": "={{ $('encontrar contacto').first().json.id_ropofy || \"\"}}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user",
+              "displayName": "user",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "created",
+              "displayName": "created",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "extra",
+              "displayName": "extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "extra_datetime",
+              "displayName": "extra_datetime",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "extra_datetime2",
+              "displayName": "extra_datetime2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "source_id",
+              "displayName": "source_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "object_id",
+              "displayName": "object_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "pay_attention",
+              "displayName": "pay_attention",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "created_by_system",
+              "displayName": "created_by_system",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "comments",
+              "displayName": "comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "id_contact_ropofy",
+              "displayName": "id_contact_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "id_nota_ropofy",
+              "displayName": "id_nota_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "guardado_ropofy",
+              "displayName": "guardado_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        3220,
+        -540
+      ],
+      "id": "58c71de0-5361-4bf9-938e-d453cdab5d62",
+      "name": "poner como procesado",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9d949752-af9e-4132-94e8-49ac0813c89b",
+              "name": "comments",
+              "value": "={{ JSON.parse($json.comments) }}",
+              "type": "object"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        460,
+        -540
+      ],
+      "id": "a448997c-febb-4122-9108-abe2c4db8752",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.ropofy.com/api/v2/contacts/{{ $('encontrar contacto').item.json.id_ropofy }}/notes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer ygtUsqeG906cD9c4piwT"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "body",
+              "value": "=<strong>Comentario </strong> <br>\n{{ $json.comment }}\n\n<strong>usuario en clientify que la hizo:</strong> {{ $('Edit Fields').item.json.user }}\n<strong>fecha:</strong> {{ $('Edit Fields').item.json.created }}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 0.3
+            }
+          },
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2040,
+        -220
+      ],
+      "id": "9af6ebb8-9482-4786-b255-bf6b7087644d",
+      "name": "crear nota en la principal1",
+      "retryOnFail": true,
+      "alwaysOutputData": false,
+      "waitBetweenTries": 2000
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2620,
+        -460
+      ],
+      "id": "e57e185f-b44f-4ee1-a6bb-3a55bf085344",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "let nota = $('Edit Fields').first().json.extra;\n\n\nreturn [\n  {nota: JSON.parse(nota)}\n]\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        -440
+      ],
+      "id": "6cd9ed63-054f-438e-8828-040ea066fd1b",
+      "name": "procesar nota"
+    },
+    {
+      "parameters": {
+        "jsCode": "let comments = $('Edit Fields').first().json.comments;\n\n\nreturn comments\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1340,
+        -240
+      ],
+      "id": "6420dc8e-697c-4d6c-9f9b-661f34655f16",
+      "name": "procesar comentarios"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2840,
+        -740
+      ],
+      "id": "4fbbfd1c-6884-455f-b0b8-624bdb694f09",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "jsCode": "let nota = $('Edit Fields').first().json.extra;\n\n\nreturn [\n  {nota: JSON.parse(nota)}\n]\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2220,
+        -840
+      ],
+      "id": "8e265e03-8d1b-4583-bf43-84b95ecea768",
+      "name": "procesar nota1"
+    },
+    {
+      "parameters": {
+        "jsCode": "let comments = $('Edit Fields').first().json.comments;\n\n\nreturn comments\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2220,
+        -660
+      ],
+      "id": "6f47670b-b91a-4bf1-a37e-7d4e46fdf5b6",
+      "name": "procesar comentarios1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtener todos los items de entrada\nconst items = $input.all();\n\n// Extraer los \"id\" de cada item\nconst ids = items.map(item => item.json.note.id);\n\n// Juntar los IDs con coma\nconst idsString = ids.join(',');\n\n// Devolver el resultado\nreturn [\n  {\n    json: {\n      ids: idsString, // el resultado será una cadena de IDs separados por coma\n      id_contact_clientify: $('Edit Fields').first().json.id\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3000,
+        -740
+      ],
+      "id": "7e071ac0-3566-432c-bf0b-c3909c0dfde1",
+      "name": "juntar ids notas creadas"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtener todos los items de entrada\nconst items = $input.all();\n\n// Extraer los \"id\" de cada item, asegurándonos de que no cause error si no existe\nconst ids = items.map(item => item.json.note && item.json.note.id ? item.json.note.id : null)\n                 .filter(id => id !== null); // Filtrar los nulls\n\n// Juntar los IDs con coma\nconst idsString = ids.join(',');\n\n// Devolver el resultado\nreturn [\n  {\n    json: {\n      ids: idsString, // el resultado será una cadena de IDs separados por coma\n      id_contact_clientify: $('Edit Fields').first().json.id\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2840,
+        -340
+      ],
+      "id": "86fb8c52-d792-4413-852e-3a7b75e5814a",
+      "name": "juntar ids notas creadas1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.ropofy.com/api/v2/contacts/{{ $('obtener contacto subcuenta').item.json.contacts[0].id }}/notes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer GbnCvbatZxPSqEfSjssw"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "body",
+              "value": "=<strong>{{ $json.nota.note_name }} </strong><br>\n<strong>{{ $json.nota.note_comment }} </strong>\n\n<strong>usuario en clientify que la hizo:</strong> {{ $('Edit Fields').item.json.user }}\n<strong>fecha:</strong> {{ $('Edit Fields').item.json.created }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2620,
+        -840
+      ],
+      "id": "316f3f99-47f1-40b8-977f-0b434ab30fe5",
+      "name": "crear nota en la subcuenta",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.ropofy.com/api/v2/contacts/{{ $('obtener contacto subcuenta').item.json.contacts[0].id }}/notes",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer GbnCvbatZxPSqEfSjssw"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "body",
+              "value": "=Comentario <br>\n{{ $json.comment }}\n\nusuario en clientify que la hizo: {{ $('Edit Fields').item.json.user }}\nfecha: {{ $('Edit Fields').item.json.created }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2620,
+        -660
+      ],
+      "id": "381209f3-168c-4de0-be12-3aec9a873c43",
+      "name": "crear nota en al subcuenta",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ropofy.com/api/v2/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer GbnCvbatZxPSqEfSjssw"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"GbnCvbatZxPSqEfSjssw\",\n  \"pageLimit\": 1,\n    \"filters\": [\n    {\n      \"group\": \"OR\",\n      \"filters\": [\n        {\n          \"field\": \"phone\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ JSON.parse($json.phones).phone }}\"\n        },\n        {\n          \"field\": \"email\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ JSON.parse($json.emails).email }}\"\n        }\n      ]\n    }\n  ]\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1340,
+        -740
+      ],
+      "id": "028f0754-06af-41f4-8a14-369971494001",
+      "name": "obtener contacto subcuenta",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "29b788b8-dd48-4876-ae52-a36ac9edc894",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1540,
+        -740
+      ],
+      "id": "c19934cb-94b8-472e-a968-a6eaf3a4fb85",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "amount": 0.5
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        3880,
+        -200
+      ],
+      "id": "df25aa64-ca2a-4408-8bb8-c7eb6ad9b186",
+      "name": "Wait",
+      "webhookId": "5b0f8347-e8ac-4577-88af-c29072cc51ba",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1560,
+        -240
+      ],
+      "id": "25ed5947-480c-49c9-a865-e19a262368de",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me1",
+      "typeVersion": 1,
+      "position": [
+        2220,
+        -220
+      ],
+      "id": "e1b1a412-ed34-425d-a17a-d9c278e1f25d"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2220,
+        -360
+      ],
+      "id": "997ef553-81c1-4ba4-b91d-a42c9bf252ac",
+      "name": "devolver todas las notas guardadas en ropo"
+    },
+    {
+      "parameters": {
+        "amount": 0.3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1840,
+        -220
+      ],
+      "id": "559cc9d8-9be6-4141-b0ec-391ef255b0e2",
+      "name": "Wait1",
+      "webhookId": "e6dfca68-a9d1-4d48-bdd0-07c116c2ceac"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me2",
+      "typeVersion": 1,
+      "position": [
+        800,
+        -280
+      ],
+      "id": "8bcdfa68-77a0-4c01-871f-194d57a57beb"
+    }
+  ],
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-24T00:15:24.093Z",
+  "versionId": "b3ebb437-3c58-468f-8d11-ba3b8d7c18f3"
+}
