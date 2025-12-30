@@ -57,7 +57,7 @@
         ],
         [
           {
-            "node": "Replace Me2",
+            "node": "poner como omitido",
             "type": "main",
             "index": 0
           }
@@ -355,7 +355,7 @@
         ]
       ]
     },
-    "Replace Me2": {
+    "poner como omitido": {
       "main": [
         [
           {
@@ -585,7 +585,7 @@
           "mode": "list",
           "cachedResultName": "notas_clientify"
         },
-        "limit": 10000,
+        "limit": 1,
         "where": {
           "values": [
             {
@@ -1239,15 +1239,230 @@
       "webhookId": "e6dfca68-a9d1-4d48-bdd0-07c116c2ceac"
     },
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.noOp",
-      "name": "Replace Me2",
-      "typeVersion": 1,
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "notas_clientify",
+          "mode": "list",
+          "cachedResultName": "notas_clientify"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $json.id }}",
+            "id_contact_ropofy": "={{ $('encontrar contacto').first().json.id_ropofy || \"\"}}",
+            "omitido_no_encontrado": "omitido"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user",
+              "displayName": "user",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "created",
+              "displayName": "created",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "extra",
+              "displayName": "extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "extra_datetime",
+              "displayName": "extra_datetime",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "extra_datetime2",
+              "displayName": "extra_datetime2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "source_id",
+              "displayName": "source_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "object_id",
+              "displayName": "object_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "pay_attention",
+              "displayName": "pay_attention",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "created_by_system",
+              "displayName": "created_by_system",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "comments",
+              "displayName": "comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "id_contact_ropofy",
+              "displayName": "id_contact_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "id_nota_ropofy",
+              "displayName": "id_nota_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "guardado_ropofy",
+              "displayName": "guardado_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "omitido_no_encontrado",
+              "displayName": "omitido_no_encontrado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
       "position": [
-        800,
-        -280
+        980,
+        -300
       ],
-      "id": "8bcdfa68-77a0-4c01-871f-194d57a57beb"
+      "id": "2a325b73-a11c-49c6-814b-146c679884a6",
+      "name": "poner como omitido",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
     }
   ],
   "pinData": {
@@ -1266,6 +1481,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-28T14:21:33.092Z",
-  "versionId": "26fd6fdb-1451-4400-ad26-eb831d1122cd"
+  "updatedAt": "2025-12-29T13:14:44.514Z",
+  "versionId": "e5f97cc7-730c-4949-961f-97eada0267b2"
 }
