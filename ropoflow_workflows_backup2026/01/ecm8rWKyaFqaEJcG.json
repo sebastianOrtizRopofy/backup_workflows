@@ -1,0 +1,263 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-07T14:54:19.852Z",
+  "id": "ecm8rWKyaFqaEJcG",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Get SAS Locations",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "6bc0996b-94ef-42a9-a605-c7ea95d9dfd0",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -20,
+        -80
+      ],
+      "id": "830171d7-9bfc-4168-8c45-c0eb7f0524c4",
+      "name": "Webhook",
+      "webhookId": "6bc0996b-94ef-42a9-a605-c7ea95d9dfd0"
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/saas-api/public-api/saas-locations/{{ $json.company_id }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "page",
+                    "value": "={{ parseInt($response.body.data.pagination.page) + 1 }}"
+                  }
+                ]
+              },
+              "paginationCompleteWhen": "other",
+              "completeExpression": "={{ $response.body.data.pagination.hasNext==false }}",
+              "requestInterval": 500
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        380,
+        -80
+      ],
+      "id": "bb41d6ee-2865-40b7-b713-5b226cdc00db",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_agencies",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_agencies"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "company_id",
+              "value": "1XnoZddSkArrsZCIiiZE"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        180,
+        -80
+      ],
+      "id": "f88bb6a1-bd21-4d43-a4e2-eb3bb0d71e9c",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let paginas = $input.all();\nlet locations = [];\n \npaginas.forEach((pagina) => {\n  // Verificamos si la propiedad 'contacts' es un array\n  if (Array.isArray(pagina.json.data.locations)) {\n    pagina.json.data.locations.forEach((location) => {\n      locations.push({\n        json: location\n      });\n    });\n  }\n});\n\nreturn locations;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        560,
+        -80
+      ],
+      "id": "f2a259f5-301a-49be-85fe-befac102635b",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/locations/{{ $json.locationId }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Select rows from a table').first().json.token }}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 500
+            }
+          },
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        740,
+        -80
+      ],
+      "id": "b7994deb-e58e-44bf-a169-e89833c709cc",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Inicializamos un objeto vacío para almacenar todos los items unificados\nlet unifiedItem = { json: {} };\n\n// Recorremos todos los items recibidos y los unificamos\nitems.forEach(item => {\n    // Iteramos sobre cada clave del item actual y las agregamos al objeto unificado\n    for (let key in item.json) {\n        if (item.json.hasOwnProperty(key)) {\n            // Si ya existe la clave, sumamos el valor, si no, la creamos\n            if (unifiedItem.json[key]) {\n                // Si el valor es un array, concatenamos\n                if (Array.isArray(unifiedItem.json[key])) {\n                    unifiedItem.json[key] = unifiedItem.json[key].concat(item.json[key]);\n                } else {\n                    // Si no es un array, lo convertimos en array\n                    unifiedItem.json[key] = [unifiedItem.json[key], item.json[key]];\n                }\n            } else {\n                unifiedItem.json[key] = item.json[key];\n            }\n        }\n    }\n});\n\n// Devolvemos el item unificado\nreturn [unifiedItem];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        -80
+      ],
+      "id": "3a69cef3-2e40-4800-973b-e3d05206952f",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-01-07T20:37:44.863Z",
+  "versionId": "e1c0e934-9b89-40b3-8696-d54e129ddaa2"
+}
