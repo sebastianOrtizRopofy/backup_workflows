@@ -73,6 +73,11 @@
               "key": "Disponibles|formula",
               "condition": "greater_than",
               "returnType": "number"
+            },
+            {
+              "key": "WAAS|checkbox",
+              "condition": "equals",
+              "checkboxValue": true
             }
           ]
         },
@@ -133,6 +138,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-12-02T13:51:32.614Z",
-  "versionId": "aa2c8287-82c5-41b6-a133-b0e59a487935"
+  "updatedAt": "2026-01-09T13:12:35.845Z",
+  "versionId": "d940b025-a485-425e-af8f-fd4e61c30517"
 }
