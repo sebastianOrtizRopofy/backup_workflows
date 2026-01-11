@@ -131,7 +131,7 @@
       "main": [
         [
           {
-            "node": "encontrar contacto",
+            "node": "If1",
             "type": "main",
             "index": 0
           }
@@ -365,6 +365,24 @@
           }
         ]
       ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "encontrar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "poner como omitido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-22T13:24:56.844Z",
@@ -405,7 +423,7 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        3660,
+        3880,
         -200
       ],
       "id": "3335009e-69c4-40ef-b58e-0ee603119776"
@@ -438,7 +456,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        680,
+        960,
         -540
       ],
       "id": "7d985675-e540-494f-aa46-0335cf49097e",
@@ -478,7 +496,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        900,
+        1120,
         -540
       ],
       "id": "d2a55cf2-9de8-45ff-9425-94aabf8aea2f",
@@ -512,7 +530,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1120,
+        1340,
         -540
       ],
       "id": "1068a8f2-312d-40c6-ac10-6e8c67d20f22",
@@ -563,7 +581,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2020,
+        2240,
         -440
       ],
       "id": "e0c4ee44-b4c8-4c93-9603-5a7e3d9e5796",
@@ -585,11 +603,15 @@
           "mode": "list",
           "cachedResultName": "notas_clientify"
         },
-        "limit": 10000,
+        "limit": 50000,
         "where": {
           "values": [
             {
               "column": "guardado_ropofy",
+              "condition": "IS NULL"
+            },
+            {
+              "column": "omitido_no_encontrado",
               "condition": "IS NULL"
             }
           ]
@@ -817,7 +839,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        3220,
+        3440,
         -540
       ],
       "id": "58c71de0-5361-4bf9-938e-d453cdab5d62",
@@ -900,7 +922,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2040,
+        2260,
         -220
       ],
       "id": "9af6ebb8-9482-4786-b255-bf6b7087644d",
@@ -914,7 +936,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2620,
+        2840,
         -460
       ],
       "id": "e57e185f-b44f-4ee1-a6bb-3a55bf085344",
@@ -927,7 +949,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1340,
+        1560,
         -440
       ],
       "id": "6cd9ed63-054f-438e-8828-040ea066fd1b",
@@ -940,7 +962,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1340,
+        1560,
         -240
       ],
       "id": "6420dc8e-697c-4d6c-9f9b-661f34655f16",
@@ -951,7 +973,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2840,
+        3060,
         -740
       ],
       "id": "4fbbfd1c-6884-455f-b0b8-624bdb694f09",
@@ -964,7 +986,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2220,
+        2440,
         -840
       ],
       "id": "8e265e03-8d1b-4583-bf43-84b95ecea768",
@@ -977,7 +999,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2220,
+        2440,
         -660
       ],
       "id": "6f47670b-b91a-4bf1-a37e-7d4e46fdf5b6",
@@ -990,7 +1012,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3000,
+        3220,
         -740
       ],
       "id": "7e071ac0-3566-432c-bf0b-c3909c0dfde1",
@@ -1003,7 +1025,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2840,
+        3060,
         -340
       ],
       "id": "86fb8c52-d792-4413-852e-3a7b75e5814a",
@@ -1048,7 +1070,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2620,
+        2840,
         -840
       ],
       "id": "316f3f99-47f1-40b8-977f-0b434ab30fe5",
@@ -1094,7 +1116,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2620,
+        2840,
         -660
       ],
       "id": "381209f3-168c-4de0-be12-3aec9a873c43",
@@ -1131,7 +1153,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1340,
+        1560,
         -740
       ],
       "id": "028f0754-06af-41f4-8a14-369971494001",
@@ -1166,7 +1188,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1540,
+        1760,
         -740
       ],
       "id": "c19934cb-94b8-472e-a968-a6eaf3a4fb85",
@@ -1179,7 +1201,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        3880,
+        4100,
         -200
       ],
       "id": "df25aa64-ca2a-4408-8bb8-c7eb6ad9b186",
@@ -1194,7 +1216,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        1560,
+        1780,
         -240
       ],
       "id": "25ed5947-480c-49c9-a865-e19a262368de",
@@ -1206,7 +1228,7 @@
       "name": "Replace Me1",
       "typeVersion": 1,
       "position": [
-        2220,
+        2440,
         -220
       ],
       "id": "e1b1a412-ed34-425d-a17a-d9c278e1f25d"
@@ -1218,7 +1240,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2220,
+        2440,
         -360
       ],
       "id": "997ef553-81c1-4ba4-b91d-a42c9bf252ac",
@@ -1231,7 +1253,7 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        1840,
+        2060,
         -220
       ],
       "id": "559cc9d8-9be6-4141-b0ec-391ef255b0e2",
@@ -1452,7 +1474,7 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        980,
+        1200,
         -300
       ],
       "id": "2a325b73-a11c-49c6-814b-146c679884a6",
@@ -1463,9 +1485,49 @@
           "name": "Base de datos APIS"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0031da54-79b1-4018-a2de-47b0eb7e938d",
+              "leftValue": "={{ $json.user_id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        680,
+        -540
+      ],
+      "id": "9a169afc-a6f1-4ed8-8b72-7f8e867ec29c",
+      "name": "If1"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -1475,6 +1537,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-30T12:58:01.672Z",
-  "versionId": "0e4c93bd-2a1a-4e9a-81ca-aaf67e19ae2b"
+  "updatedAt": "2026-01-10T18:47:46.631Z",
+  "versionId": "cc1d8f23-7b9b-4227-8652-007f8bb3c5d2"
 }
