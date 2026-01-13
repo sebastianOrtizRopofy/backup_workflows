@@ -98,7 +98,7 @@
         ],
         [
           {
-            "node": "Replace Me",
+            "node": "poner como eliminado",
             "type": "main",
             "index": 0
           }
@@ -378,6 +378,17 @@
         [
           {
             "node": "poner como omitido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "poner como eliminado": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
             "type": "main",
             "index": 0
           }
@@ -1240,8 +1251,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2440,
-        -360
+        2640,
+        -380
       ],
       "id": "997ef553-81c1-4ba4-b91d-a42c9bf252ac",
       "name": "devolver todas las notas guardadas en ropo"
@@ -1519,6 +1530,232 @@
       ],
       "id": "9a169afc-a6f1-4ed8-8b72-7f8e867ec29c",
       "name": "If1"
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "notas_clientify",
+          "mode": "list",
+          "cachedResultName": "notas_clientify"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Loop Over Items').item.json.id }}",
+            "id_contact_ropofy": "={{ $('encontrar contacto').first().json.id_ropofy || \"\"}}",
+            "omitido_no_encontrado": "eliminado"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": true,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "user",
+              "displayName": "user",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "user_id",
+              "displayName": "user_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "created",
+              "displayName": "created",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "extra",
+              "displayName": "extra",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "extra_datetime",
+              "displayName": "extra_datetime",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "extra_datetime2",
+              "displayName": "extra_datetime2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "source_id",
+              "displayName": "source_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "object_id",
+              "displayName": "object_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "pay_attention",
+              "displayName": "pay_attention",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "created_by_system",
+              "displayName": "created_by_system",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "comments",
+              "displayName": "comments",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "id_contact_ropofy",
+              "displayName": "id_contact_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "id_nota_ropofy",
+              "displayName": "id_nota_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "guardado_ropofy",
+              "displayName": "guardado_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": true
+            },
+            {
+              "id": "omitido_no_encontrado",
+              "displayName": "omitido_no_encontrado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2840,
+        -200
+      ],
+      "id": "ba442e87-6fb7-44d8-9c82-12c4b57366b6",
+      "name": "poner como eliminado",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
     }
   ],
   "pinData": {
@@ -1537,6 +1774,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-11T16:25:13.974Z",
-  "versionId": "d99ae03e-9cf3-4e52-af39-9685af161333"
+  "updatedAt": "2026-01-12T21:11:32.595Z",
+  "versionId": "b70c5e35-12a6-44c3-8330-6e9daa3ed6aa"
 }
