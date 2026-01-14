@@ -614,7 +614,7 @@
           "mode": "list",
           "cachedResultName": "notas_clientify"
         },
-        "limit": 50000,
+        "limit": 10000,
         "where": {
           "values": [
             {
@@ -1207,7 +1207,7 @@
     },
     {
       "parameters": {
-        "amount": 0.5
+        "amount": 0.1
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
@@ -1774,6 +1774,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-12T21:11:32.595Z",
-  "versionId": "b70c5e35-12a6-44c3-8330-6e9daa3ed6aa"
+  "updatedAt": "2026-01-13T14:09:08.911Z",
+  "versionId": "79995cf8-9761-417d-b7bf-e5e1a1ae3f08"
 }
