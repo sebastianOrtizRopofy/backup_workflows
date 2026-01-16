@@ -472,6 +472,9 @@
       ],
       "id": "7d985675-e540-494f-aa46-0335cf49097e",
       "name": "encontrar contacto",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
       "credentials": {
         "postgres": {
           "id": "tfjc18K49daMASdp",
@@ -1774,6 +1777,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-13T14:09:08.911Z",
-  "versionId": "79995cf8-9761-417d-b7bf-e5e1a1ae3f08"
+  "updatedAt": "2026-01-15T19:01:25.512Z",
+  "versionId": "c8d5fdc8-faf8-447e-912c-624fad630084"
 }
