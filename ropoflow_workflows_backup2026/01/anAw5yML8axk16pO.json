@@ -1,0 +1,709 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "listar productos auteco",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "listar productos auteco": {
+      "main": [
+        [
+          {
+            "node": "por categoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "por categoria": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "sacar id_products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sacar id_products": {
+      "main": [
+        [
+          {
+            "node": "producto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "producto": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "prices": {
+      "main": [
+        [
+          {
+            "node": "Append rows to table",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append rows to table1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variation": {
+      "main": [
+        [
+          {
+            "node": "prices",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Traer skus por product id": {
+      "main": [
+        [
+          {
+            "node": "variation",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Traer skus por product id",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Append rows to table": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "por categoria",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append rows to table1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-19T14:40:31.066Z",
+  "id": "anAw5yML8axk16pO",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "sync precios",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -260,
+        -40
+      ],
+      "id": "7d574894-ec97-46cd-a9e0-72a298cf0bd4",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://autecomobility.vtexcommercestable.com.br/api/pricing/prices/98765",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "<APPKEY_MOBILITY>"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "<APPTOKEN_MOBILITY>"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -220,
+        200
+      ],
+      "id": "9a224b0c-6803-4796-926d-0dac47bcdece",
+      "name": "listar productos por id mobility"
+    },
+    {
+      "parameters": {
+        "url": "=https://auteco.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitByProductId/{{ $('producto').item.json.Id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-auteco-CHZDEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          },
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        -180
+      ],
+      "id": "2ae12555-a345-4778-a673-87b46aded8a6",
+      "name": "Traer skus por product id",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = [\n  { id: 2, category_id: 8, name: \"Bicicletas Electricas\", active: 1 },\n  { id: 3, category_id: 344, name: \"Moto Carros\", active: 1 },\n  { id: 4, category_id: 153, name: \"Motos Electricas\", active: 1 },\n  { id: 5, category_id: 317, name: \"Patinetas Electricas\", active: 1 },\n  { id: 6, category_id: 95, name: \"Motos Urbanas\", active: 1 },\n  { id: 7, category_id: 92, name: \"Motos Alta Gama\", active: 1 },\n  { id: 8, category_id: 89, name: \"Motos Moped o Semiautomaticas\", active: 1 },\n  { id: 9, category_id: 88, name: \"Motos Deportivas\", active: 1 },\n  { id: 10, category_id: 87, name: \"Motos todo Terreno\", active: 1 },\n  { id: 11, category_id: 85, name: \"Motos Scooter - Automaticas\", active: 1 },\n  { id: 12, category_id: 408, name: \"Motos Touring\", active: 1 },\n  { id: 13, category_id: 84, name: \"Motos\", active: 1 }\n];\n\n// 🔥 solo activos === 1\nreturn data\n  .filter(item => item.active === 1)\n  .map(item => ({\n    json: item\n  }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        0,
+        -55
+      ],
+      "id": "9f9b8a1e-fcd0-4f30-895c-4fc31ab4abdb",
+      "name": "Code1"
+    },
+    {
+      "parameters": {
+        "url": "https://auteco.vtexcommercestable.com.br/api/catalog_system/pvt/products/GetProductAndSkuIds",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "_from",
+              "value": "1"
+            },
+            {
+              "name": "_to",
+              "value": "50"
+            },
+            {
+              "name": "categoryId",
+              "value": "={{ $json.category_id }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-auteco-CHZDEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        -55
+      ],
+      "id": "bdaf729e-8955-4186-940e-d9a2c69e1b17",
+      "name": "listar productos auteco"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        440,
+        -55
+      ],
+      "id": "92c7cb87-4815-47a7-add0-62c12b34e40e",
+      "name": "por categoria"
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $json.data;\n\nconst result = Object.keys(data).map((key) => {\n  return {\n    item: {\n      id: Number(key)\n    }\n  };\n});\n\nreturn result;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        20
+      ],
+      "id": "902cdb78-95f3-4f82-9142-0d31151cf70b",
+      "name": "sacar id_products"
+    },
+    {
+      "parameters": {
+        "url": "=https://auteco.vtexcommercestable.com.br/api/catalog/pvt/product/{{ $json.item.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-auteco-CHZDEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          },
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        20
+      ],
+      "id": "cd496f7e-e54a-4d1a-a835-d66ef70d036e",
+      "name": "producto",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://auteco.vtexcommercestable.com.br/api/pricing/prices/{{ $json.Id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-auteco-CHZDEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1960,
+        -300
+      ],
+      "id": "bd782d18-af95-4473-9bba-9c54a9edec39",
+      "name": "prices",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://auteco.vtexcommercestable.com.br/api/catalog_system/pvt/sku/stockkeepingunitbyid/{{ $json.Id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-auteco-CHZDEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1640,
+        -220
+      ],
+      "id": "72e67357-69a4-4a47-808a-838e55609083",
+      "name": "variation",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d9d6330f-5bae-4111-858b-4639138d0cb7",
+              "leftValue": "={{ $json.IsActive }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "5eed7c8c-34ab-4f22-a41c-0a6fe7077226",
+              "leftValue": "={{ $json.IsActive }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1160,
+        -60
+      ],
+      "id": "a7ae82ff-9cf1-44ba-a485-07d5bcf9e615",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        -160
+      ],
+      "id": "2bcd8553-e022-4599-a61c-d07ccd6a0816",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "01XXIAEVBDB4HQTYCACVHI67KVRB6AWPM6",
+          "mode": "list",
+          "cachedResultName": "Motos Auteco",
+          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "{00000000-0001-0000-0000-000000000000}",
+          "mode": "list",
+          "cachedResultName": "Hoja1",
+          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=Hoja1!A1"
+        },
+        "table": {
+          "__rl": true,
+          "value": "{F9E8CCDC-9EED-48B3-B045-333C1FFF8DC0}",
+          "mode": "list",
+          "cachedResultName": "Tabla3",
+          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=Hoja1!A1:D2"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "id_moto",
+              "fieldValue": "={{ $('variation').item.json.ProductId }}"
+            },
+            {
+              "column": "titulo",
+              "fieldValue": "={{ $('variation').item.json.NameComplete }}"
+            },
+            {
+              "column": "id_variation",
+              "fieldValue": "={{ $('variation').item.json.Id }}"
+            },
+            {
+              "column": "precio",
+              "fieldValue": "={{ $json.basePrice }}"
+            },
+            {
+              "column": "Marca",
+              "fieldValue": "={{ $('variation').item.json.BrandName }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        2220,
+        -60
+      ],
+      "id": "00159627-51b7-4e06-8f51-aba7982fa9e8",
+      "name": "Append rows to table",
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "wJfEQcJXVdCOt0eZ",
+          "name": "Excel - sebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 5
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2500,
+        80
+      ],
+      "id": "d501df86-9d6f-432a-a9f3-7b865fed3567",
+      "name": "Merge"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        2700,
+        200
+      ],
+      "id": "1de5385f-dce8-41d4-b1c3-0589622358fc",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "01XXIAEVBDB4HQTYCACVHI67KVRB6AWPM6",
+          "mode": "list",
+          "cachedResultName": "Motos Auteco",
+          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "{00000000-0001-0000-0000-000000000000}",
+          "mode": "list",
+          "cachedResultName": "Hoja1",
+          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=Hoja1!A1"
+        },
+        "table": {
+          "__rl": true,
+          "value": "{F9E8CCDC-9EED-48B3-B045-333C1FFF8DC0}",
+          "mode": "list",
+          "cachedResultName": "Tabla3",
+          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=Hoja1!A1:D2"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "id_moto",
+              "fieldValue": "={{ $('variation').item.json.ProductId }}"
+            },
+            {
+              "column": "titulo",
+              "fieldValue": "={{ $('variation').item.json.NameComplete }}"
+            },
+            {
+              "column": "id_variation",
+              "fieldValue": "={{ $('variation').item.json.Id }}"
+            },
+            {
+              "column": "precio",
+              "fieldValue": "={{ $json.basePrice || 0}}"
+            },
+            {
+              "column": "Marca",
+              "fieldValue": "={{ $('variation').item.json.BrandName }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        2220,
+        -280
+      ],
+      "id": "f522055e-d395-4eb7-a13e-9aa51bc157f1",
+      "name": "Append rows to table1",
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "wJfEQcJXVdCOt0eZ",
+          "name": "Excel - sebas"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-19T21:58:55.108Z",
+  "versionId": "dc7eddff-5b48-4d7b-81f6-609f2d0a89e3"
+}
