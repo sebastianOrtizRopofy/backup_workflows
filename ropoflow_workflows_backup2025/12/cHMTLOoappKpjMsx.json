@@ -1772,11 +1772,13 @@
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "America/Bogota",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-15T19:01:25.512Z",
-  "versionId": "c8d5fdc8-faf8-447e-912c-624fad630084"
+  "updatedAt": "2026-01-21T16:32:22.237Z",
+  "versionId": "742f38d3-dab2-4751-b357-5969644253c8"
 }
