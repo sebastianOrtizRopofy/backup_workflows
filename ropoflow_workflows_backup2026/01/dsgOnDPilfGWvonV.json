@@ -1,0 +1,77 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "precio auteco mobility",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-22T20:18:04.296Z",
+  "id": "dsgOnDPilfGWvonV",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 17",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8b8db38a-29b7-4816-9263-24bbe64337ba",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://api.vtex.com/apiexamples/pricing/prices",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-autecomobility-UFYEEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "PKNVCOVBYJBERKGPOLSVOWLKXQKCHBNATXCJFJNEURQUIEZTLTHRRNENSSBXFTOWWMCMGAHDURLKNOMMYTAOBQVXEFONLPASJOREXOTKSDXEXDWTSBXOTXBFXNTHKHBG"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "c0ab97f2-8430-4fd8-b284-683f384778d8",
+      "name": "precio auteco mobility"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-22T20:18:04.296Z",
+  "versionId": "24e362e8-c252-4b4c-8d6b-645bf0ec12f5"
+}
