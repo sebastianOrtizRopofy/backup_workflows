@@ -70,6 +70,11 @@
             "node": "If",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "guardar producto",
+            "type": "main",
+            "index": 0
           }
         ],
         [
@@ -81,29 +86,11 @@
         ]
       ]
     },
-    "prices": {
-      "main": [
-        [
-          {
-            "node": "Append rows to table",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Append rows to table1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "variation": {
       "main": [
         [
           {
-            "node": "prices",
+            "node": "tvs?",
             "type": "main",
             "index": 0
           }
@@ -147,17 +134,6 @@
         ]
       ]
     },
-    "Append rows to table": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Merge": {
       "main": [
         [
@@ -186,7 +162,77 @@
           {
             "node": "Merge",
             "type": "main",
-            "index": 4
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "producto1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code3": {
+      "main": [
+        []
+      ]
+    },
+    "obtener precio auteco": {
+      "main": [
+        [
+          {
+            "node": "Append rows to table1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append rows to table1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tvs?": {
+      "main": [
+        [
+          {
+            "node": "obtener precio mobility",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "obtener precio auteco",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener precio mobility": {
+      "main": [
+        [
+          {
+            "node": "Append rows to table1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Append rows to table1",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -205,8 +251,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -260,
-        -40
+        -480,
+        -60
       ],
       "id": "7d574894-ec97-46cd-a9e0-72a298cf0bd4",
       "name": "When clicking ‘Execute workflow’"
@@ -279,7 +325,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1360,
+        1580,
         -180
       ],
       "id": "2ae12555-a345-4778-a673-87b46aded8a6",
@@ -288,13 +334,13 @@
     },
     {
       "parameters": {
-        "jsCode": "const data = [\n  { id: 2, category_id: 8, name: \"Bicicletas Electricas\", active: 1 },\n  { id: 3, category_id: 344, name: \"Moto Carros\", active: 1 },\n  { id: 4, category_id: 153, name: \"Motos Electricas\", active: 1 },\n  { id: 5, category_id: 317, name: \"Patinetas Electricas\", active: 1 },\n  { id: 6, category_id: 95, name: \"Motos Urbanas\", active: 1 },\n  { id: 7, category_id: 92, name: \"Motos Alta Gama\", active: 1 },\n  { id: 8, category_id: 89, name: \"Motos Moped o Semiautomaticas\", active: 1 },\n  { id: 9, category_id: 88, name: \"Motos Deportivas\", active: 1 },\n  { id: 10, category_id: 87, name: \"Motos todo Terreno\", active: 1 },\n  { id: 11, category_id: 85, name: \"Motos Scooter - Automaticas\", active: 1 },\n  { id: 12, category_id: 408, name: \"Motos Touring\", active: 1 },\n  { id: 13, category_id: 84, name: \"Motos\", active: 1 }\n];\n\n// 🔥 solo activos === 1\nreturn data\n  .filter(item => item.active === 1)\n  .map(item => ({\n    json: item\n  }));\n"
+        "jsCode": "const data = [\n  { id: 2, category_id: 8, name: \"Bicicletas Electricas\", active: 0 },\n  { id: 3, category_id: 344, name: \"Moto Carros\", active: 0 },\n  { id: 4, category_id: 153, name: \"Motos Electricas\", active: 0 },\n  { id: 5, category_id: 317, name: \"Patinetas Electricas\", active: 0 },\n  { id: 6, category_id: 95, name: \"Motos Urbanas\", active: 0 },\n  { id: 7, category_id: 92, name: \"Motos Alta Gama\", active: 0 },\n  { id: 8, category_id: 89, name: \"Motos Moped o Semiautomaticas\", active: 0 },\n  { id: 9, category_id: 88, name: \"Motos Deportivas\", active: 0 },\n  { id: 10, category_id: 87, name: \"Motos todo Terreno\", active: 0 },\n  { id: 11, category_id: 85, name: \"Motos Scooter - Automaticas\", active: 0 },\n  { id: 12, category_id: 408, name: \"Motos Touring\", active: 0 },\n  { id: 13, category_id: 84, name: \"Motos\", active: 1 }\n];\n\n// 🔥 solo activos === 1\nreturn data\n  .filter(item => item.active === 1)\n  .map(item => ({ json: item }));\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        0,
-        -55
+        -180,
+        -60
       ],
       "id": "9f9b8a1e-fcd0-4f30-895c-4fc31ab4abdb",
       "name": "Code1"
@@ -311,7 +357,7 @@
             },
             {
               "name": "_to",
-              "value": "50"
+              "value": "200"
             },
             {
               "name": "categoryId",
@@ -339,6 +385,32 @@
         "options": {
           "redirect": {
             "redirect": {}
+          },
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "=_from",
+                    "value": "={{$response.body.range.to}}"
+                  },
+                  {
+                    "name": "_to",
+                    "value": "={{$response.body.range.to + 200}}"
+                  }
+                ]
+              },
+              "paginationCompleteWhen": "other",
+              "completeExpression": "={{ $response.body.data.isEmpty() || ($response.body.range.total < $response.body.range.to)}}",
+              "limitPagesFetched": true,
+              "maxRequests": 10,
+              "requestInterval": 300
+            }
           }
         }
       },
@@ -346,7 +418,7 @@
       "typeVersion": 4.2,
       "position": [
         220,
-        -55
+        -60
       ],
       "id": "bdaf729e-8955-4186-940e-d9a2c69e1b17",
       "name": "listar productos auteco"
@@ -358,7 +430,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        440,
+        660,
         -55
       ],
       "id": "92c7cb87-4815-47a7-add0-62c12b34e40e",
@@ -371,7 +443,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        660,
+        880,
         20
       ],
       "id": "902cdb78-95f3-4f82-9142-0d31151cf70b",
@@ -408,44 +480,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        860,
+        1080,
         20
       ],
       "id": "cd496f7e-e54a-4d1a-a835-d66ef70d036e",
       "name": "producto",
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "url": "=https://auteco.vtexcommercestable.com.br/api/pricing/prices/{{ $json.Id }}",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "X-VTEX-API-AppKey",
-              "value": "vtexappkey-auteco-CHZDEF"
-            },
-            {
-              "name": "X-VTEX-API-AppToken",
-              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
-            }
-          ]
-        },
-        "options": {
-          "redirect": {
-            "redirect": {}
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        1960,
-        -300
-      ],
-      "id": "bd782d18-af95-4473-9bba-9c54a9edec39",
-      "name": "prices",
-      "retryOnFail": true,
       "onError": "continueErrorOutput"
     },
     {
@@ -473,8 +512,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1640,
-        -220
+        1820,
+        -280
       ],
       "id": "72e67357-69a4-4a47-808a-838e55609083",
       "name": "variation",
@@ -519,7 +558,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1160,
+        1380,
         -60
       ],
       "id": "a7ae82ff-9cf1-44ba-a485-07d5bcf9e615",
@@ -532,76 +571,11 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        660,
+        880,
         -160
       ],
       "id": "2bcd8553-e022-4599-a61c-d07ccd6a0816",
       "name": "Code2"
-    },
-    {
-      "parameters": {
-        "resource": "table",
-        "workbook": {
-          "__rl": true,
-          "value": "01XXIAEVBDB4HQTYCACVHI67KVRB6AWPM6",
-          "mode": "list",
-          "cachedResultName": "Motos Auteco",
-          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1"
-        },
-        "worksheet": {
-          "__rl": true,
-          "value": "{00000000-0001-0000-0000-000000000000}",
-          "mode": "list",
-          "cachedResultName": "Hoja1",
-          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=Hoja1!A1"
-        },
-        "table": {
-          "__rl": true,
-          "value": "{F9E8CCDC-9EED-48B3-B045-333C1FFF8DC0}",
-          "mode": "list",
-          "cachedResultName": "Tabla3",
-          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=Hoja1!A1:D2"
-        },
-        "fieldsUi": {
-          "values": [
-            {
-              "column": "id_moto",
-              "fieldValue": "={{ $('variation').item.json.ProductId }}"
-            },
-            {
-              "column": "titulo",
-              "fieldValue": "={{ $('variation').item.json.NameComplete }}"
-            },
-            {
-              "column": "id_variation",
-              "fieldValue": "={{ $('variation').item.json.Id }}"
-            },
-            {
-              "column": "precio",
-              "fieldValue": "={{ $json.basePrice }}"
-            },
-            {
-              "column": "Marca",
-              "fieldValue": "={{ $('variation').item.json.BrandName }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.microsoftExcel",
-      "typeVersion": 2.1,
-      "position": [
-        2220,
-        -60
-      ],
-      "id": "00159627-51b7-4e06-8f51-aba7982fa9e8",
-      "name": "Append rows to table",
-      "credentials": {
-        "microsoftExcelOAuth2Api": {
-          "id": "wJfEQcJXVdCOt0eZ",
-          "name": "Excel - sebas"
-        }
-      }
     },
     {
       "parameters": {
@@ -610,7 +584,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        2500,
+        3380,
         80
       ],
       "id": "d501df86-9d6f-432a-a9f3-7b865fed3567",
@@ -622,7 +596,7 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        2700,
+        3580,
         200
       ],
       "id": "1de5385f-dce8-41d4-b1c3-0589622358fc",
@@ -681,8 +655,8 @@
       "type": "n8n-nodes-base.microsoftExcel",
       "typeVersion": 2.1,
       "position": [
-        2220,
-        -280
+        3240,
+        -340
       ],
       "id": "f522055e-d395-4eb7-a13e-9aa51bc157f1",
       "name": "Append rows to table1",
@@ -692,6 +666,243 @@
           "name": "Excel - sebas"
         }
       }
+    },
+    {
+      "parameters": {
+        "url": "=https://auteco.vtexcommercestable.com.br/api/catalog/pvt/product/{{ $json.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-auteco-CHZDEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          },
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        740,
+        -420
+      ],
+      "id": "8e11eaea-4073-4b69-a41f-8a48594eec8d",
+      "name": "producto1",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "let productsJuntos = $input.all();\nlet products = [];\n\nproductsJuntos.forEach((page) => {\n  Object.keys(page.json.data).forEach((id) => {\n    products.push({ id });\n  });\n});\n\nreturn products;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        -420
+      ],
+      "id": "dd03a773-0ccd-47a5-93b0-7d52aeb182dd",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "content": "conectar esto a listar prpductos para obtener todos los productos con su informacion, solo de prueba"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        520,
+        -600
+      ],
+      "typeVersion": 1,
+      "id": "bfbbbc98-055a-46f2-95a1-e2e89752df44",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\n\nconst name = (item.NameComplete || \"\").toLowerCase();\n\nif (name.includes(\"tvs\")) {\n  return [\n    {\n      json: {\n        ...item,\n        api: \"mobility\"\n      }\n    }\n  ];\n} else {\n  return [\n    {\n      json: {\n        ...item,\n        api: \"auteco\"\n      }\n    }\n  ];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2320,
+        -580
+      ],
+      "id": "d3419b3a-9943-4b09-82d6-c60e16006c29",
+      "name": "Code3"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.vtex.com/auteco/pricing/prices/{{ $json.Id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-auteco-CHZDEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2760,
+        -160
+      ],
+      "id": "bd782d18-af95-4473-9bba-9c54a9edec39",
+      "name": "obtener precio auteco",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "747d7f5b-49cd-43b4-976d-c07f76db331e",
+              "leftValue": "={{ $json.BrandName }}",
+              "rightValue": "TVS",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2320,
+        -300
+      ],
+      "id": "2e4ea75a-68eb-40bd-a26c-dc29c3f3cade",
+      "name": "tvs?"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "01XXIAEVBDB4HQTYCACVHI67KVRB6AWPM6",
+          "mode": "list",
+          "cachedResultName": "Motos Auteco",
+          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "{DA7A3900-2EEC-4936-8952-929BB920BB4C}",
+          "mode": "list",
+          "cachedResultName": "productos",
+          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=productos!A1"
+        },
+        "table": {
+          "__rl": true,
+          "value": "{F8CB8E0F-0332-4119-90F1-143B108BB295}",
+          "mode": "list",
+          "cachedResultName": "Tabla1",
+          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=productos!A1:B2"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "id_moto",
+              "fieldValue": "={{ $json.Id }}"
+            },
+            {
+              "column": "titulo",
+              "fieldValue": "={{ $json.Name }}"
+            },
+            {
+              "column": "active",
+              "fieldValue": "={{ $json.IsActive }}"
+            },
+            {
+              "column": "visible",
+              "fieldValue": "={{ $json.IsVisible }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        1380,
+        -300
+      ],
+      "id": "68021074-cdbe-4a6d-9161-2e0488213466",
+      "name": "guardar producto",
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "wJfEQcJXVdCOt0eZ",
+          "name": "Excel - sebas"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://autecomobility.vtexcommercestable.com.br/auteco/pricing/prices/{{ $json.Id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-autecomobility-UFYEEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "PKNVCOVBYJBERKGPOLSVOWLKXQKCHBNATXCJFJNEURQUIEZTLTHRRNENSSBXFTOWWMCMGAHDURLKNOMMYTAOBQVXEFONLPASJOREXOTKSDXEXDWTSBXOTXBFXNTHKHBG"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2760,
+        -420
+      ],
+      "id": "adca6ea8-4f8c-406c-ac92-240c945678fc",
+      "name": "obtener precio mobility",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
     }
   ],
   "pinData": {},
@@ -704,6 +915,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-19T21:58:55.108Z",
-  "versionId": "dc7eddff-5b48-4d7b-81f6-609f2d0a89e3"
+  "updatedAt": "2026-01-22T19:47:44.571Z",
+  "versionId": "26656bde-19e3-4f32-9a69-55d0d322c32b"
 }
