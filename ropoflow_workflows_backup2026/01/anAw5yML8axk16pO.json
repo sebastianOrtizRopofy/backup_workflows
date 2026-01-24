@@ -72,7 +72,7 @@
             "index": 0
           },
           {
-            "node": "guardar producto",
+            "node": "Execute Workflow",
             "type": "main",
             "index": 0
           }
@@ -156,17 +156,6 @@
         ]
       ]
     },
-    "Append rows to table1": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Code": {
       "main": [
         [
@@ -187,14 +176,14 @@
       "main": [
         [
           {
-            "node": "Append rows to table1",
+            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Append rows to table1",
+            "node": "precio autecobase",
             "type": "main",
             "index": 0
           }
@@ -205,14 +194,14 @@
       "main": [
         [
           {
-            "node": "obtener precio mobility",
+            "node": "obtener precio auteco",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "obtener precio auteco",
+            "node": "obtener precio mobility",
             "type": "main",
             "index": 0
           }
@@ -223,14 +212,59 @@
       "main": [
         [
           {
-            "node": "Append rows to table1",
+            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Append rows to table1",
+            "node": "precio autecobase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "precio autecobase": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        []
+      ]
+    },
+    "Execute Workflow2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow2",
             "type": "main",
             "index": 0
           }
@@ -325,7 +359,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1580,
+        1800,
         -180
       ],
       "id": "2ae12555-a345-4778-a673-87b46aded8a6",
@@ -334,7 +368,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const data = [\n  { id: 2, category_id: 8, name: \"Bicicletas Electricas\", active: 0 },\n  { id: 3, category_id: 344, name: \"Moto Carros\", active: 0 },\n  { id: 4, category_id: 153, name: \"Motos Electricas\", active: 0 },\n  { id: 5, category_id: 317, name: \"Patinetas Electricas\", active: 0 },\n  { id: 6, category_id: 95, name: \"Motos Urbanas\", active: 0 },\n  { id: 7, category_id: 92, name: \"Motos Alta Gama\", active: 0 },\n  { id: 8, category_id: 89, name: \"Motos Moped o Semiautomaticas\", active: 0 },\n  { id: 9, category_id: 88, name: \"Motos Deportivas\", active: 0 },\n  { id: 10, category_id: 87, name: \"Motos todo Terreno\", active: 0 },\n  { id: 11, category_id: 85, name: \"Motos Scooter - Automaticas\", active: 0 },\n  { id: 12, category_id: 408, name: \"Motos Touring\", active: 0 },\n  { id: 13, category_id: 84, name: \"Motos\", active: 1 }\n];\n\n// 🔥 solo activos === 1\nreturn data\n  .filter(item => item.active === 1)\n  .map(item => ({ json: item }));\n"
+        "jsCode": "const data = [\n  { id: 2, category_id: 8, name: \"Bicicletas Electricas\", active: 1 },\n  { id: 3, category_id: 344, name: \"Moto Carros\", active: 1 },\n  { id: 4, category_id: 153, name: \"Motos Electricas\", active: 1 },\n  { id: 5, category_id: 317, name: \"Patinetas Electricas\", active: 1 },\n  { id: 6, category_id: 95, name: \"Motos Urbanas\", active: 1 },\n  { id: 7, category_id: 92, name: \"Motos Alta Gama\", active: 1 },\n  { id: 8, category_id: 89, name: \"Motos Moped o Semiautomaticas\", active: 1 },\n  { id: 9, category_id: 88, name: \"Motos Deportivas\", active: 1 },\n  { id: 10, category_id: 87, name: \"Motos todo Terreno\", active: 1 },\n  { id: 11, category_id: 85, name: \"Motos Scooter - Automaticas\", active: 1 },\n  { id: 12, category_id: 408, name: \"Motos Touring\", active: 1 },\n  { id: 13, category_id: 84, name: \"Motos\", active: 1 },\n  { id: 492, category_id: 84, name: \"Otros Vehiculos\", active: 1 },\n  { id: 492, category_id: 343, name: \"Vehiculos de carga\", active: 1 }\n];\n\n// 🔥 solo activos === 1\nreturn data\n  .filter(item => item.active === 1)\n  .map(item => ({ json: item }));\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -512,7 +546,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1820,
+        2040,
         -280
       ],
       "id": "72e67357-69a4-4a47-808a-838e55609083",
@@ -542,7 +576,7 @@
             },
             {
               "id": "5eed7c8c-34ab-4f22-a41c-0a6fe7077226",
-              "leftValue": "={{ $json.IsActive }}",
+              "leftValue": "={{ $json.IsVisible }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -558,7 +592,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        1380,
+        1600,
         -60
       ],
       "id": "a7ae82ff-9cf1-44ba-a485-07d5bcf9e615",
@@ -584,7 +618,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        3380,
+        4220,
         80
       ],
       "id": "d501df86-9d6f-432a-a9f3-7b865fed3567",
@@ -596,76 +630,11 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        3580,
+        4420,
         200
       ],
       "id": "1de5385f-dce8-41d4-b1c3-0589622358fc",
       "executeOnce": true
-    },
-    {
-      "parameters": {
-        "resource": "table",
-        "workbook": {
-          "__rl": true,
-          "value": "01XXIAEVBDB4HQTYCACVHI67KVRB6AWPM6",
-          "mode": "list",
-          "cachedResultName": "Motos Auteco",
-          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1"
-        },
-        "worksheet": {
-          "__rl": true,
-          "value": "{00000000-0001-0000-0000-000000000000}",
-          "mode": "list",
-          "cachedResultName": "Hoja1",
-          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=Hoja1!A1"
-        },
-        "table": {
-          "__rl": true,
-          "value": "{F9E8CCDC-9EED-48B3-B045-333C1FFF8DC0}",
-          "mode": "list",
-          "cachedResultName": "Tabla3",
-          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=Hoja1!A1:D2"
-        },
-        "fieldsUi": {
-          "values": [
-            {
-              "column": "id_moto",
-              "fieldValue": "={{ $('variation').item.json.ProductId }}"
-            },
-            {
-              "column": "titulo",
-              "fieldValue": "={{ $('variation').item.json.NameComplete }}"
-            },
-            {
-              "column": "id_variation",
-              "fieldValue": "={{ $('variation').item.json.Id }}"
-            },
-            {
-              "column": "precio",
-              "fieldValue": "={{ $json.basePrice || 0}}"
-            },
-            {
-              "column": "Marca",
-              "fieldValue": "={{ $('variation').item.json.BrandName }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.microsoftExcel",
-      "typeVersion": 2.1,
-      "position": [
-        3240,
-        -340
-      ],
-      "id": "f522055e-d395-4eb7-a13e-9aa51bc157f1",
-      "name": "Append rows to table1",
-      "credentials": {
-        "microsoftExcelOAuth2Api": {
-          "id": "wJfEQcJXVdCOt0eZ",
-          "name": "Excel - sebas"
-        }
-      }
     },
     {
       "parameters": {
@@ -746,17 +715,17 @@
     },
     {
       "parameters": {
-        "url": "=https://api.vtex.com/auteco/pricing/prices/{{ $json.Id }}",
+        "url": "=https://autecosas.vtexcommercestable.com.br/api/pricing/prices/{{ $json.Id }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
             {
               "name": "X-VTEX-API-AppKey",
-              "value": "vtexappkey-auteco-CHZDEF"
+              "value": "vtexappkey-autecosas-TISABX"
             },
             {
               "name": "X-VTEX-API-AppToken",
-              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+              "value": "ZIEVBCVIYUTPLMKRNFPULYLGBARDAEKFFDBKHCWBUMPWHZCXDHXIBJSOFRSLCKPNDBQXYABMIEMZURDRHLTPUHKDKLJSTELUTYFCRZQCGNPCIGNRFJAREDCDHEFLHXDK"
             }
           ]
         },
@@ -769,8 +738,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2760,
-        -160
+        2980,
+        -460
       ],
       "id": "bd782d18-af95-4473-9bba-9c54a9edec39",
       "name": "obtener precio auteco",
@@ -804,7 +773,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2320,
+        2540,
         -300
       ],
       "id": "2e4ea75a-68eb-40bd-a26c-dc29c3f3cade",
@@ -812,68 +781,7 @@
     },
     {
       "parameters": {
-        "resource": "table",
-        "workbook": {
-          "__rl": true,
-          "value": "01XXIAEVBDB4HQTYCACVHI67KVRB6AWPM6",
-          "mode": "list",
-          "cachedResultName": "Motos Auteco",
-          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1"
-        },
-        "worksheet": {
-          "__rl": true,
-          "value": "{DA7A3900-2EEC-4936-8952-929BB920BB4C}",
-          "mode": "list",
-          "cachedResultName": "productos",
-          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=productos!A1"
-        },
-        "table": {
-          "__rl": true,
-          "value": "{F8CB8E0F-0332-4119-90F1-143B108BB295}",
-          "mode": "list",
-          "cachedResultName": "Tabla1",
-          "cachedResultUrl": "https://bike2web-my.sharepoint.com/personal/sebastian_ropofy_com/_layouts/15/Doc.aspx?sourcedoc=%7B090F0F23-40E0-4E15-8F7D-55887C0B3D9E%7D&file=Motos%20Auteco.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1&activeCell=productos!A1:B2"
-        },
-        "fieldsUi": {
-          "values": [
-            {
-              "column": "id_moto",
-              "fieldValue": "={{ $json.Id }}"
-            },
-            {
-              "column": "titulo",
-              "fieldValue": "={{ $json.Name }}"
-            },
-            {
-              "column": "active",
-              "fieldValue": "={{ $json.IsActive }}"
-            },
-            {
-              "column": "visible",
-              "fieldValue": "={{ $json.IsVisible }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.microsoftExcel",
-      "typeVersion": 2.1,
-      "position": [
-        1380,
-        -300
-      ],
-      "id": "68021074-cdbe-4a6d-9161-2e0488213466",
-      "name": "guardar producto",
-      "credentials": {
-        "microsoftExcelOAuth2Api": {
-          "id": "wJfEQcJXVdCOt0eZ",
-          "name": "Excel - sebas"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "url": "=https://autecomobility.vtexcommercestable.com.br/auteco/pricing/prices/{{ $json.Id }}",
+        "url": "=https://api.vtex.com/autecomobility/pricing/prices/{{ $json.Id }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -896,16 +804,137 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2760,
-        -420
+        2980,
+        -180
       ],
       "id": "adca6ea8-4f8c-406c-ac92-240c945678fc",
       "name": "obtener precio mobility",
       "retryOnFail": true,
       "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://auteco.vtexcommercestable.com.br/api/pricing/prices/{{ $json.itemId }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-auteco-CHZDEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "AGFSFTJLCXODGQSTJLIOIRJFKLNPXJXDHFUOLSQRCKZEOVZEDDHOGGLIWZHTGUNSZKVBVDHQUQLXREROLILUCJXBULRLKXLIWHFDZYIAWQTPUNRSITHXITQQNUHJLVGX"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3340,
+        -500
+      ],
+      "id": "437143f2-83e2-461a-942a-37ca2ba41e9f",
+      "name": "precio autecobase",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "h6gwQCntOpqS9PUd",
+          "mode": "list",
+          "cachedResultName": "Guardar productos"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1600,
+        -340
+      ],
+      "id": "40a5630e-6396-4b1f-8cb8-5c9e595cb8d8",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "vJHloaHTnsGqG1rF",
+          "mode": "list",
+          "cachedResultName": "Guardar variaciones"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        3940,
+        -220
+      ],
+      "id": "f7ca2792-9135-4005-bb14-f260866c9bcc",
+      "name": "Execute Workflow2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e9e02c57-945c-4b95-849d-2e27cce95904",
+              "name": "=variation",
+              "value": "={{ $('variation').item.json}}",
+              "type": "object"
+            },
+            {
+              "id": "75a7c6fb-b122-45a9-9191-6c72c342f07f",
+              "name": "price",
+              "value": "={{$json.basePrice}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3720,
+        -220
+      ],
+      "id": "bbcce782-6c23-41a1-ac4d-1ce7f043d141",
+      "name": "Edit Fields"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -915,6 +944,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-22T19:47:44.571Z",
-  "versionId": "26656bde-19e3-4f32-9a69-55d0d322c32b"
+  "updatedAt": "2026-01-23T21:44:21.878Z",
+  "versionId": "fb3d32ad-f424-4a04-af90-660669bce074"
 }
