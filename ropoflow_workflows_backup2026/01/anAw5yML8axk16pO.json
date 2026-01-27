@@ -8,6 +8,16 @@
             "node": "Code1",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Delete table or rows1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Delete table or rows",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -194,14 +204,14 @@
       "main": [
         [
           {
-            "node": "obtener precio auteco",
+            "node": "traer ficha tecnica",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "obtener precio mobility",
+            "node": "traer ficha tecnica1",
             "type": "main",
             "index": 0
           }
@@ -270,6 +280,28 @@
           }
         ]
       ]
+    },
+    "traer ficha tecnica": {
+      "main": [
+        [
+          {
+            "node": "obtener precio auteco",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "traer ficha tecnica1": {
+      "main": [
+        [
+          {
+            "node": "obtener precio mobility",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-19T14:40:31.066Z",
@@ -278,14 +310,14 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "sync precios",
+  "name": "guardar products/variaciones",
   "nodes": [
     {
       "parameters": {},
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -480,
+        -640,
         -60
       ],
       "id": "7d574894-ec97-46cd-a9e0-72a298cf0bd4",
@@ -618,7 +650,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        4220,
+        4440,
         80
       ],
       "id": "d501df86-9d6f-432a-a9f3-7b865fed3567",
@@ -630,7 +662,7 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        4420,
+        4640,
         200
       ],
       "id": "1de5385f-dce8-41d4-b1c3-0589622358fc",
@@ -738,7 +770,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2980,
+        3200,
         -460
       ],
       "id": "bd782d18-af95-4473-9bba-9c54a9edec39",
@@ -773,7 +805,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2540,
+        2420,
         -300
       ],
       "id": "2e4ea75a-68eb-40bd-a26c-dc29c3f3cade",
@@ -804,7 +836,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2980,
+        3200,
         -180
       ],
       "id": "adca6ea8-4f8c-406c-ac92-240c945678fc",
@@ -837,7 +869,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3340,
+        3560,
         -500
       ],
       "id": "437143f2-83e2-461a-942a-37ca2ba41e9f",
@@ -892,7 +924,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        3940,
+        4160,
         -220
       ],
       "id": "f7ca2792-9135-4005-bb14-f260866c9bcc",
@@ -921,11 +953,151 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3720,
+        3940,
         -220
       ],
       "id": "bbcce782-6c23-41a1-ac4d-1ce7f043d141",
       "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "deleteTable",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "products_variations",
+          "mode": "list",
+          "cachedResultName": "products_variations"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -180,
+        -300
+      ],
+      "id": "f70a36ea-f509-4a0b-8b64-d70e1385ff32",
+      "name": "Delete table or rows",
+      "credentials": {
+        "postgres": {
+          "id": "BvoUGHaG1IynNmiH",
+          "name": "Ropoflow db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "deleteTable",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "productos_auteco",
+          "mode": "list",
+          "cachedResultName": "productos_auteco"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -180,
+        -500
+      ],
+      "id": "61990e4e-a92a-4647-bfe3-fbd8eac8efef",
+      "name": "Delete table or rows1",
+      "credentials": {
+        "postgres": {
+          "id": "BvoUGHaG1IynNmiH",
+          "name": "Ropoflow db"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://autecomobility.vtexcommercestable.com.br/api/catalog_system/pvt/products/130150/specification",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-autecomobility-UFYEEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "PKNVCOVBYJBERKGPOLSVOWLKXQKCHBNATXCJFJNEURQUIEZTLTHRRNENSSBXFTOWWMCMGAHDURLKNOMMYTAOBQVXEFONLPASJOREXOTKSDXEXDWTSBXOTXBFXNTHKHBG"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2860,
+        -460
+      ],
+      "id": "ce006c5a-9735-4d02-9b4f-913c4c41972c",
+      "name": "traer ficha tecnica"
+    },
+    {
+      "parameters": {
+        "url": "=https://autecomobility.vtexcommercestable.com.br/api/catalog_system/pvt/products/{{ $json.ProductId }}/specification/",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "X-VTEX-API-AppKey",
+              "value": "vtexappkey-autecomobility-UFYEEF"
+            },
+            {
+              "name": "X-VTEX-API-AppToken",
+              "value": "PKNVCOVBYJBERKGPOLSVOWLKXQKCHBNATXCJFJNEURQUIEZTLTHRRNENSSBXFTOWWMCMGAHDURLKNOMMYTAOBQVXEFONLPASJOREXOTKSDXEXDWTSBXOTXBFXNTHKHBG"
+            }
+          ]
+        },
+        "sendBody": true,
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 300
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2860,
+        -180
+      ],
+      "id": "fe2ba809-01c1-4513-94c7-b9e8d6b32869",
+      "name": "traer ficha tecnica1",
+      "executeOnce": true,
+      "onError": "continueErrorOutput"
     }
   ],
   "pinData": {
@@ -944,6 +1116,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-23T21:44:21.878Z",
-  "versionId": "fb3d32ad-f424-4a04-af90-660669bce074"
+  "updatedAt": "2026-01-26T23:33:27.214Z",
+  "versionId": "53444849-d56f-4d0b-bf5a-189a98e64c56"
 }
