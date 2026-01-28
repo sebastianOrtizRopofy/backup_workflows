@@ -204,14 +204,14 @@
       "main": [
         [
           {
-            "node": "traer ficha tecnica",
+            "node": "obtener precio auteco",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "traer ficha tecnica1",
+            "node": "obtener precio mobility",
             "type": "main",
             "index": 0
           }
@@ -275,28 +275,6 @@
         [
           {
             "node": "Execute Workflow2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "traer ficha tecnica": {
-      "main": [
-        [
-          {
-            "node": "obtener precio auteco",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "traer ficha tecnica1": {
-      "main": [
-        [
-          {
-            "node": "obtener precio mobility",
             "type": "main",
             "index": 0
           }
@@ -584,7 +562,9 @@
       "id": "72e67357-69a4-4a47-808a-838e55609083",
       "name": "variation",
       "retryOnFail": true,
-      "onError": "continueErrorOutput"
+      "notesInFlow": false,
+      "onError": "continueErrorOutput",
+      "notes": "test"
     },
     {
       "parameters": {
@@ -650,7 +630,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        4440,
+        4700,
         80
       ],
       "id": "d501df86-9d6f-432a-a9f3-7b865fed3567",
@@ -662,7 +642,7 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        4640,
+        4900,
         200
       ],
       "id": "1de5385f-dce8-41d4-b1c3-0589622358fc",
@@ -837,7 +817,7 @@
       "typeVersion": 4.2,
       "position": [
         3200,
-        -180
+        -240
       ],
       "id": "adca6ea8-4f8c-406c-ac92-240c945678fc",
       "name": "obtener precio mobility",
@@ -882,7 +862,7 @@
           "__rl": true,
           "value": "h6gwQCntOpqS9PUd",
           "mode": "list",
-          "cachedResultName": "Guardar productos"
+          "cachedResultName": "Guardar productos [SUBWORKFLOW]"
         },
         "workflowInputs": {
           "mappingMode": "defineBelow",
@@ -924,7 +904,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        4160,
+        4600,
         -220
       ],
       "id": "f7ca2792-9135-4005-bb14-f260866c9bcc",
@@ -953,7 +933,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3940,
+        4120,
         -220
       ],
       "id": "bbcce782-6c23-41a1-ac4d-1ce7f043d141",
@@ -1020,84 +1000,6 @@
           "name": "Ropoflow db"
         }
       }
-    },
-    {
-      "parameters": {
-        "url": "https://autecomobility.vtexcommercestable.com.br/api/catalog_system/pvt/products/130150/specification",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Accept",
-              "value": "application/json"
-            },
-            {
-              "name": "X-VTEX-API-AppKey",
-              "value": "vtexappkey-autecomobility-UFYEEF"
-            },
-            {
-              "name": "X-VTEX-API-AppToken",
-              "value": "PKNVCOVBYJBERKGPOLSVOWLKXQKCHBNATXCJFJNEURQUIEZTLTHRRNENSSBXFTOWWMCMGAHDURLKNOMMYTAOBQVXEFONLPASJOREXOTKSDXEXDWTSBXOTXBFXNTHKHBG"
-            }
-          ]
-        },
-        "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            {}
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2860,
-        -460
-      ],
-      "id": "ce006c5a-9735-4d02-9b4f-913c4c41972c",
-      "name": "traer ficha tecnica"
-    },
-    {
-      "parameters": {
-        "url": "=https://autecomobility.vtexcommercestable.com.br/api/catalog_system/pvt/products/{{ $json.ProductId }}/specification/",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Accept",
-              "value": "application/json"
-            },
-            {
-              "name": "X-VTEX-API-AppKey",
-              "value": "vtexappkey-autecomobility-UFYEEF"
-            },
-            {
-              "name": "X-VTEX-API-AppToken",
-              "value": "PKNVCOVBYJBERKGPOLSVOWLKXQKCHBNATXCJFJNEURQUIEZTLTHRRNENSSBXFTOWWMCMGAHDURLKNOMMYTAOBQVXEFONLPASJOREXOTKSDXEXDWTSBXOTXBFXNTHKHBG"
-            }
-          ]
-        },
-        "sendBody": true,
-        "options": {
-          "batching": {
-            "batch": {
-              "batchSize": 1,
-              "batchInterval": 300
-            }
-          }
-        }
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2860,
-        -180
-      ],
-      "id": "fe2ba809-01c1-4513-94c7-b9e8d6b32869",
-      "name": "traer ficha tecnica1",
-      "executeOnce": true,
-      "onError": "continueErrorOutput"
     }
   ],
   "pinData": {
@@ -1116,6 +1018,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-26T23:33:27.214Z",
-  "versionId": "53444849-d56f-4d0b-bf5a-189a98e64c56"
+  "updatedAt": "2026-01-27T23:11:05.280Z",
+  "versionId": "e2d2380b-b16f-4253-a68a-058c6135388a"
 }
