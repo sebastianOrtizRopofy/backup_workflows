@@ -288,7 +288,7 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "guardar products/variaciones",
+  "name": "API auteco -> DB [CRONJOB]",
   "nodes": [
     {
       "parameters": {},
@@ -332,8 +332,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -220,
-        200
+        -160,
+        540
       ],
       "id": "9a224b0c-6803-4796-926d-0dac47bcdece",
       "name": "listar productos por id mobility"
@@ -378,7 +378,7 @@
     },
     {
       "parameters": {
-        "jsCode": "const data = [\n  { id: 2, category_id: 8, name: \"Bicicletas Electricas\", active: 1 },\n  { id: 3, category_id: 344, name: \"Moto Carros\", active: 1 },\n  { id: 4, category_id: 153, name: \"Motos Electricas\", active: 1 },\n  { id: 5, category_id: 317, name: \"Patinetas Electricas\", active: 1 },\n  { id: 6, category_id: 95, name: \"Motos Urbanas\", active: 1 },\n  { id: 7, category_id: 92, name: \"Motos Alta Gama\", active: 1 },\n  { id: 8, category_id: 89, name: \"Motos Moped o Semiautomaticas\", active: 1 },\n  { id: 9, category_id: 88, name: \"Motos Deportivas\", active: 1 },\n  { id: 10, category_id: 87, name: \"Motos todo Terreno\", active: 1 },\n  { id: 11, category_id: 85, name: \"Motos Scooter - Automaticas\", active: 1 },\n  { id: 12, category_id: 408, name: \"Motos Touring\", active: 1 },\n  { id: 13, category_id: 84, name: \"Motos\", active: 1 },\n  { id: 492, category_id: 84, name: \"Otros Vehiculos\", active: 1 },\n  { id: 492, category_id: 343, name: \"Vehiculos de carga\", active: 1 }\n];\n\n// 🔥 solo activos === 1\nreturn data\n  .filter(item => item.active === 1)\n  .map(item => ({ json: item }));\n"
+        "jsCode": "const data = [\n  { id: 2, category_id: 8, name: \"Bicicletas Electricas\", active: 1 },\n  { id: 3, category_id: 344, name: \"Moto Carros\", active: 1 },\n  { id: 4, category_id: 153, name: \"Motos Electricas\", active: 1 },\n  { id: 5, category_id: 317, name: \"Patinetas Electricas\", active: 1 },\n  { id: 6, category_id: 95, name: \"Motos Urbanas\", active: 1 },\n  { id: 7, category_id: 92, name: \"Motos Alta Gama\", active: 1 },\n  { id: 8, category_id: 89, name: \"Motos Moped o Semiautomaticas\", active: 1 },\n  { id: 9, category_id: 88, name: \"Motos Deportivas\", active: 1 },\n  { id: 10, category_id: 87, name: \"Motos todo Terreno\", active: 1 },\n  { id: 11, category_id: 85, name: \"Motos Scooter - Automaticas\", active: 1 },\n  { id: 12, category_id: 408, name: \"Motos Touring\", active: 1 },\n  { id: 13, category_id: 84, name: \"Motos\", active: 1 },\n  { id: 492, category_id: 343, name: \"Vehiculos de carga\", active: 1 }\n];\n\n// 🔥 solo activos === 1\nreturn data\n  .filter(item => item.active === 1)\n  .map(item => ({ json: item }));\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -1018,6 +1018,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-27T23:11:05.280Z",
-  "versionId": "e2d2380b-b16f-4253-a68a-058c6135388a"
+  "updatedAt": "2026-01-28T20:40:01.340Z",
+  "versionId": "29df62b9-b22e-4996-9c02-e6c59d0807b6"
 }
