@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "When clicking ‘Execute workflow’": {
       "main": [
@@ -49,6 +49,11 @@
         [
           {
             "node": "Code2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Create chat message",
             "type": "main",
             "index": 0
           }
@@ -280,6 +285,27 @@
           }
         ]
       ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Delete table or rows1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Delete table or rows",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-19T14:40:31.066Z",
@@ -295,7 +321,7 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -640,
+        -740,
         -60
       ],
       "id": "7d574894-ec97-46cd-a9e0-72a298cf0bd4",
@@ -617,8 +643,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        880,
-        -160
+        900,
+        -140
       ],
       "id": "2bcd8553-e022-4599-a61c-d07ccd6a0816",
       "name": "Code2"
@@ -889,7 +915,7 @@
           "__rl": true,
           "value": "vJHloaHTnsGqG1rF",
           "mode": "list",
-          "cachedResultName": "Guardar variaciones"
+          "cachedResultName": "Guardar variaciones [SUBWORKFLOW]"
         },
         "workflowInputs": {
           "mappingMode": "defineBelow",
@@ -904,7 +930,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        4600,
+        4420,
         -220
       ],
       "id": "f7ca2792-9135-4005-bb14-f260866c9bcc",
@@ -1000,6 +1026,56 @@
           "name": "Ropoflow db"
         }
       }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 1,
+              "triggerAtMinute": 10
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -740,
+        -360
+      ],
+      "id": "ade6f94f-063a-4fe9-a286-6ea13b3d02eb",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "resource": "chatMessage",
+        "chatId": {
+          "__rl": true,
+          "value": "19:e6054ca4534d482c986110809ae05204@thread.v2",
+          "mode": "list",
+          "cachedResultName": "Notificaciones Integraciones (group)",
+          "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Ae6054ca4534d482c986110809ae05204%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
+        },
+        "message": "=Se sincronizaron los precios de las motos, ahora se encuentran en nuestra DB (pendiente por sincronizar a ropofy).",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        900,
+        -280
+      ],
+      "id": "660660af-b0fd-42df-8940-67a6b5358f94",
+      "name": "Create chat message",
+      "webhookId": "97173f2f-ef7d-44e2-9924-e530df7ac6d4",
+      "executeOnce": true,
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "ZN6rkGlpvuVkKKom",
+          "name": "Microsoft Teams account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -1015,9 +1091,13 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2026-01-28T20:40:01.340Z",
-  "versionId": "29df62b9-b22e-4996-9c02-e6c59d0807b6"
+  "triggerCount": 1,
+  "updatedAt": "2026-02-03T12:59:15.935Z",
+  "versionId": "aaaf8dfe-0c65-41bb-b7fa-8d4a3156415c"
 }
