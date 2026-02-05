@@ -1,0 +1,131 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-02T13:34:00.222Z",
+  "id": "CrQshRzawxqbYC4Y",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "get configuraciones [API]",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "/getConfiguration",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        100
+      ],
+      "id": "3d6e285a-5eda-4fe8-96e7-038f07828c4c",
+      "name": "Webhook",
+      "webhookId": "87b026e2-26a0-43bd-be22-504202c7c55a"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "configuraciones_sync_products_auteco",
+          "mode": "list",
+          "cachedResultName": "configuraciones_sync_products_auteco"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        60,
+        0
+      ],
+      "id": "eea071c4-432d-4d11-8f34-b3f6e0ee383e",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "BvoUGHaG1IynNmiH",
+          "name": "Ropoflow db"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -240,
+        -100
+      ],
+      "id": "4ad07f9b-7bdc-4e8d-bd57-6b11b16822b6",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "let inputs = $input.all();\n\nreturn [{\n  \"configuration\": inputs\n}]"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        280,
+        0
+      ],
+      "id": "3dcea249-c5bf-4bd5-af89-a020ddff5c9f",
+      "name": "Code"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-02-02T15:04:15.690Z",
+  "versionId": "fb0bfa32-f7e0-4fa3-b914-114deb0c7c5d"
+}
