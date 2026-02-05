@@ -434,8 +434,8 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        3880,
-        -200
+        4020,
+        -160
       ],
       "id": "3335009e-69c4-40ef-b58e-0ee603119776"
     },
@@ -625,8 +625,8 @@
               "condition": "IS NULL"
             },
             {
-              "column": "omitido_no_encontrado",
-              "condition": "IS NULL"
+              "column": "user",
+              "value": "MICHELLE ANDREA SALAMANCA MARTÍNEZ"
             }
           ]
         },
@@ -853,8 +853,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        3440,
-        -540
+        3560,
+        -720
       ],
       "id": "58c71de0-5361-4bf9-938e-d453cdab5d62",
       "name": "poner como procesado",
@@ -987,8 +987,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        3060,
-        -740
+        3040,
+        -1080
       ],
       "id": "4fbbfd1c-6884-455f-b0b8-624bdb694f09",
       "name": "Merge1"
@@ -1000,8 +1000,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2440,
-        -840
+        2420,
+        -1180
       ],
       "id": "8e265e03-8d1b-4583-bf43-84b95ecea768",
       "name": "procesar nota1"
@@ -1013,8 +1013,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2440,
-        -660
+        2420,
+        -1000
       ],
       "id": "6f47670b-b91a-4bf1-a37e-7d4e46fdf5b6",
       "name": "procesar comentarios1"
@@ -1026,8 +1026,8 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3220,
-        -740
+        3200,
+        -1080
       ],
       "id": "7e071ac0-3566-432c-bf0b-c3909c0dfde1",
       "name": "juntar ids notas creadas"
@@ -1084,8 +1084,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2840,
-        -840
+        2820,
+        -1180
       ],
       "id": "316f3f99-47f1-40b8-977f-0b434ab30fe5",
       "name": "crear nota en la subcuenta",
@@ -1130,8 +1130,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2840,
-        -660
+        2820,
+        -1000
       ],
       "id": "381209f3-168c-4de0-be12-3aec9a873c43",
       "name": "crear nota en al subcuenta",
@@ -1215,8 +1215,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        4100,
-        -200
+        4200,
+        -160
       ],
       "id": "df25aa64-ca2a-4408-8bb8-c7eb6ad9b186",
       "name": "Wait",
@@ -1779,6 +1779,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-01-21T16:32:22.237Z",
-  "versionId": "742f38d3-dab2-4751-b357-5969644253c8"
+  "updatedAt": "2026-02-04T16:50:40.161Z",
+  "versionId": "84726a9a-9de6-403a-954c-19e8c6ecc97f"
 }
