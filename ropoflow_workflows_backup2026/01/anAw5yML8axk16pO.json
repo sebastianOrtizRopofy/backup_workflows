@@ -1032,7 +1032,7 @@
         "rule": {
           "interval": [
             {
-              "triggerAtHour": 1,
+              "triggerAtHour": 14,
               "triggerAtMinute": 10
             }
           ]
@@ -1098,6 +1098,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-03T12:59:15.935Z",
-  "versionId": "aaaf8dfe-0c65-41bb-b7fa-8d4a3156415c"
+  "updatedAt": "2026-02-05T14:21:52.760Z",
+  "versionId": "562ea701-5dd7-48d6-8ca5-0089b520f536"
 }
