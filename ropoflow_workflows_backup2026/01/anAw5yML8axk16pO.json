@@ -1032,8 +1032,8 @@
         "rule": {
           "interval": [
             {
-              "triggerAtHour": 14,
-              "triggerAtMinute": 10
+              "triggerAtHour": 23,
+              "triggerAtMinute": 1
             }
           ]
         }
@@ -1057,7 +1057,7 @@
           "cachedResultName": "Notificaciones Integraciones (group)",
           "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Ae6054ca4534d482c986110809ae05204%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
         },
-        "message": "=Se sincronizaron los precios de las motos, ahora se encuentran en nuestra DB (pendiente por sincronizar a ropofy).",
+        "message": "=Auteco --> DB (DONE)",
         "options": {}
       },
       "type": "n8n-nodes-base.microsoftTeams",
@@ -1098,6 +1098,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-05T14:21:52.760Z",
-  "versionId": "562ea701-5dd7-48d6-8ca5-0089b520f536"
+  "updatedAt": "2026-02-10T20:00:01.460Z",
+  "versionId": "0d16d03a-809e-47c3-9586-339cb9a30902"
 }
