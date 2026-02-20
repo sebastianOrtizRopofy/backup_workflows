@@ -1,0 +1,131 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "obtener producto malo",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "obtener producto bueno",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-19T16:44:35.084Z",
+  "id": "egrS7UE7BNw086xd",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 18",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "f90b9c31-e2ea-46f9-99b1-235c70e7f64b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://api.ropofy.com/api/v2/products/69973d95166ca637f522d865",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "gwxnQP0jeV98khFZDNSk"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer gwxnQP0jeV98khFZDNSk"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        340,
+        -220
+      ],
+      "id": "2eac8f00-d5e8-44fd-9c74-c6f9938d7f96",
+      "name": "obtener producto malo"
+    },
+    {
+      "parameters": {
+        "url": "https://api.ropofy.com/api/v2/products/69973d95166ca637f522d865",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "gwxnQP0jeV98khFZDNSk"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer gwxnQP0jeV98khFZDNSk"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        340,
+        180
+      ],
+      "id": "fe204050-457b-4cbe-8dfc-40e38fccb6c1",
+      "name": "obtener producto bueno"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-19T17:05:30.559Z",
+  "versionId": "14f4ff54-c406-4999-8c70-4893b9d0fb97"
+}
