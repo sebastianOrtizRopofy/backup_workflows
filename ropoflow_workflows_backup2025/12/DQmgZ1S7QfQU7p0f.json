@@ -116,7 +116,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Obtenemos todos los items del nodo anterior\nconst items = $input.all();\n\n// Creamos un array para almacenar los datos filtrados\nconst result = [];\n\n// Iteramos sobre los items y extraemos solo las propiedades requeridas\nitems.forEach(item => {\n    result.push({\n        name: item.json.name,\n        property_id_cliente: item.json.property_id_cliente,\n        property_disponibles: item.json.property_disponibles\n    });\n});\n\n// Devolvemos el JSON con el array filtrado\nreturn [\n    {\n        json: {\n            data: result\n        }\n    }\n];\n"
+        "jsCode": "// Obtenemos todos los items del nodo anterior\nconst items = $input.all();\n\n// Creamos un array para almacenar los datos filtrados\nconst result = [];\n\n// Iteramos sobre los items y extraemos solo las propiedades requeridas\nitems.forEach(item => {\n    result.push({\n        name: item.json.name,\n        property_id_cliente: item.json.property_id_cliente,\n        property_disponibles: item.json.property_boosters_disponibles\n    });\n});\n\n// Devolvemos el JSON con el array filtrado\nreturn [\n    {\n        json: {\n            data: result\n        }\n    }\n];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -180,6 +180,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-24T22:56:30.058Z",
-  "versionId": "f605fc34-02eb-4269-af0a-34d50f326ba5"
+  "updatedAt": "2026-02-25T13:45:52.504Z",
+  "versionId": "5edd44ae-7d74-4897-8c19-2a10b05c5a18"
 }
