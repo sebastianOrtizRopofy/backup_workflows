@@ -117,7 +117,7 @@
       "main": [
         [
           {
-            "node": "variation",
+            "node": "Filter",
             "type": "main",
             "index": 0
           }
@@ -301,6 +301,17 @@
           },
           {
             "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "variation",
             "type": "main",
             "index": 0
           }
@@ -582,8 +593,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        2040,
-        -280
+        2760,
+        -320
       ],
       "id": "72e67357-69a4-4a47-808a-838e55609083",
       "name": "variation",
@@ -656,7 +667,7 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        4700,
+        5140,
         80
       ],
       "id": "d501df86-9d6f-432a-a9f3-7b865fed3567",
@@ -668,8 +679,8 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        4900,
-        200
+        5340,
+        340
       ],
       "id": "1de5385f-dce8-41d4-b1c3-0589622358fc",
       "executeOnce": true
@@ -776,7 +787,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3200,
+        3640,
         -460
       ],
       "id": "bd782d18-af95-4473-9bba-9c54a9edec39",
@@ -811,8 +822,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        2420,
-        -300
+        3160,
+        -340
       ],
       "id": "2e4ea75a-68eb-40bd-a26c-dc29c3f3cade",
       "name": "tvs?"
@@ -842,7 +853,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3200,
+        3640,
         -240
       ],
       "id": "adca6ea8-4f8c-406c-ac92-240c945678fc",
@@ -875,7 +886,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3560,
+        4000,
         -500
       ],
       "id": "437143f2-83e2-461a-942a-37ca2ba41e9f",
@@ -930,7 +941,7 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1.2,
       "position": [
-        4420,
+        4860,
         -220
       ],
       "id": "f7ca2792-9135-4005-bb14-f260866c9bcc",
@@ -959,7 +970,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        4120,
+        4560,
         -220
       ],
       "id": "bbcce782-6c23-41a1-ac4d-1ce7f043d141",
@@ -1076,12 +1087,63 @@
           "name": "Microsoft Teams account"
         }
       }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3ac5264d-4b68-4439-af9e-5b79381f6246",
+              "leftValue": "={{ $json.IsActive }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2340,
+        -320
+      ],
+      "id": "1d37ba53-d218-4ac4-9e46-ff9c28e0bfb2",
+      "name": "Filter"
     }
   ],
   "pinData": {
     "When clicking ‘Execute workflow’": [
       {
         "json": {}
+      }
+    ],
+    "Schedule Trigger": [
+      {
+        "json": {
+          "timestamp": "2026-03-01T23:01:08.012-05:00",
+          "Readable date": "March 1st 2026, 11:01:08 pm",
+          "Readable time": "11:01:08 pm",
+          "Day of week": "Sunday",
+          "Year": "2026",
+          "Month": "March",
+          "Day of month": "01",
+          "Hour": "23",
+          "Minute": "01",
+          "Second": "08",
+          "Timezone": "America/New_York (UTC-05:00)"
+        }
       }
     ]
   },
@@ -1098,6 +1160,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-02-10T20:00:01.460Z",
-  "versionId": "0d16d03a-809e-47c3-9586-339cb9a30902"
+  "updatedAt": "2026-03-02T20:42:43.473Z",
+  "versionId": "88dee4a7-aa5f-406a-9801-1db12c70cff3"
 }
