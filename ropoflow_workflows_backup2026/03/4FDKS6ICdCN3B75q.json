@@ -1,0 +1,120 @@
+{
+  "active": true,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get many users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many users": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-02T16:15:58.104Z",
+  "id": "4FDKS6ICdCN3B75q",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Get Usuarios",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -40,
+        -160
+      ],
+      "id": "c974f3b8-dd92-4138-a5b5-b0b15becd7d9",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtiene todos los items de entrada\nconst allItems = $input.all();\n\n// Extrae solo el JSON de cada item\nconst merged = allItems.map(item => item.json);\n\n// Retorna un solo item con todo unificado\nreturn [\n  {\n    json: {\n      solicitudes: merged\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "ba1751b3-9502-467d-aa42-96186783e414",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "path": "parametrizaciones-usuarios",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -100,
+        60
+      ],
+      "id": "e583af18-28e2-4095-964e-5b08bdbfd0b0",
+      "name": "Webhook",
+      "webhookId": "927a98af-15d0-4424-a7d5-4701f6f269e2"
+    },
+    {
+      "parameters": {
+        "resource": "user",
+        "operation": "getAll"
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        260,
+        -20
+      ],
+      "id": "26ef6555-b84f-40d7-8136-2d7926e49d65",
+      "name": "Get many users",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-03-02T16:16:54.629Z",
+  "versionId": "09f21821-fcc7-4fc5-885c-881444bdbba7"
+}
