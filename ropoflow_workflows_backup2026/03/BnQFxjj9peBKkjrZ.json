@@ -1,0 +1,129 @@
+{
+  "active": true,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get many database pages": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Get many database pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-02T15:49:20.982Z",
+  "id": "BnQFxjj9peBKkjrZ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Get Solicitudes",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -40,
+        -160
+      ],
+      "id": "a44f42c7-10b9-49ff-9fcc-391205e65b83",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "operation": "getAll",
+        "databaseId": {
+          "__rl": true,
+          "value": "25d8ba98-4c4c-802d-8025-d47b7c908521",
+          "mode": "list",
+          "cachedResultName": "Solicitudes",
+          "cachedResultUrl": "https://www.notion.so/25d8ba984c4c802d8025d47b7c908521"
+        },
+        "returnAll": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "487d92a7-94ad-4d21-b532-7ed753cd6858",
+      "name": "Get many database pages",
+      "credentials": {
+        "notionApi": {
+          "id": "Kipfztru4Y3rb4o1",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtiene todos los items de entrada\nconst allItems = $input.all();\n\n// Extrae solo el JSON de cada item\nconst merged = allItems.map(item => item.json);\n\n// Retorna un solo item con todo unificado\nreturn [\n  {\n    json: {\n      solicitudes: merged\n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "92a736e6-0280-4d88-ba04-9772f17e239f",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "path": "parametrizaciones-solicitudes",
+        "responseMode": "lastNode",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -100,
+        60
+      ],
+      "id": "bf86c011-ef1f-4320-8550-286a513eaeaf",
+      "name": "Webhook",
+      "webhookId": "e6094a11-1394-4271-b904-007c363d8873"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-03-02T16:04:34.332Z",
+  "versionId": "a9ed292f-93f9-4cf5-bd4b-154a3a05b199"
+}
