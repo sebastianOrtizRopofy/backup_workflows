@@ -1,0 +1,64 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-17T22:24:02.422Z",
+  "id": "6ki8QVfY7UXJ1zMC",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 21",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "/test",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "565f8a9b-5881-4e8a-8c6f-ab0b66e2f5db",
+      "name": "Webhook",
+      "webhookId": "e46cc99a-d303-439f-8f0c-e1de20578536"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  \"personas\": [\n    {\"id\": \"12345\", \"nombre\": \"sebas\"},\n    {\"id\": \"54321\", \"nombre\": \"messi\"}\n  ]\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "5cd30f04-c422-40c5-a7ac-5fd7e082ac8d",
+      "name": "Code"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-03-17T22:38:58.634Z",
+  "versionId": "64866feb-12cc-4641-b559-2e624f6fa87a"
+}
