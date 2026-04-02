@@ -1132,17 +1132,17 @@
     "Schedule Trigger": [
       {
         "json": {
-          "timestamp": "2026-03-01T23:01:08.012-05:00",
-          "Readable date": "March 1st 2026, 11:01:08 pm",
-          "Readable time": "11:01:08 pm",
-          "Day of week": "Sunday",
+          "timestamp": "2026-03-31T23:01:05.005-04:00",
+          "Readable date": "March 31st 2026, 11:01:05 pm",
+          "Readable time": "11:01:05 pm",
+          "Day of week": "Tuesday",
           "Year": "2026",
           "Month": "March",
-          "Day of month": "01",
+          "Day of month": "31",
           "Hour": "23",
           "Minute": "01",
-          "Second": "08",
-          "Timezone": "America/New_York (UTC-05:00)"
+          "Second": "05",
+          "Timezone": "America/New_York (UTC-04:00)"
         }
       }
     ]
@@ -1160,6 +1160,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-03-02T20:42:43.473Z",
-  "versionId": "88dee4a7-aa5f-406a-9801-1db12c70cff3"
+  "updatedAt": "2026-04-01T13:34:08.770Z",
+  "versionId": "e7b6b9a3-b543-46e0-8ae0-ef1b9f013007"
 }
