@@ -1,0 +1,77 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-04-07T21:39:24.000Z",
+  "id": "7EMnQiqG40aNG8Pn",
+  "isArchived": false,
+  "meta": null,
+  "name": "My workflow 23",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "8b83bbd9-c1a7-4fef-8b41-24aceca128da",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://20.14.171.20:90/api/pedidos/filter",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer aLasKwMX6p4tjKcF79m1DGKS2J3eIZfUFLtEl7KM7sWW2uy2uEEqRk67By6DHoph"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"page\": 1,\n  \"limit\": 5,\n  \"campos_pedido_mast\": [\n    \"PEDIDO_CODIGO\",\n    \"CLIENTE_CODIGO\",\n    \"FECHA_CREA\",\n    \"ESTADO\"\n  ],\n  \"campos_item\": [\n    \"PRODUCTO_CODIGO\",\n    \"PRODUCTO_CANTIDAD\",\n    \"TOTAL\"\n  ],\n  \"campos_producto\": [\n    \"PRODUCTO_DESCRIPCION\",\n    \"REFERENCIA\"\n  ]\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "a2a55a50-1e00-4da7-be17-d465e8986660",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-04-07T21:39:24.000Z",
+  "versionId": "8a7ec030-43c4-4450-a06d-f8ba09f1b12d"
+}
