@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Petición a servicio de fricar endpoint v2",
             "type": "main",
             "index": 0
           },
@@ -17,7 +17,7 @@
         ]
       ]
     },
-    "HTTP Request": {
+    "Petición a servicio de fricar endpoint v2": {
       "main": [
         []
       ]
@@ -42,8 +42,22 @@
     },
     {
       "parameters": {
+        "url": "https://webhook.site/22645e34-45ee-4efc-a636-2d8a0b3b81e1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        -120
+      ],
+      "id": "79b48aa5-897c-450a-8cfe-511f6d5acfc5",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
         "method": "POST",
-        "url": "http://20.14.171.20:90/api/pedidos/filter",
+        "url": "http://20.14.171.202:90/api/pedidos/filter",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -69,21 +83,7 @@
         120
       ],
       "id": "a2a55a50-1e00-4da7-be17-d465e8986660",
-      "name": "HTTP Request"
-    },
-    {
-      "parameters": {
-        "url": "https://webhook.site/22645e34-45ee-4efc-a636-2d8a0b3b81e1",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        260,
-        -120
-      ],
-      "id": "79b48aa5-897c-450a-8cfe-511f6d5acfc5",
-      "name": "HTTP Request1"
+      "name": "Petición a servicio de fricar endpoint v2"
     }
   ],
   "pinData": {},
@@ -96,6 +96,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-04-08T20:31:09.371Z",
-  "versionId": "0f046d73-ed51-442f-8420-6364324d2305"
+  "updatedAt": "2026-04-10T20:22:28.079Z",
+  "versionId": "adf4a1f9-33e4-492b-a120-6d610744a81c"
 }
