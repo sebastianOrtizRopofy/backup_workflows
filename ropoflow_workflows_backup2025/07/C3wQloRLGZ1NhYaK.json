@@ -426,7 +426,13 @@
       "name": "Edit Fields"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
   "repo_name": "ropoflow_workflows_backup",
   "repo_owner": "sebastianOrtizRopofy",
   "repo_path": "ropoflow_workflows_backup",
@@ -436,6 +442,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-04-23T20:17:51.761Z",
-  "versionId": "005e4c31-3629-486b-8253-41e03046839d"
+  "updatedAt": "2026-04-24T14:54:15.807Z",
+  "versionId": "39b6f965-988f-4340-ba70-f014c66b91ed"
 }
