@@ -1,0 +1,182 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Search a folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search a folder": {
+      "main": [
+        [
+          {
+            "node": "Get items in a folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get items in a folder": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-05-06T16:04:03.219Z",
+  "id": "cl7AAXynr7H0zfPn",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Test agente",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -340
+      ],
+      "id": "c330cb4b-29d0-4dd6-aeec-474b26c2ce6e",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "3c5eb18b-60dd-476c-a2e5-f13a5446914b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "search",
+        "query": "Recordings"
+      },
+      "type": "n8n-nodes-base.microsoftOneDrive",
+      "typeVersion": 1,
+      "position": [
+        200,
+        -340
+      ],
+      "id": "02d0ebb1-2ca2-46cd-a084-779abcf81fe8",
+      "name": "Search a folder",
+      "credentials": {
+        "microsoftOneDriveOAuth2Api": {
+          "id": "vrzwnenSUCWBq0Zj",
+          "name": "Will"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "folderId": "={{ $json.id }}"
+      },
+      "type": "n8n-nodes-base.microsoftOneDrive",
+      "typeVersion": 1,
+      "position": [
+        380,
+        -340
+      ],
+      "id": "dc2054a3-9766-4a34-bc44-786f54c96832",
+      "name": "Get items in a folder",
+      "credentials": {
+        "microsoftOneDriveOAuth2Api": {
+          "id": "vrzwnenSUCWBq0Zj",
+          "name": "Will"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "watchFolder": true,
+        "folderId": {
+          "__rl": true,
+          "value": "01UZWLBQVM4NWALRU7BFDLWYFEXQXURKOO",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftOneDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        20,
+        40
+      ],
+      "id": "1c34b50a-8519-4138-875c-c607989eee91",
+      "name": "Will",
+      "credentials": {
+        "microsoftOneDriveOAuth2Api": {
+          "id": "vrzwnenSUCWBq0Zj",
+          "name": "Will"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://graph.microsoft.com/v1.0/me/onlineMeetings",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        600,
+        -340
+      ],
+      "id": "edc4267a-72b7-4cab-8711-66419697563b",
+      "name": "HTTP Request",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "LuXYanJ6gg7jxS3x",
+          "name": "Microsoft"
+        },
+        "httpBasicAuth": {
+          "id": "qfjv4skXtPz3ThMm",
+          "name": "Felipe Microsoft"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-05-06T23:17:00.455Z",
+  "versionId": "c2670f4a-9cf1-4a27-9085-70e160482491"
+}
