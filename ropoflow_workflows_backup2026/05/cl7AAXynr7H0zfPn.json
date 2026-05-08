@@ -33,6 +33,27 @@
           }
         ]
       ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        []
+      ]
     }
   },
   "createdAt": "2026-05-06T16:04:03.219Z",
@@ -61,8 +82,8 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2,
       "position": [
-        440,
-        0
+        420,
+        20
       ],
       "id": "3c5eb18b-60dd-476c-a2e5-f13a5446914b",
       "name": "AI Agent"
@@ -142,7 +163,7 @@
     },
     {
       "parameters": {
-        "url": "=https://graph.microsoft.com/v1.0/me/onlineMeetings",
+        "url": "https://graph.microsoft.com/v1.0/users",
         "authentication": "genericCredentialType",
         "genericAuthType": "oAuth2Api",
         "options": {}
@@ -150,19 +171,59 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        600,
+        560,
         -340
       ],
-      "id": "edc4267a-72b7-4cab-8711-66419697563b",
+      "id": "a051fe29-4fb1-436d-a3d2-387efa6e2a46",
       "name": "HTTP Request",
       "credentials": {
-        "httpBearerAuth": {
-          "id": "LuXYanJ6gg7jxS3x",
-          "name": "Microsoft"
-        },
-        "httpBasicAuth": {
-          "id": "qfjv4skXtPz3ThMm",
-          "name": "Felipe Microsoft"
+        "oAuth2Api": {
+          "id": "4XNuxuIAxtSygwM9",
+          "name": "Microsoft v1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://graph.microsoft.com/v1.0/users/b3e42177-5025-4ef8-818e-20ecf3d5ec52/onlineMeetings/meeting_YzZhMmI3YTktMDY4Zi00YTk5LTliM2UtYTc4NWJkYjhkM2U1@thread",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        -340
+      ],
+      "id": "2ca1d990-1475-4b6e-bb75-ecbcfc355daf",
+      "name": "HTTP Request1",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "3LFcdpdFnwZNnIrh",
+          "name": "Microsoft v2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://graph.microsoft.com/v1.0/users/b3e42177-5025-4ef8-818e-20ecf3d5ec52/events",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        860,
+        -160
+      ],
+      "id": "4bbcdb79-c746-4d7a-814e-d1310eaacaf0",
+      "name": "HTTP Request2",
+      "credentials": {
+        "oAuth2Api": {
+          "id": "3LFcdpdFnwZNnIrh",
+          "name": "Microsoft v2"
         }
       }
     }
@@ -177,6 +238,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-05-06T23:17:00.455Z",
-  "versionId": "c2670f4a-9cf1-4a27-9085-70e160482491"
+  "updatedAt": "2026-05-07T15:39:32.246Z",
+  "versionId": "03834d87-b2e9-48f3-bcb1-08743779f835"
 }
