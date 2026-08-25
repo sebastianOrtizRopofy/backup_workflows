@@ -1,0 +1,1294 @@
+{
+  "active": false,
+  "connections": {
+    "Obtener contacts primera vez": {
+      "main": [
+        []
+      ]
+    },
+    "transformar custom fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "transformar custom fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Code2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "variables1": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "crear contacto1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "actualizar contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Search contacts con filtros avanzados1": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar match1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear contacto1": {
+      "main": [
+        [
+          {
+            "node": "guardar match1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get custom fields1": {
+      "main": [
+        [
+          {
+            "node": "custom fields formated1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "custom fields formated1": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table1": {
+      "main": [
+        [
+          {
+            "node": "get custom fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "variables1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contacto": {
+      "main": [
+        [
+          {
+            "node": "Search contacts con filtros avanzados1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "actualizar contacto": {
+      "main": [
+        [
+          {
+            "node": "guardar match1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-10T13:40:03.309Z",
+  "id": "adityrbEuowQdlRB",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "sincronizar contactos - subaccount bluestudies",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "=https://api.clientify.net/v1/contacts?page={{ $('variables1').item.json.page_inicio }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Token 25a30fd463c39611808dd0c8267493734dd0e253"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "pagination": {
+            "pagination": {
+              "paginationMode": "responseContainsNextURL",
+              "nextURL": "={{ $response.body.next }}",
+              "paginationCompleteWhen": "receiveSpecificStatusCodes",
+              "statusCodesWhenComplete": "404",
+              "limitPagesFetched": true,
+              "maxRequests": 1,
+              "requestInterval": 250
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -3260,
+        160
+      ],
+      "id": "4644c59e-eefd-482a-bf24-5cc2a2c01600",
+      "name": "Obtener contacts primera vez",
+      "retryOnFail": true,
+      "waitBetweenTries": 4000,
+      "executeOnce": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "let contacts = $input.all();\nlet output = [];\n\n// 🔹 Lista MAESTRA de custom fields\nconst allCustomFields = [\n  \"País Nacionalidad\",\n  \"Destino de Interes\",\n  \"Vencimiento visa actual\",\n  \"Actual - Tipo de visa vigente\",\n  \"Datos de emergencia Numero telefonico\",\n  \"Datos de emergencia Email\",\n  \"Datos de Emergencia Nombres y Apellidos - Parentesco\",\n  \"Localización del estudiante\",\n  \"Genero\",\n  \"Oficina Blue Studies\",\n  \"Estado Civil\",\n  \"Nombre Subagencia\",\n  \"Sector Laboral o de Interes\",\n  \"Referido de otro estudiante? (nombre completo)\",\n  \"Programa de interés\",\n  \"Primer Idioma\",\n  \"Otra ciudadania:\",\n  \"Nivel Educativo Mas alto:\",\n  \"Nivel de ingles\",\n  \"Admin Angel (solo admin asigna)\",\n  \"EB3 - Fondos\",\n  \"Nivel de Inglés Actual\",\n  \"Nucleo Familiar ( Pareja e Hijos)\",\n  \"Proyección de fecha\",\n  \"Ocupación\",\n  \"Objetivo\",\n  \"Examen de idiomas, Puntaje ,y fecha de presentación\",\n  \"Pais\",\n  \"Convenio\",\n  \"Cómo costeará el programa\",\n  \"Expo Exterior\",\n  \"Link lineup\"\n];\n\nfor (const item of contacts) {\n  let contact = item.json;\n\n  /* ===============================\n   * CASTEAR CUSTOM FIELDS\n   * =============================== */\n  let parsedCustomFields = [];\n\n  if (typeof contact.custom_fields === 'string') {\n    try {\n      parsedCustomFields = JSON.parse(contact.custom_fields);\n    } catch {\n      parsedCustomFields = [];\n    }\n  } else if (Array.isArray(contact.custom_fields)) {\n    parsedCustomFields = contact.custom_fields;\n  }\n\n  /* ===============================\n   * INICIALIZAR TODOS EN VACÍO\n   * =============================== */\n  let customFieldsResult = {};\n  allCustomFields.forEach(field => {\n    customFieldsResult[field] = \"\";\n  });\n\n  /* ===============================\n   * MATCHEAR LOS EXISTENTES\n   * =============================== */\n  parsedCustomFields.forEach(cf => {\n    if (cf?.field && customFieldsResult.hasOwnProperty(cf.field)) {\n      customFieldsResult[cf.field] = cf.value ?? \"\";\n    }\n  });\n\n  /* ===============================\n   * CASTEAR TAGS + AGREGAR TAG\n   * =============================== */\n  let tags = [];\n\n  if (typeof contact.tags === 'string') {\n    try {\n      tags = JSON.parse(contact.tags);\n    } catch {\n      tags = [];\n    }\n  } else if (Array.isArray(contact.tags)) {\n    tags = contact.tags;\n  }\n\n  if (!tags.includes('migration_clientify')) {\n    tags.push('migration_clientify');\n  }\n\n  /* ===============================\n   * REEMPLAZAR EN CONTACTO\n   * =============================== */\n  contact.custom_fields = customFieldsResult;\n  contact.tags = tags;\n\n  output.push({ json: contact });\n}\n\nreturn output;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2600,
+        0
+      ],
+      "id": "460cafab-4a4a-4592-b228-2772fd43c499",
+      "name": "transformar custom fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5a65e9e0-4766-4f41-9c4b-095b8b5c3778",
+              "name": "contact_source",
+              "value": "={{ $json.contact_source }}",
+              "type": "object"
+            },
+            {
+              "id": "4fa486c6-c3a8-4909-87e1-48ffd0f9c3d9",
+              "name": "emails",
+              "value": "={{ $json.emails }}",
+              "type": "object"
+            },
+            {
+              "id": "e02477ee-bd4e-4478-94d3-74bf65f86816",
+              "name": "phones",
+              "value": "={{ $json.phones }}",
+              "type": "object"
+            },
+            {
+              "id": "83a33cc0-27e2-4459-b7d7-6202c124f055",
+              "name": "addresses",
+              "value": "={{ JSON.parse($json.addresses.slice(1, -1)) }}",
+              "type": "object"
+            },
+            {
+              "id": "9151b362-8b4a-42d7-a97d-4dc638d75cfe",
+              "name": "custom_fields",
+              "value": "={{ $json.custom_fields }}",
+              "type": "object"
+            },
+            {
+              "id": "89b12292-2a9e-4770-9b49-1f0313d8301e",
+              "name": "tags",
+              "value": "={{ Object.values(JSON.parse($json.tags || '{}')) }}",
+              "type": "array"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {
+          "ignoreConversionErrors": true
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -2800,
+        0
+      ],
+      "id": "fb065d57-2895-48a1-8377-6c5ecfc605e1",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -2380,
+        0
+      ],
+      "id": "a36155e3-0319-4959-8258-0524eab2b904",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "349ceaec-c0f1-45c7-98b6-73701204f3d0",
+              "name": "page_inicio",
+              "value": "7205",
+              "type": "string"
+            },
+            {
+              "id": "6578a6bf-2062-4aac-baee-78e2feb9c542",
+              "name": "id_location",
+              "value": "ygtUsqeG906cD9c4piwT",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -4140,
+        0
+      ],
+      "id": "f7ee1030-5695-4cc4-b531-4c7fa0995e7f",
+      "name": "variables1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "18c9acad-185f-41dc-95ea-dec06838467f",
+              "leftValue": "={{ $json.contacts }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1140,
+        -100
+      ],
+      "id": "186d881a-121d-460d-9e8d-d4b0e6913ed6",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "operation": "search",
+        "pageLimit": 1,
+        "filters": {
+          "group": [
+            {
+              "group": "OR",
+              "filters": "=[\n        {\n          \"field\": \"phone\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ $json.phones.phone || \"\" }}\"\n        },\n        {\n          \"field\": \"email\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ $json.emails.email || \"\"}}\"\n        }\n]"
+            }
+          ]
+        },
+        "dateFilters": {},
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 400
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -1420,
+        -100
+      ],
+      "id": "1382a7bc-abe4-41b9-aa0a-ef9a4bc94df7",
+      "name": "Search contacts con filtros avanzados1",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "HWRT3nPoDMDJffsG",
+          "name": "sub account blue studies - app migraciones"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "match_contacts",
+          "mode": "list",
+          "cachedResultName": "match_contacts"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id_contact_ropofy": "={{ $json.id }}",
+            "id_contact_clientify": "={{ $('Loop Over Items1').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id_contact_clientify",
+            "id_contact_ropofy"
+          ],
+          "schema": [
+            {
+              "id": "id_contact_clientify",
+              "displayName": "id_contact_clientify",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "id_contact_ropofy",
+              "displayName": "id_contact_ropofy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -80,
+        0
+      ],
+      "id": "fe581aad-ef42-4f78-b251-87ca29f32d23",
+      "name": "guardar match1",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "email": "={{ $('Loop Over Items1').item.json.emails.email || \"\"}}",
+        "phone": "={{ $('Loop Over Items1').item.json.phones.phone || \"\"}}",
+        "additionalFields": {
+          "city": "={{ $('Loop Over Items1').item.json.addresses?.item?.city || \"\"}}",
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "56pskoSKa44XUTgimxcb",
+                  "mode": "list",
+                  "cachedResultName": "Pais nacionalidad"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['País Nacionalidad'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ncVTAM00OVQcDzljQqLW",
+                  "mode": "list",
+                  "cachedResultName": "¿En qué destino te interesa realizar este proyecto?"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Destino de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "IZGMnMZDrGg3jfTPPyhc",
+                  "mode": "list",
+                  "cachedResultName": "Fecha de vencimiento de visa aprobada"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Vencimiento visa actual']}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "JbceHiKAm9VCSVLZ690x",
+                  "mode": "list",
+                  "cachedResultName": "Tipo visa vigente"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Actual - Tipo de visa vigente'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "g6ZSgU1yqRz09PL9v6Cn",
+                  "mode": "list",
+                  "cachedResultName": "Datos de emergencia Numero telefonico"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Datos de emergencia Numero telefonico'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "2jLrFabCUtc9o1Rcs9gq",
+                  "mode": "list",
+                  "cachedResultName": "Correo contacto de emergencia"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Datos de emergencia Email'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "OTYEdZrCbhLBiyoyCAIm",
+                  "mode": "list",
+                  "cachedResultName": "Nombre contacto de emergencia"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Datos de Emergencia Nombres y Apellidos - Parentesco'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "QdEWtGAkB5oGinHpBKzD",
+                  "mode": "list",
+                  "cachedResultName": "localizacion estudiante"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Localización del estudiante'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Jxba2NdxZNXaR50ZkuM4",
+                  "mode": "list",
+                  "cachedResultName": "genero"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields.Genero }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "I2ABLtACxf8QHnsit4aZ",
+                  "mode": "list",
+                  "cachedResultName": "Oficina Blue Studies"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Oficina Blue Studies'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "WqdL2yO7gVwxzoQa1jLq",
+                  "mode": "list",
+                  "cachedResultName": "estado civil"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Estado Civil'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "jcLan914MnZ7X3VEnhqA",
+                  "mode": "list",
+                  "cachedResultName": "nombre subagencia"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Nombre Subagencia'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ngHN5ZGCrZAzVI4EofwT",
+                  "mode": "list",
+                  "cachedResultName": "sector laboral"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Sector Laboral o de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "LMzsnlSSezgLZbH8hWSl",
+                  "mode": "list",
+                  "cachedResultName": "Referido"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Referido de otro estudiante? (nombre completo)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "bVsP3hWv1wIb7qRsMmex",
+                  "mode": "list",
+                  "cachedResultName": "programa de interes"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Programa de interés'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "YSdJEBHHGNxGKMehDO7d",
+                  "mode": "list",
+                  "cachedResultName": " Primer Idioma"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Primer Idioma'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Y7tQOs3g5TC18lPXiGIL",
+                  "mode": "list",
+                  "cachedResultName": "otra ciudadania"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Otra ciudadania:'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "iiCWKfpDS3L1Oeb0ysxq",
+                  "mode": "list",
+                  "cachedResultName": " Nivel de estudios alcanzado"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Nivel Educativo Mas alto:'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "5PzQUxaRKY13CTmmDqz0",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu nivel de inglés?"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Nivel de Inglés Actual'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "yOCsKbfLkRAH9xc5AmrT",
+                  "mode": "list",
+                  "cachedResultName": " Nucleo Familiar (Pareja e Hijos)"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Nucleo Familiar ( Pareja e Hijos)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "QJbpdYfmrOVJ0IZtHUfo",
+                  "mode": "list",
+                  "cachedResultName": "proyeccion de fecha"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Proyección de fecha'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ZQsg0ysnTv3LFoPhdsEJ",
+                  "mode": "list",
+                  "cachedResultName": "Ocupación/Empleo"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Ocupación'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "g5qfQXsEipiI8r6lwDo4",
+                  "mode": "list",
+                  "cachedResultName": " ¿Cuál es tu principal objetivo con este proyecto?"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields.Objetivo }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "4rsUvyFvDlKQS0o3pjbd",
+                  "mode": "list",
+                  "cachedResultName": "Examen de idiomas, Puntaje ,y fecha de presentación"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Examen de idiomas, Puntaje ,y fecha de presentación'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "56pskoSKa44XUTgimxcb",
+                  "mode": "list",
+                  "cachedResultName": "Pais nacionalidad"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields.Pais }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "bpnIaUyhCpLplFIKJpHm",
+                  "mode": "list",
+                  "cachedResultName": "convenio"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields.Convenio }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "XsETwxbbqr7lr6sdvhXW",
+                  "mode": "list",
+                  "cachedResultName": "¿Cómo costearás tu proyecto?"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Cómo costeará el programa'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "pUNOI8iqBQV4RxYLgNdr",
+                  "mode": "list",
+                  "cachedResultName": "expo exterior"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Expo Exterior'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "d8TrIBUp3oRUaNuTrAMK",
+                  "mode": "list",
+                  "cachedResultName": "link linkeup"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Link lineup'] }}"
+              }
+            ]
+          },
+          "dnd": false,
+          "firstName": "={{ $('Loop Over Items1').item.json.first_name || \"\"}}",
+          "lastName": "={{ $('Loop Over Items1').item.json.last_name || \"\"}}",
+          "name": "={{ $('Loop Over Items1').item.json.first_name || \"\"}}",
+          "source": "={{ $('Loop Over Items1').item.json.contact_source?.name || \"\" }}",
+          "tags": "={{ $('Loop Over Items1').item.json.tags }}"
+        },
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 900
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        -200
+      ],
+      "id": "e5c9d9d2-4b01-4516-9191-19604f5041ae",
+      "name": "crear contacto1",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "HWRT3nPoDMDJffsG",
+          "name": "sub account blue studies - app migraciones"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/locations/GbnCvbatZxPSqEfSjssw/customFields",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -3700,
+        0
+      ],
+      "id": "58b0e6d0-162b-47b2-beba-07f21e590dbb",
+      "name": "get custom fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "let customFields = $input.first().json.customFields;\nlet customFieldsFix = [];\n\ncustomFields.forEach((CF) => {\n  customFieldsFix.push({\n    \"id\": CF.id,\n    \"name\": CF.name,\n    \"fieldKey\": CF.fieldKey\n  })\n})\n\nreturn [{customFieldsFix}]\n\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -3480,
+        0
+      ],
+      "id": "e42ede52-1dc2-4865-a146-c045d947d636",
+      "name": "custom fields formated1"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "GbnCvbatZxPSqEfSjssw"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -3920,
+        0
+      ],
+      "id": "b96ac3e6-0df5-46b8-a368-e01563f9df23",
+      "name": "Select rows from a table1",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -4380,
+        0
+      ],
+      "id": "6b091850-d173-4781-80e5-5f661dfd9a3d",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1780,
+        -380
+      ],
+      "id": "9e351269-339f-4ae3-bce5-6eee9161be27",
+      "name": "Code2"
+    },
+    {
+      "parameters": {
+        "content": "este es el flujo que se utiliza para migrar contactos clientify -> ropofy"
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -4320,
+        -220
+      ],
+      "typeVersion": 1,
+      "id": "fd4ed9c0-9c9b-485f-8b9a-1420c2f54afc",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "contacts_bluestudies",
+          "mode": "list",
+          "cachedResultName": "contacts_bluestudies"
+        },
+        "returnAll": true,
+        "where": {
+          "values": [
+            {
+              "column": "owner",
+              "value": "nathalie.martinez@bluestudies.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -3200,
+        0
+      ],
+      "id": "3933c1d2-e716-4fa0-90dc-3093136c602a",
+      "name": "Select rows from a table",
+      "executeOnce": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst allFields = new Set();\n\nitems.forEach(item => {\n  let customFields = item.json.custom_fields;\n\n  // 🔹 Castear si viene como string\n  if (typeof customFields === 'string') {\n    try {\n      customFields = JSON.parse(customFields);\n    } catch (e) {\n      customFields = [];\n    }\n  }\n\n  // 🔹 Validar que sea array\n  if (Array.isArray(customFields)) {\n    customFields.forEach(cf => {\n      if (cf?.field) {\n        allFields.add(cf.field);\n      }\n    });\n  }\n});\n\n// 🔹 Resultado final\nreturn [\n  {\n    json: {\n      total_custom_fields: allFields.size,\n      custom_fields: Array.from(allFields)\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2800,
+        -260
+      ],
+      "id": "d6f991eb-3b02-489d-b43f-2d1d5c7d06d7",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1780,
+        -100
+      ],
+      "id": "19d72e29-2c1e-43e2-8fc5-c0e5414d2a3f",
+      "name": "Contacto"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "contactId": "={{ $json.contacts[0].id }}",
+        "updateFields": {
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "56pskoSKa44XUTgimxcb",
+                  "mode": "list",
+                  "cachedResultName": "Pais nacionalidad"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['País Nacionalidad'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ncVTAM00OVQcDzljQqLW",
+                  "mode": "list",
+                  "cachedResultName": "¿En qué destino te interesa realizar este proyecto?"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Destino de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "IZGMnMZDrGg3jfTPPyhc",
+                  "mode": "list",
+                  "cachedResultName": "Fecha de vencimiento de visa aprobada"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Vencimiento visa actual']}}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "JbceHiKAm9VCSVLZ690x",
+                  "mode": "list",
+                  "cachedResultName": "Tipo visa vigente"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Actual - Tipo de visa vigente'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "g6ZSgU1yqRz09PL9v6Cn",
+                  "mode": "list",
+                  "cachedResultName": "Datos de emergencia Numero telefonico"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Datos de emergencia Numero telefonico'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "2jLrFabCUtc9o1Rcs9gq",
+                  "mode": "list",
+                  "cachedResultName": "Correo contacto de emergencia"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Datos de emergencia Email'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "OTYEdZrCbhLBiyoyCAIm",
+                  "mode": "list",
+                  "cachedResultName": "Nombre contacto de emergencia"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Datos de Emergencia Nombres y Apellidos - Parentesco'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "QdEWtGAkB5oGinHpBKzD",
+                  "mode": "list",
+                  "cachedResultName": "localizacion estudiante"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Localización del estudiante'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Jxba2NdxZNXaR50ZkuM4",
+                  "mode": "list",
+                  "cachedResultName": "genero"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields.Genero }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "I2ABLtACxf8QHnsit4aZ",
+                  "mode": "list",
+                  "cachedResultName": "Oficina Blue Studies"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Oficina Blue Studies'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "WqdL2yO7gVwxzoQa1jLq",
+                  "mode": "list",
+                  "cachedResultName": "estado civil"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Estado Civil'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "jcLan914MnZ7X3VEnhqA",
+                  "mode": "list",
+                  "cachedResultName": "nombre subagencia"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Nombre Subagencia'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ngHN5ZGCrZAzVI4EofwT",
+                  "mode": "list",
+                  "cachedResultName": "sector laboral"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Sector Laboral o de Interes'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "LMzsnlSSezgLZbH8hWSl",
+                  "mode": "list",
+                  "cachedResultName": "Referido"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Referido de otro estudiante? (nombre completo)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "bVsP3hWv1wIb7qRsMmex",
+                  "mode": "list",
+                  "cachedResultName": "programa de interes"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Programa de interés'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "YSdJEBHHGNxGKMehDO7d",
+                  "mode": "list",
+                  "cachedResultName": " Primer Idioma"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Primer Idioma'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Y7tQOs3g5TC18lPXiGIL",
+                  "mode": "list",
+                  "cachedResultName": "otra ciudadania"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Otra ciudadania:'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "iiCWKfpDS3L1Oeb0ysxq",
+                  "mode": "list",
+                  "cachedResultName": " Nivel de estudios alcanzado"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Nivel Educativo Mas alto:'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "5PzQUxaRKY13CTmmDqz0",
+                  "mode": "list",
+                  "cachedResultName": "¿Cuál es tu nivel de inglés?"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Nivel de Inglés Actual'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "yOCsKbfLkRAH9xc5AmrT",
+                  "mode": "list",
+                  "cachedResultName": " Nucleo Familiar (Pareja e Hijos)"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Nucleo Familiar ( Pareja e Hijos)'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "QJbpdYfmrOVJ0IZtHUfo",
+                  "mode": "list",
+                  "cachedResultName": "proyeccion de fecha"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Proyección de fecha'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "ZQsg0ysnTv3LFoPhdsEJ",
+                  "mode": "list",
+                  "cachedResultName": "Ocupación/Empleo"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Ocupación'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "g5qfQXsEipiI8r6lwDo4",
+                  "mode": "list",
+                  "cachedResultName": " ¿Cuál es tu principal objetivo con este proyecto?"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields.Objetivo }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "4rsUvyFvDlKQS0o3pjbd",
+                  "mode": "list",
+                  "cachedResultName": "Examen de idiomas, Puntaje ,y fecha de presentación"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Examen de idiomas, Puntaje ,y fecha de presentación'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "bpnIaUyhCpLplFIKJpHm",
+                  "mode": "list",
+                  "cachedResultName": "convenio"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields.Convenio }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "XsETwxbbqr7lr6sdvhXW",
+                  "mode": "list",
+                  "cachedResultName": "¿Cómo costearás tu proyecto?"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Cómo costeará el programa'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "pUNOI8iqBQV4RxYLgNdr",
+                  "mode": "list",
+                  "cachedResultName": "expo exterior"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Expo Exterior'] }}"
+              },
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "d8TrIBUp3oRUaNuTrAMK",
+                  "mode": "list",
+                  "cachedResultName": "link linkeup"
+                },
+                "fieldValue": "={{ $('Contacto').item.json.custom_fields['Link lineup'] }}"
+              }
+            ]
+          }
+        },
+        "requestOptions": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 900
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        -20
+      ],
+      "id": "6b633afb-393b-4e2d-abdc-b34213204017",
+      "name": "actualizar contacto",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "HWRT3nPoDMDJffsG",
+          "name": "sub account blue studies - app migraciones"
+        }
+      },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {}
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-09T14:02:22.514Z",
+  "versionId": "86a292d0-bc73-44aa-911a-7e7fbff92658"
+}
