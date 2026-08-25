@@ -1,0 +1,1107 @@
+{
+  "active": true,
+  "connections": {
+    "Array Components": {
+      "main": [
+        [
+          {
+            "node": "Get Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Crear Servicio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Components",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Components2": {
+      "main": [
+        [
+          {
+            "node": "Actualizar status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear Servicio": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cada 5 min": {
+      "main": [
+        [
+          {
+            "node": "Get Incidents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual": {
+      "main": [
+        [
+          {
+            "node": "Get Incidents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Components": {
+      "main": [
+        [
+          {
+            "node": "Array Components",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Status": {
+      "main": [
+        [
+          {
+            "node": "Code - servicios",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code - Incidents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Existe": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - servicios": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Components",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Incidents": {
+      "main": [
+        [
+          {
+            "node": "Array Incidents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Array Incidents": {
+      "main": [
+        [
+          {
+            "node": "Get Components",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Crear incidente",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code - Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Incidents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Existe1": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Incidents": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Incidents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Incidents1": {
+      "main": [
+        [
+          {
+            "node": "Actualizar status1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Crear incidente": {
+      "main": [
+        [
+          {
+            "node": "Code - Updates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [
+          {
+            "node": "Replace Me1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code - Existe2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Existe2": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code - Updates": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Incidents": {
+      "main": [
+        [
+          {
+            "node": "Get Incidents1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code - Existe1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Components": {
+      "main": [
+        [
+          {
+            "node": "Get Components2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code - Existe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-06T22:36:35.796Z",
+  "id": "Adn0QiP9pk3m4TZt",
+  "isArchived": false,
+  "meta": null,
+  "name": "Status page",
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "// Recibir todos los items\nconst items = $input.all();\n\n// Transformarlos en un solo array dentro de una variable\nreturn [\n  {\n    json: {\n      components: items.map(item => item.json)\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "58ca3efb-5632-4fe5-bc3a-2e917068c350",
+      "name": "Array Components"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "bc52d7b6-ca74-415b-93d9-667d3e4d4a8b",
+              "leftValue": "={{ $json.exists.toString() }}",
+              "rightValue": "false",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1620,
+        -360
+      ],
+      "id": "767266f2-21f1-4021-98b8-be225fdfddfe",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        -220
+      ],
+      "id": "34f04bb1-2bb0-4fa6-9b13-550919a372ed"
+    },
+    {
+      "parameters": {
+        "url": "https://api.statuspage.io/v1/pages/cyfmyb6p4rjw/components",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "OAuth ATCTT3xFfGN08IfnKvYb6OZn_TIs_Al8BCGigSpzHylD2okDNIUqQLOkP5UKDxLC-6IxCx76aHjRocW9bGRYwf8N9522vmEXOirgfxXc1JDol6FXWTXt1E83Zvhm6ZgDQ6mnU6LYtFZSPJFKMd498hJdAZ64fwklVXoT4_JWv4d41V5HUUp93cU=1BDE1780"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1420,
+        -720
+      ],
+      "id": "bfe160aa-abfc-491e-84c8-2fd6e834f115",
+      "name": "Get Components2",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.statuspage.io/v1/pages/{{ $json.page_id }}/components/{{ $json.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "OAuth ATCTT3xFfGN08IfnKvYb6OZn_TIs_Al8BCGigSpzHylD2okDNIUqQLOkP5UKDxLC-6IxCx76aHjRocW9bGRYwf8N9522vmEXOirgfxXc1JDol6FXWTXt1E83Zvhm6ZgDQ6mnU6LYtFZSPJFKMd498hJdAZ64fwklVXoT4_JWv4d41V5HUUp93cU=1BDE1780"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "component[status]",
+              "value": "={{    ($('Get Status').item.json.data.monitors.find(m => m.id.toString() === $json.description.toString())?.status === 'online')      ? 'operational'      : 'major_outage'  }}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1820,
+        -720
+      ],
+      "id": "cff55459-d7b9-4586-9851-9786cc9897cf",
+      "name": "Actualizar status",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.statuspage.io/v1/pages/cyfmyb6p4rjw/components",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "OAuth ATCTT3xFfGN08IfnKvYb6OZn_TIs_Al8BCGigSpzHylD2okDNIUqQLOkP5UKDxLC-6IxCx76aHjRocW9bGRYwf8N9522vmEXOirgfxXc1JDol6FXWTXt1E83Zvhm6ZgDQ6mnU6LYtFZSPJFKMd498hJdAZ64fwklVXoT4_JWv4d41V5HUUp93cU=1BDE1780"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "component[description]",
+              "value": "={{ $json.id }}"
+            },
+            {
+              "name": "component[name]",
+              "value": "={{ $json.name }}"
+            },
+            {
+              "name": "component[status]",
+              "value": "operational"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1880,
+        -480
+      ],
+      "id": "9fa459fe-6fa6-4b54-b212-e158149ab3a9",
+      "name": "Crear Servicio",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 20
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -480,
+        -80
+      ],
+      "id": "bd93499c-713a-4ddc-a191-a17c7d51a294",
+      "name": "Cada 5 min"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -480,
+        80
+      ],
+      "id": "924ad197-6bd8-4a00-90a4-ed72a82dbf6f",
+      "name": "Manual"
+    },
+    {
+      "parameters": {
+        "url": "https://api.statuspage.io/v1/pages/cyfmyb6p4rjw/components",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "OAuth ATCTT3xFfGN08IfnKvYb6OZn_TIs_Al8BCGigSpzHylD2okDNIUqQLOkP5UKDxLC-6IxCx76aHjRocW9bGRYwf8N9522vmEXOirgfxXc1JDol6FXWTXt1E83Zvhm6ZgDQ6mnU6LYtFZSPJFKMd498hJdAZ64fwklVXoT4_JWv4d41V5HUUp93cU=1BDE1780"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "e2034f1e-d246-49eb-8847-df8dbe39174a",
+      "name": "Get Components",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.pulsetic.com/public/status/status.gohighlevel.com",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "es-CO,es;q=0.9,en-US;q=0.8,en;q=0.7,es-419;q=0.6"
+            },
+            {
+              "name": "Authorization"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Origin",
+              "value": "https://status.gohighlevel.com"
+            },
+            {
+              "name": "Referer",
+              "value": "https://status.gohighlevel.com/"
+            },
+            {
+              "name": "Sec-Fetch-Dest",
+              "value": "empty"
+            },
+            {
+              "name": "Sec-Fetch-Mode",
+              "value": "cors"
+            },
+            {
+              "name": "Sec-Fetch-Site",
+              "value": "cross-site"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Google Chrome\";v=\"140\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"Windows\""
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json;charset=UTF-8",
+        "body": "password",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "920ee855-a067-4c5b-9059-942568aee2c5",
+      "name": "Get Status",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tomar el id que viene del nodo \"Code\"\nconst codeItem = $('Loop Over Components').first();\nconst mainId = String(codeItem?.json?.id ?? '');\nconst mainName = String(codeItem?.json?.name ?? '');\n\n// Tomar el array de componentes que viene del nodo \"Array Components\"\nconst compItem = $items('Array Components', 0, 0)?.[0];\nconst components = compItem?.json?.components ?? [];  // <- debería ser un array\n\n// ¿Algún componente tiene description == id?\nconst exists = components.some(c => String(c?.description ?? '') === mainId);\n\n// Output: un solo item con el resultado\nreturn [\n  {\n    json: {\n      id: mainId,\n      name: mainName,\n      exists\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        -480
+      ],
+      "id": "ce7b6487-5c13-44b3-ba93-42f5d13a253c",
+      "name": "Code - Existe"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.data.monitors"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        -600
+      ],
+      "id": "ae4de2e2-f261-4365-b4b9-40764afab687",
+      "name": "Code - servicios"
+    },
+    {
+      "parameters": {
+        "url": "https://api.statuspage.io/v1/pages/cyfmyb6p4rjw/incidents",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "OAuth ATCTT3xFfGN08IfnKvYb6OZn_TIs_Al8BCGigSpzHylD2okDNIUqQLOkP5UKDxLC-6IxCx76aHjRocW9bGRYwf8N9522vmEXOirgfxXc1JDol6FXWTXt1E83Zvhm6ZgDQ6mnU6LYtFZSPJFKMd498hJdAZ64fwklVXoT4_JWv4d41V5HUUp93cU=1BDE1780"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        0
+      ],
+      "id": "9f4fed75-7ce3-48d4-954a-7c8985cc25e6",
+      "name": "Get Incidents",
+      "executeOnce": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Recibir todos los items\nconst items = $input.all();\n\n// Transformarlos en un solo array dentro de una variable\nreturn [\n  {\n    json: {\n      incidents: items.map(item => item.json)\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        20,
+        0
+      ],
+      "id": "4e7eb73c-ab4d-4745-b8bf-7b0929b3012b",
+      "name": "Array Incidents"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "bc52d7b6-ca74-415b-93d9-667d3e4d4a8b",
+              "leftValue": "={{ $json.exists.toString() }}",
+              "rightValue": "false",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1620,
+        480
+      ],
+      "id": "105c5da2-27d6-4697-b5c5-de74d81028fd",
+      "name": "If1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me1",
+      "typeVersion": 1,
+      "position": [
+        2620,
+        1120
+      ],
+      "id": "8d621b7d-15ee-44df-8ff3-1a458c57cd86"
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.statuspage.io/v1/pages/{{ $json.page_id }}/incidents/{{ $json.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "OAuth ATCTT3xFfGN08IfnKvYb6OZn_TIs_Al8BCGigSpzHylD2okDNIUqQLOkP5UKDxLC-6IxCx76aHjRocW9bGRYwf8N9522vmEXOirgfxXc1JDol6FXWTXt1E83Zvhm6ZgDQ6mnU6LYtFZSPJFKMd498hJdAZ64fwklVXoT4_JWv4d41V5HUUp93cU=1BDE1780"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "component[status]",
+              "value": "={{    ($('Get Status').item.json.data.monitors.find(m => m.id.toString() === $json.description.toString())?.status === 'online')      ? 'operational'      : 'major_outage'  }}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1820,
+        120
+      ],
+      "id": "05c8fb7f-3adb-4285-b127-50f6e4f063d4",
+      "name": "Actualizar status1",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tomar el id que viene del nodo \"Code\"\nconst codeItem = $('Loop Over Incidents').first();\nconst mainId = String(codeItem?.json?.id ?? '');\nconst mainName = String(codeItem?.json?.title ?? '');\nconst mainStatus = String(codeItem?.json?.status ?? '');\n\n// Tomar el array de componentes que viene del nodo \"Array Components\"\nconst compItem = $items('Array Incidents', 0, 0)?.[0];\nconst components = compItem?.json?.incidents ?? [];  // <- debería ser un array\n\n// ¿Algún componente tiene name que incluya el id?\nconst exists = components.some(c => String(c?.name ?? '').includes(mainId));\n\n// Output: un solo item con el resultado\nreturn [\n  {\n    json: {\n      id: mainId,\n      name: mainName,\n      status: mainStatus,\n      exists\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1420,
+        360
+      ],
+      "id": "93b6fcbc-51e5-4fe1-8fff-e12a2c42179f",
+      "name": "Code - Existe1"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.data.incidents"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        240
+      ],
+      "id": "2bb77f42-0156-4b34-8ca8-d5ac4b2d14a2",
+      "name": "Code - Incidents"
+    },
+    {
+      "parameters": {
+        "url": "https://api.statuspage.io/v1/pages/cyfmyb6p4rjw/incidents",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "OAuth ATCTT3xFfGN08IfnKvYb6OZn_TIs_Al8BCGigSpzHylD2okDNIUqQLOkP5UKDxLC-6IxCx76aHjRocW9bGRYwf8N9522vmEXOirgfxXc1JDol6FXWTXt1E83Zvhm6ZgDQ6mnU6LYtFZSPJFKMd498hJdAZ64fwklVXoT4_JWv4d41V5HUUp93cU=1BDE1780"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1420,
+        120
+      ],
+      "id": "da2ee8f7-63f7-4af6-ab1b-620e13cbda41",
+      "name": "Get Incidents1",
+      "executeOnce": true,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.statuspage.io/v1/pages/cyfmyb6p4rjw/incidents",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "OAuth ATCTT3xFfGN08IfnKvYb6OZn_TIs_Al8BCGigSpzHylD2okDNIUqQLOkP5UKDxLC-6IxCx76aHjRocW9bGRYwf8N9522vmEXOirgfxXc1JDol6FXWTXt1E83Zvhm6ZgDQ6mnU6LYtFZSPJFKMd498hJdAZ64fwklVXoT4_JWv4d41V5HUUp93cU=1BDE1780"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "incident[name]",
+              "value": "={{ $json.name }} - código: {{ $json.id }}"
+            },
+            {
+              "name": "incident[status]",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "name": "incident[body]",
+              "value": "={{ $json.name }}"
+            },
+            {
+              "name": "incident[deliver_notifications]",
+              "value": "false"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 5000
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1860,
+        360
+      ],
+      "id": "86d2647b-427a-4c9d-aab5-cf717c4707f5",
+      "name": "Crear incidente",
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "bc52d7b6-ca74-415b-93d9-667d3e4d4a8b",
+              "leftValue": "={{ $json.exists.toString() }}",
+              "rightValue": "false",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2740,
+        740
+      ],
+      "id": "a774f5a7-643f-43f3-b0d1-7746fb6fd806",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2320,
+        500
+      ],
+      "id": "c7a9fa7f-a64b-447b-9195-d1e9a13187c2",
+      "name": "Loop Over Items2",
+      "executeOnce": false
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me2",
+      "typeVersion": 1,
+      "position": [
+        3200,
+        880
+      ],
+      "id": "6f69449c-8cb7-4aca-99c0-46ca61e5255c"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tomar el id que viene del nodo \"Code\"\nconst codeItem = $('Loop Over Items2').first();\nconst mainId = String(codeItem?.json?.id ?? '');\nconst mainName = String(codeItem?.json?.title ?? '');\nconst mainStatus = String(codeItem?.json?.status ?? '');\n\n// Tomar el array de componentes que viene del nodo \"Array Components\"\nconst compItem = $items('Array Incidents', 0, 0)?.[0];\nconst components = compItem?.json?.incidents ?? [];  // <- debería ser un array\n\n// ¿Algún componente tiene name que incluya el id?\nconst exists = components.some(c => String(c?.name ?? '').includes(mainId));\n\n// Output: un solo item con el resultado\nreturn [\n  {\n    json: {\n      id: mainId,\n      name: mainName,\n      status: mainStatus,\n      exists\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2540,
+        620
+      ],
+      "id": "710dd188-17de-41da-8a38-a2fad1f21a33",
+      "name": "Code - Existe2"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $('Loop Over Incidents').first().json.updates"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2100,
+        500
+      ],
+      "id": "40c71aa2-da83-4b03-82d4-33ed9a3dd667",
+      "name": "Code - Updates"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        240
+      ],
+      "id": "58307ab5-735e-46b2-9746-4770f1ec71a8",
+      "name": "Loop Over Incidents",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        -600
+      ],
+      "id": "2906cb8e-667e-4f31-839a-95bfe480e9e1",
+      "name": "Loop Over Components",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "content": "Busca en nuestro status page:\nincidentes\n",
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -240,
+        -180
+      ],
+      "typeVersion": 1,
+      "id": "492bb445-02e8-49e6-b344-5718cafab7af",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "Busca en nuestro status page:\ncomponents\n\n",
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        200,
+        -180
+      ],
+      "typeVersion": 1,
+      "id": "8fa4772d-e69f-471d-b08b-a78ab48132e8",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "Buscastatus page GHL:\n- components\n- incidents\n\n\n",
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        620,
+        -200
+      ],
+      "typeVersion": 1,
+      "id": "fc9fbbe1-21dd-4797-9505-75296091f5e7",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "Busca en nuestro status page:\ncomponents\n\n",
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1380,
+        -900
+      ],
+      "typeVersion": 1,
+      "id": "908163f1-c50c-47f0-a2a8-381639dc1549",
+      "name": "Sticky Note3"
+    }
+  ],
+  "pinData": {
+    "Cada 5 min": [
+      {
+        "json": {
+          "timestamp": "2025-10-09T12:40:59.003-04:00",
+          "Readable date": "October 9th 2025, 12:40:59 pm",
+          "Readable time": "12:40:59 pm",
+          "Day of week": "Thursday",
+          "Year": "2025",
+          "Month": "October",
+          "Day of month": "09",
+          "Hour": "12",
+          "Minute": "40",
+          "Second": "59",
+          "Timezone": "America/New_York (UTC-04:00)"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    },
+    "node:Cada 5 min": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-09T21:13:53.881Z",
+  "versionId": "042d231b-8cb4-42ca-9fbf-f2db170f7073"
+}
