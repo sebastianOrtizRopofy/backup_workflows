@@ -1,0 +1,654 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "CF",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Pipellines",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Users1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Users1": {
+      "main": [
+        [
+          {
+            "node": "Lógica Users1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lógica Users1": {
+      "main": [
+        [
+          {
+            "node": "guardar Users1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lógica Stages1": {
+      "main": [
+        [
+          {
+            "node": "guardar Stages1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CF": {
+      "main": [
+        [
+          {
+            "node": "Lógica CF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pipellines": {
+      "main": [
+        [
+          {
+            "node": "Lógica Pipelines",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Lógica Stages1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lógica Pipelines": {
+      "main": [
+        [
+          {
+            "node": "guardar Pipelines",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lógica CF": {
+      "main": [
+        [
+          {
+            "node": "guardar CF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-12T05:01:26.569Z",
+  "id": "4bhiShP3QnnFPrZQ",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Data BI General [WEBHOOK]",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "obtener-data-bi",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1840,
+        2240
+      ],
+      "id": "6d18909c-2a12-4726-8d54-e81bf71d58d7",
+      "name": "Webhook",
+      "webhookId": "f5142ad8-eb34-40a3-87cb-8899d8ee0079"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.ropofy.com/api/v2/users?locationId={{ $json.body.IdLocation }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.body.IdLocation }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1420,
+        2600
+      ],
+      "id": "34b12f17-aae0-424e-a40f-19d86cc1eb58",
+      "name": "Users1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtener los datos de los inputs\nlet inputs = $input.first().json.users\n\n// Retornar el array de resultados como 'items' para n8n\nreturn inputs;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1200,
+        2600
+      ],
+      "id": "3d4e69e8-27f1-47a4-9d7d-e91f029d25c3",
+      "name": "Lógica Users1"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.WorkbookId }}",
+          "mode": "id"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.SheetUsers }}",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.TableUsers }}",
+          "mode": "id"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "=id",
+              "fieldValue": "={{ $json.id }}"
+            },
+            {
+              "column": "=name",
+              "fieldValue": "={{ $json.name }}"
+            },
+            {
+              "column": "=firstName",
+              "fieldValue": "={{ $json.firstName }}"
+            },
+            {
+              "column": "=lastName",
+              "fieldValue": "={{ $json.lastName }}"
+            },
+            {
+              "column": "=email",
+              "fieldValue": "={{ $json.email }}"
+            },
+            {
+              "column": "=phone",
+              "fieldValue": "={{ $json.phone }}"
+            },
+            {
+              "column": "=deleted",
+              "fieldValue": "={{ $json.deleted }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        -980,
+        2600
+      ],
+      "id": "1dc92054-92fe-4f7e-8cc7-5f2bf7c2103b",
+      "name": "guardar Users1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Asegúrate de que los datos de entrada se reciban correctamente\nconst data = $input.all()[0].json; // Si tienes múltiples entradas, toma el primero\n\n// Resultado final\nconst result = [];\n\n// Verifica si data tiene la propiedad pipelines\nif (data.pipelines && Array.isArray(data.pipelines)) {\n  // Iterar sobre cada pipeline\n  data.pipelines.forEach(pipeline => {\n    // Verifica si el pipeline tiene la propiedad stages\n    if (pipeline.stages && Array.isArray(pipeline.stages)) {\n      // Iterar sobre cada stage dentro de cada pipeline\n      pipeline.stages.forEach(stage => {\n        // Formatear y agregar el objeto al resultado\n        result.push({\n          id_pipeline: pipeline.id,\n          id_stage: stage.id,\n          name_stage: stage.name,\n        });\n      });\n    }\n  });\n}\n\n// Retornar el resultado\nreturn result;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1200,
+        2420
+      ],
+      "id": "06cbb534-b7f0-4f85-9e5d-edeaa358bef2",
+      "name": "Lógica Stages1"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.WorkbookId }}",
+          "mode": "id"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.SheetStages }}",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.TableStages }}",
+          "mode": "id"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "=id_pipeline",
+              "fieldValue": "={{ $json.id_pipeline }}"
+            },
+            {
+              "column": "=id",
+              "fieldValue": "={{ $json.id_stage }}"
+            },
+            {
+              "column": "=name",
+              "fieldValue": "={{ $json.name_stage }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        -980,
+        2420
+      ],
+      "id": "969d38af-4502-41d9-99a6-61cea5d105d3",
+      "name": "guardar Stages1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.WorkbookId }}",
+          "mode": "id"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.SheetCF }}",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.TableCF }}",
+          "mode": "id"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "=id",
+              "fieldValue": "={{ $json.id }}"
+            },
+            {
+              "column": "=name",
+              "fieldValue": "={{ $json.name }}"
+            },
+            {
+              "column": "=model",
+              "fieldValue": "={{ $json.model }}"
+            },
+            {
+              "column": "=fieldKey",
+              "fieldValue": "={{ $json.fieldKey }}"
+            },
+            {
+              "column": "=placeholder",
+              "fieldValue": "={{ $json.placeholder }}"
+            },
+            {
+              "column": "=dataType",
+              "fieldValue": "={{ $json.dataType }}"
+            },
+            {
+              "column": "=dateAdded",
+              "fieldValue": "={{ $json.dateAdded }}"
+            },
+            {
+              "column": "=position",
+              "fieldValue": "={{ $json.position }}"
+            },
+            {
+              "column": "=documentType",
+              "fieldValue": "={{ $json.documentType }}"
+            },
+            {
+              "column": "=parentId",
+              "fieldValue": "={{ $json.parentId }}"
+            },
+            {
+              "column": "=dateAdded",
+              "fieldValue": "={{ $json.dateAdded }}"
+            },
+            {
+              "column": "=standard",
+              "fieldValue": "={{ $json.standard }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        -980,
+        2040
+      ],
+      "id": "64fb8454-ebb9-43f6-b76e-63e3388eb5d5",
+      "name": "guardar CF",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.ropofy.com/api/v2/locations/{{ $json.body.IdLocation }}/customFields?model=all",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.body.IdLocation }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1420,
+        2040
+      ],
+      "id": "abc94443-731c-49fe-8c16-ace31ee17aee",
+      "name": "CF"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.ropofy.com/api/v2/opportunities/pipelines?locationId={{ $json.body.IdLocation }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.body.IdLocation }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1420,
+        2240
+      ],
+      "id": "32380147-4511-4452-8bfb-8480ecd823b6",
+      "name": "Pipellines"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.WorkbookId }}",
+          "mode": "id"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.SheetPipelines }}",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "={{ $('Webhook').item.json.body.TablePipelines }}",
+          "mode": "id"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "=id",
+              "fieldValue": "={{ $json.id_pipeline }}"
+            },
+            {
+              "column": "=name",
+              "fieldValue": "={{ $json.name_pipeline }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        -980,
+        2240
+      ],
+      "id": "b23c6860-aba1-4dba-b121-e047f705a45c",
+      "name": "guardar Pipelines",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Asegúrate de que los datos de entrada se reciban correctamente\nconst data = $input.all()[0].json; // Si tienes múltiples entradas, toma el primero\n\n// Resultado final\nconst result = [];\n\n// Verifica si data tiene la propiedad pipelines\nif (data.pipelines && Array.isArray(data.pipelines)) {\n  // Iterar sobre cada pipeline\n  data.pipelines.forEach(pipeline => {\n    // Verifica si el pipeline tiene la propiedad stages\n    if (pipeline.stages && Array.isArray(pipeline.stages)) {\n      // Agregar la información del pipeline al resultado\n      result.push({\n        id_pipeline: pipeline.id,\n        name_pipeline: pipeline.name\n      });\n    }\n  });\n}\n\n// Retornar el resultado\nreturn result;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1200,
+        2240
+      ],
+      "id": "6040f657-4232-40c9-9ba3-fc184759f0e3",
+      "name": "Lógica Pipelines"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtener los datos de los inputs\nlet inputs = $input.first().json.customFields\n\n// Retornar el array de resultados como 'items' para n8n\nreturn inputs;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1200,
+        2040
+      ],
+      "id": "f7147044-cee1-48cf-af28-db0d6bd2765d",
+      "name": "Lógica CF"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "azure-logic-apps/1.0 (workflow ebf9dd1049c4404ab99433beb3c00f08; version 08584267202262865865) microsoft-flow/1.0",
+            "accept-encoding": "gzip, deflate",
+            "accept-language": "es-ES",
+            "max-forwards": "10",
+            "traceparent": "00-e37e132cdea8c7bf26a26ad756970789-95609d68875660e4-00",
+            "workermetadata": "PAuto/MTA",
+            "x-ms-workflow-id": "ebf9dd1049c4404ab99433beb3c00f08",
+            "x-ms-workflow-version": "08584267202262865865",
+            "x-ms-workflow-name": "2a94bc42-773c-4d00-b362-2f71d945ab3e",
+            "x-ms-workflow-system-id": "/locations/brazilsouth/scaleunits/prod-04/workflows/ebf9dd1049c4404ab99433beb3c00f08",
+            "x-ms-workflow-run-id": "08584260674563434467587485039CU11",
+            "x-ms-workflow-run-tracking-id": "aab41274-d230-4541-b6ba-33ff30e64d11",
+            "x-ms-workflow-operation-name": "Actualizar_basicos_location",
+            "x-ms-workflow-repeatitem-scope-name": "Por_Cliente",
+            "x-ms-workflow-repeatitem-index": "6",
+            "x-ms-workflow-repeatitem-batch-index": "0",
+            "x-ms-execution-location": "brazilsouth",
+            "x-ms-workflow-subscription-id": "Default-e67529fc-68be-4f5b-aa27-edbad4a44b14",
+            "x-ms-workflow-resourcegroup-name": "selfhostingresourcegroup",
+            "x-ms-tracking-id": "3b12b3fb-5f03-4874-a7cb-4636db3b7ddb",
+            "x-ms-correlation-id": "3b12b3fb-5f03-4874-a7cb-4636db3b7ddb",
+            "x-ms-client-request-id": "3b12b3fb-5f03-4874-a7cb-4636db3b7ddb",
+            "x-ms-client-tracking-id": "08584260674563434467587485039CU11",
+            "x-ms-action-tracking-id": "5d95b848-8fec-4583-957c-7cf54b2bba40",
+            "x-arr-log-id": "3b12b3fb-5f03-4874-a7cb-4636db3b7ddb",
+            "client-ip": "4.202.253.37:62181",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "4.202.253.37:62181",
+            "x-original-url": "/webhook/obtener-data-bi",
+            "x-waws-unencoded-url": "/webhook/obtener-data-bi",
+            "x-client-ip": "4.202.253.37",
+            "x-client-port": "62181",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "1167"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "IdLocation": "FRlGQrJ1DEwc02lpmj74",
+            "NombreExcel": "Tulua Motos.xlsx",
+            "WorkbookId": "01O53ICQMJEKZF2LSPB5BZGK67WJCT6RGK",
+            "SheetId": "",
+            "SheetCFContacts": "{DD79D362-1CFE-4C68-9262-4A2CB5DD4604}",
+            "SheetOpportunities": "{C1791B5B-9DB7-42EE-B952-F5E8E0C2DEE1}",
+            "SheetCFOpportunities": "{05B97E44-5916-4A55-A203-1E11AE81B732}",
+            "SheetMessages": "{DEF12667-B92B-4720-8969-75EDC46E71DC}",
+            "SheetCF": "{C6EC4C13-1FAC-4655-A716-B11463FD61D1}",
+            "SheetPipelines": "{8892C9B3-5234-4205-B531-CEAA19946AFE}",
+            "SheetUsers": "{4EE6B42F-F5C3-48C5-B56B-2F46E81E7AE3}",
+            "TableContacts": "{1B057D2A-8D5E-4B0F-9401-FDCA0149A81E}",
+            "TableCFContacts": "{0344514D-E9EC-46E8-BD68-C667CCF904E8}",
+            "TableOpportunities": "{B27BF3B3-EBE6-460A-BC0F-4E88CA9E5E79}",
+            "TableCFOpportunities": "{C17929AD-0688-4A0A-B9D4-97A38AB6CB0B}",
+            "TableMessages": "{24FF83E5-4A1B-4BC2-AB64-7A7F846BB572}",
+            "TableCF": "{53C428E8-05F0-468C-9351-4B94489A875A}",
+            "TablePipelines": "{B3D0E2D2-D341-4CB6-89D5-58483AF0E644}",
+            "TableUsers": "{21DBE9F9-AA01-4FCB-A492-27B9BD0C49A9}",
+            "TableStages": "{A2EBDA05-7D3B-4A26-83EB-1EFE3B0A4D6C}",
+            "SheetStages": "{2C0412E6-270A-4F7E-ABB5-E02C34756FC0}",
+            "SheetContacts": "{E5227A29-46A5-487A-9E38-F4FC816D5FF3}"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/obtener-data-bi",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "GCyPKDUsrDyPz8iA"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-04-07T14:25:47.725Z",
+  "versionId": "0129ae23-e2bb-4d76-b35a-f8608dcc33a7"
+}
