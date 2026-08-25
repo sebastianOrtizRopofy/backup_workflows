@@ -1,0 +1,908 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "Buscar oportunidades primera vez",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar oportunidades primera vez": {
+      "main": [
+        [
+          {
+            "node": "sacar oportunidades de cada pagina",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "procesar pagina": {
+      "main": [
+        []
+      ]
+    },
+    "guardar oportunidades1": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lógica CF Oportunidades": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "sacar oportunidades de cada pagina": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Replace Me1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "batching custom fields": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "guardar oportunidades1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Lógica CF Oportunidades",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "guardar CF Oportunidades",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "guardar CF Oportunidades": {
+      "main": [
+        [
+          {
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-20T15:40:08.019Z",
+  "id": "b4mOfV12dMIAHxW1",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Data BI oportunidades [WEBHOOK]]",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "56d6f0ac-4059-4d83-9108-616fd8f0eabd",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        500,
+        0
+      ],
+      "id": "dc6bf415-f40b-4d78-96e0-357f3e6ed432",
+      "name": "Webhook",
+      "webhookId": "56d6f0ac-4059-4d83-9108-616fd8f0eabd"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.body.IdLocation }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        900,
+        0
+      ],
+      "id": "eff3c22b-e97d-4d5b-aaf9-4435f4c436c7",
+      "name": "Select rows from a table",
+      "retryOnFail": true,
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://services.leadconnectorhq.com/opportunities/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "location_id",
+              "value": "={{ $json.location_id }}"
+            },
+            {
+              "name": "limit",
+              "value": "100"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "startAfterId",
+                    "value": "={{ $response.body.meta.startAfterId }}"
+                  },
+                  {
+                    "name": "startAfter",
+                    "value": "={{ $response.body.meta.startAfter }}"
+                  }
+                ]
+              },
+              "paginationCompleteWhen": "other",
+              "completeExpression": "={{ $response.body.opportunities.isEmpty() }}",
+              "limitPagesFetched": true,
+              "maxRequests": 10000,
+              "requestInterval": 200
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1400,
+        0
+      ],
+      "id": "f906970e-ab8f-4da8-9bf3-93c72ddb6137",
+      "name": "Buscar oportunidades primera vez",
+      "retryOnFail": true,
+      "waitBetweenTries": 3000,
+      "maxTries": 5,
+      "executeOnce": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "UTRwPQENg7Zgaigp",
+          "mode": "list",
+          "cachedResultName": "BI procesar oportunidades"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1440,
+        -940
+      ],
+      "id": "9c2a8fd9-51ed-413f-9978-c0d28ff7dbff",
+      "name": "procesar pagina"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "UTRwPQENg7Zgaigp",
+          "mode": "list",
+          "cachedResultName": "BI procesar oportunidades"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1700,
+        -940
+      ],
+      "id": "38f68530-a303-4b6f-b001-0ebf92e7d186",
+      "name": "procesar pagina1"
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "={{ $('Webhook').first().json.body.WorkbookId }}",
+          "mode": "id"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "={{ $('Webhook').first().json.body.SheetOpportunities }}",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "={{ $('Webhook').first().json.body.TableOpportunities }}",
+          "mode": "id"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "id",
+              "fieldValue": "={{ $json.id }}"
+            },
+            {
+              "column": "name",
+              "fieldValue": "={{ $json.name }}"
+            },
+            {
+              "column": "source",
+              "fieldValue": "={{ $json.source }}"
+            },
+            {
+              "column": "assignedTo",
+              "fieldValue": "={{ $json.assignedTo }}"
+            },
+            {
+              "column": "contactId",
+              "fieldValue": "={{ $json.contactId }}"
+            },
+            {
+              "column": "dateAdded",
+              "fieldValue": "={{ $json.createdAt }}"
+            },
+            {
+              "column": "status",
+              "fieldValue": "={{ $json.status }}"
+            },
+            {
+              "column": "pipelineId",
+              "fieldValue": "={{ $json.pipelineId }}"
+            },
+            {
+              "column": "pipelineStageId",
+              "fieldValue": "={{ $json.pipelineStageId }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        2680,
+        -320
+      ],
+      "id": "be4a63d0-3b50-4c96-9da2-d530d193e2ba",
+      "name": "guardar oportunidades1",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "={{ $('Webhook').first().json.body.WorkbookId }}",
+          "mode": "id"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "={{ $('Webhook').first().json.body.SheetCFOpportunities }}",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "={{ $('Webhook').first().json.body.TableCFOpportunities }}",
+          "mode": "id"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "=opportunityId",
+              "fieldValue": "={{ $json.opportunityId }}"
+            },
+            {
+              "column": "=id",
+              "fieldValue": "={{ $json.id }}"
+            },
+            {
+              "column": "=fieldValue",
+              "fieldValue": "={{ $json.fieldValueString??$json.fieldValueDate??fieldValueNumber }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        3280,
+        0
+      ],
+      "id": "a2f7891c-8450-44bb-b77e-788fd1fe496c",
+      "name": "guardar CF Oportunidades",
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obtener los datos de los inputs\nlet inputs = $input.all();\n\n// Array para almacenar los resultados (cada customField será un item)\nlet resultados = [];\n\n// Recorrer cada objeto de input\ninputs.forEach(input => {\n    let customFields = input.json.customFields;\n\n    // Verificar que customFields existe y es un objeto\n    if (customFields) {\n        // Agregar customFields al array de resultados, incluyendo el ID de la oportunidad/contacto\n        for (let key in customFields) {\n            if (customFields.hasOwnProperty(key)) {\n                let customField = customFields[key];\n\n                // Agregar el ID de la oportunidad/contacto a cada campo personalizado\n                customField.opportunityId = input.json.opportunityId;\n                customField.timestamp = input.json.updatedAt;\n\n                // Crear un nuevo item para cada customField\n                resultados.push({\n                    json: customField // Cada customField es un item con la estructura { json: customField }\n                });\n            }\n        }\n    }\n});\n\n// Retornar el array de resultados como 'items' para n8n\nreturn resultados;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2620,
+        -20
+      ],
+      "id": "58ab847c-254e-4b90-9390-84cfabbc880d",
+      "name": "Lógica CF Oportunidades"
+    },
+    {
+      "parameters": {
+        "jsCode": "let paginas = $input.all();\nlet oportunidades = [];\npaginas.forEach((pagina)=>{\n  pagina.json.opportunities.forEach((oportunidad)=>{\n    oportunidades.push({\n      json: oportunidad\n    })\n  })\n})\n\nreturn oportunidades;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1980,
+        -20
+      ],
+      "id": "99880756-3463-4358-aa48-0fa160ee7d7c",
+      "name": "sacar oportunidades de cada pagina",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "batchSize": 5000,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        3900,
+        100
+      ],
+      "id": "362ff6bc-8873-44c5-b5d0-1772dcc268e7",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me1",
+      "typeVersion": 1,
+      "position": [
+        4800,
+        120
+      ],
+      "id": "d1affaaf-b13e-4947-a7ca-2f571c918974"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "0Yp9B7Msu9iJFU52",
+          "mode": "list",
+          "cachedResultName": "Custom fields oportunidad"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": false
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        4600,
+        120
+      ],
+      "id": "6a4faaa9-61b1-4c56-8f61-3c304d2ded83",
+      "name": "Execute Workflow"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Entrada: array de objetos\nconst input = $input.all();\n\n// Límite de tamaño por lote\nconst batchSize = 500;\nlet batches = [];\n\n// Función para dividir el array en lotes de 500\nfor (let i = 0; i < input.length; i += batchSize) {\n    const batch = input.slice(i, i + batchSize);\n    // Cada lote es un ítem, devolvemos solo el array bajo 'json'\n    batches.push({ json: {customFields: batch} });\n}\n\n// Salida: devolvemos los lotes como ítems\nreturn batches;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4020,
+        -160
+      ],
+      "id": "a7fe80f1-6743-4c6f-9c74-09fbb0ca97f3",
+      "name": "batching custom fields"
+    },
+    {
+      "parameters": {
+        "amount": 0.3
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4160,
+        120
+      ],
+      "id": "f3ec3417-3871-4a12-b27b-2df8de0c12ab",
+      "name": "Wait1",
+      "webhookId": "d04f8156-abf6-4c8c-9ce6-560092e8418d"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "96bf2d48-b444-4509-9a94-4dd9f7894916",
+              "name": "WorkbookId",
+              "value": "={{ $('Webhook').first().json.body.WorkbookId }}",
+              "type": "string"
+            },
+            {
+              "id": "8bc9669c-bfb0-4af7-baca-3e59c4b1e902",
+              "name": "SheetCFOpportunities",
+              "value": "={{ $('Webhook').first().json.body.SheetCFOpportunities }}",
+              "type": "string"
+            },
+            {
+              "id": "a0c16712-a9c9-4b1c-b086-017f88483520",
+              "name": "TableCFOpportunities",
+              "value": "={{ $('Webhook').first().json.body.TableCFOpportunities }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4380,
+        120
+      ],
+      "id": "488c8906-0bda-473e-bf54-7bf9db32c35d",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "batchSize": 5000,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2360,
+        -340
+      ],
+      "id": "22577346-11da-4baf-855a-838f23202091",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        2980,
+        -320
+      ],
+      "id": "6cc152f6-dfed-4ebf-8e5b-90e3f074ef08"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "227e5c23-6ab7-411b-a286-4e2d8b3acf8a",
+              "name": "customFields",
+              "value": "={{ $json.customFields }}",
+              "type": "array"
+            },
+            {
+              "id": "02ffca5f-9994-4ba8-84e3-75492c58c19b",
+              "name": "opportunityId",
+              "value": "={{ $json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2300,
+        -20
+      ],
+      "id": "83775189-4101-41ec-ab78-24a65325a8cb",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "batchSize": 5000,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2840,
+        -20
+      ],
+      "id": "18495398-b1d2-4f42-aba4-18ef0b93a87b",
+      "name": "Loop Over Items2"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me2",
+      "typeVersion": 1,
+      "position": [
+        3500,
+        0
+      ],
+      "id": "db2178b3-9a63-479e-81be-c4aaa4c71d96"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "96bf2d48-b444-4509-9a94-4dd9f7894916",
+              "name": "WorkbookId",
+              "value": "={{ $('Webhook').first().json.body.WorkbookId }}",
+              "type": "string"
+            },
+            {
+              "id": "8bc9669c-bfb0-4af7-baca-3e59c4b1e902",
+              "name": "SheetCFOpportunities",
+              "value": "={{ $('Webhook').first().json.body.SheetCFOpportunities }}",
+              "type": "string"
+            },
+            {
+              "id": "a0c16712-a9c9-4b1c-b086-017f88483520",
+              "name": "TableCFOpportunities",
+              "value": "={{ $('Webhook').first().json.body.TableCFOpportunities }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3080,
+        0
+      ],
+      "id": "26e7123d-0f6e-4824-82a6-585d86079650",
+      "name": "Edit Fields3"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "azure-logic-apps/1.0 (workflow ebf9dd1049c4404ab99433beb3c00f08; version 08584196463651228097) microsoft-flow/1.0",
+            "accept-encoding": "gzip, deflate",
+            "accept-language": "es-ES",
+            "max-forwards": "10",
+            "x-ms-workflow-id": "ebf9dd1049c4404ab99433beb3c00f08",
+            "x-ms-workflow-version": "08584196463651228097",
+            "x-ms-workflow-name": "2a94bc42-773c-4d00-b362-2f71d945ab3e",
+            "x-ms-workflow-system-id": "/locations/brazilsouth/scaleunits/prod-04/workflows/ebf9dd1049c4404ab99433beb3c00f08",
+            "x-ms-workflow-run-id": "08584140578558924395636320405CU31",
+            "x-ms-workflow-run-tracking-id": "88cc999e-0cf0-4057-937c-698af1497e49",
+            "x-ms-workflow-operation-name": "Actualizar_Oportunidades",
+            "x-ms-workflow-repeatitem-scope-name": "Por_Cliente",
+            "x-ms-workflow-repeatitem-index": "7",
+            "x-ms-workflow-repeatitem-batch-index": "0",
+            "x-ms-execution-location": "brazilsouth",
+            "x-ms-workflow-subscription-id": "Default-e67529fc-68be-4f5b-aa27-edbad4a44b14",
+            "x-ms-workflow-resourcegroup-name": "selfhostingresourcegroup",
+            "x-ms-tracking-id": "b3470a64-a5a5-4870-b348-0fba55ca289b",
+            "x-ms-correlation-id": "b3470a64-a5a5-4870-b348-0fba55ca289b",
+            "x-ms-client-request-id": "b3470a64-a5a5-4870-b348-0fba55ca289b",
+            "x-ms-client-tracking-id": "08584140578558924395636320405CU31",
+            "x-ms-action-tracking-id": "94a7a842-d56f-4a8c-99f4-8b1e8cc7555b",
+            "x-ms-activity-vector": "00.00.IN.6F.IN.1C",
+            "x-arr-log-id": "b3470a64-a5a5-4870-b348-0fba55ca289b",
+            "client-ip": "191.234.138.29:17041",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft TLS G2 RSA CA OCSP 02, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "191.234.138.29:17041",
+            "x-original-url": "/webhook/56d6f0ac-4059-4d83-9108-616fd8f0eabd",
+            "x-waws-unencoded-url": "/webhook/56d6f0ac-4059-4d83-9108-616fd8f0eabd",
+            "x-client-ip": "191.234.138.29",
+            "x-client-port": "17041",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "1162"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "IdLocation": "3YGgxqve6cABjE0KCjLs",
+            "NombreExcel": "Ropofy.xlsx",
+            "WorkbookId": "01O53ICQPVT7YS6WITFJHKDHAWYGP7JIBQ",
+            "SheetId": "",
+            "SheetCFContacts": "{DD79D362-1CFE-4C68-9262-4A2CB5DD4604}",
+            "SheetOpportunities": "{C1791B5B-9DB7-42EE-B952-F5E8E0C2DEE1}",
+            "SheetCFOpportunities": "{05B97E44-5916-4A55-A203-1E11AE81B732}",
+            "SheetMessages": "{DEF12667-B92B-4720-8969-75EDC46E71DC}",
+            "SheetCF": "{C6EC4C13-1FAC-4655-A716-B11463FD61D1}",
+            "SheetPipelines": "{8892C9B3-5234-4205-B531-CEAA19946AFE}",
+            "SheetUsers": "{4EE6B42F-F5C3-48C5-B56B-2F46E81E7AE3}",
+            "TableContacts": "{1B057D2A-8D5E-4B0F-9401-FDCA0149A81E}",
+            "TableCFContacts": "{0344514D-E9EC-46E8-BD68-C667CCF904E8}",
+            "TableOpportunities": "{B27BF3B3-EBE6-460A-BC0F-4E88CA9E5E79}",
+            "TableCFOpportunities": "{C17929AD-0688-4A0A-B9D4-97A38AB6CB0B}",
+            "TableMessages": "{24FF83E5-4A1B-4BC2-AB64-7A7F846BB572}",
+            "TableCF": "{53C428E8-05F0-468C-9351-4B94489A875A}",
+            "TablePipelines": "{B3D0E2D2-D341-4CB6-89D5-58483AF0E644}",
+            "TableUsers": "{21DBE9F9-AA01-4FCB-A492-27B9BD0C49A9}",
+            "TableStages": "{A2EBDA05-7D3B-4A26-83EB-1EFE3B0A4D6C}",
+            "SheetStages": "{2C0412E6-270A-4F7E-ABB5-E02C34756FC0}",
+            "SheetContacts": "{E5227A29-46A5-487A-9E38-F4FC816D5FF3}"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/56d6f0ac-4059-4d83-9108-616fd8f0eabd",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "GCyPKDUsrDyPz8iA",
+    "saveExecutionProgress": true
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-08-24T20:36:43.971Z",
+  "versionId": "a60417d5-9f01-4764-aa36-0479c7c689ce"
+}
