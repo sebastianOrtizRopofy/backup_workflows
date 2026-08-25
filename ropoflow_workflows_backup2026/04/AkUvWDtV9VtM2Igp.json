@@ -1,0 +1,94 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "consultar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-04-29T16:17:04.566Z",
+  "id": "AkUvWDtV9VtM2Igp",
+  "isArchived": false,
+  "meta": null,
+  "name": "ADVISOR",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "af67b444-822e-43dd-a55e-d061ca2f9538",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://tucoapplicationserviceuat.transunion.co/ws/v1/creditVision/rest/consultarCreditVision",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "TipoIdentificación",
+              "value": "1"
+            },
+            {
+              "name": "NumeroIdentificación",
+              "value": "1000049878"
+            },
+            {
+              "name": "IdPolitica",
+              "value": "7499"
+            },
+            {
+              "name": "FechaInicial",
+              "value": "2026-01-01"
+            },
+            {
+              "name": "FechaFinal",
+              "value": "2026-04-29"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "2673ca15-2b0f-4622-b1eb-21d090498d76",
+      "name": "consultar",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "QxmdsYsrfIytqhmd",
+          "name": "CreditVision"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-05-12T21:37:07.202Z",
+  "versionId": "e2700038-9728-4a3a-9b85-28740c933b33"
+}
