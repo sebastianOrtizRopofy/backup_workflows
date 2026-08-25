@@ -1,0 +1,790 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "se editó en ropofy?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Autenticarse": {
+      "main": [
+        [
+          {
+            "node": "Obtener id pais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener id pais": {
+      "main": [
+        [
+          {
+            "node": "crear contacto en add control",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear contacto en add control": {
+      "main": [
+        [
+          {
+            "node": "Update a contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Autenticarse1": {
+      "main": [
+        [
+          {
+            "node": "Obtener id pais1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtener id pais1": {
+      "main": [
+        [
+          {
+            "node": "obtener contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener contacto": {
+      "main": [
+        [
+          {
+            "node": "obtener id contact en addControl",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "crear contacto en add control1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "actualizar contacto en add control1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "es sebas?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener id contact en addControl": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "crear contacto en add control1": {
+      "main": [
+        [
+          {
+            "node": "Update a contact1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "es sebas?": {
+      "main": [
+        [
+          {
+            "node": "buscar oportunidades anteriores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar oportunidades anteriores": {
+      "main": [
+        [
+          {
+            "node": "tiene oportunidades?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "tiene oportunidades?": {
+      "main": [
+        [
+          {
+            "node": "Tiene alguna oportunidad en pipelines/stage permitidos?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "devolver que no tiene oportunidades",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tiene alguna oportunidad en pipelines/stage permitidos?": {
+      "main": [
+        [
+          {
+            "node": "Autenticarse1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "se editó en ropofy?": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "es un edit desde addcontrol",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-02-26T19:02:23.239Z",
+  "id": "66WmWpls33u9WyxH",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Contacts sync",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/triggerContactos",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -900,
+        160
+      ],
+      "id": "3c3bb8f3-4743-4972-98bc-36087265ba0f",
+      "name": "Webhook",
+      "webhookId": "cd8b15e7-c4d9-486a-96ee-722f4483e6b3"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://demo.apiinmobiliarioexterno.addcontrol-desarrollos.com/contactos",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $('Autenticarse').item.json.token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"idEmpresa\": 221,\n  \"idPrioridad\": 1,\n  \"idTipoContacto\": 2,\n  \"idGenero\": 1,\n  \"idEstadoCivil\": 1,\n  \"idCampania\": 56,\n  \"idMedioContacto\": 153,\n  \"idPais\": {{$json.id_pais}},\n  \"idEstado\": 1,\n  \"nombre\": \"{{ $('Webhook').item.json.body.firstName }}\",\n  \"apellidoPaterno\": \"{{ $('Webhook').item.json.body.lastName }}\",\n  \"apellidoMaterno\": \"\",\n  \"email\": \"{{ $('Webhook').item.json.body.email }}\",\n  \"email2\": \"\",\n  \"telefono\": \"{{ $('Webhook').item.json.body.phone }}\",\n  \"telefono2\": \"\",\n  \"observaciones\": \"\",\n  \"idUsuarioRegistro\": 270\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -460,
+        -400
+      ],
+      "id": "f2957714-19d1-4e17-b44f-4b284f44fa15",
+      "name": "crear contacto en add control"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://demo.apiinmobiliarioexterno.addcontrol-desarrollos.com/auth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n\"propietario\": 28,\n\"password\": \"hDsUkQUPNah6N7Kr0T9b\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -900,
+        -400
+      ],
+      "id": "c8c9f9de-6943-4d87-885b-ead3069fcd55",
+      "name": "Autenticarse"
+    },
+    {
+      "parameters": {
+        "jsCode": "let itemsEntrada = $input.all();\nlet pais = $('Webhook').first().json.body.country;\n\n\n// esto lo saque de la api de paises de addcontrol\nif(pais == \"MX\"){\n  return {\"id_pais\": 1};\n}else if(pais == \"RD\"){\n  return {\"id_pais\": 2};\n}else{\n  return {\"id_pais\": 0}\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -680,
+        -400
+      ],
+      "id": "1d5fe3b6-6c55-4483-b1ed-dfd629821847",
+      "name": "Obtener id pais"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "contactId": "={{ $('Webhook').item.json.body.id }}",
+        "updateFields": {
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Vw1j6uq0nouHmjaZzVdd",
+                  "mode": "list",
+                  "cachedResultName": "id contact addcontrol"
+                },
+                "fieldValue": "={{ $json }}"
+              }
+            ]
+          }
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -240,
+        -400
+      ],
+      "id": "219ef2cb-c3a4-4b50-b3c8-1beaac635394",
+      "name": "Update a contact",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "tMi8nQi6quvv6XWp",
+          "name": "Plusvalterra"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://demo.apiinmobiliarioexterno.addcontrol-desarrollos.com/auth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n\"propietario\": 28,\n\"password\": \"hDsUkQUPNah6N7Kr0T9b\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        -40
+      ],
+      "id": "7b431e90-28ee-4e27-a4bb-2aefae929df4",
+      "name": "Autenticarse1"
+    },
+    {
+      "parameters": {
+        "jsCode": "let itemsEntrada = $input.all();\nlet pais = $('Webhook').first().json.body.country;\n\n\n// esto lo saque de la api de paises de addcontrol\nif(pais == \"MX\"){\n  return {\"id_pais\": 1};\n}else if(pais == \"RD\"){\n  return {\"id_pais\": 2};\n}else{\n  return {\"id_pais\": 0}\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        860,
+        -40
+      ],
+      "id": "02b53218-0614-4103-a249-2a178d845a36",
+      "name": "Obtener id pais1"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.ropofy.com/api/v2/contacts/{{ $('Webhook').item.json.body.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.locationId }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1080,
+        -40
+      ],
+      "id": "a76e5066-3c94-496c-871a-93f69e0eaa11",
+      "name": "obtener contacto",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "=http://demo.apiinmobiliarioexterno.addcontrol-desarrollos.com/contactos/{{ $json.idAddControl }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $('Autenticarse1').item.json.token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"Id\": {{ $json.idAddControl }},\n  \"idEmpresa\": 221,\n  \"idPrioridad\": 1,\n  \"idTipoContacto\": 2,\n  \"idGenero\": 1,\n  \"idEstadoCivil\": 1,\n  \"idCampania\": 56,\n  \"idMedioContacto\": 153,\n  \"idPais\": {{ $('Obtener id pais1').item.json.id_pais }},\n  \"idEstado\": 1,\n  \"nombre\": \"{{ $('Webhook').item.json.body.firstName }}\",\n  \"apellidoPaterno\": \"{{ $('Webhook').item.json.body.lastName }}\",\n  \"apellidoMaterno\": \"\",\n  \"email\": \"{{ $('Webhook').item.json.body.email }}\",\n  \"email2\": \"{{ $('Webhook').item.json.body.additionalEmails?.[0]?.email || \"\" }}\",\n  \"telefono\": \"{{ $('Webhook').item.json.body.phone }}\",\n  \"telefono2\": \"{{ $('Webhook').item.json.body.additionalPhones?.[0]?.phone || \"\" }}\",\n  \"observaciones\": \"\",\n  \"idUsuarioRegistro\": 270\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1740,
+        60
+      ],
+      "id": "e12e9ee5-029a-480f-883c-9a4aeacab413",
+      "name": "actualizar contacto en add control1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "101f252a-a1f7-46d1-8713-32d0bf521f67",
+              "leftValue": "={{ $json.idAddControl }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notExists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1520,
+        -40
+      ],
+      "id": "21023db3-bf0c-42ea-9364-965c5c03ead3",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "79a9fc8d-900e-4800-a3a6-6c7275af05b6",
+              "name": "id_customField_addcontrol",
+              "value": "Vw1j6uq0nouHmjaZzVdd",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -460,
+        60
+      ],
+      "id": "004fee34-2845-46af-83af-9ccab0559bbb",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "jsCode": "let idAddControl = null;\n$input.first().json.contact.customFields.forEach((CF)=>{\n  if(CF.id == $('Edit Fields').first().json.id_customField_addcontrol ){\n    idAddControl = CF.value\n  }\n})\n\nreturn {\"idAddControl\": idAddControl}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        -40
+      ],
+      "id": "9e5556e7-6e15-4ee7-ba46-1c1a5c6b68d5",
+      "name": "obtener id contact en addControl"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://demo.apiinmobiliarioexterno.addcontrol-desarrollos.com/contactos",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "={{ $('Autenticarse1').item.json.token }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"idEmpresa\": 221,\n  \"idPrioridad\": 1,\n  \"idTipoContacto\": 2,\n  \"idGenero\": 1,\n  \"idEstadoCivil\": 1,\n  \"idCampania\": 56,\n  \"idMedioContacto\": 153,\n  \"idPais\": {{$('Obtener id pais1').item.json.id_pais}},\n  \"idEstado\": 1,\n  \"nombre\": \"{{ $('Webhook').item.json.body.firstName }}\",\n  \"apellidoPaterno\": \"{{ $('Webhook').item.json.body.lastName }}\",\n  \"apellidoMaterno\": \"\",\n  \"email\": \"{{ $('Webhook').item.json.body.email }}\",\n  \"email2\": \"\",\n  \"telefono\": \"{{ $('Webhook').item.json.body.phone }}\",\n  \"telefono2\": \"\",\n  \"observaciones\": \"\",\n  \"idUsuarioRegistro\": 270,\n  \"IdRopofy\": \"{{ $('obtener contacto').item.json.contact.id }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1740,
+        -140
+      ],
+      "id": "6c3fc9a0-b80a-404d-a4b2-4c3a2a010698",
+      "name": "crear contacto en add control1",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "contactId": "={{ $('Webhook').item.json.body.id }}",
+        "updateFields": {
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "Vw1j6uq0nouHmjaZzVdd",
+                  "mode": "list",
+                  "cachedResultName": "id contact addcontrol"
+                },
+                "fieldValue": "={{ $json }}"
+              }
+            ]
+          }
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1960,
+        -140
+      ],
+      "id": "bdd0e48c-4683-4a7f-b8e4-d859bf6f4a17",
+      "name": "Update a contact1",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "tMi8nQi6quvv6XWp",
+          "name": "Plusvalterra"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a82ddca0-ab1d-47c9-8885-49628f2c0a02",
+              "leftValue": "={{ $('Webhook').item.json.body.phone }}",
+              "rightValue": "+573182014502",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -240,
+        60
+      ],
+      "id": "e7b2e152-c38a-401f-b16f-7d4673ab6bd1",
+      "name": "es sebas?"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ropofy.com/api/v2/opportunities/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer bhDkrgIBGvaTSSYIhgkO"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"locationId\": \"bhDkrgIBGvaTSSYIhgkO\",\n  \"limit\": 10,\n  \"page\": 1,\n  \"filters\": [\n      {\n          \"field\": \"contact_id\",\n          \"operator\": \"eq\",\n          \"value\": \"{{ $('Webhook').item.json.body.id }}\"\n      }\n  ]\n}",
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -20,
+        60
+      ],
+      "id": "f8ef9dc4-1c9b-447a-a776-ed7b64a9ce68",
+      "name": "buscar oportunidades anteriores"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0444d4e2-6f78-4262-8de4-01e1950b476b",
+              "leftValue": "={{ $json.opportunities }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        200,
+        60
+      ],
+      "id": "262cf9fc-02b1-4b6e-85b2-8bd27a73711d",
+      "name": "tiene oportunidades?"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  \"message\" : \"El contacto aún no tiene oportunidades, ignorando\"\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        160
+      ],
+      "id": "f46ce83a-e97a-41b0-9b64-548d74c7ee70",
+      "name": "devolver que no tiene oportunidades"
+    },
+    {
+      "parameters": {
+        "jsCode": "let pipelines_stages_permitidos = [\n  {\n    \"pipeline_permitido\": \"2E5GUmKgx040LTxoPPh9\", // Atención comercial\n    \"stages_permitidos\": [\n      \"c6747108-2650-4c4c-92f9-3901bc231c75\" // apartado solicitado\n    ]\n  }\n];\n\n// Accedemos a las oportunidades del input\nconst oportunidades = $input.first().json.opportunities || [];\n\n// Usamos .some() para devolver true si al menos una cumple la condición\nlet esValido = oportunidades.some(oportunidad => {\n  // Buscamos si el pipeline de la oportunidad está en nuestra lista de permitidos\n  const configuracionPipeline = pipelines_stages_permitidos.find(\n    p => p.pipeline_permitido === oportunidad.pipelineId\n  );\n\n  // Si el pipeline coincide, revisamos si el stage también está permitido\n  if (configuracionPipeline) {\n    return configuracionPipeline.stages_permitidos.includes(oportunidad.pipelineStageId);\n  }\n\n  return false;\n});\n\n// Retornamos el resultado en el formato de n8n\nreturn {\n  permitido: esValido\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        -40
+      ],
+      "id": "93f99c44-11ac-443a-91bd-59b1142cbaa1",
+      "name": "Tiene alguna oportunidad en pipelines/stage permitidos?"
+    },
+    {
+      "parameters": {
+        "jsCode": "return {\n  \"message\": \"ignorado porque se actualizó desde impulsa\"\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -460,
+        260
+      ],
+      "id": "116c478d-5c46-4f23-a92e-34e85b17f894",
+      "name": "es un edit desde addcontrol"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a3287ed4-c24e-48a0-8a3c-6637638d7a00",
+              "leftValue": "={{ $('Webhook').item.json.body.website }}",
+              "rightValue": "addcontrol",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -680,
+        160
+      ],
+      "id": "70ddf976-5dfa-4f5f-aee6-21207a25b2c6",
+      "name": "se editó en ropofy?"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "application/json, text/plain, */*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "axios/0.21.4",
+            "max-forwards": "10",
+            "x-wh-signature": "Vz/zwbtno8HN9ari2ij5D0OaaaZajm80dl9LHRHPqUpZ8OI2GafIiEY/QeKfrl/0NbE+IfsBnLO8UbRZ4BvJdcOeUK1Gg3scyKiHYURCuhV+hQ3Hjtj6NwGB6uKlGXNxkYAOkVLPyokx2xiSxMub/ApW2slPdbLIBqLPwJbz2ONyfnyUWALiTlnb+FLI22VqK/uSNOIGQ23JLt1cT2dqLfzNpzbQU9ipWGQXFA6GIyAr/AQbvq7vXJo7tBZ+wFTDvIOIJwDdNeS44pQAWgMgE+JWx2JR0Q4VGQEHnGRhWt3RBnc/PBeFI6M53yKf/8F5sEQCv2+74uKlfBIcha8NgWQ3zct1BtSpGtarve0nnGp8ojuSbcsdUvVbPCV3R+cp3xn2PWcK6n1b7kbWXJlZvU0XzZXXxI9VyW9qVWmW1LIXqzSsqkMmYNQnZgg9SQ0U6/M7OA8XhNeEyL7uhilXT88tbcAgWxQEJi4Frjwj3uOO5EVpPkNLF/Orkgy8JG+R4uympWifFRRkgOBxXplyQJNyM4qcGXwT2ROtM9sBDdIz0nGm8tkRxQXNtzV52pHWYJ0jxX3qiNLzFCwoYqzUKEffCgTgVcwLPON/ZhNN8e+gaI9xjLzSyoXThRsaicAzbyBjnCr1Pn369CptsZ9q4itYfBpgDFI4QuB6DMqHYQY=",
+            "x-ghl-signature": "jIzaAPK6GOB4lP4xRVj/lR7o+92r7PbEluFZ4SA+nmQtmUc97fmbRh01AwTJoI97QukSc4DxiGTl/f+FrVusBw==",
+            "x-arr-log-id": "38e091ad-92a9-4f99-ad86-ca8e84d22a7c",
+            "client-ip": "34.56.63.153:34444",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft Azure RSA TLS Issuing CA 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-forwarded-for": "34.56.63.153:34444",
+            "x-original-url": "/webhook/triggerContactos",
+            "x-waws-unencoded-url": "/webhook/triggerContactos",
+            "x-client-ip": "34.56.63.153",
+            "x-client-port": "34444",
+            "content-type": "application/json",
+            "content-length": "479"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "type": "ContactCreate",
+            "locationId": "bhDkrgIBGvaTSSYIhgkO",
+            "versionId": "699329454316e81c01ebdbb1",
+            "appId": "699329454316e81c01ebdbb1",
+            "id": "dW54VPnip5wbg2jkqLet",
+            "firstName": "sebas",
+            "lastName": "ropofy",
+            "phone": "+573182014502",
+            "tags": [],
+            "country": "MX",
+            "dateAdded": "2026-03-19T16:47:31.592Z",
+            "customFields": [],
+            "attributionSource": {
+              "medium": "manual",
+              "mediumId": null,
+              "sessionSource": "CRM UI"
+            },
+            "timestamp": "2026-03-19T16:47:32.098Z",
+            "webhookId": "c2b88844-9f96-4e44-936a-6916db9ded45"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/triggerContactos",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1",
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "uKq7clcLRrdzZkkg"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-03-19T16:59:16.624Z",
+  "versionId": "af3843b4-ef31-47aa-9d15-2c1a8c6bdffc"
+}
