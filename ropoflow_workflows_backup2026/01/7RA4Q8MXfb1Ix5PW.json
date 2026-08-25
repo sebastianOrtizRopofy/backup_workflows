@@ -1,0 +1,5637 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "guardar cf contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-01-14T21:34:47.302Z",
+  "id": "7RA4Q8MXfb1Ix5PW",
+  "isArchived": false,
+  "meta": null,
+  "name": "Custom fields contact",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "table",
+        "workbook": {
+          "__rl": true,
+          "value": "={{ $('When clicking ‘Execute workflow’').first().json.WorkbookId }}",
+          "mode": "id"
+        },
+        "worksheet": {
+          "__rl": true,
+          "value": "={{ $('When clicking ‘Execute workflow’').first().json.SheetCFContacts }}",
+          "mode": "id"
+        },
+        "table": {
+          "__rl": true,
+          "value": "={{ $('When clicking ‘Execute workflow’').first().json.TableCFContacts }}",
+          "mode": "id"
+        },
+        "fieldsUi": {
+          "values": [
+            {
+              "column": "=contactId",
+              "fieldValue": "={{ $json.contactId }}"
+            },
+            {
+              "column": "=id",
+              "fieldValue": "={{ $json.id }}"
+            },
+            {
+              "column": "=fieldValue",
+              "fieldValue": "={{ $json.value}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftExcel",
+      "typeVersion": 2.1,
+      "position": [
+        460,
+        220
+      ],
+      "id": "a9ecf4b2-2b59-4b3a-b0ac-8f219d571fb0",
+      "name": "guardar cf contacto",
+      "retryOnFail": true,
+      "maxTries": 5,
+      "waitBetweenTries": 3000,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -140,
+        220
+      ],
+      "id": "0d122f42-5842-49ba-a07e-45467da62302",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "jsCode": "return $input.first().json.customFields;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        180,
+        100
+      ],
+      "id": "724525c4-6dc1-4108-805f-64bf008aabcc",
+      "name": "Code"
+    }
+  ],
+  "pinData": {
+    "When clicking ‘Execute workflow’": [
+      {
+        "json": {
+          "customFields": [
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "4",
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133500
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133501
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Sabaneta",
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133502
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 2800000,
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133503
+              }
+            },
+            {
+              "json": {
+                "id": "gi7ZLHFNWqccENZYZEma",
+                "value": "193095600",
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133504
+              }
+            },
+            {
+              "json": {
+                "id": "n3BGNeUZMSNh5vfgduI3",
+                "value": "14812-114376368",
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133505
+              }
+            },
+            {
+              "json": {
+                "id": "JDdlvKzhkAo6w1YJckFu",
+                "value": "74653",
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133506
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133507
+              }
+            },
+            {
+              "json": {
+                "id": "HfCLkq9FpBkwKw9i4Usk",
+                "value": "76368",
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133508
+              }
+            },
+            {
+              "json": {
+                "id": "TfisLOVaNGOy55wRN7Ro",
+                "value": "0",
+                "contactId": "EoxkbDyDp454r3sb2uer",
+                "timestamp": "2025-12-09T18:21:22.704Z"
+              },
+              "pairedItem": {
+                "item": 133509
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 18247,
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133510
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CR 46 C 80 SUR 155 IN 2125 AMONTE",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133511
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 2800000,
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133512
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=18247",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133513
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "71269133",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133514
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133515
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133516
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Pan De Azucar",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133517
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "80",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133518
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "4",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133519
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133520
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Sabaneta",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133521
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 0,
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133522
+              }
+            },
+            {
+              "json": {
+                "id": "JDdlvKzhkAo6w1YJckFu",
+                "value": "65359",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133523
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "fNtbvdYuDWcWHRYqPOV3",
+                "timestamp": "2025-11-10T16:12:14.414Z"
+              },
+              "pairedItem": {
+                "item": 133524
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 74494,
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133525
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CR 25 39 SUR 15  IN 909 TORRE 2 VITTA CAMPESTRE",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133526
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 590000000,
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133527
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=74494",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133528
+              }
+            },
+            {
+              "json": {
+                "id": "gi7ZLHFNWqccENZYZEma",
+                "value": "192580474",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133529
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1098647582",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133530
+              }
+            },
+            {
+              "json": {
+                "id": "n3BGNeUZMSNh5vfgduI3",
+                "value": "14812-114374494",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133531
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133532
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Disponible",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133533
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "El Chingui",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133534
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "85",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133535
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "4",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133536
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133537
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133538
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 0,
+                "contactId": "4xTEZ9kDP7bLLGFPY3Rg",
+                "timestamp": "2025-10-21T18:21:10.237Z"
+              },
+              "pairedItem": {
+                "item": 133539
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "71615972",
+                "contactId": "ioZgeZOLDYL2CSDJN9DE",
+                "timestamp": "2025-12-11T19:57:10.092Z"
+              },
+              "pairedItem": {
+                "item": 133540
+              }
+            },
+            {
+              "json": {
+                "id": "279YVp2pppWRgu2OaUcg",
+                "value": " CR 47 CL 19 SUR 136 IN 201 ZUÑIGA REAL",
+                "contactId": "ioZgeZOLDYL2CSDJN9DE",
+                "timestamp": "2025-12-11T19:57:10.092Z"
+              },
+              "pairedItem": {
+                "item": 133541
+              }
+            },
+            {
+              "json": {
+                "id": "ZoatBl6GWXofoRxuRfPD",
+                "value": "2025-10-30T00:00:00.000Z",
+                "contactId": "ioZgeZOLDYL2CSDJN9DE",
+                "timestamp": "2025-12-11T19:57:10.092Z"
+              },
+              "pairedItem": {
+                "item": 133542
+              }
+            },
+            {
+              "json": {
+                "id": "s3udxyiryT3oBpJrDRj4",
+                "value": "2025-11-30T00:00:00.000Z",
+                "contactId": "ioZgeZOLDYL2CSDJN9DE",
+                "timestamp": "2025-12-11T19:57:10.092Z"
+              },
+              "pairedItem": {
+                "item": 133543
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 1,
+                "contactId": "ioZgeZOLDYL2CSDJN9DE",
+                "timestamp": "2025-12-11T19:57:10.092Z"
+              },
+              "pairedItem": {
+                "item": 133544
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "47200",
+                "contactId": "ioZgeZOLDYL2CSDJN9DE",
+                "timestamp": "2025-12-11T19:57:10.092Z"
+              },
+              "pairedItem": {
+                "item": 133545
+              }
+            },
+            {
+              "json": {
+                "id": "2eHt5CfmLCQeQLrkv0G2",
+                "value": "01 de Diciembre",
+                "contactId": "elHUn8NjguP9CQ9sKXwC",
+                "timestamp": "2026-01-06T16:16:09.413Z"
+              },
+              "pairedItem": {
+                "item": 133546
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "48739",
+                "contactId": "elHUn8NjguP9CQ9sKXwC",
+                "timestamp": "2026-01-06T16:16:09.413Z"
+              },
+              "pairedItem": {
+                "item": 133547
+              }
+            },
+            {
+              "json": {
+                "id": "QJcc3F2n7g91XuAruRdV",
+                "value": "282.597",
+                "contactId": "elHUn8NjguP9CQ9sKXwC",
+                "timestamp": "2026-01-06T16:16:09.413Z"
+              },
+              "pairedItem": {
+                "item": 133548
+              }
+            },
+            {
+              "json": {
+                "id": "rCrRqZyaJkDSzQgUMhh7",
+                "value": "01 de Noviembre al 29 de Noviembre",
+                "contactId": "elHUn8NjguP9CQ9sKXwC",
+                "timestamp": "2026-01-06T16:16:09.413Z"
+              },
+              "pairedItem": {
+                "item": 133549
+              }
+            },
+            {
+              "json": {
+                "id": "wGV5E8kVG2vOgjuzYQmZ",
+                "value": "48739",
+                "contactId": "elHUn8NjguP9CQ9sKXwC",
+                "timestamp": "2026-01-06T16:16:09.413Z"
+              },
+              "pairedItem": {
+                "item": 133550
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 66078,
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133551
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CR 49  53 37 IN 201",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133552
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133553
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=66078",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133554
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "17169889",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133555
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133556
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Migrado",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133557
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Los Naranjos",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133558
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "180",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133559
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "3",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133560
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133561
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Itaguí",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133562
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 1800000,
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133563
+              }
+            },
+            {
+              "json": {
+                "id": "2N9IvC5hxB3hUhfra0zu",
+                "value": "Diciembre 01 de 2025",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133564
+              }
+            },
+            {
+              "json": {
+                "id": "CZDg232augqbzCW4iQCA",
+                "value": "CR 49 CL 53 -37  IN 201",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133565
+              }
+            },
+            {
+              "json": {
+                "id": "S1C0s7sQgDAlklVXc7HR",
+                "value": "71296",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133566
+              }
+            },
+            {
+              "json": {
+                "id": "w6xZx1pRWIQlFwSzAMkU",
+                "value": "48739",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133567
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Propietario",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133568
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "48739",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133569
+              }
+            },
+            {
+              "json": {
+                "id": "RtiMi8AlGI0AR8zGV30C",
+                "value": "NO",
+                "contactId": "9EVmkSxTk7QP5qpnUx1d",
+                "timestamp": "2025-12-01T19:45:48.961Z"
+              },
+              "pairedItem": {
+                "item": 133570
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 73471,
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133571
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 44 SUR 42 54 MZ f CA 9.1 VISTA ALEGRE",
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133572
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133573
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=73471",
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133574
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "21414778",
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133575
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Casa",
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133576
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133577
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "El Dorado",
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133578
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "74",
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133579
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "3",
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133580
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133581
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133582
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 2600000,
+                "contactId": "MOwrziKHF5GdAVsqP5LQ",
+                "timestamp": "2025-12-04T17:08:48.477Z"
+              },
+              "pairedItem": {
+                "item": 133583
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 76198,
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133584
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CR 47 C 76 D SUR 20 IN 602 TORRE 1 IBIZA LOFTS",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133585
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 1800000,
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133586
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=61789",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133587
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "8431078",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133588
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133589
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133590
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Prados De Sabaneta",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133591
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "49",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133592
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "4",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133593
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 1,
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133594
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Sabaneta",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133595
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 1450000,
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133596
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Cliente Nuevo",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133597
+              }
+            },
+            {
+              "json": {
+                "id": "JDdlvKzhkAo6w1YJckFu",
+                "value": "73676",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133598
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133599
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 1,
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133600
+              }
+            },
+            {
+              "json": {
+                "id": "2N9IvC5hxB3hUhfra0zu",
+                "value": "Enero 09 de 2026",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133601
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "48768",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133602
+              }
+            },
+            {
+              "json": {
+                "id": "CZDg232augqbzCW4iQCA",
+                "value": "CR 48 CL 76 B SUR -41 INTERIOR 402  ED CANTO ALEGRE",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133603
+              }
+            },
+            {
+              "json": {
+                "id": "RtiMi8AlGI0AR8zGV30C",
+                "value": "si",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133604
+              }
+            },
+            {
+              "json": {
+                "id": "S1C0s7sQgDAlklVXc7HR",
+                "value": "71385",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133605
+              }
+            },
+            {
+              "json": {
+                "id": "w6xZx1pRWIQlFwSzAMkU",
+                "value": "48768",
+                "contactId": "4HhLZkjFKwaTODJTrXi2",
+                "timestamp": "2026-01-09T20:24:54.721Z"
+              },
+              "pairedItem": {
+                "item": 133606
+              }
+            },
+            {
+              "json": {
+                "id": "vwnYM9XhjLKyo2Ln3cbr",
+                "value": "21 oct 25",
+                "contactId": "AQEFc5nDbCfURC9Bu9AH",
+                "timestamp": "2025-10-24T13:54:55.097Z"
+              },
+              "pairedItem": {
+                "item": 133607
+              }
+            },
+            {
+              "json": {
+                "id": "qlaBUbTKZ3gVdBMBwsEl",
+                "value": "471584862255",
+                "contactId": "AQEFc5nDbCfURC9Bu9AH",
+                "timestamp": "2025-10-24T13:54:55.097Z"
+              },
+              "pairedItem": {
+                "item": 133608
+              }
+            },
+            {
+              "json": {
+                "id": "UyE1WO5jWQy5clVna2rm",
+                "value": "calle 30 # 45 78",
+                "contactId": "AQEFc5nDbCfURC9Bu9AH",
+                "timestamp": "2025-10-24T13:54:55.097Z"
+              },
+              "pairedItem": {
+                "item": 133609
+              }
+            },
+            {
+              "json": {
+                "id": "14RwqdxGhwGa8kVxVg4K",
+                "value": "12 oct 2025",
+                "contactId": "AQEFc5nDbCfURC9Bu9AH",
+                "timestamp": "2025-10-24T13:54:55.097Z"
+              },
+              "pairedItem": {
+                "item": 133610
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "42843",
+                "contactId": "AQEFc5nDbCfURC9Bu9AH",
+                "timestamp": "2025-10-24T13:54:55.097Z"
+              },
+              "pairedItem": {
+                "item": 133611
+              }
+            },
+            {
+              "json": {
+                "id": "QB9YnC4flDLru6JTGCjF",
+                "value": ".",
+                "contactId": "AQEFc5nDbCfURC9Bu9AH",
+                "timestamp": "2025-10-24T13:54:55.097Z"
+              },
+              "pairedItem": {
+                "item": 133612
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1234567\n\nSource: Servicio al Cliente",
+                "contactId": "Oicbw3l7oGXIcJWxxYRM",
+                "timestamp": "2025-10-09T20:24:19.161Z"
+              },
+              "pairedItem": {
+                "item": 133613
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "6",
+                "contactId": "jRdOkF9Frb9iNMisFado",
+                "timestamp": "2025-12-04T22:10:23.307Z"
+              },
+              "pairedItem": {
+                "item": 133614
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "jRdOkF9Frb9iNMisFado",
+                "timestamp": "2025-12-04T22:10:23.307Z"
+              },
+              "pairedItem": {
+                "item": 133615
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "4P8jOtYKsEcxHbiqw6XP",
+                "timestamp": "2025-12-19T21:52:23.000Z"
+              },
+              "pairedItem": {
+                "item": 133616
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "49124",
+                "contactId": "4P8jOtYKsEcxHbiqw6XP",
+                "timestamp": "2025-12-19T21:52:23.000Z"
+              },
+              "pairedItem": {
+                "item": 133617
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1001237912",
+                "contactId": "4P8jOtYKsEcxHbiqw6XP",
+                "timestamp": "2025-12-19T21:52:23.000Z"
+              },
+              "pairedItem": {
+                "item": 133618
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 73257,
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133619
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 24 SUR 42 46  IN 1503 ED ANTALYA",
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133620
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133621
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=73257",
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133622
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "43901783",
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133623
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133624
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133625
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "ZuÑiga",
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133626
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "84",
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133627
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "5",
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133628
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133629
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133630
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 3800000,
+                "contactId": "Jm3gGqBqmuTg1MioIsq8",
+                "timestamp": "2025-12-26T18:16:14.863Z"
+              },
+              "pairedItem": {
+                "item": 133631
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 67681,
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133632
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 43A 72 sur 23 AP 101",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133633
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 3200000,
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133634
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=67681",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133635
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "98638413",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133636
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133637
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133638
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Centro",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133639
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "90",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133640
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "3",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133641
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133642
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Sabaneta",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133643
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 1500000,
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133644
+              }
+            },
+            {
+              "json": {
+                "id": "JDdlvKzhkAo6w1YJckFu",
+                "value": "72424",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133645
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "I6JNNZrIgfLn2X7GvYfG",
+                "timestamp": "2025-11-10T16:11:36.486Z"
+              },
+              "pairedItem": {
+                "item": 133646
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "70826946",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133647
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 52 54 28",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133648
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Local",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133649
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Rionegro",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133650
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133651
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133652
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Quebrada Arriba",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133653
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "28",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133654
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "3",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133655
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 1400000,
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133656
+              }
+            },
+            {
+              "json": {
+                "id": "RtiMi8AlGI0AR8zGV30C",
+                "value": "no",
+                "contactId": "OA8tA77cAWzivL26fvuG",
+                "timestamp": "2025-11-16T15:03:49.732Z"
+              },
+              "pairedItem": {
+                "item": 133657
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 72765,
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133658
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 70 A SUR 35 51  IN 904 CIGARRAS",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133659
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 3300000,
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133660
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=72765",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133661
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1090382601",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133662
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133663
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133664
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Aves María",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133665
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "99",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133666
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "4",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133667
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133668
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Sabaneta",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133669
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 3300000,
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133670
+              }
+            },
+            {
+              "json": {
+                "id": "JDdlvKzhkAo6w1YJckFu",
+                "value": "72765",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133671
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "wcn0MotMZeHSNFekuTvd",
+                "timestamp": "2025-11-10T16:12:12.472Z"
+              },
+              "pairedItem": {
+                "item": 133672
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 2,
+                "contactId": "pgz41c8G68tj8A4UHtyt",
+                "timestamp": "2026-01-09T20:33:22.565Z"
+              },
+              "pairedItem": {
+                "item": 133673
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "pgz41c8G68tj8A4UHtyt",
+                "timestamp": "2026-01-09T20:33:22.565Z"
+              },
+              "pairedItem": {
+                "item": 133674
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "49378",
+                "contactId": "pgz41c8G68tj8A4UHtyt",
+                "timestamp": "2026-01-09T20:33:22.565Z"
+              },
+              "pairedItem": {
+                "item": 133675
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "2450408",
+                "contactId": "pgz41c8G68tj8A4UHtyt",
+                "timestamp": "2026-01-09T20:33:22.565Z"
+              },
+              "pairedItem": {
+                "item": 133676
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "631566",
+                "contactId": "KLGRW2l2eUihop4c5RMk",
+                "timestamp": "2025-10-31T14:37:40.047Z"
+              },
+              "pairedItem": {
+                "item": 133677
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "KLGRW2l2eUihop4c5RMk",
+                "timestamp": "2025-10-31T14:37:40.047Z"
+              },
+              "pairedItem": {
+                "item": 133678
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "46731",
+                "contactId": "KLGRW2l2eUihop4c5RMk",
+                "timestamp": "2025-10-31T14:37:40.047Z"
+              },
+              "pairedItem": {
+                "item": 133679
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 1,
+                "contactId": "HLG7YkR5uesAYlknldmP",
+                "timestamp": "2025-12-05T15:53:24.028Z"
+              },
+              "pairedItem": {
+                "item": 133680
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1039451820",
+                "contactId": "HLG7YkR5uesAYlknldmP",
+                "timestamp": "2025-12-05T15:53:24.028Z"
+              },
+              "pairedItem": {
+                "item": 133681
+              }
+            },
+            {
+              "json": {
+                "id": "279YVp2pppWRgu2OaUcg",
+                "value": " TV 33 SUR DIAG  31 E 11 IN 302 LA MAGNOLIA",
+                "contactId": "HLG7YkR5uesAYlknldmP",
+                "timestamp": "2025-12-05T15:53:24.028Z"
+              },
+              "pairedItem": {
+                "item": 133682
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "HLG7YkR5uesAYlknldmP",
+                "timestamp": "2025-12-05T15:53:24.028Z"
+              },
+              "pairedItem": {
+                "item": 133683
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "47367",
+                "contactId": "HLG7YkR5uesAYlknldmP",
+                "timestamp": "2025-12-05T15:53:24.028Z"
+              },
+              "pairedItem": {
+                "item": 133684
+              }
+            },
+            {
+              "json": {
+                "id": "s3udxyiryT3oBpJrDRj4",
+                "value": "2025-12-14T00:00:00.000Z",
+                "contactId": "HLG7YkR5uesAYlknldmP",
+                "timestamp": "2025-12-05T15:53:24.028Z"
+              },
+              "pairedItem": {
+                "item": 133685
+              }
+            },
+            {
+              "json": {
+                "id": "ZoatBl6GWXofoRxuRfPD",
+                "value": "2025-11-14T00:00:00.000Z",
+                "contactId": "HLG7YkR5uesAYlknldmP",
+                "timestamp": "2025-12-05T15:53:24.028Z"
+              },
+              "pairedItem": {
+                "item": 133686
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 73902,
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133687
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CR 43A 45 SUR 35 IN 401",
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133688
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133689
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=73902",
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133690
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "70559961",
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133691
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133692
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133693
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "La Paz",
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133694
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "70",
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133695
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "2",
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133696
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133697
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133698
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 2500000,
+                "contactId": "7SXvFmt9yvrWpqCkrdpS",
+                "timestamp": "2026-01-08T16:11:30.100Z"
+              },
+              "pairedItem": {
+                "item": 133699
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "ITr4cV5HDdYv31BHLvfN",
+                "timestamp": "2026-01-10T14:54:03.247Z"
+              },
+              "pairedItem": {
+                "item": 133700
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "42824676",
+                "contactId": "ITr4cV5HDdYv31BHLvfN",
+                "timestamp": "2026-01-10T14:54:03.247Z"
+              },
+              "pairedItem": {
+                "item": 133701
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "48111",
+                "contactId": "ITr4cV5HDdYv31BHLvfN",
+                "timestamp": "2026-01-10T14:54:03.247Z"
+              },
+              "pairedItem": {
+                "item": 133702
+              }
+            },
+            {
+              "json": {
+                "id": "2eHt5CfmLCQeQLrkv0G2",
+                "value": "02 de Enero",
+                "contactId": "ITr4cV5HDdYv31BHLvfN",
+                "timestamp": "2026-01-10T14:54:03.247Z"
+              },
+              "pairedItem": {
+                "item": 133703
+              }
+            },
+            {
+              "json": {
+                "id": "QJcc3F2n7g91XuAruRdV",
+                "value": "492.023",
+                "contactId": "ITr4cV5HDdYv31BHLvfN",
+                "timestamp": "2026-01-10T14:54:03.247Z"
+              },
+              "pairedItem": {
+                "item": 133704
+              }
+            },
+            {
+              "json": {
+                "id": "rCrRqZyaJkDSzQgUMhh7",
+                "value": "11 de Noviembre al 11 de Diciembre",
+                "contactId": "ITr4cV5HDdYv31BHLvfN",
+                "timestamp": "2026-01-10T14:54:03.247Z"
+              },
+              "pairedItem": {
+                "item": 133705
+              }
+            },
+            {
+              "json": {
+                "id": "wGV5E8kVG2vOgjuzYQmZ",
+                "value": "48111",
+                "contactId": "ITr4cV5HDdYv31BHLvfN",
+                "timestamp": "2026-01-10T14:54:03.247Z"
+              },
+              "pairedItem": {
+                "item": 133706
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "dYgOZDyoJJRCs5ZsOEX9",
+                "timestamp": "2025-12-23T21:16:12.756Z"
+              },
+              "pairedItem": {
+                "item": 133707
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "43871262",
+                "contactId": "dYgOZDyoJJRCs5ZsOEX9",
+                "timestamp": "2025-12-23T21:16:12.756Z"
+              },
+              "pairedItem": {
+                "item": 133708
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 76790,
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133709
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 45 52 A 09 IN 401",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133710
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 1500000,
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133711
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=76790",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133712
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "43829204",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133713
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133714
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Disponible",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133715
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Playa Rica",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133716
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "55",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133717
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "3",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133718
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133719
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Itaguí",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133720
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 1000000,
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133721
+              }
+            },
+            {
+              "json": {
+                "id": "JDdlvKzhkAo6w1YJckFu",
+                "value": "69869",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133722
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133723
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Propietario",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133724
+              }
+            },
+            {
+              "json": {
+                "id": "2N9IvC5hxB3hUhfra0zu",
+                "value": "Diciembre 20 de 2025",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133725
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "44366",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133726
+              }
+            },
+            {
+              "json": {
+                "id": "CZDg232augqbzCW4iQCA",
+                "value": "CL 45 52 A 09 INT 401",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133727
+              }
+            },
+            {
+              "json": {
+                "id": "RtiMi8AlGI0AR8zGV30C",
+                "value": "SI",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133728
+              }
+            },
+            {
+              "json": {
+                "id": "S1C0s7sQgDAlklVXc7HR",
+                "value": "47005",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133729
+              }
+            },
+            {
+              "json": {
+                "id": "w6xZx1pRWIQlFwSzAMkU",
+                "value": "44366",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133730
+              }
+            },
+            {
+              "json": {
+                "id": "TfisLOVaNGOy55wRN7Ro",
+                "value": "0",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133731
+              }
+            },
+            {
+              "json": {
+                "id": "gi7ZLHFNWqccENZYZEma",
+                "value": "193226280",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133732
+              }
+            },
+            {
+              "json": {
+                "id": "n3BGNeUZMSNh5vfgduI3",
+                "value": "14812-114376790",
+                "contactId": "sZaDoOt66PzCR5i8iTaO",
+                "timestamp": "2026-01-07T21:04:45.071Z"
+              },
+              "pairedItem": {
+                "item": 133733
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 5200000,
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133734
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 24 39 07 TO 1 IN 1301 VANCOUVER",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133735
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 73899,
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133736
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "73899",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133737
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=73899",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133738
+              }
+            },
+            {
+              "json": {
+                "id": "gi7ZLHFNWqccENZYZEma",
+                "value": "192429075",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133739
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "13068820",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133740
+              }
+            },
+            {
+              "json": {
+                "id": "n3BGNeUZMSNh5vfgduI3",
+                "value": "14812-114373899",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133741
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133742
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133743
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Loma Del Encierro",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133744
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "82",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133745
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "7",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133746
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133747
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Medellín",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133748
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 5200000,
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133749
+              }
+            },
+            {
+              "json": {
+                "id": "JDdlvKzhkAo6w1YJckFu",
+                "value": "73899",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133750
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "G8rJbPAzk2c2P5Oa9lwy",
+                "timestamp": "2025-11-10T16:11:17.588Z"
+              },
+              "pairedItem": {
+                "item": 133751
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 61337,
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133752
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 46D D SUR 37 94 ALTOS DEL TRIANON",
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133753
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133754
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=61337",
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133755
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "8345350",
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133756
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Casa",
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133757
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133758
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Trianon",
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133759
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "100",
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133760
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "4",
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133761
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 3,
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133762
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133763
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 2000000,
+                "contactId": "YgrLlyPB4K7jixrXlrKT",
+                "timestamp": "2026-01-08T16:08:50.591Z"
+              },
+              "pairedItem": {
+                "item": 133764
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "44652",
+                "contactId": "9VjDkLeKLnguL5gyzkPW",
+                "timestamp": "2025-12-04T16:10:06.051Z"
+              },
+              "pairedItem": {
+                "item": 133765
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 2,
+                "contactId": "9VjDkLeKLnguL5gyzkPW",
+                "timestamp": "2025-12-04T16:10:06.051Z"
+              },
+              "pairedItem": {
+                "item": 133766
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1017214757",
+                "contactId": "qFxYCsOZiXjK5PPYHOdP",
+                "timestamp": "2025-11-27T17:45:36.327Z"
+              },
+              "pairedItem": {
+                "item": 133767
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "47638",
+                "contactId": "qFxYCsOZiXjK5PPYHOdP",
+                "timestamp": "2025-11-27T17:45:36.327Z"
+              },
+              "pairedItem": {
+                "item": 133768
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 73896,
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133769
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 52 B SUR 39 E 37  TO 2 IN 710 CORAZON DE ENVIGADO",
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133770
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133771
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=73896",
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133772
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "43739848",
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133773
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133774
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133775
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Loma Del Barro",
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133776
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "55",
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133777
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "3",
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133778
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133779
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133780
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 1700000,
+                "contactId": "WaPTykG0YQPk4ECcICs8",
+                "timestamp": "2025-12-04T17:09:39.088Z"
+              },
+              "pairedItem": {
+                "item": 133781
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "2OiK32XxGWpRzb63d9nf",
+                "timestamp": "2026-01-13T15:45:34.414Z"
+              },
+              "pairedItem": {
+                "item": 133782
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "49284",
+                "contactId": "2OiK32XxGWpRzb63d9nf",
+                "timestamp": "2026-01-13T15:45:34.414Z"
+              },
+              "pairedItem": {
+                "item": 133783
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1054564285",
+                "contactId": "2OiK32XxGWpRzb63d9nf",
+                "timestamp": "2026-01-13T15:45:34.414Z"
+              },
+              "pairedItem": {
+                "item": 133784
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 4510000,
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133785
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 77 SUR 47 C 65 IN 1312 URB RIO MISTICO",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133786
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 75388,
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133787
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "74438",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133788
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=75388",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133789
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "42827300",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133790
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133791
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Disponible",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133792
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Prados De Sabaneta",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133793
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "71",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133794
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "12",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133795
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 7,
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133796
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Sabaneta",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133797
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 2890000,
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133798
+              }
+            },
+            {
+              "json": {
+                "id": "n3BGNeUZMSNh5vfgduI3",
+                "value": "14812-114375392",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133799
+              }
+            },
+            {
+              "json": {
+                "id": "gi7ZLHFNWqccENZYZEma",
+                "value": "192826846",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133800
+              }
+            },
+            {
+              "json": {
+                "id": "JDdlvKzhkAo6w1YJckFu",
+                "value": "75388",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133801
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "rTD2AULYts4iOTH49XDm",
+                "timestamp": "2025-11-22T14:46:19.574Z"
+              },
+              "pairedItem": {
+                "item": 133802
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 73312,
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133803
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CR 34 39 SUR 38  IN 101 ED ANYSA",
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133804
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133805
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=73312",
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133806
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "42879812",
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133807
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133808
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Arrendado",
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133809
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Mesa",
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133810
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "112",
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133811
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "3",
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133812
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133813
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133814
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 2750000,
+                "contactId": "Io0txJOuoRuZJmZgpLAs",
+                "timestamp": "2025-12-04T17:08:54.605Z"
+              },
+              "pairedItem": {
+                "item": 133815
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "18904564",
+                "contactId": "vYoEg1szhZBwN3TPojfi",
+                "timestamp": "2026-01-02T20:29:24.596Z"
+              },
+              "pairedItem": {
+                "item": 133816
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "vYoEg1szhZBwN3TPojfi",
+                "timestamp": "2026-01-02T20:29:24.596Z"
+              },
+              "pairedItem": {
+                "item": 133817
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "44537",
+                "contactId": "vYoEg1szhZBwN3TPojfi",
+                "timestamp": "2026-01-02T20:29:24.596Z"
+              },
+              "pairedItem": {
+                "item": 133818
+              }
+            },
+            {
+              "json": {
+                "id": "QB9YnC4flDLru6JTGCjF",
+                "value": "Cartera",
+                "contactId": "vYoEg1szhZBwN3TPojfi",
+                "timestamp": "2026-01-02T20:29:24.596Z"
+              },
+              "pairedItem": {
+                "item": 133819
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 70623,
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133820
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 40A SUR  33 43 IN 302",
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133821
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133822
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=70623",
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133823
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "43817479",
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133824
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartaestudio",
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133825
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133826
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "El Consuelo",
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133827
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "30",
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133828
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "3",
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133829
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 1,
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133830
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133831
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 1380000,
+                "contactId": "CgxMJzxAUVTvFa8LZQis",
+                "timestamp": "2026-01-08T16:17:56.665Z"
+              },
+              "pairedItem": {
+                "item": 133832
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 63403,
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133833
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CR 31 37 SUR 24",
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133834
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133835
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=63403",
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133836
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "39325771",
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133837
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Local",
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133838
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Retirado",
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133839
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Mesa",
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133840
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "20",
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133841
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "7",
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133842
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 1,
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133843
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133844
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 1400000,
+                "contactId": "rvNcs0vaA97ry3pvvJ3q",
+                "timestamp": "2025-12-04T16:53:23.206Z"
+              },
+              "pairedItem": {
+                "item": 133845
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": " 43464037 ",
+                "contactId": "tmxVig8CNj2Y96k3snqo",
+                "timestamp": "2026-01-07T13:23:04.298Z"
+              },
+              "pairedItem": {
+                "item": 133846
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "48088",
+                "contactId": "tmxVig8CNj2Y96k3snqo",
+                "timestamp": "2026-01-07T13:23:04.298Z"
+              },
+              "pairedItem": {
+                "item": 133847
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "tmxVig8CNj2Y96k3snqo",
+                "timestamp": "2026-01-07T13:23:04.298Z"
+              },
+              "pairedItem": {
+                "item": 133848
+              }
+            },
+            {
+              "json": {
+                "id": "QJcc3F2n7g91XuAruRdV",
+                "value": "$148.670",
+                "contactId": "tmxVig8CNj2Y96k3snqo",
+                "timestamp": "2026-01-07T13:23:04.298Z"
+              },
+              "pairedItem": {
+                "item": 133849
+              }
+            },
+            {
+              "json": {
+                "id": "Dq8BWtcQZ1DyU28NiCMx",
+                "value": " -TimeoutAsignacionComercial",
+                "contactId": "tmxVig8CNj2Y96k3snqo",
+                "timestamp": "2026-01-07T13:23:04.298Z"
+              },
+              "pairedItem": {
+                "item": 133850
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1065629553",
+                "contactId": "7VuR0aSfWRZK16ebo8n9",
+                "timestamp": "2025-12-27T16:12:37.979Z"
+              },
+              "pairedItem": {
+                "item": 133851
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "7VuR0aSfWRZK16ebo8n9",
+                "timestamp": "2025-12-27T16:12:37.979Z"
+              },
+              "pairedItem": {
+                "item": 133852
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "43241",
+                "contactId": "7VuR0aSfWRZK16ebo8n9",
+                "timestamp": "2025-12-27T16:12:37.979Z"
+              },
+              "pairedItem": {
+                "item": 133853
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "23495044",
+                "contactId": "vChhaPniatQMwGYAZvJB",
+                "timestamp": "2026-01-14T20:43:09.504Z"
+              },
+              "pairedItem": {
+                "item": 133854
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "49237",
+                "contactId": "vChhaPniatQMwGYAZvJB",
+                "timestamp": "2026-01-14T20:43:09.504Z"
+              },
+              "pairedItem": {
+                "item": 133855
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 3,
+                "contactId": "vChhaPniatQMwGYAZvJB",
+                "timestamp": "2026-01-14T20:43:09.504Z"
+              },
+              "pairedItem": {
+                "item": 133856
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "vChhaPniatQMwGYAZvJB",
+                "timestamp": "2026-01-14T20:43:09.504Z"
+              },
+              "pairedItem": {
+                "item": 133857
+              }
+            },
+            {
+              "json": {
+                "id": "Dq8BWtcQZ1DyU28NiCMx",
+                "value": " -TimeoutComercial",
+                "contactId": "vChhaPniatQMwGYAZvJB",
+                "timestamp": "2026-01-14T20:43:09.504Z"
+              },
+              "pairedItem": {
+                "item": 133858
+              }
+            },
+            {
+              "json": {
+                "id": "Dq8BWtcQZ1DyU28NiCMx",
+                "value": " -TimeoutAsignacionComercial",
+                "contactId": "mzERi9xFOq7U16HmrSjA",
+                "timestamp": "2026-01-15T19:14:39.129Z"
+              },
+              "pairedItem": {
+                "item": 133859
+              }
+            },
+            {
+              "json": {
+                "id": "1IphFtB4GAKlesTJpc0u",
+                "value": "https://www.fincaraiz.com.co/apartamento-en-arriendo-en-pan-de-azucar-sabaneta/193021831/",
+                "contactId": "4iy7yyQLHTOcLw6hYZdb",
+                "timestamp": "2026-01-05T13:33:39.988Z"
+              },
+              "pairedItem": {
+                "item": 133860
+              }
+            },
+            {
+              "json": {
+                "id": "PFD9xshf9PMDmjMr6kTZ",
+                "value": "Apartamento",
+                "contactId": "4iy7yyQLHTOcLw6hYZdb",
+                "timestamp": "2026-01-05T13:33:39.988Z"
+              },
+              "pairedItem": {
+                "item": 133861
+              }
+            },
+            {
+              "json": {
+                "id": "bHHQB2ATn5d1tVBD7B0p",
+                "value": "193021831",
+                "contactId": "4iy7yyQLHTOcLw6hYZdb",
+                "timestamp": "2026-01-05T13:33:39.988Z"
+              },
+              "pairedItem": {
+                "item": 133862
+              }
+            },
+            {
+              "json": {
+                "id": "sVisAaA1LGnETmpY9VCy",
+                "value": "Arriendo",
+                "contactId": "4iy7yyQLHTOcLw6hYZdb",
+                "timestamp": "2026-01-05T13:33:39.988Z"
+              },
+              "pairedItem": {
+                "item": 133863
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "Inmuebles Urrao",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133864
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133865
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=61792",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133866
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "70781746",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133867
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Casa",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133868
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Migrado",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133869
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Prados De Sabaneta",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133870
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "116",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133871
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "4",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133872
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 4,
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133873
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Sabaneta",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133874
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 2300000,
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133875
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Propietario",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133876
+              }
+            },
+            {
+              "json": {
+                "id": "2N9IvC5hxB3hUhfra0zu",
+                "value": "Diciembre 12 de 2025",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133877
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "47285",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133878
+              }
+            },
+            {
+              "json": {
+                "id": "CZDg232augqbzCW4iQCA",
+                "value": "CR 46 C CL 79 A SUR 94 ALDEAVERDE",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133879
+              }
+            },
+            {
+              "json": {
+                "id": "RtiMi8AlGI0AR8zGV30C",
+                "value": "NO",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133880
+              }
+            },
+            {
+              "json": {
+                "id": "S1C0s7sQgDAlklVXc7HR",
+                "value": "66366",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133881
+              }
+            },
+            {
+              "json": {
+                "id": "w6xZx1pRWIQlFwSzAMkU",
+                "value": "47285",
+                "contactId": "Zo1nlYxLNT6nDQpUunt0",
+                "timestamp": "2025-12-22T21:22:02.045Z"
+              },
+              "pairedItem": {
+                "item": 133882
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 1,
+                "contactId": "ro7WIFQA41qkcFC3C05w",
+                "timestamp": "2025-12-16T15:16:13.767Z"
+              },
+              "pairedItem": {
+                "item": 133883
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1152457341",
+                "contactId": "ro7WIFQA41qkcFC3C05w",
+                "timestamp": "2025-12-16T15:16:13.767Z"
+              },
+              "pairedItem": {
+                "item": 133884
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "ro7WIFQA41qkcFC3C05w",
+                "timestamp": "2025-12-16T15:16:13.767Z"
+              },
+              "pairedItem": {
+                "item": 133885
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "48698",
+                "contactId": "ro7WIFQA41qkcFC3C05w",
+                "timestamp": "2025-12-16T15:16:13.767Z"
+              },
+              "pairedItem": {
+                "item": 133886
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "WLLH1UNYmHWM1Ty8L7kd",
+                "timestamp": "2026-01-09T17:53:28.933Z"
+              },
+              "pairedItem": {
+                "item": 133887
+              }
+            },
+            {
+              "json": {
+                "id": "Dq8BWtcQZ1DyU28NiCMx",
+                "value": " -TimeoutComercial",
+                "contactId": "WLLH1UNYmHWM1Ty8L7kd",
+                "timestamp": "2026-01-09T17:53:28.933Z"
+              },
+              "pairedItem": {
+                "item": 133888
+              }
+            },
+            {
+              "json": {
+                "id": "Dq8BWtcQZ1DyU28NiCMx",
+                "value": " -TimeoutComercial",
+                "contactId": "DOuLYaLrWE0fZVKjGLGb",
+                "timestamp": "2026-01-08T15:54:00.918Z"
+              },
+              "pairedItem": {
+                "item": 133889
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 1,
+                "contactId": "JSPMus2QQmDR7afyMQ6K",
+                "timestamp": "2025-12-16T19:54:12.445Z"
+              },
+              "pairedItem": {
+                "item": 133890
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "901109939",
+                "contactId": "N4dFlNITRrwrE75pUczc",
+                "timestamp": "2025-12-23T17:45:50.190Z"
+              },
+              "pairedItem": {
+                "item": 133891
+              }
+            },
+            {
+              "json": {
+                "id": "bHHQB2ATn5d1tVBD7B0p",
+                "value": "191352888",
+                "contactId": "569dSChXXx6URS3QLowF",
+                "timestamp": "2025-10-14T15:40:03.854Z"
+              },
+              "pairedItem": {
+                "item": 133892
+              }
+            },
+            {
+              "json": {
+                "id": "1IphFtB4GAKlesTJpc0u",
+                "value": "https://www.fincaraiz.com.co/casa-en-venta-en-zona-centro-envigado/191352888/",
+                "contactId": "569dSChXXx6URS3QLowF",
+                "timestamp": "2025-10-14T15:40:03.854Z"
+              },
+              "pairedItem": {
+                "item": 133893
+              }
+            },
+            {
+              "json": {
+                "id": "Dq8BWtcQZ1DyU28NiCMx",
+                "value": " -TimeoutComercial",
+                "contactId": "T4VVmQuBF7TBnxwneXjn",
+                "timestamp": "2026-01-15T19:15:26.763Z"
+              },
+              "pairedItem": {
+                "item": 133894
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1098691413",
+                "contactId": "1zWpoCUes7kHNQ3b4Q8n",
+                "timestamp": "2025-11-27T15:31:34.419Z"
+              },
+              "pairedItem": {
+                "item": 133895
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "1zWpoCUes7kHNQ3b4Q8n",
+                "timestamp": "2025-11-27T15:31:34.419Z"
+              },
+              "pairedItem": {
+                "item": 133896
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "50085",
+                "contactId": "1zWpoCUes7kHNQ3b4Q8n",
+                "timestamp": "2025-11-27T15:31:34.419Z"
+              },
+              "pairedItem": {
+                "item": 133897
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 67925,
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133898
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 55 A SUR 38 09 IN 2406 VILLA ROMERA TO 4",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133899
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133900
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=67925",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133901
+              }
+            },
+            {
+              "json": {
+                "id": "gi7ZLHFNWqccENZYZEma",
+                "value": "192277598",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133902
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "80030503",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133903
+              }
+            },
+            {
+              "json": {
+                "id": "n3BGNeUZMSNh5vfgduI3",
+                "value": "14812-114373368",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133904
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133905
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Migrado",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133906
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Maria Auxiliadora",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133907
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "52",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133908
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "2",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133909
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133910
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Sabaneta",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133911
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 1600000,
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133912
+              }
+            },
+            {
+              "json": {
+                "id": "1IphFtB4GAKlesTJpc0u",
+                "value": "https://u22331085.ct.sendgrid.net/ls/click?upn=u001.RKPvO4a4zMSoxbpxv5-2FuPNbMlO9Fpsh3Vt1SOkPhHMpEs08s-2FjYKQ-2BXKx1EHWxzTQN2xPwgfuccYSMA4ICpOYUjo6lmhMwtRk2U3zFh5fZGLs5YfqkX-2FAs-2FIfykBGvm2U9itEvu05kWJFZRkuA6FYA-3D-3D972D_-2BnFzhDNc0Pqks6YtV7e8ALCJa3VIfIPCpFO1Qom3xX4ZZHCHKuwligQ3g8MuSr8wRvYIIXZz0AjH9-2Fg1b4w1YNZuJREvhLSyxvg3Yir5j02DodXwp8UUYbwWCwvSRW3XuqbJuHTLD7lRgZb0EhJcKRlePzyHE0vf-2FjRCRbu5Jy9VNtvb1zCGOgcMY2Uj4R8-2FxWgNwqoZpItkUewZ5cz4Oa4p-2FlwHMYjtDkdOXE9zQtQ-3D",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133913
+              }
+            },
+            {
+              "json": {
+                "id": "bHHQB2ATn5d1tVBD7B0p",
+                "value": "14812-114376547",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133914
+              }
+            },
+            {
+              "json": {
+                "id": "sVisAaA1LGnETmpY9VCy",
+                "value": "Compra",
+                "contactId": "G46Lv2PJCTi4uLAOpoBX",
+                "timestamp": "2026-01-08T16:14:59.307Z"
+              },
+              "pairedItem": {
+                "item": 133915
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1152211800\n\nSource: Servicio al Cliente",
+                "contactId": "elma8jOcqaz08HfzP9yd",
+                "timestamp": "2025-11-20T13:37:29.748Z"
+              },
+              "pairedItem": {
+                "item": 133916
+              }
+            },
+            {
+              "json": {
+                "id": "QJcc3F2n7g91XuAruRdV",
+                "value": "71.932",
+                "contactId": "elma8jOcqaz08HfzP9yd",
+                "timestamp": "2025-11-20T13:37:29.748Z"
+              },
+              "pairedItem": {
+                "item": 133917
+              }
+            },
+            {
+              "json": {
+                "id": "2eHt5CfmLCQeQLrkv0G2",
+                "value": "01 de Octubre",
+                "contactId": "elma8jOcqaz08HfzP9yd",
+                "timestamp": "2025-11-20T13:37:29.748Z"
+              },
+              "pairedItem": {
+                "item": 133918
+              }
+            },
+            {
+              "json": {
+                "id": "rCrRqZyaJkDSzQgUMhh7",
+                "value": "12 de septiembre al 10 de octubre",
+                "contactId": "elma8jOcqaz08HfzP9yd",
+                "timestamp": "2025-11-20T13:37:29.748Z"
+              },
+              "pairedItem": {
+                "item": 133919
+              }
+            },
+            {
+              "json": {
+                "id": "XAs9ObrR0DoSka9q2IFO",
+                "value": "20",
+                "contactId": "elma8jOcqaz08HfzP9yd",
+                "timestamp": "2025-11-20T13:37:29.748Z"
+              },
+              "pairedItem": {
+                "item": 133920
+              }
+            },
+            {
+              "json": {
+                "id": "wGV5E8kVG2vOgjuzYQmZ",
+                "value": "48496",
+                "contactId": "elma8jOcqaz08HfzP9yd",
+                "timestamp": "2025-11-20T13:37:29.748Z"
+              },
+              "pairedItem": {
+                "item": 133921
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 1,
+                "contactId": "elma8jOcqaz08HfzP9yd",
+                "timestamp": "2025-11-20T13:37:29.748Z"
+              },
+              "pairedItem": {
+                "item": 133922
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1090437267",
+                "contactId": "aolfyjojNp8Tn5epFPzG",
+                "timestamp": "2026-01-06T13:22:01.539Z"
+              },
+              "pairedItem": {
+                "item": 133923
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "45685",
+                "contactId": "aolfyjojNp8Tn5epFPzG",
+                "timestamp": "2026-01-06T13:22:01.539Z"
+              },
+              "pairedItem": {
+                "item": 133924
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "aolfyjojNp8Tn5epFPzG",
+                "timestamp": "2026-01-06T13:22:01.539Z"
+              },
+              "pairedItem": {
+                "item": 133925
+              }
+            },
+            {
+              "json": {
+                "id": "Dq8BWtcQZ1DyU28NiCMx",
+                "value": " -TimeoutAsignacionComercial -TimeoutAsignacionComercial",
+                "contactId": "aolfyjojNp8Tn5epFPzG",
+                "timestamp": "2026-01-06T13:22:01.539Z"
+              },
+              "pairedItem": {
+                "item": 133926
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "43726374",
+                "contactId": "7Pk0up338EKSchKvX3G0",
+                "timestamp": "2025-12-04T16:12:34.137Z"
+              },
+              "pairedItem": {
+                "item": 133927
+              }
+            },
+            {
+              "json": {
+                "id": "279YVp2pppWRgu2OaUcg",
+                "value": "CL 40 B SUR CR 27 A 18  IN 270",
+                "contactId": "7Pk0up338EKSchKvX3G0",
+                "timestamp": "2025-12-04T16:12:34.137Z"
+              },
+              "pairedItem": {
+                "item": 133928
+              }
+            },
+            {
+              "json": {
+                "id": "s3udxyiryT3oBpJrDRj4",
+                "value": "2025-08-30T00:00:00.000Z",
+                "contactId": "7Pk0up338EKSchKvX3G0",
+                "timestamp": "2025-12-04T16:12:34.137Z"
+              },
+              "pairedItem": {
+                "item": 133929
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "7Pk0up338EKSchKvX3G0",
+                "timestamp": "2025-12-04T16:12:34.137Z"
+              },
+              "pairedItem": {
+                "item": 133930
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "49918",
+                "contactId": "7Pk0up338EKSchKvX3G0",
+                "timestamp": "2025-12-04T16:12:34.137Z"
+              },
+              "pairedItem": {
+                "item": 133931
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 1,
+                "contactId": "7Pk0up338EKSchKvX3G0",
+                "timestamp": "2025-12-04T16:12:34.137Z"
+              },
+              "pairedItem": {
+                "item": 133932
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1036938998",
+                "contactId": "macr02Hk5YThCDYFMhVB",
+                "timestamp": "2026-01-02T13:45:33.823Z"
+              },
+              "pairedItem": {
+                "item": 133933
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 2,
+                "contactId": "macr02Hk5YThCDYFMhVB",
+                "timestamp": "2026-01-02T13:45:33.823Z"
+              },
+              "pairedItem": {
+                "item": 133934
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "macr02Hk5YThCDYFMhVB",
+                "timestamp": "2026-01-02T13:45:33.823Z"
+              },
+              "pairedItem": {
+                "item": 133935
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "49328",
+                "contactId": "macr02Hk5YThCDYFMhVB",
+                "timestamp": "2026-01-02T13:45:33.823Z"
+              },
+              "pairedItem": {
+                "item": 133936
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 73844,
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133937
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CL 22 SUR 40 63 IN 412 LA ABADIA",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133938
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133939
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=73844",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133940
+              }
+            },
+            {
+              "json": {
+                "id": "gi7ZLHFNWqccENZYZEma",
+                "value": "192410761",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133941
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "32449886",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133942
+              }
+            },
+            {
+              "json": {
+                "id": "n3BGNeUZMSNh5vfgduI3",
+                "value": "14812-114373844",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133943
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133944
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Disponible",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133945
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "ZuÑiga",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133946
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "110",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133947
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "5",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133948
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133949
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133950
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 3800000,
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133951
+              }
+            },
+            {
+              "json": {
+                "id": "JDdlvKzhkAo6w1YJckFu",
+                "value": "73844",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133952
+              }
+            },
+            {
+              "json": {
+                "id": "2BEUbhxxjxJkxFnJB98I",
+                "value": "Arriendo",
+                "contactId": "ZT9h9DUmJABoHAb3yJbB",
+                "timestamp": "2025-12-09T15:19:05.031Z"
+              },
+              "pairedItem": {
+                "item": 133953
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "aG23bIJGAVkHr3Z4pXBX",
+                "timestamp": "2026-01-15T18:06:26.323Z"
+              },
+              "pairedItem": {
+                "item": 133954
+              }
+            },
+            {
+              "json": {
+                "id": "Dq8BWtcQZ1DyU28NiCMx",
+                "value": " -TimeoutComercial",
+                "contactId": "aG23bIJGAVkHr3Z4pXBX",
+                "timestamp": "2026-01-15T18:06:26.323Z"
+              },
+              "pairedItem": {
+                "item": 133955
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "1085916796",
+                "contactId": "njSs8mAgYSzIdZZb7F20",
+                "timestamp": "2025-12-19T21:46:38.217Z"
+              },
+              "pairedItem": {
+                "item": 133956
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 2,
+                "contactId": "njSs8mAgYSzIdZZb7F20",
+                "timestamp": "2025-12-19T21:46:38.217Z"
+              },
+              "pairedItem": {
+                "item": 133957
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "42889371",
+                "contactId": "u9zn400uQfRVkmNRUMvZ",
+                "timestamp": "2026-01-15T17:57:59.798Z"
+              },
+              "pairedItem": {
+                "item": 133958
+              }
+            },
+            {
+              "json": {
+                "id": "279YVp2pppWRgu2OaUcg",
+                "value": "CR 29 40 SUR 35 IN 504 BL 2 SAN JOSE",
+                "contactId": "u9zn400uQfRVkmNRUMvZ",
+                "timestamp": "2026-01-15T17:57:59.798Z"
+              },
+              "pairedItem": {
+                "item": 133959
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "50332",
+                "contactId": "u9zn400uQfRVkmNRUMvZ",
+                "timestamp": "2026-01-15T17:57:59.798Z"
+              },
+              "pairedItem": {
+                "item": 133960
+              }
+            },
+            {
+              "json": {
+                "id": "s3udxyiryT3oBpJrDRj4",
+                "value": "2026-01-24T00:00:00.000Z",
+                "contactId": "u9zn400uQfRVkmNRUMvZ",
+                "timestamp": "2026-01-15T17:57:59.798Z"
+              },
+              "pairedItem": {
+                "item": 133961
+              }
+            },
+            {
+              "json": {
+                "id": "ZoatBl6GWXofoRxuRfPD",
+                "value": "2025-11-08T00:00:00.000Z",
+                "contactId": "u9zn400uQfRVkmNRUMvZ",
+                "timestamp": "2026-01-15T17:57:59.798Z"
+              },
+              "pairedItem": {
+                "item": 133962
+              }
+            },
+            {
+              "json": {
+                "id": "KWnd9mZRFetDD2rEnbCF",
+                "value": 2,
+                "contactId": "u9zn400uQfRVkmNRUMvZ",
+                "timestamp": "2026-01-15T17:57:59.798Z"
+              },
+              "pairedItem": {
+                "item": 133963
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "u9zn400uQfRVkmNRUMvZ",
+                "timestamp": "2026-01-15T17:57:59.798Z"
+              },
+              "pairedItem": {
+                "item": 133964
+              }
+            },
+            {
+              "json": {
+                "id": "Dq8BWtcQZ1DyU28NiCMx",
+                "value": " -TimeoutAsignacionComercial -TimeoutComercial",
+                "contactId": "u9zn400uQfRVkmNRUMvZ",
+                "timestamp": "2026-01-15T17:57:59.798Z"
+              },
+              "pairedItem": {
+                "item": 133965
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "wl0oaUDDyLdLoO8O9oAo",
+                "timestamp": "2025-11-27T21:53:58.726Z"
+              },
+              "pairedItem": {
+                "item": 133966
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "33181",
+                "contactId": "wl0oaUDDyLdLoO8O9oAo",
+                "timestamp": "2025-11-27T21:53:58.726Z"
+              },
+              "pairedItem": {
+                "item": 133967
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "42877033",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133968
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133969
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CR 39 36 sur 13",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133970
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 73887,
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133971
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Local",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133972
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Disponible",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133973
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "Centro",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133974
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "36",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133975
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "7",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133976
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 1,
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133977
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133978
+              }
+            },
+            {
+              "json": {
+                "id": "8cSLXwfPxBtm6sXQ0Gxl",
+                "value": 3600000,
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133979
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=73887",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133980
+              }
+            },
+            {
+              "json": {
+                "id": "gi7ZLHFNWqccENZYZEma",
+                "value": "192426193",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133981
+              }
+            },
+            {
+              "json": {
+                "id": "n3BGNeUZMSNh5vfgduI3",
+                "value": "14812-114373887",
+                "contactId": "gRdmcXvo4NbmRouD2dJ7",
+                "timestamp": "2025-10-20T21:35:25.343Z"
+              },
+              "pairedItem": {
+                "item": 133982
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Inquilino",
+                "contactId": "A2Nc8Lrf1SpQ4Jdfn2RZ",
+                "timestamp": "2025-11-11T20:51:24.778Z"
+              },
+              "pairedItem": {
+                "item": 133983
+              }
+            },
+            {
+              "json": {
+                "id": "0aBwLlZRITrfLNSr0yID",
+                "value": "Propietario",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133984
+              }
+            },
+            {
+              "json": {
+                "id": "6JGq4C9t9QkJDgOSzoo5",
+                "value": "49389",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133985
+              }
+            },
+            {
+              "json": {
+                "id": "LPaSgdjI3bJrso2740ar",
+                "value": 75988,
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133986
+              }
+            },
+            {
+              "json": {
+                "id": "DV1OULEt8sArAZbZ3ZiP",
+                "value": "CR 32 B 40 F SUR 25 TO 1 IN 404 flores de la colina 1",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133987
+              }
+            },
+            {
+              "json": {
+                "id": "4GTH2HMd4Gq8xNx9Tvwf",
+                "value": 0,
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133988
+              }
+            },
+            {
+              "json": {
+                "id": "T4XxfccCyR9lK2kd3kQI",
+                "value": "https://www.arrendamientosenvigadosa.com.co/inmueble.html?inmueble=75988",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133989
+              }
+            },
+            {
+              "json": {
+                "id": "gi7ZLHFNWqccENZYZEma",
+                "value": "192993030",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133990
+              }
+            },
+            {
+              "json": {
+                "id": "pvH7EXbNSoUitaBP9l7A",
+                "value": "32745254",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133991
+              }
+            },
+            {
+              "json": {
+                "id": "n3BGNeUZMSNh5vfgduI3",
+                "value": "14812-114375988",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133992
+              }
+            },
+            {
+              "json": {
+                "id": "O5r9ak7tb9qCQrMkEM1B",
+                "value": "Apartamento",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133993
+              }
+            },
+            {
+              "json": {
+                "id": "ohj5Nqh7sb3QcCsmNfjs",
+                "value": "Disponible",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133994
+              }
+            },
+            {
+              "json": {
+                "id": "luOrVa9jjTIRjmFgQC0n",
+                "value": "El Dorado",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133995
+              }
+            },
+            {
+              "json": {
+                "id": "SP2wXq7PM7ffsE2HAkev",
+                "value": "65",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133996
+              }
+            },
+            {
+              "json": {
+                "id": "pygqfvzV6ISmVsRIJO8m",
+                "value": "3",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133997
+              }
+            },
+            {
+              "json": {
+                "id": "rfSVfESbVwFJXjetIBgR",
+                "value": 2,
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133998
+              }
+            },
+            {
+              "json": {
+                "id": "d3uQHXpL2wWzW38IQ8AY",
+                "value": "Envigado",
+                "contactId": "CeBqphXIvzuSn8CpZ270",
+                "timestamp": "2025-11-10T15:07:35.742Z"
+              },
+              "pairedItem": {
+                "item": 133999
+              }
+            }
+          ],
+          "WorkbookId": "01O53ICQPURVLOBWDWVJFLMZXIFXZZHI25",
+          "SheetCFContacts": "{DD79D362-1CFE-4C68-9262-4A2CB5DD4604}",
+          "TableCFContacts": "{0344514D-E9EC-46E8-BD68-C667CCF904E8}"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-01-15T20:07:10.941Z",
+  "versionId": "afc72349-6a37-4e35-b478-d74984241b5c"
+}
