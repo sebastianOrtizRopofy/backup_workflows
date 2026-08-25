@@ -1,0 +1,531 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get an opportunity": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Get an opportunity",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-10-30T16:56:33.379Z",
+  "id": "8GbTMIJXuFObyNiV",
+  "isArchived": false,
+  "meta": null,
+  "name": "webhook oportunidades moldex",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/moldex/opportunity",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1800,
+        -240
+      ],
+      "id": "4d057110-bdd6-4923-aede-16a13704ebc9",
+      "name": "Webhook",
+      "webhookId": "54dcf31f-de51-4cdf-93dc-b8bdca18c8d0"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "{{ $json.text }}",
+        "options": {
+          "queryBatching": "independently",
+          "queryReplacement": "={{ $json.values }}"
+        }
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -460,
+        -260
+      ],
+      "id": "38a6417b-9b80-4567-bb62-ce4bf3ac313d",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "ttqvVbC78buoDb38",
+          "name": "Moldex DB bi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const d = $json.opportunity;\n\nconst query = {\n  text: `\n    INSERT INTO public.opportunities (\n      \"external_id\", \"name\", \"monetary_value\", \"pipeline_id\", \"pipeline_stage_id\",\n      \"assigned_to\", \"status\", \"source\", \"last_status_change_at\", \"last_stage_change_at\",\n      \"contact_id\", \"location_id\", \"custom_fields\", \"followers\", \"contact\",\n      \"created_at\", \"updated_at\", \"process\"\n    ) VALUES (\n      $1, $2, $3, $4, $5,\n      $6, $7, $8, $9, $10,\n      $11, $12, $13::jsonb, $14::jsonb, $15::jsonb,\n      $16, $17, $18\n    )\n    ON CONFLICT (\"external_id\") DO UPDATE SET\n      \"name\" = EXCLUDED.\"name\",\n      \"monetary_value\" = EXCLUDED.\"monetary_value\",\n      \"pipeline_id\" = EXCLUDED.\"pipeline_id\",\n      \"pipeline_stage_id\" = EXCLUDED.\"pipeline_stage_id\",\n      \"assigned_to\" = EXCLUDED.\"assigned_to\",\n      \"status\" = EXCLUDED.\"status\",\n      \"source\" = EXCLUDED.\"source\",\n      \"last_status_change_at\" = EXCLUDED.\"last_status_change_at\",\n      \"last_stage_change_at\" = EXCLUDED.\"last_stage_change_at\",\n      \"contact_id\" = EXCLUDED.\"contact_id\",\n      \"location_id\" = EXCLUDED.\"location_id\",\n      \"custom_fields\" = EXCLUDED.\"custom_fields\",\n      \"followers\" = EXCLUDED.\"followers\",\n      \"contact\" = EXCLUDED.\"contact\",\n      \"created_at\" = EXCLUDED.\"created_at\",\n      \"updated_at\" = EXCLUDED.\"updated_at\",\n      \"process\" = EXCLUDED.\"process\"\n  `,\n  values: [\n    d.id,                                // $1  - external_id\n    d.name,                              // $2\n    d.monetaryValue || 0,                // $3\n    d.pipelineId,                        // $4\n    d.pipelineStageId,                   // $5\n    d.assignedTo,                        // $6\n    d.status,                            // $7\n    d.source,                            // $8\n    d.lastStatusChangeAt,                // $9\n    d.lastStageChangeAt,                 // $10\n    d.contactId,                         // $11\n    d.locationId,                        // $12\n    JSON.stringify(d.customFields || []),// $13\n    JSON.stringify(d.followers || []),   // $14\n    JSON.stringify(d.contact || {}),     // $15\n    d.createdAt,                         // $16\n    d.updatedAt,                         // $17\n    false                                // $18 - process\n  ]\n};\n\nreturn {\n  text: query.text,\n  values: query.values\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -680,
+        -260
+      ],
+      "id": "7adba03e-71c7-4732-aef2-706e6a48e605",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "resource": "opportunity",
+        "operation": "get",
+        "opportunityId": "={{ $json.body.id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        -900,
+        -240
+      ],
+      "id": "f76441ca-a1f8-4614-9501-a5917c563a8b",
+      "name": "Get an opportunity",
+      "retryOnFail": true,
+      "waitBetweenTries": 5000,
+      "maxTries": 5,
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "wk8ze4KKA4NIG9UQ",
+          "name": "Moldex"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "dataToSave": {
+          "values": [
+            {
+              "key": "idOpportunity",
+              "value": "={{ $json.body.id }}"
+            },
+            {
+              "key": "idLocation",
+              "value": "={{ $json.body.locationId }}"
+            },
+            {
+              "key": "type",
+              "value": "={{ $json.body.type }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        -1580,
+        -240
+      ],
+      "id": "d4b04e33-b8aa-46ca-846b-c1856c72129f",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "ddaf803f-e09c-43f6-a088-5d01d35c3bf1",
+              "leftValue": "={{ $json.body.type }}",
+              "rightValue": "OpportunityDelete",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1360,
+        -240
+      ],
+      "id": "fdd071db-599a-4184-86cb-74dd2cb1dd5f",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "opportunities",
+          "mode": "list",
+          "cachedResultName": "opportunities"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "deleted",
+            "external_id": "={{ $json.body.id }}"
+          },
+          "matchingColumns": [
+            "external_id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "external_id",
+              "displayName": "external_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "monetary_value",
+              "displayName": "monetary_value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "pipeline_id",
+              "displayName": "pipeline_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "pipeline_stage_id",
+              "displayName": "pipeline_stage_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "pipeline_stage_uid",
+              "displayName": "pipeline_stage_uid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "assigned_to",
+              "displayName": "assigned_to",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "last_status_change_at",
+              "displayName": "last_status_change_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "last_stage_change_at",
+              "displayName": "last_stage_change_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "contact_id",
+              "displayName": "contact_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "location_id",
+              "displayName": "location_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "custom_fields",
+              "displayName": "custom_fields",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "lost_reason_id",
+              "displayName": "lost_reason_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "followers",
+              "displayName": "followers",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "relations",
+              "displayName": "relations",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "contact",
+              "displayName": "contact",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sort",
+              "displayName": "sort",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "attributions",
+              "displayName": "attributions",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "object",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "created_at",
+              "displayName": "created_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "updated_at",
+              "displayName": "updated_at",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "sync_with_webhook",
+              "displayName": "sync_with_webhook",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "deleted",
+              "displayName": "deleted",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "process",
+              "displayName": "process",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1140,
+        -140
+      ],
+      "id": "7037cc3a-d979-4a79-9931-0fe5e6dfc58a",
+      "name": "Update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "ttqvVbC78buoDb38",
+          "name": "Moldex DB bi"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-10-30T17:09:14.695Z",
+  "versionId": "378b60a8-622a-4c87-9f69-e10acc2398bc"
+}
