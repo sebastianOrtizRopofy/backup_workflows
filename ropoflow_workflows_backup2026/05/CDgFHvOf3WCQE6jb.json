@@ -1,0 +1,83 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Create chat message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-05-15T16:40:21.286Z",
+  "id": "CDgFHvOf3WCQE6jb",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Soporte - Notificación a Teams CS",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "9237cce0-63ed-4a72-a723-8ea24a98d458",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "208277b6-eef2-4f2f-9439-01a1d99903a5",
+      "name": "Webhook",
+      "webhookId": "9237cce0-63ed-4a72-a723-8ea24a98d458"
+    },
+    {
+      "parameters": {
+        "resource": "chatMessage",
+        "chatId": {
+          "__rl": true,
+          "value": "19:7cac1336130c4b9288e80e8e12f83dc0@thread.v2",
+          "mode": "list",
+          "cachedResultName": "Desbordes CS (group)",
+          "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3A7cac1336130c4b9288e80e8e12f83dc0%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
+        },
+        "contentType": "html",
+        "message": "=Solicitud A Customer Success<br><br>\n<b>Nombre Cliente:</b> {{ $json.body.customData.nombre }}<br>\n<b>URL Contacto:</b> {{ $json.body.customData['url contacto'] }}<br>\n<b>Consultor:</b> {{ $json.body.customData.consultor }}<br>\n<b>Asunto:</b> {{ $json.body.customData.asunto }}<br>\n<b>Estado:</b> {{ $json.body.customData.estado }} <br>\n\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "25327f11-f9a0-416c-a128-1600d903c8e2",
+      "name": "Create chat message",
+      "webhookId": "cda01aed-99de-47c3-a757-444f439acfc5",
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "bQADLpj6hTqpmvGA",
+          "name": "Microsoft Teams account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-08-18T15:47:02.636Z",
+  "versionId": "86378224-6a9b-4605-ad5f-e1ba3dc02f42"
+}
