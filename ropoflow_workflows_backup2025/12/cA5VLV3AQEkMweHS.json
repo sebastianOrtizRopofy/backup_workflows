@@ -1,0 +1,262 @@
+{
+  "active": false,
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Create chat message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-12-11T16:01:49.429Z",
+  "id": "cA5VLV3AQEkMweHS",
+  "isArchived": false,
+  "meta": null,
+  "name": "Enviar error a teams",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "chatMessage",
+        "chatId": {
+          "__rl": true,
+          "value": "19:e6054ca4534d482c986110809ae05204@thread.v2",
+          "mode": "list",
+          "cachedResultName": "Notificaciones Integraciones (group)",
+          "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Ae6054ca4534d482c986110809ae05204%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
+        },
+        "message": "=<strong> Ocurrió un error en la integración impulsa: </strong> <a href=\"{{ $json.execution.url }}\">url de la ejecución</a> <br>\nnodo de error: {{ $json.execution.error.node.name }} <br>\ntipo de nodo error: {{ $json.execution.error.node.type }} <br>\nmensaje del error: {{ $json.execution.error.description }} <br>\n\n\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.microsoftTeams",
+      "typeVersion": 2,
+      "position": [
+        -660,
+        -160
+      ],
+      "id": "24af9560-59ea-443b-9b47-7594e770fb52",
+      "name": "Create chat message",
+      "webhookId": "97173f2f-ef7d-44e2-9924-e530df7ac6d4",
+      "executeOnce": true,
+      "credentials": {
+        "microsoftTeamsOAuth2Api": {
+          "id": "ZN6rkGlpvuVkKKom",
+          "name": "Microsoft Teams account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        -900,
+        -160
+      ],
+      "id": "82fc3b91-b1d9-40e2-92e7-d368802f3a2f",
+      "name": "Error Trigger"
+    }
+  ],
+  "pinData": {
+    "Error Trigger": [
+      {
+        "json": {
+          "execution": {
+            "id": "4467129",
+            "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/workflow/jq1eZ3zY4rwXKNwf/executions/4467129",
+            "error": {
+              "level": "warning",
+              "tags": {
+                "packageName": "workflow"
+              },
+              "context": {
+                "itemIndex": 0,
+                "request": {
+                  "body": {
+                    "customFields": [
+                      {
+                        "id": "0Jaaj2TacKXSqXBbr2g9",
+                        "key": "id_crm",
+                        "field_value": 24967
+                      },
+                      {
+                        "id": "cNj8Da0h1aPMyjgh1Zdz",
+                        "key": "origen",
+                        "field_value": "Auteco Sas"
+                      },
+                      {
+                        "id": "GbZ3h6oUPwno65Qu09NU",
+                        "key": "campaign",
+                        "field_value": "TVS NEO NX 110 AON"
+                      },
+                      {
+                        "id": "wWs6dK6hQEI02QgTPqMP",
+                        "key": "modelo_de_interes",
+                        "field_value": "NEO NX 110"
+                      },
+                      {
+                        "id": "GyQLRneS1x0vEGopTKDJ",
+                        "key": "marca_de_interes",
+                        "field_value": "TVS"
+                      },
+                      {
+                        "id": "6rmEJZT3ydXkiSpYJRnk",
+                        "key": "observaciones",
+                        "field_value": "2025/12/05- periodo_compra: Este mes / pago: Crédito / tipo_documento: Cédula de ciudadanía / fuente: PAUTA /"
+                      },
+                      {
+                        "id": "R3Zh4dM1xdJvmoiDyRc3",
+                        "key": "element",
+                        "field_value": "auteco"
+                      },
+                      {
+                        "id": "6UOdPpxDEYQ4GI4FYNmf",
+                        "key": "dane",
+                        "field_value": "76001"
+                      },
+                      {
+                        "id": "znbF5PwTd6kwuHhG7u99",
+                        "key": "dane_departamento",
+                        "field_value": "76"
+                      },
+                      {
+                        "id": "gNcx9Dh7Us2HAKhfwO1j",
+                        "key": "codigo_nivel_interes",
+                        "field_value": "DD"
+                      },
+                      {
+                        "id": "SCntc5vBg4SdDyhdZ5ad",
+                        "key": "documento_de_identidad_nitcc",
+                        "field_value": "94457843"
+                      },
+                      {
+                        "id": "qkKXURWmkk1MyjY9CmLH",
+                        "key": "estado_impulsa",
+                        "field_value": "PE"
+                      }
+                    ],
+                    "email": "gloriapatriciabustamanteprada@gmail.com",
+                    "phone": "3180130723",
+                    "source": "Auteco Sas"
+                  },
+                  "headers": {
+                    "accept": "application/json",
+                    "authorization": "**hidden**",
+                    "version": "2021-07-28"
+                  },
+                  "method": "PUT",
+                  "uri": "https://services.leadconnectorhq.com/contacts/Lgbkd1IFxRzEd8PpduoL",
+                  "gzip": true,
+                  "rejectUnauthorized": true,
+                  "followRedirect": true,
+                  "resolveWithFullResponse": true,
+                  "followAllRedirects": true,
+                  "timeout": 300000,
+                  "encoding": null,
+                  "json": false,
+                  "useStream": true
+                }
+              },
+              "functionality": "regular",
+              "name": "NodeApiError",
+              "timestamp": 1765469673576,
+              "node": {
+                "parameters": {
+                  "curlImport": "",
+                  "method": "PUT",
+                  "url": "=https://services.leadconnectorhq.com/contacts/{{ $('existe?').item.json.contacts[0].id }}",
+                  "authentication": "none",
+                  "provideSslCertificates": false,
+                  "sendQuery": false,
+                  "sendHeaders": true,
+                  "specifyHeaders": "keypair",
+                  "headerParameters": {
+                    "parameters": [
+                      {
+                        "name": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "name": "Authorization",
+                        "value": "={{ $('obtener token').item.json.token }}"
+                      },
+                      {
+                        "name": "Version",
+                        "value": "2021-07-28"
+                      }
+                    ]
+                  },
+                  "sendBody": true,
+                  "contentType": "json",
+                  "specifyBody": "keypair",
+                  "bodyParameters": {
+                    "parameters": [
+                      {
+                        "name": "customFields",
+                        "value": "={{ $json.customFields }}"
+                      },
+                      {
+                        "name": "=email",
+                        "value": "={{ $('Validar email y phone').item.json.Email ?? \"\"}}"
+                      },
+                      {
+                        "name": "phone",
+                        "value": "={{ $('Validar email y phone').item.json.Telefono2 }}"
+                      },
+                      {
+                        "name": "source",
+                        "value": "={{ $('Validar email y phone').item.json.Origen }}"
+                      }
+                    ]
+                  },
+                  "options": {},
+                  "infoMessage": ""
+                },
+                "type": "n8n-nodes-base.httpRequest",
+                "typeVersion": 4.2,
+                "position": [
+                  2500,
+                  -620
+                ],
+                "id": "7dd4874a-3b5e-48eb-9d3f-a746dfee0f5f",
+                "name": "Actualizar custom fields",
+                "retryOnFail": true,
+                "maxTries": 5,
+                "waitBetweenTries": 5000
+              },
+              "messages": [
+                "400 - \"{\\\"statusCode\\\":400,\\\"message\\\":\\\"This location does not allow duplicated contacts.\\\",\\\"meta\\\":{\\\"contactName\\\":\\\"JOSE ROYER SANCHEZ PERAFAN\\\",\\\"contactId\\\":\\\"35ZE0gMsi9ZRs94hBcdY\\\",\\\"matchingField\\\":\\\"email\\\"},\\\"succeded\\\":false,\\\"traceId\\\":\\\"6c895010-cd63-49e3-9b9e-eedb1424ce3e\\\"}\""
+              ],
+              "httpCode": "400",
+              "description": "This location does not allow duplicated contacts.",
+              "message": "Bad request - please check your parameters",
+              "stack": "NodeApiError: Bad request - please check your parameters\n    at ExecuteContext.execute (/app/packages/nodes-base/nodes/HttpRequest/V3/HttpRequestV3.node.ts:780:15)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at WorkflowExecute.runNode (/app/packages/core/src/execution-engine/workflow-execute.ts:1194:9)\n    at /app/packages/core/src/execution-engine/workflow-execute.ts:1564:27\n    at /app/packages/core/src/execution-engine/workflow-execute.ts:2135:11"
+            },
+            "lastNodeExecuted": "Actualizar custom fields",
+            "mode": "retry",
+            "retryOf": "4466928"
+          },
+          "workflow": {
+            "id": "jq1eZ3zY4rwXKNwf",
+            "name": "recibir leads impulsa"
+          }
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-12-11T16:21:12.333Z",
+  "versionId": "3535692d-e776-4efc-ae80-a42d91d64396"
+}
