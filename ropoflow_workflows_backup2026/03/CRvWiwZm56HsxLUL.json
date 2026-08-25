@@ -1,0 +1,273 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "traer conversaciones del contacto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "traer conversaciones del contacto": {
+      "main": [
+        [
+          {
+            "node": "buscar conversacion mas reciente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "buscar conversacion mas reciente": {
+      "main": [
+        [
+          {
+            "node": "obtener mensajes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "obtener mensajes": {
+      "main": [
+        [
+          {
+            "node": "organizar mensajes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "organizar mensajes": {
+      "main": [
+        [
+          {
+            "node": "Update a contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-03-31T14:20:07.323Z",
+  "id": "CRvWiwZm56HsxLUL",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Plusvalterra - Resumen conversacion - Proyecto",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "7e25a228-cb9b-48c0-aed0-db7b28b6ad3d",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "fcc6ae6e-b0c7-405a-8fb1-8551f01ba1ca",
+      "name": "Webhook",
+      "webhookId": "7e25a228-cb9b-48c0-aed0-db7b28b6ad3d"
+    },
+    {
+      "parameters": {
+        "url": "https://api.ropofy.com/api/v2/conversations/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "={{ $json.body.customData.id_location }}"
+            },
+            {
+              "name": "contactId",
+              "value": "={{ $json.body.customData.id_contact }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.body.customData.id_location }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "98f72cd2-9339-44a7-87ac-28fe707f2707",
+      "name": "traer conversaciones del contacto"
+    },
+    {
+      "parameters": {
+        "jsCode": "let conversaciones = $input.first().json.conversations;\n\n// Si no hay conversaciones, devolver vacío\nif (!conversaciones || conversaciones.length === 0) {\n  return [];\n}\n\n// Buscar la conversación más reciente (por fecha)\nlet masReciente = conversaciones.reduce((a, b) => {\n  return a.lastMessageDate > b.lastMessageDate ? a : b;\n});\n\n// Devolver solo 1 ítem (el más reciente)\nreturn [{ json: masReciente }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ],
+      "id": "3b7ac0c2-6418-40a8-ae77-1a08edd805ff",
+      "name": "buscar conversacion mas reciente"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.ropofy.com/api/v2/conversations/{{ $json.id }}/messages",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "2"
+            },
+            {
+              "name": "type",
+              "value": "TYPE_INSTAGRAM,TYPE_WHATSAPP,TYPE_SMS,TYPE_FACEBOOK,TYPE_LIVE_CHAT"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Version",
+              "value": "2021-04-15"
+            },
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Webhook').item.json.body.customData.id_location }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          },
+          "pagination": {
+            "pagination": {
+              "parameters": {
+                "parameters": [
+                  {
+                    "name": "lastMessageId",
+                    "value": "={{ $response.body.messages.lastMessageId }}"
+                  },
+                  {
+                    "name": "limit",
+                    "value": "2"
+                  }
+                ]
+              },
+              "paginationCompleteWhen": "other",
+              "completeExpression": "={{ !$response.body.messages.nextPage }}"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        680,
+        0
+      ],
+      "id": "e06cbe32-4555-4988-94aa-be81edbb2620",
+      "name": "obtener mensajes"
+    },
+    {
+      "parameters": {
+        "jsCode": "// 🧩 Atributos que quieres conservar\nconst atributos = [\n  \"body\",\n  \"direction\",\n  \"dateAdded\",\n  \"attachments\"\n];\n\n// Obtener todos los items de entrada\nconst items = $input.all();\n\n// Acumulador de todos los mensajes\nlet todosLosMensajes = [];\n\n// Recorrer cada item y extraer los mensajes\nfor (const item of items) {\n  const mensajes = item.json.messages?.messages || [];\n  \n  // Filtrar solo los atributos que te interesan\n  const filtrados = mensajes.map(msg => {\n    let nuevo = {};\n    for (const key of atributos) {\n      if (msg.hasOwnProperty(key)) {\n        nuevo[key] = msg[key];\n      }\n    }\n    return nuevo;\n  });\n\n  todosLosMensajes.push(...filtrados);\n}\n\n// Ordenar por fecha (opcional)\ntodosLosMensajes.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));\n\n// Devolver todos los mensajes filtrados\nreturn [{ json: { mensajes: todosLosMensajes } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        960,
+        0
+      ],
+      "id": "1181565b-4809-4390-929c-db68d32d6457",
+      "name": "organizar mensajes"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "contactId": "={{ $('Webhook').first().json.body.customData.id_contact }}",
+        "updateFields": {
+          "customFields": {
+            "values": [
+              {
+                "fieldId": {
+                  "__rl": true,
+                  "value": "VUKX4HOitrr4ZISiM6Uc",
+                  "mode": "list",
+                  "cachedResultName": "Resumen conversacion"
+                },
+                "fieldValue": "={{ JSON.stringify($json.mensajes) }}"
+              }
+            ]
+          }
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.ropofy",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        0
+      ],
+      "id": "aa02c5b4-9db9-4372-a34c-276c3b2a65c3",
+      "name": "Update a contact",
+      "credentials": {
+        "ropofyOAuth2Api": {
+          "id": "tMi8nQi6quvv6XWp",
+          "name": "Plusvalterra"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-03-31T15:58:44.592Z",
+  "versionId": "17273261-0e94-48a8-80bb-bc2da97f3eb2"
+}
