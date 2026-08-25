@@ -1,0 +1,424 @@
+{
+  "active": false,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
+      "main": [
+        [
+          {
+            "node": "get products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Obtener precios",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Obtener precios": {
+      "main": [
+        [
+          {
+            "node": "formatear json precios",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get products": {
+      "main": [
+        [
+          {
+            "node": "formatear",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatear": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "formatear json precios": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-05-29T18:42:06.398Z",
+  "id": "40vfmLuN9VMXAB91",
+  "isArchived": false,
+  "meta": null,
+  "name": "json motos dividido",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "/api/generarJsonMotosDividido",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -1460,
+        260
+      ],
+      "id": "016ff8f5-d20e-4d51-8953-02336d570d19",
+      "name": "Webhook",
+      "webhookId": "6daea6d7-79ee-4a23-9183-6fb6ca15bcc4"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "system_ropofy_locations",
+          "mode": "list",
+          "cachedResultName": "system_ropofy_locations"
+        },
+        "limit": 1,
+        "where": {
+          "values": [
+            {
+              "column": "location_id",
+              "value": "={{ $json.body.location }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -1240,
+        260
+      ],
+      "id": "e0229f6f-56f0-4a6a-9189-f43f952118a7",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "tfjc18K49daMASdp",
+          "name": "Base de datos APIS"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -540,
+        180
+      ],
+      "id": "9918b330-42f1-41dc-b504-ab10dc42b7b5",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/products/{{ $json._id }}/price/?locationId={{ $json.locationId }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $('Select rows from a table').item.json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -160,
+        120
+      ],
+      "id": "63043d54-a066-40d9-8e82-19c1050b2489",
+      "name": "Obtener precios"
+    },
+    {
+      "parameters": {
+        "url": "=https://services.leadconnectorhq.com/products/?locationId={{ $json.location_id }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "limit",
+              "value": "1000"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.token }}"
+            },
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1020,
+        260
+      ],
+      "id": "826c99d2-891a-4d08-a0df-600dfcd0b132",
+      "name": "get products"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\n\nreturn $input.all().at().json.products;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -800,
+        260
+      ],
+      "id": "400bb5e9-b955-447a-9752-b35ebdf24e19",
+      "name": "formatear"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        40,
+        120
+      ],
+      "id": "6b739402-e3ca-422f-9080-324f766cdbeb",
+      "name": "formatear json precios"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        260,
+        220
+      ],
+      "id": "b5905ac0-8742-4e4a-859e-c15bd0d23bff",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/setCustomValue",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "id_location",
+              "value": "={{ $json.productos[0].product.info.locationId }}"
+            },
+            {
+              "name": "name",
+              "value": "json_motos"
+            },
+            {
+              "name": "value",
+              "value": "={{ JSON.stringify($json) }}"
+            }
+          ]
+        },
+        "options": {
+          "redirect": {
+            "redirect": {}
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        40,
+        -140
+      ],
+      "id": "a09cf9b6-cd70-4022-85c0-0f27552b8442",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "jsCode": "let productos = [];\n$input.all().forEach(e => {\n  productos.push(e.json);\n})\n\nreturn {\"productos\" : productos};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        -80
+      ],
+      "id": "f539a16c-f8ab-4397-a236-b5028b249bdd",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "jsCode": "let allItems = $input.all();\nlet productInfo = {};\nlet prices = [];\n\nallItems.forEach((item, index) => {\n  if (index === 0) {\n    prices = item.json.prices;\n  } else {\n    productInfo = item.json;\n  }\n});\n\nreturn [{\"product\": {\n        info: productInfo,\n        prices: prices\n  }}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        220
+      ],
+      "id": "2e813115-4dc2-4b45-8f47-aa76fa14606c",
+      "name": "Code1"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "accept": "*/*",
+            "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "user-agent": "PostmanRuntime/7.53.0",
+            "accept-encoding": "gzip, deflate, br",
+            "cache-control": "no-cache",
+            "max-forwards": "10",
+            "postman-token": "d5b462c3-5cd3-405c-8248-de11e1443f26",
+            "x-forwarded-for": "2803:e5e0:1829:2900:450c:353b:af93:cbc8, 54.86.50.139:14841",
+            "x-arr-log-id": "3f56413c-2ba0-4c1f-8bbb-1e884915ab30",
+            "client-ip": "54.86.50.139:14841",
+            "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-site-deployment-id": "ropoflow",
+            "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
+            "x-forwarded-proto": "https",
+            "x-appservice-proto": "https",
+            "x-arr-ssl": "2048|256|CN=Microsoft TLS G2 RSA CA OCSP 10, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-forwarded-tlsversion": "1.3",
+            "x-original-url": "/webhook/api/generarJsonMotos",
+            "x-waws-unencoded-url": "/webhook/api/generarJsonMotos",
+            "x-client-ip": "54.86.50.139",
+            "x-client-port": "14841",
+            "content-type": "application/json",
+            "content-length": "42"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "location": "sjmA8mp9wl1LGlJRD1cx"
+          },
+          "webhookUrl": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/webhook/api/generarJsonMotos",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "repo_name": "ropoflow_workflows_backup",
+  "repo_owner": "sebastianOrtizRopofy",
+  "repo_path": "ropoflow_workflows_backup",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-05-29T18:42:42.936Z",
+  "versionId": "e4475b1c-9991-435b-86b2-f4a209b57fec"
+}
