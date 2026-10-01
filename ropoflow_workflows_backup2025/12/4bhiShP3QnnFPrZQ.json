@@ -5,17 +5,7 @@
       "main": [
         [
           {
-            "node": "CF",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Pipellines",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Users1",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -103,6 +93,61 @@
           }
         ]
       ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "limpiar CF",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "limpiar pipelines",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "limpiar users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "limpiar CF": {
+      "main": [
+        [
+          {
+            "node": "CF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "limpiar pipelines": {
+      "main": [
+        [
+          {
+            "node": "Pipellines",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "limpiar users": {
+      "main": [
+        [
+          {
+            "node": "Users1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-12-12T05:01:26.569Z",
@@ -122,7 +167,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        -1840,
+        -1900,
         2240
       ],
       "id": "6d18909c-2a12-4726-8d54-e81bf71d58d7",
@@ -131,7 +176,7 @@
     },
     {
       "parameters": {
-        "url": "=https://api.ropofy.com/api/v2/users?locationId={{ $json.body.IdLocation }}",
+        "url": "=https://api.ropofy.com/api/v2/users?locationId={{ $('Webhook').item.json.body.IdLocation }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -145,7 +190,7 @@
             },
             {
               "name": "Authorization",
-              "value": "=Bearer {{ $json.body.IdLocation }}"
+              "value": "=Bearer {{ $('Webhook').item.json.body.IdLocation }}"
             }
           ]
         },
@@ -158,7 +203,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1420,
+        -1200,
         2600
       ],
       "id": "34b12f17-aae0-424e-a40f-19d86cc1eb58",
@@ -171,7 +216,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1200,
+        -980,
         2600
       ],
       "id": "3d4e69e8-27f1-47a4-9d7d-e91f029d25c3",
@@ -232,7 +277,7 @@
       "type": "n8n-nodes-base.microsoftExcel",
       "typeVersion": 2.1,
       "position": [
-        -980,
+        -760,
         2600
       ],
       "id": "1dc92054-92fe-4f7e-8cc7-5f2bf7c2103b",
@@ -256,7 +301,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1200,
+        -980,
         2420
       ],
       "id": "06cbb534-b7f0-4f85-9e5d-edeaa358bef2",
@@ -301,7 +346,7 @@
       "type": "n8n-nodes-base.microsoftExcel",
       "typeVersion": 2.1,
       "position": [
-        -980,
+        -760,
         2420
       ],
       "id": "969d38af-4502-41d9-99a6-61cea5d105d3",
@@ -393,8 +438,8 @@
       "type": "n8n-nodes-base.microsoftExcel",
       "typeVersion": 2.1,
       "position": [
-        -980,
-        2040
+        -760,
+        2060
       ],
       "id": "64fb8454-ebb9-43f6-b76e-63e3388eb5d5",
       "name": "guardar CF",
@@ -412,7 +457,7 @@
     },
     {
       "parameters": {
-        "url": "=https://api.ropofy.com/api/v2/locations/{{ $json.body.IdLocation }}/customFields?model=all",
+        "url": "=https://api.ropofy.com/api/v2/locations/{{ $('Webhook').item.json.body.IdLocation }}/customFields?model=all",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -426,7 +471,7 @@
             },
             {
               "name": "Authorization",
-              "value": "=Bearer {{ $json.body.IdLocation }}"
+              "value": "=Bearer {{ $('Webhook').item.json.body.IdLocation }}"
             }
           ]
         },
@@ -439,15 +484,15 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1420,
-        2040
+        -1200,
+        2060
       ],
       "id": "abc94443-731c-49fe-8c16-ace31ee17aee",
       "name": "CF"
     },
     {
       "parameters": {
-        "url": "=https://api.ropofy.com/api/v2/opportunities/pipelines?locationId={{ $json.body.IdLocation }}",
+        "url": "=https://api.ropofy.com/api/v2/opportunities/pipelines?locationId={{ $('Webhook').item.json.body.IdLocation }}",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -461,7 +506,7 @@
             },
             {
               "name": "Authorization",
-              "value": "=Bearer {{ $json.body.IdLocation }}"
+              "value": "=Bearer {{ $('Webhook').item.json.body.IdLocation }}"
             }
           ]
         },
@@ -474,7 +519,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -1420,
+        -1200,
         2240
       ],
       "id": "32380147-4511-4452-8bfb-8480ecd823b6",
@@ -515,7 +560,7 @@
       "type": "n8n-nodes-base.microsoftExcel",
       "typeVersion": 2.1,
       "position": [
-        -980,
+        -760,
         2240
       ],
       "id": "b23c6860-aba1-4dba-b121-e047f705a45c",
@@ -539,7 +584,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1200,
+        -980,
         2240
       ],
       "id": "6040f657-4232-40c9-9ba3-fc184759f0e3",
@@ -552,11 +597,167 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1200,
-        2040
+        -980,
+        2060
       ],
       "id": "f7147044-cee1-48cf-af28-db0d6bd2765d",
       "name": "Lógica CF"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "9b22401d-c5a2-44bb-9606-bbafc9d801f4",
+              "leftValue": "={{ $json.body.IdLocation }}",
+              "rightValue": "3YGgxqve6cABjE0KCjLs",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            },
+            {
+              "id": "11fed279-d1ce-49f6-9690-54482cfd6a41",
+              "leftValue": "={{ $json.body.IdLocation }}",
+              "rightValue": "nRDzahLfIyaJibV1s7Wg",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1660,
+        2240
+      ],
+      "id": "84cecb55-fc0c-4645-a01b-80094864f14e",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.microsoft.com/v1.0/me/drive/items/{{ $json.body.WorkbookId }}/workbook/tables/custom_fields/dataBodyRange/delete()",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "microsoftExcelOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"shift\": \"Up\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1400,
+        2060
+      ],
+      "id": "63ab09e4-b0a3-4421-9959-88b086afed43",
+      "name": "limpiar CF",
+      "retryOnFail": true,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.microsoft.com/v1.0/me/drive/items/{{ $json.body.WorkbookId }}/workbook/tables/custom_fields/dataBodyRange/delete()",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "microsoftExcelOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"shift\": \"Up\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -680,
+        2520
+      ],
+      "id": "103264da-b380-4e89-a660-8c09e36dcf31",
+      "name": "limpiar CF1",
+      "retryOnFail": true,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.microsoft.com/v1.0/me/drive/items/{{ $json.body.WorkbookId }}/workbook/tables/Pipelines/dataBodyRange/delete()",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "microsoftExcelOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"shift\": \"Up\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1400,
+        2240
+      ],
+      "id": "0cdb937f-3223-4eeb-83b7-e4e84147c58f",
+      "name": "limpiar pipelines",
+      "retryOnFail": true,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.microsoft.com/v1.0/me/drive/items/{{ $json.body.WorkbookId }}/workbook/tables/Users/dataBodyRange/delete()",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "microsoftExcelOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"shift\": \"Up\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1400,
+        2600
+      ],
+      "id": "002a7be9-5eaa-4960-9276-f7a0f7d060f0",
+      "name": "limpiar users",
+      "retryOnFail": true,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
     }
   ],
   "pinData": {
@@ -649,6 +850,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-04-07T14:25:47.725Z",
-  "versionId": "0129ae23-e2bb-4d76-b35a-f8608dcc33a7"
+  "updatedAt": "2026-09-16T21:34:02.121Z",
+  "versionId": "5f2c330e-49c5-467c-bfef-efa32f9caee9"
 }
