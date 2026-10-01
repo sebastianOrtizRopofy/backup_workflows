@@ -5,7 +5,7 @@
       "main": [
         [
           {
-            "node": "Select rows from a table",
+            "node": "If1",
             "type": "main",
             "index": 0
           }
@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "Buscar oportunidades primera vez",
+            "node": "If",
             "type": "main",
             "index": 0
           }
@@ -222,6 +222,52 @@
           }
         ]
       ]
+    },
+    "If": {
+      "main": [
+        [],
+        [
+          {
+            "node": "limpiar oportunidades tabla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "limpiar oportunidades tabla": {
+      "main": [
+        [
+          {
+            "node": "limpiar CF oportunidades tabla",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "limpiar CF oportunidades tabla": {
+      "main": [
+        [
+          {
+            "node": "Buscar oportunidades primera vez",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2026-01-20T15:40:08.019Z",
@@ -241,7 +287,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        500,
+        420,
         0
       ],
       "id": "dc6bf415-f40b-4d78-96e0-357f3e6ed432",
@@ -297,7 +343,7 @@
           "parameters": [
             {
               "name": "location_id",
-              "value": "={{ $json.location_id }}"
+              "value": "={{ $('Webhook').item.json.body.IdLocation }}"
             },
             {
               "name": "limit",
@@ -318,7 +364,7 @@
             },
             {
               "name": "Authorization",
-              "value": "={{ $json.token }}"
+              "value": "={{ $('Select rows from a table').item.json.token }}"
             }
           ]
         },
@@ -352,7 +398,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1400,
+        1820,
         0
       ],
       "id": "f906970e-ab8f-4da8-9bf3-93c72ddb6137",
@@ -484,7 +530,7 @@
       "type": "n8n-nodes-base.microsoftExcel",
       "typeVersion": 2.1,
       "position": [
-        2680,
+        2900,
         -320
       ],
       "id": "be4a63d0-3b50-4c96-9da2-d530d193e2ba",
@@ -539,7 +585,7 @@
       "type": "n8n-nodes-base.microsoftExcel",
       "typeVersion": 2.1,
       "position": [
-        3280,
+        3500,
         0
       ],
       "id": "a2f7891c-8450-44bb-b77e-788fd1fe496c",
@@ -559,7 +605,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        2620,
+        2840,
         -20
       ],
       "id": "58ab847c-254e-4b90-9390-84cfabbc880d",
@@ -572,7 +618,7 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        1980,
+        2200,
         -20
       ],
       "id": "99880756-3463-4358-aa48-0fa160ee7d7c",
@@ -705,7 +751,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        2360,
+        2580,
         -340
       ],
       "id": "22577346-11da-4baf-855a-838f23202091",
@@ -717,7 +763,7 @@
       "name": "Replace Me",
       "typeVersion": 1,
       "position": [
-        2980,
+        3200,
         -320
       ],
       "id": "6cc152f6-dfed-4ebf-8e5b-90e3f074ef08"
@@ -745,7 +791,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        2300,
+        2520,
         -20
       ],
       "id": "83775189-4101-41ec-ab78-24a65325a8cb",
@@ -759,7 +805,7 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        2840,
+        3060,
         -20
       ],
       "id": "18495398-b1d2-4f42-aba4-18ef0b93a87b",
@@ -771,7 +817,7 @@
       "name": "Replace Me2",
       "typeVersion": 1,
       "position": [
-        3500,
+        3720,
         0
       ],
       "id": "db2178b3-9a63-479e-81be-c4aaa4c71d96"
@@ -806,11 +852,135 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        3080,
+        3300,
         0
       ],
       "id": "26e7123d-0f6e-4824-82a6-585d86079650",
       "name": "Edit Fields3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0cda5940-e193-473d-93b2-5521af4f1910",
+              "leftValue": "={{ $json.location_id }}",
+              "rightValue": "3YGgxqve6cABjE0KCjLs",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1120,
+        0
+      ],
+      "id": "28bfe582-3951-4550-8b6f-2b20ebe8e044",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.microsoft.com/v1.0/me/drive/items/{{ $('Webhook').item.json.body.WorkbookId }}/workbook/tables/Oportunidades/dataBodyRange/delete()",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "microsoftExcelOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"shift\": \"Up\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        20
+      ],
+      "id": "a14199c1-30d1-4765-840a-a3a2633308bf",
+      "name": "limpiar oportunidades tabla",
+      "retryOnFail": true,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.microsoft.com/v1.0/me/drive/items/{{ $('Webhook').item.json.body.WorkbookId }}/workbook/tables/cf_oportunidades/dataBodyRange/delete()",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "microsoftExcelOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"shift\": \"Up\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        20
+      ],
+      "id": "3033e1f7-74f4-42c0-95e2-712d6e37f65e",
+      "name": "limpiar CF oportunidades tabla",
+      "retryOnFail": true,
+      "credentials": {
+        "microsoftExcelOAuth2Api": {
+          "id": "01Ouxiyc0a1VW1mN",
+          "name": "Microsoft Excel - Power Bi"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "64acb879-c20c-440c-9ff9-a42185d10412",
+              "leftValue": "={{ $json.body.IdLocation }}",
+              "rightValue": "=nRDzahLfIyaJibV1s7Wg",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        660,
+        0
+      ],
+      "id": "27db6840-6f9c-4af7-9be1-da14846a9482",
+      "name": "If1"
     }
   ],
   "pinData": {
@@ -819,52 +989,53 @@
         "json": {
           "headers": {
             "host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
-            "user-agent": "azure-logic-apps/1.0 (workflow ebf9dd1049c4404ab99433beb3c00f08; version 08584196463651228097) microsoft-flow/1.0",
+            "user-agent": "azure-logic-apps/1.0 (workflow ebf9dd1049c4404ab99433beb3c00f08; version 08584125329288833559) microsoft-flow/1.0",
             "accept-encoding": "gzip, deflate",
             "accept-language": "es-ES",
             "max-forwards": "10",
             "x-ms-workflow-id": "ebf9dd1049c4404ab99433beb3c00f08",
-            "x-ms-workflow-version": "08584196463651228097",
+            "x-ms-workflow-version": "08584125329288833559",
             "x-ms-workflow-name": "2a94bc42-773c-4d00-b362-2f71d945ab3e",
             "x-ms-workflow-system-id": "/locations/brazilsouth/scaleunits/prod-04/workflows/ebf9dd1049c4404ab99433beb3c00f08",
-            "x-ms-workflow-run-id": "08584140578558924395636320405CU31",
-            "x-ms-workflow-run-tracking-id": "88cc999e-0cf0-4057-937c-698af1497e49",
+            "x-ms-workflow-run-id": "08584125329086538087680717078CU18",
+            "x-ms-workflow-run-tracking-id": "0c56fc61-3657-4989-84c3-682402a77e2d",
             "x-ms-workflow-operation-name": "Actualizar_Oportunidades",
             "x-ms-workflow-repeatitem-scope-name": "Por_Cliente",
-            "x-ms-workflow-repeatitem-index": "7",
+            "x-ms-workflow-repeatitem-index": "8",
             "x-ms-workflow-repeatitem-batch-index": "0",
             "x-ms-execution-location": "brazilsouth",
             "x-ms-workflow-subscription-id": "Default-e67529fc-68be-4f5b-aa27-edbad4a44b14",
             "x-ms-workflow-resourcegroup-name": "selfhostingresourcegroup",
-            "x-ms-tracking-id": "b3470a64-a5a5-4870-b348-0fba55ca289b",
-            "x-ms-correlation-id": "b3470a64-a5a5-4870-b348-0fba55ca289b",
-            "x-ms-client-request-id": "b3470a64-a5a5-4870-b348-0fba55ca289b",
-            "x-ms-client-tracking-id": "08584140578558924395636320405CU31",
-            "x-ms-action-tracking-id": "94a7a842-d56f-4a8c-99f4-8b1e8cc7555b",
-            "x-ms-activity-vector": "00.00.IN.6F.IN.1C",
-            "x-arr-log-id": "b3470a64-a5a5-4870-b348-0fba55ca289b",
-            "client-ip": "191.234.138.29:17041",
+            "x-ms-tracking-id": "7f9220dd-77cf-4241-b15f-1adf44469bd0",
+            "x-ms-correlation-id": "7f9220dd-77cf-4241-b15f-1adf44469bd0",
+            "x-ms-client-request-id": "7f9220dd-77cf-4241-b15f-1adf44469bd0",
+            "x-ms-client-tracking-id": "08584125538053627522052525805CU04",
+            "x-ms-action-tracking-id": "adad98f4-caff-4bec-bf3c-11b64bc9fa85",
+            "x-ms-client-keywords": "testFlow",
+            "x-ms-activity-vector": "00.00.IN.15.IN.0G",
+            "x-arr-log-id": "7f9220dd-77cf-4241-b15f-1adf44469bd0",
+            "client-ip": "191.234.138.29:17709",
             "disguised-host": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "x-site-deployment-id": "ropoflow",
             "was-default-hostname": "ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net",
             "x-forwarded-proto": "https",
             "x-appservice-proto": "https",
-            "x-arr-ssl": "2048|256|CN=Microsoft TLS G2 RSA CA OCSP 02, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
+            "x-arr-ssl": "2048|256|CN=Microsoft TLS G2 RSA CA OCSP 04, O=Microsoft Corporation, C=US|CN=*.azurewebsites.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US",
             "x-forwarded-tlsversion": "1.3",
-            "x-forwarded-for": "191.234.138.29:17041",
+            "x-forwarded-for": "191.234.138.29:17709",
             "x-original-url": "/webhook/56d6f0ac-4059-4d83-9108-616fd8f0eabd",
             "x-waws-unencoded-url": "/webhook/56d6f0ac-4059-4d83-9108-616fd8f0eabd",
             "x-client-ip": "191.234.138.29",
-            "x-client-port": "17041",
+            "x-client-port": "17709",
             "content-type": "application/json; charset=utf-8",
-            "content-length": "1162"
+            "content-length": "1179"
           },
           "params": {},
           "query": {},
           "body": {
-            "IdLocation": "3YGgxqve6cABjE0KCjLs",
-            "NombreExcel": "Ropofy.xlsx",
-            "WorkbookId": "01O53ICQPVT7YS6WITFJHKDHAWYGP7JIBQ",
+            "IdLocation": "nRDzahLfIyaJibV1s7Wg",
+            "NombreExcel": "zDemo - Salud y belleza.xlsx",
+            "WorkbookId": "01O53ICQJWHMJKM5ISBNC3DB3UESXZWS56",
             "SheetId": "",
             "SheetCFContacts": "{DD79D362-1CFE-4C68-9262-4A2CB5DD4604}",
             "SheetOpportunities": "{C1791B5B-9DB7-42EE-B952-F5E8E0C2DEE1}",
@@ -903,6 +1074,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-08-24T20:36:43.971Z",
-  "versionId": "a60417d5-9f01-4764-aa36-0479c7c689ce"
+  "updatedAt": "2026-09-16T21:31:52.012Z",
+  "versionId": "de45be03-0bcc-4343-bfb8-6b2cae679f86"
 }
