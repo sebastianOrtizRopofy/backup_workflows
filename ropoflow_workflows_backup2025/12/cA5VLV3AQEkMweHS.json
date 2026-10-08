@@ -45,7 +45,7 @@
       "credentials": {
         "microsoftTeamsOAuth2Api": {
           "id": "ZN6rkGlpvuVkKKom",
-          "name": "Microsoft Teams account"
+          "name": "Sebas account"
         }
       }
     },
@@ -66,179 +66,14 @@
       {
         "json": {
           "execution": {
-            "id": "4467129",
-            "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/workflow/jq1eZ3zY4rwXKNwf/executions/4467129",
+            "id": "13565050",
+            "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/workflow/jq1eZ3zY4rwXKNwf/executions/13565050",
             "error": {
-              "level": "warning",
-              "tags": {
-                "packageName": "workflow"
-              },
-              "context": {
-                "itemIndex": 0,
-                "request": {
-                  "body": {
-                    "customFields": [
-                      {
-                        "id": "0Jaaj2TacKXSqXBbr2g9",
-                        "key": "id_crm",
-                        "field_value": 24967
-                      },
-                      {
-                        "id": "cNj8Da0h1aPMyjgh1Zdz",
-                        "key": "origen",
-                        "field_value": "Auteco Sas"
-                      },
-                      {
-                        "id": "GbZ3h6oUPwno65Qu09NU",
-                        "key": "campaign",
-                        "field_value": "TVS NEO NX 110 AON"
-                      },
-                      {
-                        "id": "wWs6dK6hQEI02QgTPqMP",
-                        "key": "modelo_de_interes",
-                        "field_value": "NEO NX 110"
-                      },
-                      {
-                        "id": "GyQLRneS1x0vEGopTKDJ",
-                        "key": "marca_de_interes",
-                        "field_value": "TVS"
-                      },
-                      {
-                        "id": "6rmEJZT3ydXkiSpYJRnk",
-                        "key": "observaciones",
-                        "field_value": "2025/12/05- periodo_compra: Este mes / pago: Crédito / tipo_documento: Cédula de ciudadanía / fuente: PAUTA /"
-                      },
-                      {
-                        "id": "R3Zh4dM1xdJvmoiDyRc3",
-                        "key": "element",
-                        "field_value": "auteco"
-                      },
-                      {
-                        "id": "6UOdPpxDEYQ4GI4FYNmf",
-                        "key": "dane",
-                        "field_value": "76001"
-                      },
-                      {
-                        "id": "znbF5PwTd6kwuHhG7u99",
-                        "key": "dane_departamento",
-                        "field_value": "76"
-                      },
-                      {
-                        "id": "gNcx9Dh7Us2HAKhfwO1j",
-                        "key": "codigo_nivel_interes",
-                        "field_value": "DD"
-                      },
-                      {
-                        "id": "SCntc5vBg4SdDyhdZ5ad",
-                        "key": "documento_de_identidad_nitcc",
-                        "field_value": "94457843"
-                      },
-                      {
-                        "id": "qkKXURWmkk1MyjY9CmLH",
-                        "key": "estado_impulsa",
-                        "field_value": "PE"
-                      }
-                    ],
-                    "email": "gloriapatriciabustamanteprada@gmail.com",
-                    "phone": "3180130723",
-                    "source": "Auteco Sas"
-                  },
-                  "headers": {
-                    "accept": "application/json",
-                    "authorization": "**hidden**",
-                    "version": "2021-07-28"
-                  },
-                  "method": "PUT",
-                  "uri": "https://services.leadconnectorhq.com/contacts/Lgbkd1IFxRzEd8PpduoL",
-                  "gzip": true,
-                  "rejectUnauthorized": true,
-                  "followRedirect": true,
-                  "resolveWithFullResponse": true,
-                  "followAllRedirects": true,
-                  "timeout": 300000,
-                  "encoding": null,
-                  "json": false,
-                  "useStream": true
-                }
-              },
-              "functionality": "regular",
-              "name": "NodeApiError",
-              "timestamp": 1765469673576,
-              "node": {
-                "parameters": {
-                  "curlImport": "",
-                  "method": "PUT",
-                  "url": "=https://services.leadconnectorhq.com/contacts/{{ $('existe?').item.json.contacts[0].id }}",
-                  "authentication": "none",
-                  "provideSslCertificates": false,
-                  "sendQuery": false,
-                  "sendHeaders": true,
-                  "specifyHeaders": "keypair",
-                  "headerParameters": {
-                    "parameters": [
-                      {
-                        "name": "Accept",
-                        "value": "application/json"
-                      },
-                      {
-                        "name": "Authorization",
-                        "value": "={{ $('obtener token').item.json.token }}"
-                      },
-                      {
-                        "name": "Version",
-                        "value": "2021-07-28"
-                      }
-                    ]
-                  },
-                  "sendBody": true,
-                  "contentType": "json",
-                  "specifyBody": "keypair",
-                  "bodyParameters": {
-                    "parameters": [
-                      {
-                        "name": "customFields",
-                        "value": "={{ $json.customFields }}"
-                      },
-                      {
-                        "name": "=email",
-                        "value": "={{ $('Validar email y phone').item.json.Email ?? \"\"}}"
-                      },
-                      {
-                        "name": "phone",
-                        "value": "={{ $('Validar email y phone').item.json.Telefono2 }}"
-                      },
-                      {
-                        "name": "source",
-                        "value": "={{ $('Validar email y phone').item.json.Origen }}"
-                      }
-                    ]
-                  },
-                  "options": {},
-                  "infoMessage": ""
-                },
-                "type": "n8n-nodes-base.httpRequest",
-                "typeVersion": 4.2,
-                "position": [
-                  2500,
-                  -620
-                ],
-                "id": "7dd4874a-3b5e-48eb-9d3f-a746dfee0f5f",
-                "name": "Actualizar custom fields",
-                "retryOnFail": true,
-                "maxTries": 5,
-                "waitBetweenTries": 5000
-              },
-              "messages": [
-                "400 - \"{\\\"statusCode\\\":400,\\\"message\\\":\\\"This location does not allow duplicated contacts.\\\",\\\"meta\\\":{\\\"contactName\\\":\\\"JOSE ROYER SANCHEZ PERAFAN\\\",\\\"contactId\\\":\\\"35ZE0gMsi9ZRs94hBcdY\\\",\\\"matchingField\\\":\\\"email\\\"},\\\"succeded\\\":false,\\\"traceId\\\":\\\"6c895010-cd63-49e3-9b9e-eedb1424ce3e\\\"}\""
-              ],
-              "httpCode": "400",
-              "description": "This location does not allow duplicated contacts.",
-              "message": "Bad request - please check your parameters",
-              "stack": "NodeApiError: Bad request - please check your parameters\n    at ExecuteContext.execute (/app/packages/nodes-base/nodes/HttpRequest/V3/HttpRequestV3.node.ts:780:15)\n    at processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at WorkflowExecute.runNode (/app/packages/core/src/execution-engine/workflow-execute.ts:1194:9)\n    at /app/packages/core/src/execution-engine/workflow-execute.ts:1564:27\n    at /app/packages/core/src/execution-engine/workflow-execute.ts:2135:11"
+              "message": "timeout exceeded when trying to connect",
+              "stack": "Error: timeout exceeded when trying to connect\n    at /app/node_modules/.pnpm/pg-pool@3.6.2_pg@8.12.0/node_modules/pg-pool/index.js:45:11\n    at runNextTicks (node:internal/process/task_queues:60:5)\n    at listOnTimeout (node:internal/timers:545:9)\n    at processTimers (node:internal/timers:519:7)\n    at PostgresDriver.obtainMasterConnection (/app/node_modules/.pnpm/@n8n+typeorm@0.3.20-12_@sentry+node@8.52.1_ioredis@5.3.2_mongodb@5.9.2_@aws-sdk+credent_6c36067aa2513b411c11c9f81ce91ff9/node_modules/src/driver/postgres/PostgresDriver.ts:1175:28)\n    at PostgresQueryRunner.query (/app/node_modules/.pnpm/@n8n+typeorm@0.3.20-12_@sentry+node@8.52.1_ioredis@5.3.2_mongodb@5.9.2_@aws-sdk+credent_6c36067aa2513b411c11c9f81ce91ff9/node_modules/src/driver/postgres/PostgresQueryRunner.ts:248:36)\n    at PostgresQueryRunner.startTransaction (/app/node_modules/.pnpm/@n8n+typeorm@0.3.20-12_@sentry+node@8.52.1_ioredis@5.3.2_mongodb@5.9.2_@aws-sdk+credent_6c36067aa2513b411c11c9f81ce91ff9/node_modules/src/driver/postgres/PostgresQueryRunner.ts:178:13)\n    at EntityManager.transaction (/app/node_modules/.pnpm/@n8n+typeorm@0.3.20-12_@sentry+node@8.52.1_ioredis@5.3.2_mongodb@5.9.2_@aws-sdk+credent_6c36067aa2513b411c11c9f81ce91ff9/node_modules/src/entity-manager/EntityManager.ts:153:13)\n    at ExecutionRepository.updateExistingExecution (/app/packages/@n8n/db/src/repositories/execution.repository.ts:428:3)\n    at updateExistingExecution (/app/packages/cli/src/execution-lifecycle/shared/shared-hook-functions.ts:90:2)"
             },
-            "lastNodeExecuted": "Actualizar custom fields",
-            "mode": "retry",
-            "retryOf": "4466928"
+            "lastNodeExecuted": "guardar en tabla intermedia1",
+            "mode": "webhook"
           },
           "workflow": {
             "id": "jq1eZ3zY4rwXKNwf",
@@ -257,6 +92,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-12-11T16:21:12.333Z",
-  "versionId": "3535692d-e776-4efc-ae80-a42d91d64396"
+  "updatedAt": "2026-10-07T18:32:27.388Z",
+  "versionId": "c889bbad-4317-41e6-a3e3-6ab52418e9db"
 }
