@@ -29,7 +29,7 @@
           "cachedResultName": "Notificaciones Integraciones (group)",
           "cachedResultUrl": "https://teams.microsoft.com/l/chat/19%3Ae6054ca4534d482c986110809ae05204%40thread.v2/0?tenantId=e67529fc-68be-4f5b-aa27-edbad4a44b14"
         },
-        "message": "=<strong> Ocurrió un error en la integración impulsa: </strong> <a href=\"{{ $json.execution.url }}\">url de la ejecución</a> <br>\nnodo de error: {{ $json.execution.error.node.name }} <br>\ntipo de nodo error: {{ $json.execution.error.node.type }} <br>\nmensaje del error: {{ $json.execution.error.description }} <br>\n\n\n",
+        "message": "=<strong> Ocurrió un error en la integración impulsa: </strong> <a href=\"{{ $json.execution.url }}\">url de la ejecución</a> <br>\nnodo de error: {{ $json.execution.error.node.name }} <br>\ntipo de nodo error: {{ $json.execution.error.node.type }} <br>\nmensaje del error: {{ $json.execution.error.description ||  $json.execution.error.node.parameters.errorMessage}} <br>\n\n\n",
         "options": {}
       },
       "type": "n8n-nodes-base.microsoftTeams",
@@ -66,13 +66,36 @@
       {
         "json": {
           "execution": {
-            "id": "13565050",
-            "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/workflow/jq1eZ3zY4rwXKNwf/executions/13565050",
+            "id": "13767975",
+            "url": "https://ropoflow-c4acfzgsbqa5bfad.canadacentral-01.azurewebsites.net/workflow/jq1eZ3zY4rwXKNwf/executions/13767975",
             "error": {
-              "message": "timeout exceeded when trying to connect",
-              "stack": "Error: timeout exceeded when trying to connect\n    at /app/node_modules/.pnpm/pg-pool@3.6.2_pg@8.12.0/node_modules/pg-pool/index.js:45:11\n    at runNextTicks (node:internal/process/task_queues:60:5)\n    at listOnTimeout (node:internal/timers:545:9)\n    at processTimers (node:internal/timers:519:7)\n    at PostgresDriver.obtainMasterConnection (/app/node_modules/.pnpm/@n8n+typeorm@0.3.20-12_@sentry+node@8.52.1_ioredis@5.3.2_mongodb@5.9.2_@aws-sdk+credent_6c36067aa2513b411c11c9f81ce91ff9/node_modules/src/driver/postgres/PostgresDriver.ts:1175:28)\n    at PostgresQueryRunner.query (/app/node_modules/.pnpm/@n8n+typeorm@0.3.20-12_@sentry+node@8.52.1_ioredis@5.3.2_mongodb@5.9.2_@aws-sdk+credent_6c36067aa2513b411c11c9f81ce91ff9/node_modules/src/driver/postgres/PostgresQueryRunner.ts:248:36)\n    at PostgresQueryRunner.startTransaction (/app/node_modules/.pnpm/@n8n+typeorm@0.3.20-12_@sentry+node@8.52.1_ioredis@5.3.2_mongodb@5.9.2_@aws-sdk+credent_6c36067aa2513b411c11c9f81ce91ff9/node_modules/src/driver/postgres/PostgresQueryRunner.ts:178:13)\n    at EntityManager.transaction (/app/node_modules/.pnpm/@n8n+typeorm@0.3.20-12_@sentry+node@8.52.1_ioredis@5.3.2_mongodb@5.9.2_@aws-sdk+credent_6c36067aa2513b411c11c9f81ce91ff9/node_modules/src/entity-manager/EntityManager.ts:153:13)\n    at ExecutionRepository.updateExistingExecution (/app/packages/@n8n/db/src/repositories/execution.repository.ts:428:3)\n    at updateExistingExecution (/app/packages/cli/src/execution-lifecycle/shared/shared-hook-functions.ts:90:2)"
+              "level": "warning",
+              "tags": {
+                "packageName": "workflow"
+              },
+              "context": {},
+              "functionality": "regular",
+              "name": "NodeOperationError",
+              "timestamp": 1793907875456,
+              "node": {
+                "parameters": {
+                  "errorType": "errorMessage",
+                  "errorMessage": "Lead con los datos de email o phone malos"
+                },
+                "type": "n8n-nodes-base.stopAndError",
+                "typeVersion": 1,
+                "position": [
+                  440,
+                  1820
+                ],
+                "id": "54b7e654-a8d9-430c-be61-86258c5a1abb",
+                "name": "Stop and Error1"
+              },
+              "messages": [],
+              "message": "Lead con los datos de email o phone malos",
+              "stack": "NodeOperationError: Lead con los datos de email o phone malos\n    at ExecuteContext.execute (/app/packages/nodes-base/nodes/StopAndError/StopAndError.node.ts:102:9)\n    at WorkflowExecute.runNode (/app/packages/core/src/execution-engine/workflow-execute.ts:1194:32)\n    at /app/packages/core/src/execution-engine/workflow-execute.ts:1564:38\n    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at /app/packages/core/src/execution-engine/workflow-execute.ts:2135:11"
             },
-            "lastNodeExecuted": "guardar en tabla intermedia1",
+            "lastNodeExecuted": "Stop and Error1",
             "mode": "webhook"
           },
           "workflow": {
@@ -92,6 +115,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2026-10-07T18:32:27.388Z",
-  "versionId": "c889bbad-4317-41e6-a3e3-6ab52418e9db"
+  "updatedAt": "2026-11-05T19:56:24.672Z",
+  "versionId": "e7bae650-19a4-4e6a-8482-698b90ebc902"
 }
